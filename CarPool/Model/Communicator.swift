@@ -129,12 +129,12 @@ class Communicator {
     }
     // 乘客發起 增刪改
     func modifyTrip(_ trip:Trip, mode:String, doneHandler:@escaping DoneHandler) {
-        let parameters: [String : Any] = [ACTION:"modifyTrip", "mode":mode, "memberNo":trip.memberNo, "tripID":trip.tripId, "destination":trip.destination, "people":trip.people, "onMap":trip.onMap, "boarding":trip.boarding, "status":trip.status]
+        let parameters: [String : Any] = [ACTION:"modifyTrip", "mode":mode, "memberNo":trip.memberNo, "tripID":trip.tripId, "destination":trip.destination, "people":trip.people, "onMap":trip.onMap, "boarding":trip.boarding, "status":trip.status, "boardingLat":trip.boardingLat, "boardingLon":trip.boardingLon, "destinationLat":trip.destinationLat, "destinationLon":trip.destinationLon]
         doPost(urlString: TRIP_URL, parameters: parameters, doneHandler: doneHandler)
     }
     // 司機發起 增刪改
     func modifyDriverTrip(_ driverTrip:DriverTrip, mode:String, doneHandler:@escaping DoneHandler) {
-        let parameters: [String : Any] = [ACTION:"modifyDriverTrip", "mode":mode, "memberNo":driverTrip.memberNo, "tripID":driverTrip.tripId, "carNo":driverTrip.carNo, "people":driverTrip.people, "destination":driverTrip.destination, "fee":driverTrip.fee, "status":driverTrip.status]
+        let parameters: [String : Any] = [ACTION:"modifyDriverTrip", "mode":mode, "memberNo":driverTrip.memberNo, "tripID":driverTrip.tripId, "carNo":driverTrip.carNo, "people":driverTrip.people, "destination":driverTrip.destination, "departure":driverTrip.departure, "fee":driverTrip.fee, "status":driverTrip.status, "departureLat":driverTrip.departureLat, "departureLon":driverTrip.departureLon, "destinationLat":driverTrip.destinationLat, "destinationLon":driverTrip.destinationLon]
         doPost(urlString: TRIP_URL, parameters: parameters, doneHandler: doneHandler)
     }
     
