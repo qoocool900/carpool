@@ -25,7 +25,7 @@
                                     <navigationItem id="RnY-DK-csd">
                                         <nil key="title"/>
                                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" restorationIdentifier="SetUpSegment" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="baN-lN-uL9">
-                                            <rect key="frame" x="31.5" y="7.5" width="312" height="29"/>
+                                            <rect key="frame" x="36" y="7.5" width="303" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="乘客"/>
@@ -206,10 +206,10 @@
             </objects>
             <point key="canvasLocation" x="-743" y="380"/>
         </scene>
-        <!--Driver Setup Table View Controller-->
+        <!--Recording Table View Controller-->
         <scene sceneID="Eoe-c6-zC6">
             <objects>
-                <tableViewController id="dL9-DN-97p" customClass="DriverSetupTableViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="dL9-DN-97p" customClass="DRecordingTableViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hM3-q2-Q4X">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="510"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -335,16 +335,16 @@
             </objects>
             <point key="canvasLocation" x="57" y="-410"/>
         </scene>
-        <!--Passenger Setup Table View Controller-->
+        <!--Recording Table View Controller-->
         <scene sceneID="LJP-cx-2tr">
             <objects>
-                <tableViewController id="68X-4t-U0v" customClass="PassengerSetupTableViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="68X-4t-U0v" customClass="PRecordingTableViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Gkj-fS-AY6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="510"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="GuC-gg-dzf" customClass="PassengerSetupCell" customModule="CarPool">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="GuC-gg-dzf" customClass="PRecordingTableViewCell" customModule="CarPool" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GuC-gg-dzf" id="Rfx-08-XZh">

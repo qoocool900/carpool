@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04C64262205BBB7300984682 /* PassengerSetupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C64258205BBB7100984682 /* PassengerSetupTableViewController.swift */; };
+		043ED8D0205BC15F007D573A /* PRecordingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8CF205BC15F007D573A /* PRecordingTableViewController.swift */; };
+		043ED8D2205BC185007D573A /* DRecordingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D1205BC185007D573A /* DRecordingTableViewController.swift */; };
+		043ED8D4205BC1A5007D573A /* PRecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */; };
+		043ED8D6205BC1BE007D573A /* DRecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D5205BC1BE007D573A /* DRecordingTableViewCell.swift */; };
+		043ED8D8205BC271007D573A /* DriverSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D7205BC271007D573A /* DriverSetupViewController.swift */; };
 		04C64263205BBB7300984682 /* PassengerSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C64259205BBB7200984682 /* PassengerSetupViewController.swift */; };
-		04C64264205BBB7300984682 /* DriverSetupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C6425A205BBB7200984682 /* DriverSetupCell.swift */; };
-		04C64265205BBB7300984682 /* DriverSetupViewController.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C6425B205BBB7200984682 /* DriverSetupViewController.swift.swift */; };
 		04C64267205BBB7300984682 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C6425D205BBB7300984682 /* ShareViewController.swift */; };
-		04C64268205BBB7300984682 /* DriverSetupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C6425E205BBB7300984682 /* DriverSetupTableViewController.swift */; };
-		04C6426A205BBB7300984682 /* PassengerSetupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C64260205BBB7300984682 /* PassengerSetupCell.swift */; };
 		3E0918D5205134CA008688D0 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0918D0205134CA008688D0 /* Car.swift */; };
 		3E0918D6205134CA008688D0 /* DriverTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0918D1205134CA008688D0 /* DriverTrip.swift */; };
 		3E0918D7205134CA008688D0 /* Communicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0918D2205134CA008688D0 /* Communicator.swift */; };
@@ -73,13 +73,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		04C64258205BBB7100984682 /* PassengerSetupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassengerSetupTableViewController.swift; path = "../../../../iOS_git/CarPool 3/CarPool/Controller/ShareViewController/PassengerSetupTableViewController.swift"; sourceTree = "<group>"; };
+		043ED8CF205BC15F007D573A /* PRecordingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRecordingTableViewController.swift; sourceTree = "<group>"; };
+		043ED8D1205BC185007D573A /* DRecordingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRecordingTableViewController.swift; sourceTree = "<group>"; };
+		043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRecordingTableViewCell.swift; sourceTree = "<group>"; };
+		043ED8D5205BC1BE007D573A /* DRecordingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRecordingTableViewCell.swift; sourceTree = "<group>"; };
+		043ED8D7205BC271007D573A /* DriverSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverSetupViewController.swift; sourceTree = "<group>"; };
 		04C64259205BBB7200984682 /* PassengerSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassengerSetupViewController.swift; sourceTree = "<group>"; };
-		04C6425A205BBB7200984682 /* DriverSetupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DriverSetupCell.swift; path = "../../../../iOS_git/CarPool 3/CarPool/Controller/ShareViewController/DriverSetupCell.swift"; sourceTree = "<group>"; };
-		04C6425B205BBB7200984682 /* DriverSetupViewController.swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DriverSetupViewController.swift.swift; path = "../../../../iOS_git/CarPool 3/CarPool/Controller/ShareViewController/DriverSetupViewController.swift.swift"; sourceTree = "<group>"; };
 		04C6425D205BBB7300984682 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
-		04C6425E205BBB7300984682 /* DriverSetupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverSetupTableViewController.swift; sourceTree = "<group>"; };
-		04C64260205BBB7300984682 /* PassengerSetupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassengerSetupCell.swift; path = "../../../../iOS_git/CarPool 3/CarPool/Controller/ShareViewController/PassengerSetupCell.swift"; sourceTree = "<group>"; };
 		3E0918D0205134CA008688D0 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		3E0918D1205134CA008688D0 /* DriverTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverTrip.swift; sourceTree = "<group>"; };
 		3E0918D2205134CA008688D0 /* Communicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communicator.swift; sourceTree = "<group>"; };
@@ -169,13 +169,13 @@
 		3E40F9EB205172D10054168C /* ShareViewController */ = {
 			isa = PBXGroup;
 			children = (
-				04C6425A205BBB7200984682 /* DriverSetupCell.swift */,
-				04C6425E205BBB7300984682 /* DriverSetupTableViewController.swift */,
-				04C6425B205BBB7200984682 /* DriverSetupViewController.swift.swift */,
-				04C64260205BBB7300984682 /* PassengerSetupCell.swift */,
-				04C64258205BBB7100984682 /* PassengerSetupTableViewController.swift */,
-				04C64259205BBB7200984682 /* PassengerSetupViewController.swift */,
+				043ED8D7205BC271007D573A /* DriverSetupViewController.swift */,
+				043ED8D5205BC1BE007D573A /* DRecordingTableViewCell.swift */,
+				043ED8D1205BC185007D573A /* DRecordingTableViewController.swift */,
 				04C6425D205BBB7300984682 /* ShareViewController.swift */,
+				04C64259205BBB7200984682 /* PassengerSetupViewController.swift */,
+				043ED8CF205BC15F007D573A /* PRecordingTableViewController.swift */,
+				043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */,
 			);
 			path = ShareViewController;
 			sourceTree = "<group>";
@@ -509,6 +509,7 @@
 				3E7AC9F120519562003EB8E2 /* MyMapViewController.swift in Sources */,
 				C8888AFD205B9F2E00E49B27 /* DriverNoticeRequestTableViewCell.swift in Sources */,
 				C8888AF0205B9F0E00E49B27 /* DriverDetailRecordViewController.swift in Sources */,
+				043ED8D8205BC271007D573A /* DriverSetupViewController.swift in Sources */,
 				04C64267205BBB7300984682 /* ShareViewController.swift in Sources */,
 				3E8AC8DB2049939200DDD5AE /* ViewController.swift in Sources */,
 				C8888AED205B9F0E00E49B27 /* PassengerRecordTableViewCell.swift in Sources */,
@@ -517,6 +518,7 @@
 				3E7ACA2020550103003EB8E2 /* CallOutView.swift in Sources */,
 				C8888B00205B9F2E00E49B27 /* DriverNoticeViewController.swift in Sources */,
 				3E0918D9205134CA008688D0 /* Trip.swift in Sources */,
+				043ED8D0205BC15F007D573A /* PRecordingTableViewController.swift in Sources */,
 				3E0918D5205134CA008688D0 /* Car.swift in Sources */,
 				C8888AF1205B9F0E00E49B27 /* RecordViewController.swift in Sources */,
 				C8888B01205B9F2E00E49B27 /* PassagerNoticeViewController.swift in Sources */,
@@ -526,6 +528,8 @@
 				C8888AEE205B9F0E00E49B27 /* DriverRecordDetailTableViewCell.swift in Sources */,
 				C8888AE2205B9EED00E49B27 /* BasicViewController.swift in Sources */,
 				3E7ACA3920576511003EB8E2 /* Notice.swift in Sources */,
+				043ED8D6205BC1BE007D573A /* DRecordingTableViewCell.swift in Sources */,
+				043ED8D4205BC1A5007D573A /* PRecordingTableViewCell.swift in Sources */,
 				C8E41F9A204FE1DC00F3C77D /* PassengerRecord.swift in Sources */,
 				3E7AC9F320519575003EB8E2 /* GuardMapViewController.swift in Sources */,
 				3E0918D6205134CA008688D0 /* DriverTrip.swift in Sources */,
@@ -541,17 +545,13 @@
 				C8888AFC205B9F2E00E49B27 /* PassengerNoticeRequestTableViewCell.swift in Sources */,
 				C8888AEF205B9F0E00E49B27 /* PassengerRecordViewController.swift in Sources */,
 				3E8AC8F82049948A00DDD5AE /* MapViewController.swift in Sources */,
-				04C6426A205BBB7300984682 /* PassengerSetupCell.swift in Sources */,
-				04C64268205BBB7300984682 /* DriverSetupTableViewController.swift in Sources */,
+				043ED8D2205BC185007D573A /* DRecordingTableViewController.swift in Sources */,
 				C8888AF3205B9F0E00E49B27 /* DriverRecordViewController.swift in Sources */,
 				C8888B0B205BA08300E49B27 /* ShowAlert.swift in Sources */,
 				C8888AFF205B9F2E00E49B27 /* NoticeViewController.swift in Sources */,
 				C8888AFE205B9F2E00E49B27 /* PassengerNoticeReceivedTableViewCell.swift in Sources */,
-				04C64265205BBB7300984682 /* DriverSetupViewController.swift.swift in Sources */,
 				3E0918D7205134CA008688D0 /* Communicator.swift in Sources */,
 				C8888AF2205B9F0E00E49B27 /* EvaluaionViewController.swift in Sources */,
-				04C64262205BBB7300984682 /* PassengerSetupTableViewController.swift in Sources */,
-				04C64264205BBB7300984682 /* DriverSetupCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,7 +693,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VWSQ25EE5K;
+				DEVELOPMENT_TEAM = 4D5NWSFDJ2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CarPool",
@@ -716,7 +716,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VWSQ25EE5K;
+				DEVELOPMENT_TEAM = 4D5NWSFDJ2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CarPool",
