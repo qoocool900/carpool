@@ -16,3 +16,39 @@ extension UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 }
+
+extension UIViewController {
+    func callPhone(phoneNo:String) {
+        if let url = URL(string: "tel:\(phoneNo)"), UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+    }
+}
+
+extension UITableView {
+    func callPhone(phoneNo:String) {
+        if let url = URL(string: "tel:\(phoneNo)"), UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+    }
+}
+
+extension UITableViewCell {
+    func callPhone(phoneNo:String) {
+        if let url = URL(string: "tel:\(phoneNo)"), UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+    }
+}
