@@ -223,6 +223,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="angel" width="60" height="60"/>
         <image name="peter" width="1000" height="1334"/>
     </resources>
 </document>
