@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hyq-Nb-yU1">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="GF5-0r-7IZ">
+            <objects>
+                <viewController id="ba0-Hj-ptG" customClass="MapViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g6Z-Zy-Dkm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pxv-cF-f5s" userLabel="Guard Container View">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <connections>
+                                    <segue destination="olA-Tc-GiM" kind="embed" id="Esq-3r-blB"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBX-Qc-0Ot" userLabel="CarAndPeople Container View">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <connections>
+                                    <segue destination="4YZ-gk-DIZ" kind="embed" identifier="UserMap" id="rik-u8-h6K"/>
+                                </connections>
+                            </containerView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4su-j8-O20">
+                                <rect key="frame" x="10" y="74" width="355" height="29"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <segments>
+                                    <segment title="找車"/>
+                                    <segment title="找人"/>
+                                    <segment title="守衛"/>
+                                </segments>
+                                <color key="tintColor" red="0.1960784314" green="0.65490196079999996" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="roleChanged:" destination="ba0-Hj-ptG" eventType="valueChanged" id="PyO-tB-rXd"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GBX-Qc-0Ot" firstAttribute="bottom" secondItem="9bE-tJ-t0W" secondAttribute="bottom" id="0FD-rf-aWT"/>
+                            <constraint firstItem="4su-j8-O20" firstAttribute="top" secondItem="9bE-tJ-t0W" secondAttribute="top" constant="10" id="3tg-Ic-FD8"/>
+                            <constraint firstItem="GBX-Qc-0Ot" firstAttribute="top" secondItem="9bE-tJ-t0W" secondAttribute="top" id="Akg-vn-zQt"/>
+                            <constraint firstItem="GBX-Qc-0Ot" firstAttribute="trailing" secondItem="9bE-tJ-t0W" secondAttribute="trailing" id="Ebd-o0-sSa"/>
+                            <constraint firstItem="Pxv-cF-f5s" firstAttribute="bottom" secondItem="9bE-tJ-t0W" secondAttribute="bottom" id="Eel-ho-Cd2"/>
+                            <constraint firstItem="Pxv-cF-f5s" firstAttribute="trailing" secondItem="9bE-tJ-t0W" secondAttribute="trailing" id="HBm-0Q-JSy"/>
+                            <constraint firstItem="Pxv-cF-f5s" firstAttribute="leading" secondItem="9bE-tJ-t0W" secondAttribute="leading" id="Ooa-TK-9UC"/>
+                            <constraint firstItem="9bE-tJ-t0W" firstAttribute="trailing" secondItem="4su-j8-O20" secondAttribute="trailing" constant="10" id="Ypy-if-ETb"/>
+                            <constraint firstItem="4su-j8-O20" firstAttribute="leading" secondItem="9bE-tJ-t0W" secondAttribute="leading" constant="10" id="dQE-il-qZ0"/>
+                            <constraint firstItem="Pxv-cF-f5s" firstAttribute="top" secondItem="9bE-tJ-t0W" secondAttribute="top" id="tjd-ME-cgc"/>
+                            <constraint firstItem="GBX-Qc-0Ot" firstAttribute="leading" secondItem="9bE-tJ-t0W" secondAttribute="leading" id="ycM-eJ-H5t"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9bE-tJ-t0W"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dNj-Dg-dY6">
+                        <nil key="title"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="GuardContainerView" destination="Pxv-cF-f5s" id="lFc-ea-xvn"/>
+                        <outlet property="carAndPeopleContaninerView" destination="GBX-Qc-0Ot" id="oFm-ru-Sin"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qBX-cS-Lub" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1248.8" y="134.48275862068968"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="P6m-8t-su3">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hyq-Nb-yU1" customClass="TabBarController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DdA-mk-fVL">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="y6U-i0-BZv" kind="relationship" relationship="viewControllers" id="l3U-ag-WuN"/>
+                        <segue destination="DTC-O9-D4P" kind="relationship" relationship="viewControllers" id="Hgo-1q-89v"/>
+                        <segue destination="HqK-tr-Dpf" kind="relationship" relationship="viewControllers" id="Iiz-Bj-Jic"/>
+                        <segue destination="II7-IQ-MZg" kind="relationship" relationship="viewControllers" id="gdA-qx-ppd"/>
+                        <segue destination="gac-FT-GO1" kind="relationship" relationship="viewControllers" id="CBF-Do-eIn"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V90-hF-RHb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-244" y="136"/>
+        </scene>
+        <!--ShareViewController-->
+        <scene sceneID="n1M-2d-2E5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Share" referencedIdentifier="ShareViewController" id="GBY-wx-8zT" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="iBW-Oh-wbe"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aZj-i6-6g0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1004" y="1381"/>
+        </scene>
+        <!--NoticeViewController-->
+        <scene sceneID="3gP-8n-4Dy">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Notice" referencedIdentifier="NoticeViewController" id="NfC-UJ-CyG" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="qDa-84-ZlN"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GgL-jh-stN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-244" y="1381"/>
+        </scene>
+        <!--RecordViewController-->
+        <scene sceneID="88V-aA-Qqq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Record" referencedIdentifier="RecordViewController" id="D5K-s3-Igo" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="mDc-1y-d9h"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ERb-vq-5PZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="505" y="1381"/>
+        </scene>
+        <!--SettingViewController-->
+        <scene sceneID="z1u-ML-w54">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Setting" referencedIdentifier="SettingViewController" id="fSR-2j-ckL" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="yGp-5q-QoW"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8p7-pa-pHO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1251" y="1381"/>
+        </scene>
+        <!--發起共乘-->
+        <scene sceneID="N92-XN-cKU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DTC-O9-D4P" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="發起共乘" id="zdw-1j-qSb"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5Vg-md-Nty">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GBY-wx-8zT" kind="relationship" relationship="rootViewController" id="nll-Uq-rEd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zY2-Bk-ZX3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1004" y="912"/>
+        </scene>
+        <!--通知中心-->
+        <scene sceneID="lDM-Fb-BF3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HqK-tr-Dpf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="通知中心" id="rwD-q1-ag4"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="C45-dI-ZAI">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NfC-UJ-CyG" kind="relationship" relationship="rootViewController" id="SUz-a7-Xc3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j56-i5-SvX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-244" y="912"/>
+        </scene>
+        <!--乘車紀錄-->
+        <scene sceneID="UMD-VK-bLo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="II7-IQ-MZg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="乘車紀錄" id="hVP-aP-MUq"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6dS-V1-P9F">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="D5K-s3-Igo" kind="relationship" relationship="rootViewController" id="Lrs-sb-pnl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="meD-XU-1BQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="505" y="912"/>
+        </scene>
+        <!--個人設定-->
+        <scene sceneID="IUd-9R-nC5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gac-FT-GO1" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="個人設定" id="WfW-Zk-82R"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4oQ-nx-0uu">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fSR-2j-ckL" kind="relationship" relationship="rootViewController" id="DAk-TM-sYf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ASi-0X-xQ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1252" y="912"/>
+        </scene>
+        <!--地圖-->
+        <scene sceneID="RXg-EI-MpV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="y6U-i0-BZv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="地圖" id="bWb-Ti-h0d"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="q2X-2E-pbw">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ba0-Hj-ptG" kind="relationship" relationship="rootViewController" id="1TA-wU-uHn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eTj-n7-C81" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="505" y="135"/>
+        </scene>
+        <!--My Map View Controller-->
+        <scene sceneID="HtZ-au-Ico">
+            <objects>
+                <viewController storyboardIdentifier="MyMapViewController" id="4YZ-gk-DIZ" customClass="MyMapViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ohn-jr-6xn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7VR-Bi-Ib0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9c-ON-MqE">
+                                <rect key="frame" x="180" y="459" width="46" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="btn:" destination="4YZ-gk-DIZ" eventType="touchUpInside" id="TOR-p8-Gh0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QkV-Ke-9Ht" firstAttribute="bottom" secondItem="7VR-Bi-Ib0" secondAttribute="bottom" id="7bW-Kk-RoW"/>
+                            <constraint firstItem="7VR-Bi-Ib0" firstAttribute="top" secondItem="ohn-jr-6xn" secondAttribute="top" id="7fN-Tu-YJ0"/>
+                            <constraint firstItem="7VR-Bi-Ib0" firstAttribute="trailing" secondItem="QkV-Ke-9Ht" secondAttribute="trailing" id="Aul-G2-qFR"/>
+                            <constraint firstItem="7VR-Bi-Ib0" firstAttribute="leading" secondItem="QkV-Ke-9Ht" secondAttribute="leading" id="dsE-PH-pOo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QkV-Ke-9Ht"/>
+                    </view>
+                    <connections>
+                        <outlet property="mainMapView" destination="7VR-Bi-Ib0" id="hWi-n0-aJG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GhU-dJ-K3H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2301.5999999999999" y="-99.850074962518747"/>
+        </scene>
+        <!--Guard Map View Controller-->
+        <scene sceneID="v9x-DQ-eBH">
+            <objects>
+                <viewController id="olA-Tc-GiM" customClass="GuardMapViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OEI-eC-tLd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="AdC-jK-7FB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KgI-lq-e2b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2302" y="459"/>
+        </scene>
+    </scenes>
+</document>
