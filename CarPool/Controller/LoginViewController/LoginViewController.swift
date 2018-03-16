@@ -8,9 +8,6 @@ import TransitionButton
 
 class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDelegate {
     
-    
-    
-    
     @IBOutlet weak var UserMailTextField: UITextField!
     @IBOutlet weak var PasswordText: UITextField!
     @IBAction func MemberLogin(_ button: TransitionButton) {
