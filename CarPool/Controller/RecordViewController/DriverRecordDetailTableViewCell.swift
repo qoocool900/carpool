@@ -33,6 +33,8 @@ class DriverRecordDetailTableViewCell: UITableViewCell {
             startLocationLabel.text = recordData?.startLocation
             endLocationLabel.text = recordData?.endLocation
             passengerNameLabel.text = recordData?.passengerName
+            onTimeLabel.text = recordData?.onTime
+            offTimeLabel.text = recordData?.offTime
         }
     }
     
