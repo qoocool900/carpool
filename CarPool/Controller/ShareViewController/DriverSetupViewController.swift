@@ -15,18 +15,49 @@ class DriverSetupViewController: UIViewController {
     
     @IBOutlet weak var PeopleNumber:
     UITextField!
-    @IBOutlet weak var statusField: UITextField!
+ 
     @IBOutlet weak var FeeField: UITextField!
     
     
     @IBAction func SaveButton(_ sender: Any) {
         
-        //        //先判別是否空值  //
-        var tripA = DriverTrip(tripId: 0, memberNo: 1, destination: "", carNo: "", people: 1, fee: 11, status: 1, date: "")
-        //
-        //        Communicator.shared.modifyTrip(tripA) { (error, result) in
-        //            <#code#>
-        //        }
+        guard Destination.text != "" else{
+            return
+        }
+        
+        guard CarNumber.text != "" else{
+            return
+        }
+        
+        guard PeopleNumber.text != "" else{
+            return
+        }
+        
+        guard FeeField.text != "" else {
+            return
+        }
+        
+        var Drivertrip = DriverTrip(tripId: 0, memberNo: 1, destination: "", carNo: "", people: 1, fee: 11, status: 1, date: "")
+        
+        Drivertrip.destination = Destination.text!
+        Drivertrip.carNo = CarNumber.text!
+        Drivertrip.people = Int(PeopleNumber.text!)!
+        Drivertrip.fee = Int (FeeField.text!)!
+        
+        
+        Communicator.shared.modifyDriverTrip(Drivertrip, mode: "C") { (error, result) in
+            if let error = error {
+                NSLog("Login fail: \(error)")
+//                let msg = result!["msg"] as! String
+//                self.showAlert(message: msg)
+            self.showAlert(message: "發起失敗")
+            return
+                }
+        NSLog("司機發起成功")
+            //let msg = result!["msg"] as! String
+           // self.showAlert(message: msg)
+        self.showAlert(message: "發起成功")
+     }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,29 +76,24 @@ class DriverSetupViewController: UIViewController {
         FeeField.font = UIFont(name: "System", size: 25)
         FeeField.placeholder = "請輸入費用, 最高為5000元"
         
-        
-        statusField.font = UIFont(name: "System", size: 30)
-        statusField.placeholder = ""
-        
-        Communicator.shared.checkUser(mail: "a", password: "a") { (error, result) in
-            if let error = error {
-                NSLog("checkUser fail: \(error)")
-                let msg = result!["msg"] as? String
-                return
-            }
-            // success
-            print(result!)
-            guard let memberNo = result!["memberNo"] as? Int else {
-                return
-            }
-            guard let memberName = result!["memberNo"] as? Int else {
-                return
-            }
-            
-            
-            
-            
-        }
+       
+//
+//        Communicator.shared.checkUser(mail: "a", password: "a") { (error, result) in
+//            if let error = error {
+//                NSLog("checkUser fail: \(error)")
+//                let msg = result!["msg"] as? String
+//                return
+//            }
+//            // success
+//            print(result!)
+//            guard let memberNo = result!["memberNo"] as? Int else {
+//                return
+//            }
+//            guard let memberName = result!["memberNo"] as? Int else {
+//                return
+//            }
+
+//        }
         
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
             textField.resignFirstResponder()
