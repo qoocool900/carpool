@@ -30,6 +30,12 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
             let response = result!["response"] as! [String:Any]
             let code = response["code"] as! Int
             if code == 0 {
+                //let memberNo =
+//                let defaults = UserDefaults.standard
+//                defaults.set(String(describing: resultNew["first_name"]), forKey: "first_name")
+//                defaults.synchronize()
+//                print(defaults.string(forKey: "first_name")
+                    
                 button.startAnimation() // 2: Then start the animation when the user tap the button
                 let qualityOfServiceClass = DispatchQoS.QoSClass.background
                 let backgroundQueue = DispatchQueue.global(qos: qualityOfServiceClass)

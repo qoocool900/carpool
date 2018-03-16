@@ -66,6 +66,7 @@ class SignInViewController: UIViewController,UITextFieldDelegate{
                  return
             }
             // success
+            self.showAlert(message: "註冊成功")
             NSLog("doRegister ok")
         }
         
