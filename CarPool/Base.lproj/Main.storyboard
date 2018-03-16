@@ -85,11 +85,15 @@
                                 </state>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="peter" translatesAutoresizingMaskIntoConstraints="NO" id="SEg-rj-qZq">
-                                <rect key="frame" x="68" y="55" width="238" height="178"/>
+                                <rect key="frame" x="68" y="55" width="95" height="178"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="angel" translatesAutoresizingMaskIntoConstraints="NO" id="dwC-yz-5fL">
+                                <rect key="frame" x="212" y="55" width="95" height="178"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.79132466599999995" blue="0.68377894139999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
@@ -219,6 +223,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="angel" width="60" height="60"/>
         <image name="peter" width="1000" height="1334"/>
     </resources>
 </document>
