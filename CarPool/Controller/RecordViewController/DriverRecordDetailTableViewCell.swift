@@ -8,11 +8,14 @@
 import UIKit
 
 class DriverRecordDetailTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var startLocationLabel: UILabel!
     @IBOutlet weak var endLocationLabel: UILabel!
     @IBOutlet weak var passengerNameLabel: UILabel!
     @IBOutlet weak var phoneBtn: UIButton!
+    @IBOutlet weak var onTimeLabel: UILabel!
+    @IBOutlet weak var offTimeLabel: UILabel!
+    var passengerPhone = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,7 +37,8 @@ class DriverRecordDetailTableViewCell: UITableViewCell {
     }
     
     @IBAction func phoneBtnPressed(_ sender: Any) {
+        callPhone(phoneNo: passengerPhone)
     }
-
+    
 }
 

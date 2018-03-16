@@ -14,6 +14,8 @@ class PassengerRecordTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var driverNameLabel: UILabel!
     @IBOutlet weak var carNumberLabel: UILabel!
+    @IBOutlet weak var onTimeLabel: UILabel!
+    @IBOutlet weak var offTimeLabel: UILabel!
     @IBOutlet weak var phoneBtn: UIButton!
     @IBOutlet weak var evluationBtn: UIButton!
     var driverPhone = ""
@@ -36,14 +38,7 @@ class PassengerRecordTableViewCell: UITableViewCell {
     }
     
     @IBAction func phoneBtnPressed(_ sender: Any) {
-        
-        if let url = URL(string: "tell://\(driverPhone)"), UIApplication.shared.canOpenURL(url) {
-            if #available(iOS 10, *) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            } else {
-                UIApplication.shared.openURL(url)
-            }
-        }
+        callPhone(phoneNo: driverPhone)
     }
     
     @IBAction func evluationBtnPressed(_ sender: Any) {

@@ -11,85 +11,70 @@ import AVFoundation
 class GuardViewController: UIViewController{
     @IBOutlet weak var guareNameLabel: UILabel!
     @IBOutlet weak var guarePhoneLabel: UILabel!
-
-    var loginMemberNo = 1
+    @IBOutlet weak var scanBtn: UIButton!
+    
+    var loginMemberNo = 4
     var scanMemberNo = 1
     var scanMemberName = ""
     var scanMemberPhone = ""
-    var name = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guareNameLabel.text = scanMemberName
-        guarePhoneLabel.text = scanMemberPhone
         getGuardInfoData(memberNo: loginMemberNo)
-        
     }
     
     @IBAction func phonePressed(_ sender: Any) {
-        print("name = \(name)")
+        callPhone(phoneNo: scanMemberPhone)
     }
-    @IBAction func savePressed(_ sender: Any) {
-        Communicator.shared.modifyGuardInfo(memberNo: loginMemberNo, guardMemberNo: scanMemberNo, doneHandler: { (error, result) in
-            if let error = error {
-                NSLog("Modify guard information fail: \(error)")
-                return
+    
+    @IBAction func scanPressed(_ sender: Any) {
+        performSegue(withIdentifier: "goScanning", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? QRcodeViewController {
+            vc.resultHandler = { (success:Bool, memberInfo:[String]) -> Void in
+                
+                NSLog("result: \(memberInfo)]")
+                
+                self.scanMemberName = memberInfo[0]
+                self.scanMemberPhone = memberInfo[1]
+                self.guareNameLabel.text = self.scanMemberName
+                self.guarePhoneLabel.text = self.scanMemberPhone
             }
-            // success
-            print("Modify guard information success!")
-        })
+        }
     }
     
     // Get GuardData already been set for DataBase
     func getGuardInfoData(memberNo: Int){
         Communicator.shared.getGuardInfo(memberNo: memberNo) { (error, result) in
             if let error = error {
-                NSLog("Check gurad  information fail: \(error)")
+                NSLog("伺服器連線錯誤: \(error)")
                 return
             }
-            // success
-            print(result!)
-            guard let lastName = result!["lastName"] as? String else {
-                return
+            let response = result!["response"] as! [String:Any]
+            let content = result!["content"] as! [String:Any]
+            let code = response["code"] as! Int
+            if code == 0 {
+                // success
+                let lastName = content["lastName"] as! String
+                let firstName = content["firstName"] as! String
+                let phone = content["phone"] as! String
+                
+                self.guareNameLabel.text = "\(lastName)"+" "+"\(firstName)"
+                self.guarePhoneLabel.text = "\(phone)"
             }
-            guard let firstName = result!["firstName"] as? String else {
-                return
-            }
-            guard let phone = result!["phone"] as? String else {
-                return
-            }
-            print(phone)
-    
-            self.guareNameLabel.text = lastName + firstName
-            self.guarePhoneLabel.text = "\(phone)"
-            self.name = lastName + firstName
-            print("123"+self.name)
+            let msg = response ["msg"] as! String
+            print(msg)
         }
     }
     
-    // Get MemberIno From DataBase
-    func getMemberInfo(memberNo: Int) -> [String:String]{
-        var memberInfo:[String:String] = [:]
-        Communicator.shared.getMemberInfo(memberNo: memberNo) { (error, result) in
-            if let error = error {
-                NSLog("Check member information fail: \(error)")
-                return
-            }
-            // success
-            print(result!)
-            guard let lastName = result!["lastName"] as? String else {
-                return
-            }
-            guard let firstName = result!["firstName"] as? String else {
-                return
-            }
-            guard let phone = result!["phone"] as? String else {
-                return
-            }
-            memberInfo = ["lastName": lastName,"firstName":firstName,"phone":phone]
-            print(memberInfo)
-        }
-        return memberInfo
-    }
+    //    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+    //        return true
+    //    }
     
 }
+
+
+
+

@@ -8,32 +8,47 @@
 import UIKit
 import AVFoundation
 
+typealias QRCodeScanResultHandler = (Bool,[String]) -> Void
+
 class QRcodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     @IBOutlet weak var previewAreaView: UIView!
-    
+    @IBOutlet weak var scanLabel: UILabel!
+    @IBOutlet weak var scanSwitch: UISwitch!
     var session:AVCaptureSession?
     var previewLayer:AVCaptureVideoPreviewLayer?
     var stillImageOutput:AVCaptureStillImageOutput?
-    var scanMemberName = ""
-    var scanMemberPhone = ""
+    var captureMetadataOutput = AVCaptureMetadataOutput()
+    let loginMemberNo = 4
+    var scanMemberNo = 0
+    var scanRectView:UIView!
     
     let allTypes = [AVMetadataObject.ObjectType.qr, AVMetadataObject.ObjectType.code128, AVMetadataObject.ObjectType.code39, AVMetadataObject.ObjectType.code93, AVMetadataObject.ObjectType.upce, AVMetadataObject.ObjectType.pdf417, AVMetadataObject.ObjectType.ean13, AVMetadataObject.ObjectType.aztec]
     
+    var resultHandler:QRCodeScanResultHandler?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        scanSwitch.isOn = true
         startToScan()
+        view.bringSubview(toFront: scanLabel)
+        view.bringSubview(toFront: scanSwitch)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         stopScanning()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    @IBAction func scanEnableSwitchValueChanged(_ sender: AnyObject) {
+        let switchView = sender as! UISwitch
+        if switchView.isOn {
+            startToScan()
+        } else {
+            stopScanning()
+            dismiss(animated: true, completion: nil)
+        }
+    }    
     
-// MARK: - Scan Session Methods
+    // MARK: - Scan Session Methods
     func startToScan() {
         let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
         var inputDevice:AVCaptureDeviceInput?
@@ -63,13 +78,13 @@ class QRcodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
         previewLayer?.frame = view.layer.bounds
         view.layer.addSublayer(previewLayer!)
-        
+    
         // Start Capture
         session?.startRunning()
+        settingCatchFrame()
     }
     
     func stopScanning() {
-        
         // Stop Capture
         session?.stopRunning()
         session = nil
@@ -79,10 +94,9 @@ class QRcodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     }
     
     // MARK: - AVCaptureMetadataOutputObjectsDelegate Method
-    
     func metadataOutput(_ captureOutput: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         
-        if metadataObjects == nil || metadataObjects.count == 0 {
+        if metadataObjects.count == 0 {
             print("No QR code is detected")
             return
         }
@@ -94,75 +108,130 @@ class QRcodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             return
         }
         
-        if metadataObj.stringValue != nil {
-            print("Receive String: \(metadataObj.stringValue!)")
-            print("Receive String: \(Int(metadataObj.stringValue!)!)")
+        if let value = metadataObj.stringValue {
+            print("Receive String: \(value)")
             
-            Communicator.shared.getMemberInfo(memberNo: Int(metadataObj.stringValue!)!) { (error, result) in
-                if let error = error {
-                    NSLog("Check member information fail: \(error)")
-                    return
-                }
-                // success
-                print(result!)
-                guard let lastName = result!["lastName"] as? String else {
-                    return
-                }
-                guard let firstName = result!["firstName"] as? String else {
-                    return
-                }
-                guard let phone = result!["phone"] as? String else {
-                    return
-                }
-                self.scanMemberName = lastName + firstName
-                self.scanMemberPhone = phone
-                
-                // Show Result
-                let alert = UIAlertController(title: "請選擇設定功能", message: self.scanMemberName, preferredStyle: .alert)
-               
-                let gruadSetting = UIAlertAction (title: "守護天使", style: .default ) { (action) in
-                    if let guardVC = self.storyboard?.instantiateViewController(withIdentifier: "GuardViewController") as? GuardViewController {
-                        guardVC.scanMemberName = self.scanMemberName
-                        guardVC.scanMemberPhone = self.scanMemberPhone
-//                        self.show(guardVC, sender: nil)
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                }
-                let onSetting = UIAlertAction (title: "上車確認", style: .default ) { (action) in
-                    
-                    self.dismiss(animated: true, completion: nil)
-                }
-                let offSetting = UIAlertAction (title: "下車確認", style: .default ) { (action) in
-                    
-                    self.dismiss(animated: true, completion: nil)
-                }
-                    
-                alert.addAction(gruadSetting)
-                alert.addAction(onSetting)
-                alert.addAction(offSetting)
-                self.present(alert, animated: true, completion: nil)
-                
-                // Stop scanning
-                self.stopScanning()
+            guard let memberNo = Int(value) else {
+                assertionFailure()
+                return
             }
+            scanMemberNo = memberNo
+            print("Receive String: \(scanMemberNo)")
+            
+            handleScanInfo(memberNo: scanMemberNo)
+            
+            // Stop scanning
+            self.stopScanning()
         }
     }
     
-//    func show(_ vc: UIViewController, sender: Any?) {
-//        let storyboard = UIStoryboard(name: "Guard", bundle: nil)
-//        let controller = storyboard.instantiateInitialViewController()
-//        self.view.window?.rootViewController = controller
-//    }
-
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "GuardViewController"{
-//            print("scanMemberName:\(scanMemberName)")
-//            print("scanMemberPhone:\(scanMemberPhone)")
-//            let guardVC = segue.destination as? GuardViewController
-//            guardVC?.scanMemberName = scanMemberName
-//            guardVC?.scanMemberPhone = scanMemberPhone
-//        }
-//    }
     
-//
+    // HandleScanInfo
+    func handleScanInfo(memberNo:Int) {
+
+        Communicator.shared.getMemberInfo(memberNo: memberNo) { (error, result) in
+            if let error = error {
+                NSLog("伺服器連線錯誤: \(error)")
+                return
+            }
+            // success
+            let response = result!["response"] as! [String:Any]
+            let content = result!["content"] as! [String:Any]
+            let code = response["code"] as! Int
+            if code == 0 {
+                let lastName = content["lastName"] as! String
+                let firstName = content["firstName"] as! String
+                let phone = content["phone"] as! String
+                
+                let scanMemberName = lastName + firstName
+                let scanMemberPhone = phone
+                self.showResultAlert(memberName: scanMemberName, memberPhone: scanMemberPhone)
+            } else {
+                self.showAlert(message: "查無此會員\n請確認後重新掃描")
+                self.startToScan()
+            }
+            let msg = response ["msg"] as! String
+            print(msg)
+        }
+    }
+    
+    
+    // Show Alert
+    func showResultAlert(memberName: String, memberPhone: String) {
+        
+        let alert = UIAlertController(title: "請選擇設定功能", message: "會員名稱: \(memberName)", preferredStyle: .alert)
+        let gruadSetting = UIAlertAction (title: "守護天使", style: .default ) { (action) in
+            let memberInfo = [memberName, memberPhone]
+            self.resultHandler?(true, memberInfo)
+            self.resultHandler = nil
+            self.modifyGuardInfo()
+            self.dismiss(animated: true, completion: nil)
+        }
+        let onSetting = UIAlertAction (title: "上車確認", style: .default ) { (action) in
+            //...
+            self.dismiss(animated: true, completion: nil)
+        }
+        let offSetting = UIAlertAction (title: "下車確認", style: .default ) { (action) in
+            //...
+            self.dismiss(animated: true, completion: nil)
+        }
+        let cancel = UIAlertAction (title: "取消", style: .default ) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        alert.addAction(gruadSetting)
+        alert.addAction(onSetting)
+        alert.addAction(offSetting)
+        alert.addAction(cancel)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    //Modify guardInfo into database
+    func modifyGuardInfo() {
+        print("loginMemberNo: \(self.loginMemberNo), scanMemberNo: \(self.scanMemberNo)")
+       
+        Communicator.shared.modifyGuardInfo(memberNo: loginMemberNo, guardMemberNo: scanMemberNo) { (error, result) in
+            if let error = error {
+                NSLog("伺服器連線錯誤:\(error)")
+                return
+            }
+            // success
+            let response = result!["response"] as! [String:Any]
+            let msg = response ["msg"] as! String
+            print(msg)
+        }
+    }
+    
+    //Setting catch frame
+    func settingCatchFrame() {
+        //計算中間可探測區域
+        let windowSize = UIScreen.main.bounds.size;
+        let scanSize = CGSize(width:windowSize.width*3/4,
+                              height:windowSize.width*3/4)
+        var scanRect = CGRect(x:(windowSize.width-scanSize.width)/2,
+                              y:(windowSize.height-scanSize.height)/2,
+                              width:scanSize.width, height:scanSize.height)
+        //計算rectOfInterest 注意x,y交換位置
+        scanRect = CGRect(x:scanRect.origin.y/windowSize.height,
+                          y:scanRect.origin.x/windowSize.width,
+                          width:scanRect.size.height/windowSize.height,
+                          height:scanRect.size.width/windowSize.width)
+        //設置可探測區域
+        captureMetadataOutput.rectOfInterest = scanRect
+        previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        previewLayer?.frame = UIScreen.main.bounds
+        self.view.layer.insertSublayer(previewLayer!, at:0)
+        
+        //添加探測區域的框線
+        self.scanRectView = UIView();
+        self.view.addSubview(self.scanRectView)
+        self.scanRectView.frame = CGRect(x:0, y:0, width:scanSize.width,
+                                         height:scanSize.height)
+        self.scanRectView.center = CGPoint(x:UIScreen.main.bounds.midX,
+                                           y:UIScreen.main.bounds.midY)
+        self.scanRectView.layer.borderColor = UIColor(red: 50, green: 167, blue: 199, alpha: 1).cgColor
+        self.scanRectView.layer.borderWidth = 2
+    }
 }
+
+

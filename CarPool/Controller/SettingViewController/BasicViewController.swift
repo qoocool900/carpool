@@ -19,11 +19,13 @@ class BasicViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var qrCodeImageView: UIImageView!
     var qrcodeCIImage: CIImage!
     var gander: String = ""
-    var loginMemberNo = 1
+    var loginMemberNo = 4
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getMemberInfo(memberNo: loginMemberNo)
+        let image = showQRcode(memberNo: loginMemberNo, qrCodeImageView: qrCodeImageView)
+        qrCodeImageView.image = image
         checkGander(gander: gander)
     }
     
@@ -68,45 +70,61 @@ class BasicViewController: UIViewController, UITextFieldDelegate{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-
     
-//MARK: -Link to DataBase
+//MARK: - Show QRcode
+    func showQRcode(memberNo: Int, qrCodeImageView: UIImageView) -> UIImage {
+        let data = String(memberNo).data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
+        let filter = CIFilter(name: "CIQRCodeGenerator")
+        
+        filter?.setValue(data, forKey: "inputMessage")
+        let qrcodeCIImage = filter?.outputImage
+        
+        let scaleX = qrCodeImageView.frame.size.width / (qrcodeCIImage?.extent.size.width)!
+        let scaleY = qrCodeImageView.frame.size.height / (qrcodeCIImage?.extent.size.height)!
+        
+        let transformedImage = qrcodeCIImage?.transformed(by: CGAffineTransform(scaleX: scaleX, y: scaleY))
+        
+        //Convert CIImage to UIImage
+        let context = CIContext.init(options: nil)
+        let cgImage = context.createCGImage(transformedImage!, from: (transformedImage?.extent)!)!
+        let qrCodeUIImage:UIImage = UIImage.init(cgImage: cgImage)
+        return qrCodeUIImage
+    }
     
+//MARK: -Link to DataBase    
     // Get MemberInfo From DataBase
     func getMemberInfo(memberNo: Int){
-        Communicator.shared.getMemberInfo(memberNo: 3) { (error, result) in
+        Communicator.shared.getMemberInfo(memberNo: memberNo) { (error, result) in
             if let error = error {
-                NSLog("Check member information fail: \(error)")
-                return
-            }
-            // success
-            print(result!)
-            guard let lastName = result!["lastName"] as? String else {
-                return
-            }
-            guard let firstName = result!["firstName"] as? String else {
-                return
-            }
-            guard let phone = result!["phone"] as? String else {
+                NSLog("伺服器連線錯誤: \(error)")
                 return
             }
             
-            guard let sex = result!["sex"] as? String else {
-                return
+            // success
+            let response = result!["response"] as! [String:Any]
+            let content = result!["content"] as! [String:Any]
+            let code = response["code"] as! Int
+            if code == 0 {
+                let lastName = content["lastName"] as! String
+                let firstName = content["firstName"] as! String
+                let phone = content["phone"] as! String
+                let gender = content["sex"] as! String
+                
+                self.lastNameTextField.text = lastName
+                self.firstNameTextField.text = firstName
+                self.phoneTextField.text = phone
+                self.gander = gender
+                self.checkGander(gander: self.gander)
             }
-        
-            self.lastNameTextField.text = lastName
-            self.firstNameTextField.text = firstName
-            self.phoneTextField.text = phone
-            self.gander = sex
-            self.checkGander(gander: self.gander)
+            let msg = response ["msg"] as! String
+            print(msg)
         }
     }
     
-//     Modify MemberInfo to DataBase
+    //Modify MemberInfo to DataBase
     func modifyMemberInfo(memberNo: Int){
         let member = Member()
-        member.memberNo = 3
+        member.memberNo = memberNo
         member.firstName = self.firstNameTextField.text!
         member.lastName = self.lastNameTextField.text!
         member.phone = self.phoneTextField.text!
@@ -115,12 +133,17 @@ class BasicViewController: UIViewController, UITextFieldDelegate{
         
         Communicator.shared.modifyMemberInfo(member) { (error, result) in
             if let error = error {
-                NSLog("Modify member information fail: \(error)")
+                NSLog("伺服器連線錯誤: \(error)")
                 return
             }
             // success
-            print(result!)
-            print("Modify member information success!")
+            let response = result!["response"] as! [String:Any]
+            let code = response["code"] as! Int
+            if code == 0 {
+                self.showAlert(message: "更新資料成功")
+            }
+            let msg = response ["msg"] as! String
+            print(msg)
         }
     }
 }

@@ -25,15 +25,6 @@
 		3E7ACA1E2054F537003EB8E2 /* CallOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E7ACA1D2054F537003EB8E2 /* CallOutView.xib */; };
 		3E7ACA2020550103003EB8E2 /* CallOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7ACA1F20550103003EB8E2 /* CallOutView.swift */; };
 		3E7ACA2220550296003EB8E2 /* CustomMKPinAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7ACA2120550296003EB8E2 /* CustomMKPinAnnotationView.swift */; };
-		3E7ACA2420551D34003EB8E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E7ACA2320551D34003EB8E2 /* Assets.xcassets */; };
-		3E7ACA27205762C7003EB8E2 /* PassagerNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7ACA26205762C7003EB8E2 /* PassagerNoticeViewController.swift */; };
-		3E7ACA29205762F6003EB8E2 /* PassengerNoticeReceivedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7ACA28205762F6003EB8E2 /* PassengerNoticeReceivedTableViewCell.swift */; };
-		3E7ACA2B20576309003EB8E2 /* PassengerNoticeRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7ACA2A20576309003EB8E2 /* PassengerNoticeRequestTableViewCell.swift */; };
-		3E7ACA2D20576326003EB8E2 /* DriverNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7ACA2C20576326003EB8E2 /* DriverNoticeViewController.swift */; };
-		3E7ACA2F2057633B003EB8E2 /* DriverNoticeReceivedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7ACA2E2057633B003EB8E2 /* DriverNoticeReceivedTableViewCell.swift */; };
-		3E7ACA312057634C003EB8E2 /* DriverNoticeRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7ACA302057634C003EB8E2 /* DriverNoticeRequestTableViewCell.swift */; };
-		3E7ACA332057641D003EB8E2 /* EvaluaionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7ACA322057641D003EB8E2 /* EvaluaionViewController.swift */; };
-		3E7ACA3520576474003EB8E2 /* QRcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7ACA3420576474003EB8E2 /* QRcodeViewController.swift */; };
 		3E7ACA3920576511003EB8E2 /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7ACA3820576511003EB8E2 /* Notice.swift */; };
 		3E7ACA5D205788CF003EB8E2 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7ACA5C205788CF003EB8E2 /* ShowAlert.swift */; };
 		3E8AC8D92049939200DDD5AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8AC8D82049939200DDD5AE /* AppDelegate.swift */; };
@@ -42,28 +33,37 @@
 		3E8AC8E32049939200DDD5AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8AC8E12049939200DDD5AE /* LaunchScreen.storyboard */; };
 		3E8AC8EB204993F300DDD5AE /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8AC8EA204993F300DDD5AE /* Map.storyboard */; };
 		3E8AC8ED204993FE00DDD5AE /* Share.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8AC8EC204993FE00DDD5AE /* Share.storyboard */; };
-		3E8AC8EF2049940D00DDD5AE /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8AC8EE2049940D00DDD5AE /* Record.storyboard */; };
-		3E8AC8F12049941600DDD5AE /* Notice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8AC8F02049941600DDD5AE /* Notice.storyboard */; };
-		3E8AC8F32049941C00DDD5AE /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8AC8F22049941C00DDD5AE /* Setting.storyboard */; };
 		3E8AC8F52049945A00DDD5AE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8AC8F42049945A00DDD5AE /* TabBarController.swift */; };
 		3E8AC8F82049948A00DDD5AE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8AC8F72049948A00DDD5AE /* MapViewController.swift */; };
 		3E8AC8FA2049949700DDD5AE /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8AC8F92049949700DDD5AE /* ShareViewController.swift */; };
-		3E8AC8FC204994A200DDD5AE /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8AC8FB204994A200DDD5AE /* RecordViewController.swift */; };
-		3E8AC8FE204994AA00DDD5AE /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8AC8FD204994AA00DDD5AE /* NoticeViewController.swift */; };
-		3E8AC900204994B300DDD5AE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8AC8FF204994B300DDD5AE /* SettingViewController.swift */; };
 		3E8AC90420499B2200DDD5AE /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3E8AC90320499B2200DDD5AE /* Podfile */; };
 		3EC6E3D2205AC0B200EB568C /* Data+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC6E3D1205AC0B200EB568C /* Data+HexString.swift */; };
 		C110E177F96D08FBE0F694C3 /* Pods_CarPool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BBD5498FD2EC505E6B55FE /* Pods_CarPool.framework */; };
-		C8349E16204E7F2B0011B124 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8349E15204E7F2B0011B124 /* BasicViewController.swift */; };
-		C8349E18204E7F3A0011B124 /* DriveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8349E17204E7F3A0011B124 /* DriveViewController.swift */; };
-		C8349E1A204E7F4C0011B124 /* GuardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8349E19204E7F4C0011B124 /* GuardViewController.swift */; };
-		C8BD636E2050246D00E99EF2 /* PassengerRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BD636D2050246D00E99EF2 /* PassengerRecordTableViewCell.swift */; };
+		C8888ADF205B9EED00E49B27 /* DriveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8888ADA205B9EEC00E49B27 /* DriveViewController.swift */; };
+		C8888AE0205B9EED00E49B27 /* QRcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8888ADB205B9EEC00E49B27 /* QRcodeViewController.swift */; };
+		C8888AE1205B9EED00E49B27 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8888ADC205B9EEC00E49B27 /* SettingViewController.swift */; };
+		C8888AE2205B9EED00E49B27 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8888ADD205B9EEC00E49B27 /* BasicViewController.swift */; };
+		C8888AE3205B9EED00E49B27 /* GuardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8888ADE205B9EEC00E49B27 /* GuardViewController.swift */; };
+		C8888AEC205B9F0E00E49B27 /* DriverRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8888AE4205B9F0C00E49B27 /* DriverRecordTableViewCell.swift */; };
+		C8888AED205B9F0E00E49B27 /* PassengerRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8888AE5205B9F0C00E49B27 /* PassengerRecordTableViewCell.swift */; };
+		C8888AEE205B9F0E00E49B27 /* DriverRecordDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8888AE6205B9F0D00E49B27 /* DriverRecordDetailTableViewCell.swift */; };
+		C8888AEF205B9F0E00E49B27 /* PassengerRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8888AE7205B9F0D00E49B27 /* PassengerRecordViewController.swift */; };
+		C8888AF0205B9F0E00E49B27 /* DriverDetailRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8888AE8205B9F0D00E49B27 /* DriverDetailRecordViewController.swift */; };
+		C8888AF1205B9F0E00E49B27 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8888AE9205B9F0D00E49B27 /* RecordViewController.swift */; };
+		C8888AF2205B9F0E00E49B27 /* EvaluaionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8888AEA205B9F0D00E49B27 /* EvaluaionViewController.swift */; };
+		C8888AF3205B9F0E00E49B27 /* DriverRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8888AEB205B9F0E00E49B27 /* DriverRecordViewController.swift */; };
+		C8888AFB205B9F2E00E49B27 /* DriverNoticeReceivedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8888AF4205B9F2D00E49B27 /* DriverNoticeReceivedTableViewCell.swift */; };
+		C8888AFC205B9F2E00E49B27 /* PassengerNoticeRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8888AF5205B9F2D00E49B27 /* PassengerNoticeRequestTableViewCell.swift */; };
+		C8888AFD205B9F2E00E49B27 /* DriverNoticeRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8888AF6205B9F2D00E49B27 /* DriverNoticeRequestTableViewCell.swift */; };
+		C8888AFE205B9F2E00E49B27 /* PassengerNoticeReceivedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8888AF7205B9F2D00E49B27 /* PassengerNoticeReceivedTableViewCell.swift */; };
+		C8888AFF205B9F2E00E49B27 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8888AF8205B9F2D00E49B27 /* NoticeViewController.swift */; };
+		C8888B00205B9F2E00E49B27 /* DriverNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8888AF9205B9F2E00E49B27 /* DriverNoticeViewController.swift */; };
+		C8888B01205B9F2E00E49B27 /* PassagerNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8888AFA205B9F2E00E49B27 /* PassagerNoticeViewController.swift */; };
+		C8888B05205B9F5600E49B27 /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8888B02205B9F5500E49B27 /* Record.storyboard */; };
+		C8888B06205B9F5600E49B27 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8888B03205B9F5500E49B27 /* Setting.storyboard */; };
+		C8888B07205B9F5600E49B27 /* Notice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8888B04205B9F5600E49B27 /* Notice.storyboard */; };
+		C8888B09205B9FEC00E49B27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8888B08205B9FEB00E49B27 /* Assets.xcassets */; };
 		C8E41F9A204FE1DC00F3C77D /* PassengerRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E41F99204FE1DC00F3C77D /* PassengerRecord.swift */; };
-		C8E41F9C205018DF00F3C77D /* DriverRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E41F9B205018DF00F3C77D /* DriverRecordViewController.swift */; };
-		C8E41F9E205018F900F3C77D /* PassengerRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E41F9D205018F900F3C77D /* PassengerRecordViewController.swift */; };
-		C8E5EF11205114D50062D4C6 /* DriverRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E5EF10205114D50062D4C6 /* DriverRecordTableViewCell.swift */; };
-		C8E5EF13205114FC0062D4C6 /* DriverRecordDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E5EF12205114FC0062D4C6 /* DriverRecordDetailTableViewCell.swift */; };
-		C8E5EF15205116130062D4C6 /* DriverDetailRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E5EF14205116130062D4C6 /* DriverDetailRecordViewController.swift */; };
 		C8E5EF17205116810062D4C6 /* DriverRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E5EF16205116810062D4C6 /* DriverRecord.swift */; };
 		C8E5EF19205116980062D4C6 /* DriverRecordDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E5EF18205116980062D4C6 /* DriverRecordDetail.swift */; };
 /* End PBXBuildFile section */
@@ -87,15 +87,6 @@
 		3E7ACA1D2054F537003EB8E2 /* CallOutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallOutView.xib; sourceTree = "<group>"; };
 		3E7ACA1F20550103003EB8E2 /* CallOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallOutView.swift; sourceTree = "<group>"; };
 		3E7ACA2120550296003EB8E2 /* CustomMKPinAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMKPinAnnotationView.swift; sourceTree = "<group>"; };
-		3E7ACA2320551D34003EB8E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3E7ACA26205762C7003EB8E2 /* PassagerNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassagerNoticeViewController.swift; sourceTree = "<group>"; };
-		3E7ACA28205762F6003EB8E2 /* PassengerNoticeReceivedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerNoticeReceivedTableViewCell.swift; sourceTree = "<group>"; };
-		3E7ACA2A20576309003EB8E2 /* PassengerNoticeRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerNoticeRequestTableViewCell.swift; sourceTree = "<group>"; };
-		3E7ACA2C20576326003EB8E2 /* DriverNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverNoticeViewController.swift; sourceTree = "<group>"; };
-		3E7ACA2E2057633B003EB8E2 /* DriverNoticeReceivedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverNoticeReceivedTableViewCell.swift; sourceTree = "<group>"; };
-		3E7ACA302057634C003EB8E2 /* DriverNoticeRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverNoticeRequestTableViewCell.swift; sourceTree = "<group>"; };
-		3E7ACA322057641D003EB8E2 /* EvaluaionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluaionViewController.swift; sourceTree = "<group>"; };
-		3E7ACA3420576474003EB8E2 /* QRcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRcodeViewController.swift; sourceTree = "<group>"; };
 		3E7ACA3820576511003EB8E2 /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
 		3E7ACA5C205788CF003EB8E2 /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
 		3E8AC8D52049939200DDD5AE /* CarPool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarPool.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,30 +97,39 @@
 		3E8AC8E42049939200DDD5AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E8AC8EA204993F300DDD5AE /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		3E8AC8EC204993FE00DDD5AE /* Share.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Share.storyboard; sourceTree = "<group>"; };
-		3E8AC8EE2049940D00DDD5AE /* Record.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Record.storyboard; sourceTree = "<group>"; };
-		3E8AC8F02049941600DDD5AE /* Notice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notice.storyboard; sourceTree = "<group>"; };
-		3E8AC8F22049941C00DDD5AE /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		3E8AC8F42049945A00DDD5AE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3E8AC8F72049948A00DDD5AE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3E8AC8F92049949700DDD5AE /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
-		3E8AC8FB204994A200DDD5AE /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
-		3E8AC8FD204994AA00DDD5AE /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
-		3E8AC8FF204994B300DDD5AE /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		3E8AC90320499B2200DDD5AE /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3EC6E3D1205AC0B200EB568C /* Data+HexString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+HexString.swift"; sourceTree = "<group>"; };
 		46EC316F6E77F72CB102B795 /* Pods-CarPool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarPool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarPool/Pods-CarPool.debug.xcconfig"; sourceTree = "<group>"; };
 		59FCCA4910075DCA993F60F8 /* Pods-CarPool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarPool.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarPool/Pods-CarPool.release.xcconfig"; sourceTree = "<group>"; };
 		94BBD5498FD2EC505E6B55FE /* Pods_CarPool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarPool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C8349E15204E7F2B0011B124 /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
-		C8349E17204E7F3A0011B124 /* DriveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveViewController.swift; sourceTree = "<group>"; };
-		C8349E19204E7F4C0011B124 /* GuardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardViewController.swift; sourceTree = "<group>"; };
-		C8BD636D2050246D00E99EF2 /* PassengerRecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerRecordTableViewCell.swift; sourceTree = "<group>"; };
+		C8888ADA205B9EEC00E49B27 /* DriveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveViewController.swift; sourceTree = "<group>"; };
+		C8888ADB205B9EEC00E49B27 /* QRcodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRcodeViewController.swift; sourceTree = "<group>"; };
+		C8888ADC205B9EEC00E49B27 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		C8888ADD205B9EEC00E49B27 /* BasicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
+		C8888ADE205B9EEC00E49B27 /* GuardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardViewController.swift; sourceTree = "<group>"; };
+		C8888AE4205B9F0C00E49B27 /* DriverRecordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverRecordTableViewCell.swift; sourceTree = "<group>"; };
+		C8888AE5205B9F0C00E49B27 /* PassengerRecordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassengerRecordTableViewCell.swift; sourceTree = "<group>"; };
+		C8888AE6205B9F0D00E49B27 /* DriverRecordDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverRecordDetailTableViewCell.swift; sourceTree = "<group>"; };
+		C8888AE7205B9F0D00E49B27 /* PassengerRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassengerRecordViewController.swift; sourceTree = "<group>"; };
+		C8888AE8205B9F0D00E49B27 /* DriverDetailRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverDetailRecordViewController.swift; sourceTree = "<group>"; };
+		C8888AE9205B9F0D00E49B27 /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		C8888AEA205B9F0D00E49B27 /* EvaluaionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluaionViewController.swift; sourceTree = "<group>"; };
+		C8888AEB205B9F0E00E49B27 /* DriverRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverRecordViewController.swift; sourceTree = "<group>"; };
+		C8888AF4205B9F2D00E49B27 /* DriverNoticeReceivedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverNoticeReceivedTableViewCell.swift; sourceTree = "<group>"; };
+		C8888AF5205B9F2D00E49B27 /* PassengerNoticeRequestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassengerNoticeRequestTableViewCell.swift; sourceTree = "<group>"; };
+		C8888AF6205B9F2D00E49B27 /* DriverNoticeRequestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverNoticeRequestTableViewCell.swift; sourceTree = "<group>"; };
+		C8888AF7205B9F2D00E49B27 /* PassengerNoticeReceivedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassengerNoticeReceivedTableViewCell.swift; sourceTree = "<group>"; };
+		C8888AF8205B9F2D00E49B27 /* NoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
+		C8888AF9205B9F2E00E49B27 /* DriverNoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverNoticeViewController.swift; sourceTree = "<group>"; };
+		C8888AFA205B9F2E00E49B27 /* PassagerNoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassagerNoticeViewController.swift; sourceTree = "<group>"; };
+		C8888B02205B9F5500E49B27 /* Record.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Record.storyboard; sourceTree = "<group>"; };
+		C8888B03205B9F5500E49B27 /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		C8888B04205B9F5600E49B27 /* Notice.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notice.storyboard; sourceTree = "<group>"; };
+		C8888B08205B9FEB00E49B27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8E41F99204FE1DC00F3C77D /* PassengerRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerRecord.swift; sourceTree = "<group>"; };
-		C8E41F9B205018DF00F3C77D /* DriverRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRecordViewController.swift; sourceTree = "<group>"; };
-		C8E41F9D205018F900F3C77D /* PassengerRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerRecordViewController.swift; sourceTree = "<group>"; };
-		C8E5EF10205114D50062D4C6 /* DriverRecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRecordTableViewCell.swift; sourceTree = "<group>"; };
-		C8E5EF12205114FC0062D4C6 /* DriverRecordDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRecordDetailTableViewCell.swift; sourceTree = "<group>"; };
-		C8E5EF14205116130062D4C6 /* DriverDetailRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDetailRecordViewController.swift; sourceTree = "<group>"; };
 		C8E5EF16205116810062D4C6 /* DriverRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRecord.swift; sourceTree = "<group>"; };
 		C8E5EF18205116980062D4C6 /* DriverRecordDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRecordDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,13 +189,13 @@
 		3E7ACA2520576233003EB8E2 /* NoticeViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3E8AC8FD204994AA00DDD5AE /* NoticeViewController.swift */,
-				3E7ACA26205762C7003EB8E2 /* PassagerNoticeViewController.swift */,
-				3E7ACA28205762F6003EB8E2 /* PassengerNoticeReceivedTableViewCell.swift */,
-				3E7ACA2A20576309003EB8E2 /* PassengerNoticeRequestTableViewCell.swift */,
-				3E7ACA2C20576326003EB8E2 /* DriverNoticeViewController.swift */,
-				3E7ACA2E2057633B003EB8E2 /* DriverNoticeReceivedTableViewCell.swift */,
-				3E7ACA302057634C003EB8E2 /* DriverNoticeRequestTableViewCell.swift */,
+				C8888AF4205B9F2D00E49B27 /* DriverNoticeReceivedTableViewCell.swift */,
+				C8888AF6205B9F2D00E49B27 /* DriverNoticeRequestTableViewCell.swift */,
+				C8888AF9205B9F2E00E49B27 /* DriverNoticeViewController.swift */,
+				C8888AF8205B9F2D00E49B27 /* NoticeViewController.swift */,
+				C8888AFA205B9F2E00E49B27 /* PassagerNoticeViewController.swift */,
+				C8888AF7205B9F2D00E49B27 /* PassengerNoticeReceivedTableViewCell.swift */,
+				C8888AF5205B9F2D00E49B27 /* PassengerNoticeRequestTableViewCell.swift */,
 			);
 			path = NoticeViewController;
 			sourceTree = "<group>";
@@ -229,12 +229,12 @@
 				3E8AC8DC2049939200DDD5AE /* Main.storyboard */,
 				3E8AC8EA204993F300DDD5AE /* Map.storyboard */,
 				3E8AC8EC204993FE00DDD5AE /* Share.storyboard */,
-				3E8AC8EE2049940D00DDD5AE /* Record.storyboard */,
-				3E8AC8F02049941600DDD5AE /* Notice.storyboard */,
-				3E8AC8F22049941C00DDD5AE /* Setting.storyboard */,
+				C8888B04205B9F5600E49B27 /* Notice.storyboard */,
+				C8888B02205B9F5500E49B27 /* Record.storyboard */,
+				C8888B03205B9F5500E49B27 /* Setting.storyboard */,
 				3E8AC8E12049939200DDD5AE /* LaunchScreen.storyboard */,
+				C8888B08205B9FEB00E49B27 /* Assets.xcassets */,
 				3E8AC8E42049939200DDD5AE /* Info.plist */,
-				3E7ACA2320551D34003EB8E2 /* Assets.xcassets */,
 				3E40F9E020516D760054168C /* Bolts.framework */,
 				3E40F9E120516D760054168C /* FBSDKCoreKit.framework */,
 				3E40F9E220516D760054168C /* FBSDKLoginKit.framework */,
@@ -304,11 +304,11 @@
 		C8349E14204E7EB40011B124 /* SettingViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3E8AC8FF204994B300DDD5AE /* SettingViewController.swift */,
-				C8349E15204E7F2B0011B124 /* BasicViewController.swift */,
-				C8349E17204E7F3A0011B124 /* DriveViewController.swift */,
-				C8349E19204E7F4C0011B124 /* GuardViewController.swift */,
-				3E7ACA3420576474003EB8E2 /* QRcodeViewController.swift */,
+				C8888ADD205B9EEC00E49B27 /* BasicViewController.swift */,
+				C8888ADA205B9EEC00E49B27 /* DriveViewController.swift */,
+				C8888ADE205B9EEC00E49B27 /* GuardViewController.swift */,
+				C8888ADB205B9EEC00E49B27 /* QRcodeViewController.swift */,
+				C8888ADC205B9EEC00E49B27 /* SettingViewController.swift */,
 			);
 			path = SettingViewController;
 			sourceTree = "<group>";
@@ -316,14 +316,14 @@
 		C8E41F98204EF4BA00F3C77D /* RecordViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3E8AC8FB204994A200DDD5AE /* RecordViewController.swift */,
-				C8E41F9D205018F900F3C77D /* PassengerRecordViewController.swift */,
-				C8BD636D2050246D00E99EF2 /* PassengerRecordTableViewCell.swift */,
-				C8E41F9B205018DF00F3C77D /* DriverRecordViewController.swift */,
-				C8E5EF14205116130062D4C6 /* DriverDetailRecordViewController.swift */,
-				C8E5EF10205114D50062D4C6 /* DriverRecordTableViewCell.swift */,
-				C8E5EF12205114FC0062D4C6 /* DriverRecordDetailTableViewCell.swift */,
-				3E7ACA322057641D003EB8E2 /* EvaluaionViewController.swift */,
+				C8888AE8205B9F0D00E49B27 /* DriverDetailRecordViewController.swift */,
+				C8888AE6205B9F0D00E49B27 /* DriverRecordDetailTableViewCell.swift */,
+				C8888AE4205B9F0C00E49B27 /* DriverRecordTableViewCell.swift */,
+				C8888AEB205B9F0E00E49B27 /* DriverRecordViewController.swift */,
+				C8888AEA205B9F0D00E49B27 /* EvaluaionViewController.swift */,
+				C8888AE5205B9F0C00E49B27 /* PassengerRecordTableViewCell.swift */,
+				C8888AE7205B9F0D00E49B27 /* PassengerRecordViewController.swift */,
+				C8888AE9205B9F0D00E49B27 /* RecordViewController.swift */,
 			);
 			path = RecordViewController;
 			sourceTree = "<group>";
@@ -401,14 +401,14 @@
 			files = (
 				3E8AC8E32049939200DDD5AE /* LaunchScreen.storyboard in Resources */,
 				3E8AC8ED204993FE00DDD5AE /* Share.storyboard in Resources */,
-				3E8AC8F12049941600DDD5AE /* Notice.storyboard in Resources */,
-				3E8AC8EF2049940D00DDD5AE /* Record.storyboard in Resources */,
-				3E7ACA2420551D34003EB8E2 /* Assets.xcassets in Resources */,
+				C8888B07205B9F5600E49B27 /* Notice.storyboard in Resources */,
 				3E8AC8DE2049939200DDD5AE /* Main.storyboard in Resources */,
+				C8888B09205B9FEC00E49B27 /* Assets.xcassets in Resources */,
 				3E8AC90420499B2200DDD5AE /* Podfile in Resources */,
+				C8888B06205B9F5600E49B27 /* Setting.storyboard in Resources */,
 				3E8AC8EB204993F300DDD5AE /* Map.storyboard in Resources */,
-				3E8AC8F32049941C00DDD5AE /* Setting.storyboard in Resources */,
 				3E7ACA1E2054F537003EB8E2 /* CallOutView.xib in Resources */,
+				C8888B05205B9F5600E49B27 /* Record.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,51 +491,51 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8888AEC205B9F0E00E49B27 /* DriverRecordTableViewCell.swift in Sources */,
 				3E40F9EA205172A30054168C /* LoginViewController.swift in Sources */,
-				C8349E18204E7F3A0011B124 /* DriveViewController.swift in Sources */,
 				3E8AC8F52049945A00DDD5AE /* TabBarController.swift in Sources */,
 				3E7AC9F120519562003EB8E2 /* MyMapViewController.swift in Sources */,
-				C8349E16204E7F2B0011B124 /* BasicViewController.swift in Sources */,
+				C8888AFD205B9F2E00E49B27 /* DriverNoticeRequestTableViewCell.swift in Sources */,
+				C8888AF0205B9F0E00E49B27 /* DriverDetailRecordViewController.swift in Sources */,
 				3E40F9EF205173300054168C /* PassengerSetupViewController.swift in Sources */,
 				3E8AC8DB2049939200DDD5AE /* ViewController.swift in Sources */,
+				C8888AED205B9F0E00E49B27 /* PassengerRecordTableViewCell.swift in Sources */,
+				C8888AE1205B9EED00E49B27 /* SettingViewController.swift in Sources */,
 				3E7ACA1C2054F20B003EB8E2 /* CustomAnnotation.swift in Sources */,
-				C8E41F9E205018F900F3C77D /* PassengerRecordViewController.swift in Sources */,
-				3E7ACA29205762F6003EB8E2 /* PassengerNoticeReceivedTableViewCell.swift in Sources */,
 				3E7ACA2020550103003EB8E2 /* CallOutView.swift in Sources */,
+				C8888B00205B9F2E00E49B27 /* DriverNoticeViewController.swift in Sources */,
 				3E0918D9205134CA008688D0 /* Trip.swift in Sources */,
 				3E0918D5205134CA008688D0 /* Car.swift in Sources */,
-				3E7ACA27205762C7003EB8E2 /* PassagerNoticeViewController.swift in Sources */,
+				C8888AF1205B9F0E00E49B27 /* RecordViewController.swift in Sources */,
 				3E8AC8FA2049949700DDD5AE /* ShareViewController.swift in Sources */,
+				C8888B01205B9F2E00E49B27 /* PassagerNoticeViewController.swift in Sources */,
 				3E0918D8205134CA008688D0 /* Member.swift in Sources */,
 				3E7ACA2220550296003EB8E2 /* CustomMKPinAnnotationView.swift in Sources */,
-				3E7ACA332057641D003EB8E2 /* EvaluaionViewController.swift in Sources */,
-				C8BD636E2050246D00E99EF2 /* PassengerRecordTableViewCell.swift in Sources */,
-				3E7ACA2D20576326003EB8E2 /* DriverNoticeViewController.swift in Sources */,
+				C8888AEE205B9F0E00E49B27 /* DriverRecordDetailTableViewCell.swift in Sources */,
+				C8888AE2205B9EED00E49B27 /* BasicViewController.swift in Sources */,
 				3E7ACA3920576511003EB8E2 /* Notice.swift in Sources */,
 				C8E41F9A204FE1DC00F3C77D /* PassengerRecord.swift in Sources */,
-				C8E5EF15205116130062D4C6 /* DriverDetailRecordViewController.swift in Sources */,
 				3E7AC9F320519575003EB8E2 /* GuardMapViewController.swift in Sources */,
 				3E0918D6205134CA008688D0 /* DriverTrip.swift in Sources */,
-				C8E5EF11205114D50062D4C6 /* DriverRecordTableViewCell.swift in Sources */,
-				C8E5EF13205114FC0062D4C6 /* DriverRecordDetailTableViewCell.swift in Sources */,
-				3E7ACA3520576474003EB8E2 /* QRcodeViewController.swift in Sources */,
-				3E8AC900204994B300DDD5AE /* SettingViewController.swift in Sources */,
-				3E8AC8FE204994AA00DDD5AE /* NoticeViewController.swift in Sources */,
+				C8888ADF205B9EED00E49B27 /* DriveViewController.swift in Sources */,
+				C8888AE0205B9EED00E49B27 /* QRcodeViewController.swift in Sources */,
 				C8E5EF19205116980062D4C6 /* DriverRecordDetail.swift in Sources */,
 				3E40F9E82051728D0054168C /* SignInViewController.swift in Sources */,
-				3E8AC8FC204994A200DDD5AE /* RecordViewController.swift in Sources */,
 				3EC6E3D2205AC0B200EB568C /* Data+HexString.swift in Sources */,
 				3E8AC8D92049939200DDD5AE /* AppDelegate.swift in Sources */,
-				3E7ACA2B20576309003EB8E2 /* PassengerNoticeRequestTableViewCell.swift in Sources */,
 				3E40F9ED205173170054168C /* DriverSetupViewController.swift in Sources */,
-				3E7ACA2F2057633B003EB8E2 /* DriverNoticeReceivedTableViewCell.swift in Sources */,
 				C8E5EF17205116810062D4C6 /* DriverRecord.swift in Sources */,
-				3E7ACA312057634C003EB8E2 /* DriverNoticeRequestTableViewCell.swift in Sources */,
+				C8888AE3205B9EED00E49B27 /* GuardViewController.swift in Sources */,
 				3E7ACA5D205788CF003EB8E2 /* ShowAlert.swift in Sources */,
-				C8E41F9C205018DF00F3C77D /* DriverRecordViewController.swift in Sources */,
-				C8349E1A204E7F4C0011B124 /* GuardViewController.swift in Sources */,
+				C8888AFB205B9F2E00E49B27 /* DriverNoticeReceivedTableViewCell.swift in Sources */,
+				C8888AFC205B9F2E00E49B27 /* PassengerNoticeRequestTableViewCell.swift in Sources */,
+				C8888AEF205B9F0E00E49B27 /* PassengerRecordViewController.swift in Sources */,
 				3E8AC8F82049948A00DDD5AE /* MapViewController.swift in Sources */,
+				C8888AF3205B9F0E00E49B27 /* DriverRecordViewController.swift in Sources */,
+				C8888AFF205B9F2E00E49B27 /* NoticeViewController.swift in Sources */,
+				C8888AFE205B9F2E00E49B27 /* PassengerNoticeReceivedTableViewCell.swift in Sources */,
 				3E0918D7205134CA008688D0 /* Communicator.swift in Sources */,
+				C8888AF2205B9F0E00E49B27 /* EvaluaionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

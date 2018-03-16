@@ -5,8 +5,6 @@
 //  Created by Amber Yang on 2018/3/2.
 //
 
-//////////Test///////////
-
 import UIKit
 
 class SettingViewController: UIViewController, UITextFieldDelegate{
@@ -20,11 +18,13 @@ class SettingViewController: UIViewController, UITextFieldDelegate{
         basicContainer.isHidden = false
         driveContainer.isHidden = true
         guardContainer.isHidden = true
-
     }
 
     @IBAction func logoutBtnPressed(_ sender: Any) {
-        self.dismiss(animated: false, completion:nil)
+        //...
+        dismiss(animated: true, completion:nil)
+        print("Logout")
+        
     }
     @IBAction func roleChanged(_ sender: UISegmentedControl) {
         

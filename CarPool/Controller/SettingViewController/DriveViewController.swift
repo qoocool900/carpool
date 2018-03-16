@@ -32,15 +32,14 @@ class DriveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     let pickerView = UIPickerView()
     var carBrand = "Ferrari"
     var carType = "F430"
-    let loginMemberNo = 1
+    let loginMemberNo = 4
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        pickerView.selectRow(0, inComponent: 0, animated: true)
-//        pickerView.selectRow(0, inComponent: 1, animated: true)
-//        pickerView.selectRow(3, inComponent: 1, animated: true)
-//    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    //    override func viewDidAppear(_ animated: Bool) {
+    //        pickerView.selectRow(0, inComponent: 0, animated: true)
+    //        pickerView.selectRow(0, inComponent: 1, animated: true)
+    //        pickerView.selectRow(3, inComponent: 1, animated: true)
+    //    }
+    override func viewWillAppear(_ animated: Bool) {
         pickerView.dataSource = self
         pickerView.delegate = self
         getCarInfo(memberNo: loginMemberNo)
@@ -49,19 +48,29 @@ class DriveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         carStyleTextField.inputView = pickerView
         carColorTextField.inputView = pickerView
     }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+//        pickerView.dataSource = self
+//        pickerView.delegate = self
+//        getCarInfo(memberNo: loginMemberNo)
+//        getScoreInfo(memberNo: loginMemberNo)
+//        carBrandTextField.inputView = pickerView
+//        carStyleTextField.inputView = pickerView
+//        carColorTextField.inputView = pickerView
+    }
     
     @IBAction func saveBtnPressed(_ sender: Any) {
         modifyMemberInfo(memberNo: loginMemberNo)
     }
     
     
-// MARK: - PickerView
+    // MARK: - PickerView
     let carBrandList =  ["Ferrari","Marserati","Lamborghini"]
     let carStyleFerrariList = ["F430","599", "GTB Fiorano"]
     let carStyleMarseratiList = ["Ghibli","GranCabrio","Levante"]
     let carStyleLamborghiniList = ["Aventador"," Huracan","Huracan Spyder"]
     let carColorList = ["White", "Black", "Blue", "Brown", "Red", "Yellow"]
-
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3
     }
@@ -145,7 +154,7 @@ class DriveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
     }
     
-//MARK: -Keybord Setting
+    //MARK: -Keybord Setting
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -155,35 +164,32 @@ class DriveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         self.view.endEditing(true)
     }
     
-//MARK: -Link to DataBase
-    
+    //MARK: -Link to DataBase
     // Get CarInfo From DataBase
     func getCarInfo(memberNo: Int){
+        var msg: String = ""
         Communicator.shared.getCarInfo(memberNo: memberNo) { (error, result) in
             if let error = error {
-                NSLog("Check member information fail: \(error)")
+                NSLog("伺服器連線錯誤: \(error)")
                 return
             }
             // success
-            print(result!)
-            guard let carNo = result!["carNo"] as? String else {
-                return
-            }
-            guard let brand = result!["brand"] as? String else {
-                return
-            }
-            guard let type = result!["type"] as? String else {
-                return
-            }
-            
-            guard let color = result!["color"] as? String else {
-                return
-            }
-            
-            self.carNumberTextField.text = carNo
-            self.carBrandTextField.text = brand
-            self.carStyleTextField.text = type
-            self.carColorTextField.text = color
+            let response = result!["response"] as! [String:Any]
+            let content = result!["content"] as! [String:Any]
+            let code = response ["code"] as! Int
+            if  code == 0 {
+                let carNo = content["carNo"] as! String
+                let brand = content["brand"] as! String
+                let type = content["type"] as! String
+                let color = content["color"] as! String
+                
+                self.carNumberTextField.text = carNo
+                self.carBrandTextField.text = brand
+                self.carStyleTextField.text = type
+                self.carColorTextField.text = color
+            } 
+            msg = response["msg"] as! String
+            print(msg)
         }
     }
     
@@ -191,62 +197,68 @@ class DriveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     func getScoreInfo(memberNo: Int){
         Communicator.shared.getMemberInfo(memberNo: memberNo) { (error, result) in
             if let error = error {
-                NSLog("Get scoreInfo fail: \(error)")
+                NSLog("伺服器連線錯誤: \(error)")
                 return
             }
             // success
-            print("for score: \(result!)")
-            guard let scoreDriver = result!["scoreDriver"] as? Double else {
-                return
+            let response = result!["response"] as! [String:Any]
+            let content = result!["content"] as! [String:Any]
+            let code = response["code"] as! Int
+            if code == 0 {
+                let scoreDriver = content["scoreDriver"] as! Double
+                let scoreSafty = content["scoreSave"] as! Double
+                let scoreComfort = content["scoreComfort"] as! Double
+                
+                //Setting scoreDriver image
+                self.scoreDriver1ImageView.image = self.checkStarImage(scoreDriver)[0]
+                self.scoreDriver2ImageView.image = self.checkStarImage(scoreDriver)[1]
+                self.scoreDriver3ImageView.image = self.checkStarImage(scoreDriver)[2]
+                self.scoreDriver4ImageView.image = self.checkStarImage(scoreDriver)[3]
+                self.scoreDriver5ImageView.image = self.checkStarImage(scoreDriver)[4]
+                
+                //Setting scoreSafity image
+                self.scoreSafty1ImageView.image = self.checkStarImage(scoreSafty)[0]
+                self.scoreSafty2ImageView.image = self.checkStarImage(scoreSafty)[1]
+                self.scoreSafty3ImageView.image = self.checkStarImage(scoreSafty)[2]
+                self.scoreSafty4ImageView.image = self.checkStarImage(scoreSafty)[3]
+                self.scoreSafty5ImageView.image = self.checkStarImage(scoreSafty)[4]
+                
+                //Setting scoreComfort image
+                self.scoreComfort1ImageView.image = self.checkStarImage(scoreComfort)[0]
+                self.scoreComfort2ImageView.image = self.checkStarImage(scoreComfort)[1]
+                self.scoreComfort3ImageView.image = self.checkStarImage(scoreComfort)[2]
+                self.scoreComfort4ImageView.image = self.checkStarImage(scoreComfort)[3]
+                self.scoreComfort5ImageView.image = self.checkStarImage(scoreComfort)[4]
             }
-            guard let scoreSafty = result!["scoreSave"] as? Double else {
-                return
-            }
-            guard let scoreComfort = result!["scoreComfort"] as? Double else {
-                return
-            }
-            
-            //Setting scoreDriver image
-            self.scoreDriver1ImageView.image = self.checkStarImage(scoreDriver)[0]
-            self.scoreDriver2ImageView.image = self.checkStarImage(scoreDriver)[1]
-            self.scoreDriver3ImageView.image = self.checkStarImage(scoreDriver)[2]
-            self.scoreDriver4ImageView.image = self.checkStarImage(scoreDriver)[3]
-            self.scoreDriver5ImageView.image = self.checkStarImage(scoreDriver)[4]
-            
-            //Setting scoreSafity image
-            self.scoreSafty1ImageView.image = self.checkStarImage(scoreSafty)[0]
-            self.scoreSafty2ImageView.image = self.checkStarImage(scoreSafty)[1]
-            self.scoreSafty3ImageView.image = self.checkStarImage(scoreSafty)[2]
-            self.scoreSafty4ImageView.image = self.checkStarImage(scoreSafty)[3]
-            self.scoreSafty5ImageView.image = self.checkStarImage(scoreSafty)[4]
-            
-            //Setting scoreComfort image
-            self.scoreComfort1ImageView.image = self.checkStarImage(scoreComfort)[0]
-            self.scoreComfort2ImageView.image = self.checkStarImage(scoreComfort)[1]
-            self.scoreComfort3ImageView.image = self.checkStarImage(scoreComfort)[2]
-            self.scoreComfort4ImageView.image = self.checkStarImage(scoreComfort)[3]
-            self.scoreComfort5ImageView.image = self.checkStarImage(scoreComfort)[4]
+            let msg = response["msg"] as! String
+            print(msg)
         }
     }
     
-    //     Modify carInfo to DataBase
+    // Modify carInfo to DataBase
     func modifyMemberInfo(memberNo: Int){
         let car = Car(carNo:carNumberTextField.text!, type:carStyleTextField.text!, color:carColorTextField.text!, brand:carBrandTextField.text!)
         
         Communicator.shared.modifyCarInfo(car, memberNo: memberNo, doneHandler: { (error, result) in
             if let error = error {
-                NSLog("Modify car information fail: \(error)")
+                NSLog("伺服器連線錯誤: \(error)")
                 return
             }
             // success
-            print("Modify car information success!")
+            let response = result!["response"] as! [String:Any]
+            let code = response["code"] as! Int
+            if code == 0 {
+               self.showAlert(message: "更新資料成功")
+            }
+            let msg = response ["msg"] as! String
+            print(msg)
         })
     }
     
-//MARK: - Check Star Image
+    //MARK: - Check Star Image
     func checkStarImage(_ score: Double) -> [UIImage]{
         var checkScore = 0.0
-       
+        
         if score >= 5.0 {
             checkScore = 5.0
         } else if score >= 4.5 {
@@ -276,7 +288,7 @@ class DriveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         var starImage3: UIImage!
         var starImage4: UIImage!
         var starImage5: UIImage!
-
+        
         switch checkScore {
         case 0.5:
             starImage1 = UIImage(named: "star_half")
