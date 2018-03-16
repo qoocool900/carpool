@@ -24,6 +24,7 @@ class GuardViewController: UIViewController{
     }
     
     @IBAction func phonePressed(_ sender: Any) {
+        scanMemberPhone = guarePhoneLabel.text!
         callPhone(phoneNo: scanMemberPhone)
     }
     
