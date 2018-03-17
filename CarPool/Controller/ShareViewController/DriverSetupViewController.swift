@@ -8,7 +8,7 @@
 import UIKit
 
 class DriverSetupViewController: UIViewController {
-
+    
     @IBOutlet weak var Destination: UITextField!
     
     @IBOutlet weak var CarNumber: UITextField!
@@ -46,8 +46,7 @@ class DriverSetupViewController: UIViewController {
         FeeField.placeholder = "請輸入費用, 最高為5000元"
         
         
-        statusField.font = UIFont(name: "System", size: 30)
-        statusField.placeholder = ""
+       
         
         Communicator.shared.checkUser(mail: "a", password: "a") { (error, result) in
             if let error = error {
@@ -94,3 +93,4 @@ class DriverSetupViewController: UIViewController {
          */
     }
 }
+

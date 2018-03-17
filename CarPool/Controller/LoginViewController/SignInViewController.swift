@@ -63,10 +63,10 @@ class SignInViewController: UIViewController,UITextFieldDelegate{
         Communicator.shared.doRegister(member) { (error, result) in
             if let error = error {
                  NSLog("doRegister fail: \(error)")
-//                let alert = UIAlertController (title: "Register agagin?", message: nil, preferredStyle: .alert)
-//                let cancel = UIAlertAction (title: "Cancel", style: .default, handler:nil)
+                 return
             }
             // success
+            self.showAlert(message: "註冊成功")
             NSLog("doRegister ok")
         }
         
