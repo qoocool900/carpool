@@ -15,6 +15,15 @@ extension UIViewController {
         alert.addAction(ok)
         self.present(alert, animated: true, completion: nil)
     }
+    // 尚未完成
+    func showComfirmAlert(message:String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "確認", style: .default, handler: nil)
+        alert.addAction(ok)
+        let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        alert.addAction(cancel)
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension UIViewController {

@@ -33,15 +33,13 @@ class PassengerRecordTableViewCell: UITableViewCell {
             dateLabel.text = recordData?.date
             driverNameLabel.text = recordData?.driverName
             carNumberLabel.text = recordData?.carNumber
+            onTimeLabel.text = recordData?.onTime
+            offTimeLabel.text = recordData?.offTime
             driverPhone = (recordData?.driverPhone)!
         }
     }
     
     @IBAction func phoneBtnPressed(_ sender: Any) {
         callPhone(phoneNo: driverPhone)
-    }
-    
-    @IBAction func evluationBtnPressed(_ sender: Any) {
-
     }
 }

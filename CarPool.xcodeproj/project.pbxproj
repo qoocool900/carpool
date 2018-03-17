@@ -201,13 +201,13 @@
 		3E7ACA2520576233003EB8E2 /* NoticeViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C8888AF4205B9F2D00E49B27 /* DriverNoticeReceivedTableViewCell.swift */,
-				C8888AF6205B9F2D00E49B27 /* DriverNoticeRequestTableViewCell.swift */,
-				C8888AF9205B9F2E00E49B27 /* DriverNoticeViewController.swift */,
 				C8888AF8205B9F2D00E49B27 /* NoticeViewController.swift */,
 				C8888AFA205B9F2E00E49B27 /* PassagerNoticeViewController.swift */,
 				C8888AF7205B9F2D00E49B27 /* PassengerNoticeReceivedTableViewCell.swift */,
 				C8888AF5205B9F2D00E49B27 /* PassengerNoticeRequestTableViewCell.swift */,
+				C8888AF9205B9F2E00E49B27 /* DriverNoticeViewController.swift */,
+				C8888AF4205B9F2D00E49B27 /* DriverNoticeReceivedTableViewCell.swift */,
+				C8888AF6205B9F2D00E49B27 /* DriverNoticeRequestTableViewCell.swift */,
 			);
 			path = NoticeViewController;
 			sourceTree = "<group>";
@@ -316,11 +316,11 @@
 		C8349E14204E7EB40011B124 /* SettingViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C8888ADC205B9EEC00E49B27 /* SettingViewController.swift */,
 				C8888ADD205B9EEC00E49B27 /* BasicViewController.swift */,
 				C8888ADA205B9EEC00E49B27 /* DriveViewController.swift */,
 				C8888ADE205B9EEC00E49B27 /* GuardViewController.swift */,
 				C8888ADB205B9EEC00E49B27 /* QRcodeViewController.swift */,
-				C8888ADC205B9EEC00E49B27 /* SettingViewController.swift */,
 			);
 			path = SettingViewController;
 			sourceTree = "<group>";
@@ -328,14 +328,14 @@
 		C8E41F98204EF4BA00F3C77D /* RecordViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C8888AE8205B9F0D00E49B27 /* DriverDetailRecordViewController.swift */,
-				C8888AE6205B9F0D00E49B27 /* DriverRecordDetailTableViewCell.swift */,
-				C8888AE4205B9F0C00E49B27 /* DriverRecordTableViewCell.swift */,
-				C8888AEB205B9F0E00E49B27 /* DriverRecordViewController.swift */,
-				C8888AEA205B9F0D00E49B27 /* EvaluaionViewController.swift */,
-				C8888AE5205B9F0C00E49B27 /* PassengerRecordTableViewCell.swift */,
-				C8888AE7205B9F0D00E49B27 /* PassengerRecordViewController.swift */,
 				C8888AE9205B9F0D00E49B27 /* RecordViewController.swift */,
+				C8888AE7205B9F0D00E49B27 /* PassengerRecordViewController.swift */,
+				C8888AE5205B9F0C00E49B27 /* PassengerRecordTableViewCell.swift */,
+				C8888AEB205B9F0E00E49B27 /* DriverRecordViewController.swift */,
+				C8888AE8205B9F0D00E49B27 /* DriverDetailRecordViewController.swift */,
+				C8888AE4205B9F0C00E49B27 /* DriverRecordTableViewCell.swift */,
+				C8888AE6205B9F0D00E49B27 /* DriverRecordDetailTableViewCell.swift */,
+				C8888AEA205B9F0D00E49B27 /* EvaluaionViewController.swift */,
 			);
 			path = RecordViewController;
 			sourceTree = "<group>";
