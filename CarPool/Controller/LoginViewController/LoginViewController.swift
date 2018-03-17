@@ -27,15 +27,20 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
                 return
             }
             // success
+            // Prepare userdefault for MemberNo
+            let content = result!["content"] as![String:Any]
+            let memberNo = content["memberNo"] as? Int
+            let defaults = UserDefaults.standard
+            defaults.set(memberNo, forKey: "memberNo")
+            defaults.synchronize()
+            print(defaults.integer(forKey: "memberNo"))
+            // print(56778)
+            
+            // Feedbacks of responses from the server
             let response = result!["response"] as! [String:Any]
             let code = response["code"] as! Int
             if code == 0 {
-                //let memberNo =
-//                let defaults = UserDefaults.standard
-//                defaults.set(String(describing: resultNew["first_name"]), forKey: "first_name")
-//                defaults.synchronize()
-//                print(defaults.string(forKey: "first_name")
-                    
+                
                 button.startAnimation() // 2: Then start the animation when the user tap the button
                 let qualityOfServiceClass = DispatchQoS.QoSClass.background
                 let backgroundQueue = DispatchQueue.global(qos: qualityOfServiceClass)
@@ -196,22 +201,9 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
                         NSLog("doFBRegister ok")
                         
                     })
-                    //                    Communicator.shared.checkUser(fbMember.email: "0", fbMember.firstName: "a") { (error, result) in
-                    //                        if let error = error {
-                    //                            NSLog("checkUser fail: \(error)")
-                    //                            let msg = result!["msg"] as? String
-                    //                            return
-                    //                        }
-                    //                        // success
-                    //                        print(result!)
-                    //                        guard let memberNo = result!["memberNo"] as? Int else {
-                    //                            return
-                    //                        }
-                    //                        guard let memberName = result!["memberNo"] as? Int else {
-                    //                            return
-                    //                        }
+                    //Communicator.share.fbCheckUrl //
                     
-                    
+                    //........
                 }
                 // show main page
                 

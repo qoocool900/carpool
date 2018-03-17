@@ -1,6 +1,6 @@
 //
 //  SignInViewController.swift
-//  
+//
 //
 //  Created by 胡靜諭 on 2018/3/8.
 //
@@ -8,10 +8,8 @@
 import UIKit
 import TransitionButton
 
-
-
 class SignInViewController: UIViewController,UITextFieldDelegate{
- 
+    
     
     @IBOutlet weak var FirstName: UITextField!
     
@@ -27,7 +25,7 @@ class SignInViewController: UIViewController,UITextFieldDelegate{
     
     
     @IBAction func SaveMemberInfoButton(_ sender: Any) {
-       
+        
         // 其實這邊也是像andriod那邊一樣 一個值一個值放
         let member = Member()
         
@@ -62,34 +60,23 @@ class SignInViewController: UIViewController,UITextFieldDelegate{
         // 最後把剛剛那個member丟到 doRegister
         Communicator.shared.doRegister(member) { (error, result) in
             if let error = error {
-                 NSLog("doRegister fail: \(error)")
-                 return
+                NSLog("doRegister fail: \(error)")
+                return
             }
             // success
             self.showAlert(message: "註冊成功")
             NSLog("doRegister ok")
         }
         
-        
-//        // 這裡示範一個一個放的寫法，其實兩種都是一個一個放，只是方式不同，你看你想用哪種，如果要下面這種，我就改寫法
-//        Communicator.shared.doRegisterOneByOne(mail: EmailText.text!, password: Password.text!, lastName: LastName.text!, firstName: FirstName.text!, phone: PhoneText.text!, sex: Gender.text!, udid: "") { (error, result) in
-//            if let error = error {
-//
-//            }
-//            // success
-//            print(result!)
-//        }
-//            }
-
-      }
-        
-
-        
-        
+    }
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         FirstName.placeholder = "First Name"
         FirstName.font = UIFont(name: "System", size: 30)
         
@@ -117,24 +104,24 @@ class SignInViewController: UIViewController,UITextFieldDelegate{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(false)
     }
-   
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 
