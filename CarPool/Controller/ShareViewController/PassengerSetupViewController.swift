@@ -20,7 +20,7 @@ class PassengerSetupViewController: UIViewController {
   
     @IBAction func SavePassengerBtn(_ sender: Any) {
         
-        let savePassengerRecord = Trip(tripId: "", memberNo: 0,  destination: "", boarding: "", people: 0, onMap:0 , status:0 , date: "")
+        let savePassengerRecord = Trip(tripId: "", memberNo: 0,  destination: "", boarding: "", people: 0, onMap:0 , status:0 , date: "", boardingLat: 0.0, boardingLon: 0.0, destinationLat: 0.0, destinationLon: 0.0)
         
         guard DestinationPassenger.text != "" else{
             return

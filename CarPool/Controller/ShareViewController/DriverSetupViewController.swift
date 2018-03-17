@@ -22,7 +22,7 @@ class DriverSetupViewController: UIViewController {
     @IBAction func SaveButton(_ sender: Any) {
         
         //        //先判別是否空值  //
-        var tripA = DriverTrip(tripId: 0, memberNo: 1, destination: "", carNo: "", people: 1, fee: 11, status: 1, date: "")
+        var tripA = DriverTrip(tripId: 0, memberNo: 1, departure: "", destination: "", carNo: "", people: 1, fee: 11, status: 1, date: "", departureLat: 0.0, departureLon: 0.0, destinationLat: 0.0, destinationLon: 0.0)
         //
         //        Communicator.shared.modifyTrip(tripA) { (error, result) in
         //            <#code#>
