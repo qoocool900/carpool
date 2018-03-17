@@ -5,7 +5,7 @@ import FBSDKLoginKit
 import TransitionButton
 
 
-
+// Login revised
 class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDelegate {
     
     @IBOutlet weak var UserMailTextField: UITextField!
