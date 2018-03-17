@@ -17,13 +17,53 @@ class PassengerSetupViewController: UIViewController {
     @IBOutlet weak var PeopleNumber: UITextField!
     
     
-    @IBOutlet weak var Status: UITextField!
+  
+    @IBAction func SavePassengerBtn(_ sender: Any) {
+        
+        let savePassengerRecord = Trip(tripId: "", memberNo: 0,  destination: "", boarding: "", people: 0, onMap:0 , status:0 , date: "")
+        
+        guard DestinationPassenger.text != "" else{
+            return
+        }
+        
+        guard BoardingPoint.text != "" else{
+            return
+        }
+        guard PeopleNumber.text != "" else{
+            return
+        }
+        
     
-    
-    @IBOutlet weak var DatePicker: UIDatePicker!
+        savePassengerRecord.destination = DestinationPassenger.text!
+        savePassengerRecord.boarding = BoardingPoint.text!
+        savePassengerRecord.people = Int(PeopleNumber.text!)!
+        
+        Communicator.shared.modifyTrip(savePassengerRecord, mode: "C") { (error, result) in
+            if let error = error {
+                NSLog("doRegister fail: \(error)")
+            
+                NSLog("乘客發起失敗")
+                self.showAlert(message: "發起失敗")
+            }
+            // success
+            NSLog("乘客發起成功")
+            self.showAlert(message: "發起成功")
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        DestinationPassenger.font = UIFont(name: "System", size: 25)
+        DestinationPassenger.placeholder = "請輸入您要去的目的地"
+        
+        BoardingPoint.font = UIFont(name: "System", size: 25)
+        BoardingPoint.placeholder = "請輸入您的上車地點"
+        
+        PeopleNumber.font = UIFont(name: "System", size: 25)
+        PeopleNumber.placeholder = "請輸入您的人數"
 
         // Do any additional setup after loading the view.
     }
