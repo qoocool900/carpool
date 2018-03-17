@@ -8,8 +8,7 @@
 import UIKit
 
 class EvaluaionViewController: UIViewController {
-    
-    @IBOutlet weak var backImageView: UIImageView!
+
     @IBOutlet weak var scoreDriver1Btn: UIButton!
     @IBOutlet weak var scoreDriver2Btn: UIButton!
     @IBOutlet weak var scoreDriver3Btn: UIButton!
@@ -26,12 +25,13 @@ class EvaluaionViewController: UIViewController {
     @IBOutlet weak var scoreComfort4Btn: UIButton!
     @IBOutlet weak var scoreComfort5Btn: UIButton!
     
-    let loginMemberNo = "1"
-    let driverMemberNo = "1"
+    let loginMemberNo = 3
+    var driverMemberNo: Int = 0
+    var driverTripId: String = ""
     
-    var scoreDriver = 0.0
-    var scoreSafty = 0.0
-    var scoreComfort = 0.0
+    var scoreDriver: Float = 0.0
+    var scoreSafty: Float = 0.0
+    var scoreComfort: Float = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -170,24 +170,37 @@ class EvaluaionViewController: UIViewController {
     }
     
     @IBAction func sendBtnPressed(_ sender: Any) {
+        addEvaluation(loginMemberNo: loginMemberNo, driverMemberNo: driverMemberNo)
+        print("driverMemberNo: \(driverMemberNo),driverTripId:\(driverTripId)")
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func backBtnPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
+//    func addEvaluation(tripId:String, memberNo:Int, driverMemberNo:Int, scoreDriver:Float, scoreSafe:Float, scoreComfort:Float, doneHandler:@escaping DoneHandler) {
+//        let parameters: [String : Any] = [ACTION:"addEvaluation", "tripID":tripId, "memberNo":memberNo, "driverMemberNo":driverMemberNo, "scoreDriver":scoreDriver, "scoreSafe":scoreSafe, "scoreComfort":scoreComfort]
+//        doPost(urlString: RECORD_URL, parameters: parameters, doneHandler: doneHandler)
+//    }
     
-//MARK: -Link to DataBase
-    //     Modify MemberInfo to DataBase
-    func modifyMemberInfo(memberNo: Int){
-        let member = Member()
-        member.memberNo = memberNo
-       
-        Communicator.shared.modifyMemberInfo(member) { (error, result) in
+//MARK: -AddEvaluation to DataBase
+    func addEvaluation(loginMemberNo: Int, driverMemberNo: Int){
+        print("Evluation Data - tripId: \(driverTripId), memberNo: \(loginMemberNo), driverMemberNo: \(driverMemberNo), scoreDriver: \(scoreDriver), scoreSafe: \(scoreSafty), scoreComfort: \(scoreComfort)")
+        
+        Communicator.shared.addEvaluation(tripId: driverTripId, memberNo: loginMemberNo, driverMemberNo: driverMemberNo, scoreDriver: scoreDriver, scoreSafe: scoreSafty, scoreComfort: scoreComfort, doneHandler: { (error, result) in
             if let error = error {
-                NSLog("Modify member information fail: \(error)")
+                NSLog("伺服器連線錯誤: \(error)")
                 return
             }
             // success
-            print("Modify member information success!")
-        }
+            let response = result!["response"] as! [String:Any]
+            let code = response["code"] as! Int
+            if code == 0 {
+                self.showAlert(message: "評價成功")
+            }
+            let msg = response ["msg"] as! String
+            print(msg)
+        })
     }
 }

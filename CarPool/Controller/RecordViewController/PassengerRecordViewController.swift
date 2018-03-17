@@ -12,13 +12,16 @@ class PassengerRecordViewController: UIViewController, UITableViewDelegate, UITa
     let sectionArray = ["進行中記錄", "歷史紀錄"]
     var processingItem = PassengerRecord.allProcessingRecord()
     var historyItem = PassengerRecord.allHistoryRecord()
+    var driverMemberNo = 0
+    var driverPhone = ""
+    var driverTripId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.tableView.estimatedRowHeight = 80
-//        self.tableView.rowHeight = UITableViewAutomaticDimension
+        //        self.tableView.estimatedRowHeight = 80
+        //        self.tableView.rowHeight = UITableViewAutomaticDimension
     }
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionArray.count
     }
@@ -65,6 +68,11 @@ class PassengerRecordViewController: UIViewController, UITableViewDelegate, UITa
             let cell = tableView.dequeueReusableCell(withIdentifier: "PassengerRecordCell", for: indexPath) as! PassengerRecordTableViewCell
             let processingRecord = processingItem[indexPath.row]
             cell.recordData = processingRecord
+            driverMemberNo = (cell.recordData?.driverMemberNo)!
+            driverPhone = (cell.recordData?.driverPhone)!
+            driverTripId = (cell.recordData?.driverTripId)!
+            cell.phoneBtn.tag = indexPath.row
+            cell.phoneBtn.addTarget(self, action: #selector(phoneBtnPressed), for: .touchUpInside)
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "PassengerRecordCell", for: indexPath) as! PassengerRecordTableViewCell
@@ -73,8 +81,8 @@ class PassengerRecordViewController: UIViewController, UITableViewDelegate, UITa
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "PassengerRecordCell", for: indexPath) as! PassengerRecordTableViewCell
-//            let processingRecord = processingItem[indexPath.row]
-//            cell.recordData = processingRecord
+            //            let processingRecord = processingItem[indexPath.row]
+            //            cell.recordData = processingRecord
             return cell
         }
     }
@@ -86,8 +94,17 @@ class PassengerRecordViewController: UIViewController, UITableViewDelegate, UITa
         }
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        <#code#>
-//    }
-
+    //Cell phone button pressed
+    @objc func phoneBtnPressed() {
+        callPhone(phoneNo: driverPhone)
+    }
+    
+    //Cell evluation buttion pressed
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? EvaluaionViewController{
+            vc.driverMemberNo = self.driverMemberNo
+            vc.driverTripId = self.driverTripId
+            print("driverMemberNo: \(driverMemberNo),driverTripId:\(driverTripId)")
+        }
+    }
 }
