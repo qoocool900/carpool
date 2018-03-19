@@ -12,6 +12,7 @@ class DriverRecordViewController: UIViewController, UITableViewDelegate, UITable
     let sectionArray = ["進行中記錄", "歷史紀錄"]
     var processingItem = DriverRecord.allProcessingRecord()
     var historyItem = DriverRecord.allHistoryRecord()
+    var seqNo = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,23 +64,23 @@ class DriverRecordViewController: UIViewController, UITableViewDelegate, UITable
             let cell = tableView.dequeueReusableCell(withIdentifier: "DriverRecordCell", for: indexPath) as! DriverRecordTableViewCell
             let processingRecord = processingItem[indexPath.row]
             cell.recordData = processingRecord
+            seqNo = (cell.recordData?.seqNo)!
             return cell
-        case 1:
+
+        default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DriverRecordCell", for: indexPath) as! DriverRecordTableViewCell
             let historyRecord = historyItem[indexPath.row]
             cell.recordData = historyRecord
             return cell
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "DriverRecordCell", for: indexPath) as! DriverRecordTableViewCell
-            let processingRecord = processingItem[indexPath.row]
-            cell.recordData = processingRecord
-            return cell
         }
     }
     
-    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //        <#code#>
-    //    }
-    
+    //Cell Detail buttion pressed
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? DriverDetailRecordViewController{
+            vc.seqNo = self.seqNo
+            print("seqNo: \(seqNo)")
+        }
+    }
 }
 

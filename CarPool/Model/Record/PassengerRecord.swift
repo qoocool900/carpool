@@ -8,72 +8,78 @@
 import Foundation
 
 class PassengerRecord{
-    
     var startLocation: String
     var endLocation: String
     var date: String
-    var driverName: String
+    var driverFirstName: String
+    var driverLastName: String
     var carNumber: String
     var driverPhone:String
-    var loginMember = 1
     var onTime: String
     var offTime: String
+    var driverMemberNo: Int
+    var driverTripId: String
     
-    init(_ startLocation: String, _ endLocation: String, _ date: String, _ driverName: String, _ carNumber: String,
-         _ driverPhone: String,_ onTime: String, _ offTime: String) {
+    init(startLocation: String, endLocation: String, date: String, driverFirstName: String, driverLastName: String, carNumber: String, driverPhone: String, onTime: String, offTime: String, driverMemberNo: Int, driverTripId: String) {
         self.startLocation = startLocation
         self.endLocation = endLocation
         self.date = date
-        self.driverName = driverName
+        self.driverFirstName = driverFirstName
+        self.driverLastName = driverLastName
         self.carNumber = carNumber
         self.driverPhone = driverPhone
         self.onTime = onTime
         self.offTime = offTime
+        self.driverMemberNo = driverMemberNo
+        self.driverTripId = driverTripId
     }
     
     static func allProcessingRecord() -> [PassengerRecord] {
-        let processingRecord = PassengerRecord("台北車站","世貿中心", "2018/01/11","Eric Lin","ABC-1234", "0911111111","13:00","13:20")
+        let processingRecord = PassengerRecord(startLocation: "台北車站",endLocation: "世貿中心", date: "2018/01/11",driverFirstName: "Eric ",driverLastName: "Lin",carNumber: "ABC-1234", driverPhone: "0911111111",onTime: "13:00",offTime: "13:20", driverMemberNo: 3,driverTripId: "D180308004")
         return [processingRecord]
     }
     
     static func allHistoryRecord() -> [PassengerRecord] {
-        let record1 = PassengerRecord("台北101","木柵動物園", "2018/01/03","Alan Lee","ABC-5678", "0922222222","13:00","13:20")
-        let record2 = PassengerRecord("新光三越南西店","忠孝東路ＳＯＧＯ", "2018/01/02","Patric Lo","DEF-1234","0933333333","13:00","13:20")
-        let record3 = PassengerRecord("台北國稅局","宏泰世紀大樓", "2018/01/01","Grace Wang","DEF-5678","0944444444","13:00","13:20")
+        let record1 = PassengerRecord(startLocation: "台北101",endLocation: "木柵動物園", date: "2018/01/03",driverFirstName: "Alan",driverLastName: "Lee",carNumber: "ABC-5678", driverPhone: "0922222222",onTime: "13:00",offTime: "13:20", driverMemberNo: 3,driverTripId: "D180308003")
+        let record2 = PassengerRecord(startLocation: "新光三越南西店",endLocation: "忠孝東路ＳＯＧＯ", date: "2018/01/02",driverFirstName: "Patric",driverLastName: "Lo",carNumber: "DEF-1234",driverPhone: "0933333333",onTime: "13:00",offTime: "13:20", driverMemberNo: 3,driverTripId: "D180308002")
+        let record3 = PassengerRecord(startLocation: "台北國稅局",endLocation: "宏泰世紀大樓", date: "2018/01/01",driverFirstName: "Grace",driverLastName: "Wang",carNumber: "DEF-5678",driverPhone: "0944444444",onTime: "13:00",offTime: "13:20", driverMemberNo: 3,driverTripId: "D180308001")
         return [record1,record2,record3]
     }
     
     //MARK: -Link to DataBase
-    
-    // Get myTrip - passenger from database
-//    func getMyTrip(memberNo: Int){
-//        Communicator.shared.getMyTrips(memberNo: memberNo, role: 0) { (error, result) in
+//    static func getPassengerRecordInfo(loginMemberNo: Int) -> [PassengerRecord]{
+//        var recordings = [PassengerRecord]()
+//        Communicator.shared.getMatchRecords(memberNo: loginMemberNo, status: 0, role: 0) { (error, result) in
 //            if let error = error {
-//                NSLog("get myTrip information fail: \(error)")
+//                NSLog("伺服器連線錯誤: \(error)")
 //                return
 //            }
-//            乘客：   {"response":{"code":0,"msg":"Success ”},"content":[{ “tripID”:””, ”memberNo”:””, “destination”:””, “people”:””, “date”:””, “onMap”:””, “boarding”:””, “lat”:””, “lon”:”” }]}
 //            // success
-//            print(result!)
-//            guard let starLoation = result!["boarding"] as? String else {
-//                return
+//            let response = result!["response"] as! [String:Any]
+//            let content = result!["content"] as! [[String:Any]]
+//            let code = response["code"] as! Int
+//
+//            if code == 0 {
+//                var recording: PassengerRecord
+//                for record in content{
+//                    let startLocation = record["boarding"] as! String
+//                    let endLocation = record["destination"] as! String
+//                    let date = record["date"] as! String
+//                    let driverFirstName = record["firstName"] as! String
+//                    let driverLastName = record["lastName"] as! String
+//                    let carNumber = record["carNo"] as! String
+//                    let driverPhone = record["phone"] as! String
+//                    let onTime = record["onTime"] as! String
+//                    let offTime = record["offTime"] as! String
+//                    let driverMemberNo = record["memberNo"] as! Int
+//                    let driverTripId = record["tripID"] as! String
+//                    recording = PassengerRecord(startLocation: startLocation,endLocation: endLocation, date: date,driverFirstName: driverFirstName,driverLastName: driverLastName,carNumber: carNumber,driverPhone: driverPhone,onTime: onTime,offTime: offTime, driverMemberNo: driverMemberNo,driverTripId: driverTripId)
+//                    recordings.append(recording)
+//                }
 //            }
-//            guard let endLocation = result!["destination"] as? String else {
-//                return
-//            }
-//            guard let date = result!["date"] as? String else {
-//                return
-//            }
-//            
-//            guard let sex = result!["sex"] as? String else {
-//                return
-//            }
-//            
-//            self.lastNameTextField.text = lastName
-//            self.firstNameTextField.text = firstName
-//            self.phoneTextField.text = phone
-//            self.gander = sex
-//            self.checkGander(gander: self.gander)
+//            let msg = response ["msg"] as! String
+//            print(msg)
 //        }
+//        return recordings
 //    }
 }

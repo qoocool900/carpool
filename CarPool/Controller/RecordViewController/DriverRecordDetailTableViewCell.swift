@@ -16,6 +16,8 @@ class DriverRecordDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var onTimeLabel: UILabel!
     @IBOutlet weak var offTimeLabel: UILabel!
     var passengerPhone = ""
+    var passengerTripId: String = ""
+    var seqNo: Int = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,15 +34,16 @@ class DriverRecordDetailTableViewCell: UITableViewCell {
         didSet {
             startLocationLabel.text = recordData?.startLocation
             endLocationLabel.text = recordData?.endLocation
-            passengerNameLabel.text = recordData?.passengerName
+            let passengerFirstName = (recordData?.passengerFirstName)!
+            let passengerLastName = (recordData?.passengerLastName)!
+            passengerNameLabel.text = passengerLastName + passengerFirstName
             onTimeLabel.text = recordData?.onTime
             offTimeLabel.text = recordData?.offTime
+            passengerPhone = (recordData?.passengerPhone)!
         }
     }
-    
     @IBAction func phoneBtnPressed(_ sender: Any) {
         callPhone(phoneNo: passengerPhone)
     }
-    
 }
 

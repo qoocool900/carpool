@@ -176,10 +176,6 @@
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                             <state key="normal" image="passenger"/>
-                                                                            <connections>
-                                                                                <action selector="passengerBtnPressed:" destination="rIo-g4-01z" eventType="touchUpInside" id="REy-nJ-jMj"/>
-                                                                                <segue destination="KcC-2h-0wC" kind="show" id="Zwy-fm-YGo"/>
-                                                                            </connections>
                                                                         </button>
                                                                     </subviews>
                                                                 </stackView>
@@ -218,16 +214,17 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="xal-PR-W4x" id="7Ux-At-KQc"/>
+                        <segue destination="KcC-2h-0wC" kind="show" identifier="goDetail" id="zy8-bc-y5J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xgu-VV-lxl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="844" y="443"/>
+            <point key="canvasLocation" x="844" y="442.5787106446777"/>
         </scene>
         <!--Driver Detail Record View Controller-->
         <scene sceneID="9jH-tS-ORI">
             <objects>
-                <viewController id="KcC-2h-0wC" customClass="DriverDetailRecordViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DriverDetailRecordViewController" id="KcC-2h-0wC" customClass="DriverDetailRecordViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NRq-Mw-lz1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="506"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -371,7 +368,7 @@
                                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                             <state key="normal" image="phone"/>
                                                                             <connections>
-                                                                                <action selector="phoneBtnPressed:" destination="tkQ-ik-kAV" eventType="touchUpInside" id="dbw-on-VUd"/>
+                                                                                <action selector="phoneBtnPressed:" destination="tkQ-ik-kAV" eventType="touchUpInside" id="8Hn-y0-Jcg"/>
                                                                             </connections>
                                                                         </button>
                                                                     </subviews>
@@ -493,10 +490,10 @@
                                                             <rect key="frame" x="0.0" y="29" width="359" height="54.5"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="BP0-Xp-Zy7">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="219" height="54.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="284.5" height="54.5"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NPJ-VS-fSK">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="219" height="18"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="284.5" height="18"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日期：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="dNh-i6-OJL">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="43" height="18"/>
@@ -505,7 +502,7 @@
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="2018/01/01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="anJ-I2-4b7">
-                                                                                    <rect key="frame" x="43" y="0.0" width="176" height="18"/>
+                                                                                    <rect key="frame" x="43" y="0.0" width="241.5" height="18"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                                     <nil key="highlightedColor"/>
@@ -513,22 +510,22 @@
                                                                             </subviews>
                                                                         </stackView>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NKn-DD-VoH">
-                                                                            <rect key="frame" x="0.0" y="18" width="219" height="18.5"/>
+                                                                            <rect key="frame" x="0.0" y="18" width="284.5" height="18.5"/>
                                                                             <subviews>
                                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="B9j-Td-XXe">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="219" height="18.5"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="284.5" height="18.5"/>
                                                                                     <subviews>
                                                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Qb-oL-8Jy">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="99.5" height="18.5"/>
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="132" height="18.5"/>
                                                                                             <subviews>
                                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="上車時間：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6ZD-bp-EA2">
-                                                                                                    <rect key="frame" x="0.0" y="0.0" width="67.5" height="18.5"/>
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="71.5" height="18.5"/>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                     <color key="textColor" red="0.1960784314" green="0.65490196079999996" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                                     <nil key="highlightedColor"/>
                                                                                                 </label>
                                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="12:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MRW-gR-5Vl">
-                                                                                                    <rect key="frame" x="67.5" y="0.0" width="32" height="18.5"/>
+                                                                                                    <rect key="frame" x="71.5" y="0.0" width="60.5" height="18.5"/>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                                                     <nil key="highlightedColor"/>
@@ -536,7 +533,7 @@
                                                                                             </subviews>
                                                                                         </stackView>
                                                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yOj-zG-kJ7">
-                                                                                            <rect key="frame" x="119.5" y="0.0" width="99.5" height="18.5"/>
+                                                                                            <rect key="frame" x="152" y="0.0" width="132.5" height="18.5"/>
                                                                                             <subviews>
                                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下車時間：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="q0w-Kz-tRr">
                                                                                                     <rect key="frame" x="0.0" y="0.0" width="71.5" height="18.5"/>
@@ -545,7 +542,7 @@
                                                                                                     <nil key="highlightedColor"/>
                                                                                                 </label>
                                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="12:20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DP5-Ud-tQz">
-                                                                                                    <rect key="frame" x="71.5" y="0.0" width="28" height="18.5"/>
+                                                                                                    <rect key="frame" x="71.5" y="0.0" width="61" height="18.5"/>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                                                     <nil key="highlightedColor"/>
@@ -557,13 +554,13 @@
                                                                             </subviews>
                                                                         </stackView>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9i4-Ck-2b2">
-                                                                            <rect key="frame" x="0.0" y="36.5" width="219" height="18"/>
+                                                                            <rect key="frame" x="0.0" y="36.5" width="284.5" height="18"/>
                                                                             <subviews>
                                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yhE-gg-TiA">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="219" height="18"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="284.5" height="18"/>
                                                                                     <subviews>
                                                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVk-D0-MwF">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="99.5" height="18"/>
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="132" height="18"/>
                                                                                             <subviews>
                                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="司機：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wdK-ha-UyP">
                                                                                                     <rect key="frame" x="0.0" y="0.0" width="43" height="18"/>
@@ -572,7 +569,7 @@
                                                                                                     <nil key="highlightedColor"/>
                                                                                                 </label>
                                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Bob" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dyw-kH-rDN">
-                                                                                                    <rect key="frame" x="43" y="0.0" width="56.5" height="18"/>
+                                                                                                    <rect key="frame" x="43" y="0.0" width="89" height="18"/>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                                                     <nil key="highlightedColor"/>
@@ -580,7 +577,7 @@
                                                                                             </subviews>
                                                                                         </stackView>
                                                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKB-78-wY5">
-                                                                                            <rect key="frame" x="119.5" y="0.0" width="99.5" height="18"/>
+                                                                                            <rect key="frame" x="152" y="0.0" width="132.5" height="18"/>
                                                                                             <subviews>
                                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="車號：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="csQ-qE-PNc">
                                                                                                     <rect key="frame" x="0.0" y="0.0" width="43" height="18"/>
@@ -589,7 +586,7 @@
                                                                                                     <nil key="highlightedColor"/>
                                                                                                 </label>
                                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="ABC-1234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QM5-4o-Ltf">
-                                                                                                    <rect key="frame" x="43" y="0.0" width="56.5" height="18"/>
+                                                                                                    <rect key="frame" x="43" y="0.0" width="89.5" height="18"/>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                                                     <nil key="highlightedColor"/>
@@ -603,28 +600,17 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vVa-tC-Bpx">
-                                                                    <rect key="frame" x="239" y="0.0" width="120" height="54.5"/>
+                                                                    <rect key="frame" x="304.5" y="0.0" width="54.5" height="54.5"/>
                                                                     <subviews>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oa4-GQ-xzp">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="55.5" height="54.5"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="width" secondItem="oa4-GQ-xzp" secondAttribute="height" multiplier="1:1" id="dg2-PQ-7MZ"/>
-                                                                            </constraints>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                            <state key="normal" image="evluation"/>
-                                                                            <connections>
-                                                                                <segue destination="nT4-kl-kT3" kind="presentation" modalTransitionStyle="flipHorizontal" id="qad-zJ-qDY"/>
-                                                                            </connections>
-                                                                        </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RGc-je-hna">
-                                                                            <rect key="frame" x="65.5" y="0.0" width="54.5" height="54.5"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="54.5" height="54.5"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="RGc-je-hna" secondAttribute="height" multiplier="1:1" id="GBO-gE-sP3"/>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                             <state key="normal" image="phone"/>
                                                                             <connections>
-                                                                                <action selector="phoneBtnPressed:" destination="MrL-U4-6mT" eventType="touchUpInside" id="mER-vN-lqk"/>
+                                                                                <action selector="phoneBtnPressed:" destination="MrL-U4-6mT" eventType="touchUpInside" id="vf8-Cp-UAc"/>
                                                                             </connections>
                                                                         </button>
                                                                     </subviews>
@@ -646,11 +632,11 @@
                                             <outlet property="dateLabel" destination="anJ-I2-4b7" id="ztq-bc-t8t"/>
                                             <outlet property="driverNameLabel" destination="dyw-kH-rDN" id="jG1-vh-5Wv"/>
                                             <outlet property="endLocationLabel" destination="ced-z1-Dw6" id="9IX-DV-OFa"/>
-                                            <outlet property="evluationBtn" destination="oa4-GQ-xzp" id="LJo-Da-2f8"/>
                                             <outlet property="offTimeLabel" destination="DP5-Ud-tQz" id="VhV-1y-HAP"/>
                                             <outlet property="onTimeLabel" destination="MRW-gR-5Vl" id="Msl-GE-BVR"/>
                                             <outlet property="phoneBtn" destination="RGc-je-hna" id="lgz-4H-vnf"/>
                                             <outlet property="startLocationLabel" destination="IXk-Bl-0fv" id="1EW-XS-p4U"/>
+                                            <segue destination="nT4-kl-kT3" kind="show" id="8nh-lR-w88"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -674,196 +660,216 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Pc-dB-ZXF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="842.39999999999998" y="-159.22038980509745"/>
+            <point key="canvasLocation" x="844" y="-149"/>
         </scene>
         <!--Evaluaion View Controller-->
         <scene sceneID="XYP-AF-VHh">
             <objects>
-                <viewController id="nT4-kl-kT3" customClass="EvaluaionViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EvaluaionViewController" id="nT4-kl-kT3" customClass="EvaluaionViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jkC-AR-r2L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="506"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OYP-7o-OVN">
-                                <rect key="frame" x="10" y="30" width="355" height="466"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mpa-ld-s4W">
+                                <rect key="frame" x="20" y="40" width="335" height="446"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ffk-6L-80l">
-                                        <rect key="frame" x="0.0" y="91" width="355" height="284"/>
+                                    <stackView opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OYP-7o-OVN">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="446"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="駕駛評價" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kX5-RC-g1C">
-                                                <rect key="frame" x="136.5" y="0.0" width="82" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <color key="textColor" red="0.1960784314" green="0.65490196079999996" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="WIp-eq-rts">
-                                                <rect key="frame" x="41.5" y="54" width="272" height="130"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ffk-6L-80l">
+                                                <rect key="frame" x="0.0" y="66" width="335" height="314"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UIT-ht-rxo">
-                                                        <rect key="frame" x="0.0" y="0.0" width="272" height="30"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="駕駛評價" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kX5-RC-g1C">
+                                                        <rect key="frame" x="126.5" y="0.0" width="82" height="24"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <color key="textColor" red="0.1960784314" green="0.65490196079999996" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="WIp-eq-rts">
+                                                        <rect key="frame" x="6.5" y="54" width="322" height="160"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="司機友善：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4qK-Wh-4OM">
-                                                                <rect key="frame" x="0.0" y="0.0" width="82" height="30"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <color key="textColor" red="0.1960784314" green="0.65490196079999996" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="e36-bo-OcS">
-                                                                <rect key="frame" x="82" y="0.0" width="190" height="30"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UIT-ht-rxo">
+                                                                <rect key="frame" x="0.0" y="0.0" width="322" height="40"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erw-15-V1u">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                                        <state key="normal" image="star_blank"/>
-                                                                        <connections>
-                                                                            <action selector="scoreDriver1BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="Sct-Ay-XJx"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5IG-hD-rFo">
-                                                                        <rect key="frame" x="40" y="0.0" width="30" height="30"/>
-                                                                        <state key="normal" image="star_blank"/>
-                                                                        <connections>
-                                                                            <action selector="scoreDriver2BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="OTX-va-bEH"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yL-P8-G2m">
-                                                                        <rect key="frame" x="80" y="0.0" width="30" height="30"/>
-                                                                        <state key="normal" image="star_blank"/>
-                                                                        <connections>
-                                                                            <action selector="scoreDriver3BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="cdi-yf-hlm"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDA-sf-oNA">
-                                                                        <rect key="frame" x="120" y="0.0" width="30" height="30"/>
-                                                                        <state key="normal" image="star_blank"/>
-                                                                        <connections>
-                                                                            <action selector="scoreDriver4BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="bAo-uM-fZU"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fau-Xv-M8e">
-                                                                        <rect key="frame" x="160" y="0.0" width="30" height="30"/>
-                                                                        <state key="normal" image="star_blank"/>
-                                                                        <connections>
-                                                                            <action selector="scoreDriver5BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="iN2-c4-Hps"/>
-                                                                        </connections>
-                                                                    </button>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="司機友善：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4qK-Wh-4OM">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="82" height="40"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                        <color key="textColor" red="0.1960784314" green="0.65490196079999996" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="e36-bo-OcS">
+                                                                        <rect key="frame" x="82" y="0.0" width="240" height="40"/>
+                                                                        <subviews>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erw-15-V1u">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                                                <state key="normal" image="star_blank"/>
+                                                                                <connections>
+                                                                                    <action selector="scoreDriver1BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="Sct-Ay-XJx"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5IG-hD-rFo">
+                                                                                <rect key="frame" x="50" y="0.0" width="40" height="40"/>
+                                                                                <state key="normal" image="star_blank"/>
+                                                                                <connections>
+                                                                                    <action selector="scoreDriver2BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="OTX-va-bEH"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yL-P8-G2m">
+                                                                                <rect key="frame" x="100" y="0.0" width="40" height="40"/>
+                                                                                <state key="normal" image="star_blank"/>
+                                                                                <connections>
+                                                                                    <action selector="scoreDriver3BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="cdi-yf-hlm"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDA-sf-oNA">
+                                                                                <rect key="frame" x="150" y="0.0" width="40" height="40"/>
+                                                                                <state key="normal" image="star_blank"/>
+                                                                                <connections>
+                                                                                    <action selector="scoreDriver4BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="bAo-uM-fZU"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fau-Xv-M8e">
+                                                                                <rect key="frame" x="200" y="0.0" width="40" height="40"/>
+                                                                                <state key="normal" image="star_blank"/>
+                                                                                <connections>
+                                                                                    <action selector="scoreDriver5BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="iN2-c4-Hps"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b4x-5q-DKE">
+                                                                <rect key="frame" x="0.0" y="60" width="322" height="40"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="安全駕駛：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="F97-W1-5VH">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="82" height="40"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                        <color key="textColor" red="0.1960784314" green="0.65490196079999996" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WyU-qt-lwF">
+                                                                        <rect key="frame" x="82" y="0.0" width="240" height="40"/>
+                                                                        <subviews>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTZ-sg-fwU">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                                                <state key="normal" image="star_blank"/>
+                                                                                <connections>
+                                                                                    <action selector="scoreSafty1BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="lGm-Bz-Da8"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCP-Df-UQe">
+                                                                                <rect key="frame" x="50" y="0.0" width="40" height="40"/>
+                                                                                <state key="normal" image="star_blank"/>
+                                                                                <connections>
+                                                                                    <action selector="scoreSafty2BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="8FC-BO-YPd"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZr-uB-s7K">
+                                                                                <rect key="frame" x="100" y="0.0" width="40" height="40"/>
+                                                                                <state key="normal" image="star_blank"/>
+                                                                                <connections>
+                                                                                    <action selector="scoreSafty3BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="2yt-UJ-OmV"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5W-dh-tdG">
+                                                                                <rect key="frame" x="150" y="0.0" width="40" height="40"/>
+                                                                                <state key="normal" image="star_blank"/>
+                                                                                <connections>
+                                                                                    <action selector="scoreSafty4BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="xpy-WA-vMa"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCC-v1-p69">
+                                                                                <rect key="frame" x="200" y="0.0" width="40" height="40"/>
+                                                                                <state key="normal" image="star_blank"/>
+                                                                                <connections>
+                                                                                    <action selector="scoreSafty5BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="Fcf-8d-OQy"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jPa-xm-m6k">
+                                                                <rect key="frame" x="0.0" y="120" width="322" height="40"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="車況舒適：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="V2u-VQ-AoD">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="82" height="40"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                        <color key="textColor" red="0.1960784314" green="0.65490196079999996" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Rh7-2b-deV">
+                                                                        <rect key="frame" x="82" y="0.0" width="240" height="40"/>
+                                                                        <subviews>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQc-dO-qWJ">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                                                <state key="normal" image="star_blank"/>
+                                                                                <connections>
+                                                                                    <action selector="scoreComfort1BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="ogn-q8-FRA"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UIh-rg-opj">
+                                                                                <rect key="frame" x="50" y="0.0" width="40" height="40"/>
+                                                                                <state key="normal" image="star_blank"/>
+                                                                                <connections>
+                                                                                    <action selector="scoreComfort2BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="drf-Is-L5Q"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h36-rN-HVT">
+                                                                                <rect key="frame" x="100" y="0.0" width="40" height="40"/>
+                                                                                <state key="normal" image="star_blank"/>
+                                                                                <connections>
+                                                                                    <action selector="scoreComfort3BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="Xpr-Yt-Anm"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcJ-uG-XPH">
+                                                                                <rect key="frame" x="150" y="0.0" width="40" height="40"/>
+                                                                                <state key="normal" image="star_blank"/>
+                                                                                <connections>
+                                                                                    <action selector="scoreComfort4BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="k02-AS-Z9G"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdo-vF-hqG">
+                                                                                <rect key="frame" x="200" y="0.0" width="40" height="40"/>
+                                                                                <state key="normal" image="star_blank"/>
+                                                                                <connections>
+                                                                                    <action selector="scoreComfort5BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="CSd-Nk-ixe"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                        </subviews>
+                                                                    </stackView>
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b4x-5q-DKE">
-                                                        <rect key="frame" x="0.0" y="50" width="272" height="30"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zZT-81-wUo">
+                                                        <rect key="frame" x="27.5" y="244" width="280" height="70"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="安全駕駛：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="F97-W1-5VH">
-                                                                <rect key="frame" x="0.0" y="0.0" width="82" height="30"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVY-58-qE1">
+                                                                <rect key="frame" x="0.0" y="0.0" width="130" height="70"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <color key="textColor" red="0.1960784314" green="0.65490196079999996" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WyU-qt-lwF">
-                                                                <rect key="frame" x="82" y="0.0" width="190" height="30"/>
-                                                                <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTZ-sg-fwU">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                                        <state key="normal" image="star_blank"/>
-                                                                        <connections>
-                                                                            <action selector="scoreSafty1BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="lGm-Bz-Da8"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCP-Df-UQe">
-                                                                        <rect key="frame" x="40" y="0.0" width="30" height="30"/>
-                                                                        <state key="normal" image="star_blank"/>
-                                                                        <connections>
-                                                                            <action selector="scoreSafty2BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="8FC-BO-YPd"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZr-uB-s7K">
-                                                                        <rect key="frame" x="80" y="0.0" width="30" height="30"/>
-                                                                        <state key="normal" image="star_blank"/>
-                                                                        <connections>
-                                                                            <action selector="scoreSafty3BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="2yt-UJ-OmV"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5W-dh-tdG">
-                                                                        <rect key="frame" x="120" y="0.0" width="30" height="30"/>
-                                                                        <state key="normal" image="star_blank"/>
-                                                                        <connections>
-                                                                            <action selector="scoreSafty4BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="xpy-WA-vMa"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCC-v1-p69">
-                                                                        <rect key="frame" x="160" y="0.0" width="30" height="30"/>
-                                                                        <state key="normal" image="star_blank"/>
-                                                                        <connections>
-                                                                            <action selector="scoreSafty5BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="Fcf-8d-OQy"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                </subviews>
-                                                            </stackView>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jPa-xm-m6k">
-                                                        <rect key="frame" x="0.0" y="100" width="272" height="30"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="車況舒適：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="V2u-VQ-AoD">
-                                                                <rect key="frame" x="0.0" y="0.0" width="82" height="30"/>
+                                                                <state key="normal" title="晚點再評價" backgroundImage="button_background">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="backBtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="ab2-SA-tjl"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FaP-Am-jAG">
+                                                                <rect key="frame" x="150" y="0.0" width="130" height="70"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <color key="textColor" red="0.1960784314" green="0.65490196079999996" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Rh7-2b-deV">
-                                                                <rect key="frame" x="82" y="0.0" width="190" height="30"/>
-                                                                <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQc-dO-qWJ">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                                        <state key="normal" image="star_blank"/>
-                                                                        <connections>
-                                                                            <action selector="scoreComfort1BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="ogn-q8-FRA"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UIh-rg-opj">
-                                                                        <rect key="frame" x="40" y="0.0" width="30" height="30"/>
-                                                                        <state key="normal" image="star_blank"/>
-                                                                        <connections>
-                                                                            <action selector="scoreComfort2BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="drf-Is-L5Q"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h36-rN-HVT">
-                                                                        <rect key="frame" x="80" y="0.0" width="30" height="30"/>
-                                                                        <state key="normal" image="star_blank"/>
-                                                                        <connections>
-                                                                            <action selector="scoreComfort3BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="Xpr-Yt-Anm"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcJ-uG-XPH">
-                                                                        <rect key="frame" x="120" y="0.0" width="30" height="30"/>
-                                                                        <state key="normal" image="star_blank"/>
-                                                                        <connections>
-                                                                            <action selector="scoreComfort4BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="k02-AS-Z9G"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdo-vF-hqG">
-                                                                        <rect key="frame" x="160" y="0.0" width="30" height="30"/>
-                                                                        <state key="normal" image="star_blank"/>
-                                                                        <connections>
-                                                                            <action selector="scoreComfort5BtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="CSd-Nk-ixe"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                </subviews>
-                                                            </stackView>
+                                                                <state key="normal" title="確定送出" backgroundImage="button_background">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="sendBtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="2jt-fs-bUv"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVY-58-qE1">
-                                                <rect key="frame" x="112.5" y="214" width="130" height="70"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <state key="normal" title="確定送出" backgroundImage="button_background">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="sendBtnPressed:" destination="nT4-kl-kT3" eventType="touchUpInside" id="TlN-m5-G6L"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -871,10 +877,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.75686274509999996" green="0.91764705879999997" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="OYP-7o-OVN" firstAttribute="top" secondItem="279-yP-V6a" secondAttribute="top" constant="10" id="15r-kh-26w"/>
-                            <constraint firstItem="279-yP-V6a" firstAttribute="bottom" secondItem="OYP-7o-OVN" secondAttribute="bottom" constant="10" id="65r-GM-fYb"/>
-                            <constraint firstItem="OYP-7o-OVN" firstAttribute="leading" secondItem="279-yP-V6a" secondAttribute="leading" constant="10" id="Tso-ku-IKO"/>
-                            <constraint firstAttribute="trailing" secondItem="OYP-7o-OVN" secondAttribute="trailing" constant="10" id="dnR-UK-f75"/>
+                            <constraint firstItem="279-yP-V6a" firstAttribute="trailing" secondItem="Mpa-ld-s4W" secondAttribute="trailing" constant="20" id="5CM-jt-akk"/>
+                            <constraint firstItem="279-yP-V6a" firstAttribute="bottom" secondItem="Mpa-ld-s4W" secondAttribute="bottom" constant="20" id="UDS-zM-FJj"/>
+                            <constraint firstItem="Mpa-ld-s4W" firstAttribute="leading" secondItem="279-yP-V6a" secondAttribute="leading" constant="20" id="YQV-qO-yKU"/>
+                            <constraint firstItem="Mpa-ld-s4W" firstAttribute="top" secondItem="279-yP-V6a" secondAttribute="top" constant="20" id="lw1-5S-cn0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="279-yP-V6a"/>
                     </view>
@@ -899,14 +905,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pYu-V0-XsL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1718" y="-159"/>
+            <point key="canvasLocation" x="1718" y="-149"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow1" width="60" height="20"/>
         <image name="arrow2" width="60" height="20"/>
         <image name="button_background" width="130" height="70"/>
-        <image name="evluation" width="40" height="30"/>
         <image name="imageView:1K7-Xe-f5l:image" width="60" height="20">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
@@ -1016,6 +1021,6 @@ AEEAAAAAAAAAAAAAAAAAABdYA
         </image>
         <image name="passenger" width="40" height="40"/>
         <image name="phone" width="40" height="40"/>
-        <image name="star_blank" width="30" height="30"/>
+        <image name="star_blank" width="40" height="40"/>
     </resources>
 </document>
