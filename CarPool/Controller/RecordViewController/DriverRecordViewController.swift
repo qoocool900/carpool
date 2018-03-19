@@ -9,6 +9,7 @@ import UIKit
 
 class DriverRecordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
+    let loginMemberNo = UserDefaults.standard.integer(forKey: "memberNo")
     let sectionArray = ["進行中記錄", "歷史紀錄"]
 // Test Data
     var processingItem = DriverRecord.allProcessingRecord()

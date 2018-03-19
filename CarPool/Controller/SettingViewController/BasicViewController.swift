@@ -19,7 +19,7 @@ class BasicViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var qrCodeImageView: UIImageView!
     var qrcodeCIImage: CIImage!
     var gander: String = ""
-    var loginMemberNo = 4
+    let loginMemberNo = UserDefaults.standard.integer(forKey: "memberNo")
     
     override func viewDidLoad() {
         super.viewDidLoad()

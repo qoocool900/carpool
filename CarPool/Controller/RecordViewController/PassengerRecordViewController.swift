@@ -9,6 +9,7 @@ import UIKit
 
 class PassengerRecordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
+    let loginMemberNo = UserDefaults.standard.integer(forKey: "memberNo")
     let sectionArray = ["進行中記錄", "歷史紀錄"]
 // Test Data
     var processingItem = PassengerRecord.allProcessingRecord()
@@ -22,6 +23,7 @@ class PassengerRecordViewController: UIViewController, UITableViewDelegate, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(loginMemberNo)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
