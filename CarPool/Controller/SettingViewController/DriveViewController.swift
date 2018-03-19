@@ -32,7 +32,7 @@ class DriveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     let pickerView = UIPickerView()
     var carBrand = "Ferrari"
     var carType = "F430"
-    let loginMemberNo = 4
+    let loginMemberNo = UserDefaults.standard.integer(forKey: "memberNo")
     
     //    override func viewDidAppear(_ animated: Bool) {
     //        pickerView.selectRow(0, inComponent: 0, animated: true)
