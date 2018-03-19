@@ -9,6 +9,7 @@ import UIKit
 
 class PassengerSetupViewController: UIViewController {
 
+    
     @IBOutlet weak var DestinationPassenger: UITextField!
     
     @IBOutlet weak var BoardingPoint: UITextField!
@@ -54,7 +55,6 @@ class PassengerSetupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         DestinationPassenger.font = UIFont(name: "System", size: 25)
         DestinationPassenger.placeholder = "請輸入您要去的目的地"
