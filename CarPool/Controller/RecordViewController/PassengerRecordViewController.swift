@@ -10,8 +10,13 @@ import UIKit
 class PassengerRecordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     let sectionArray = ["進行中記錄", "歷史紀錄"]
+// Test Data
     var processingItem = PassengerRecord.allProcessingRecord()
     var historyItem = PassengerRecord.allHistoryRecord()
+// Data base
+//    var processingItem = PassengerRecord.getPassengerProcessingInfo(loginMemberNo: 3)
+//    var historyItem = PassengerRecord.getPassengerHistoryInfo(loginMemberNo: 3)
+    
     var driverMemberNo = 0
     var driverTripId = ""
     

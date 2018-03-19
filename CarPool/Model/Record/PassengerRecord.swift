@@ -46,40 +46,77 @@ class PassengerRecord{
         return [record1,record2,record3]
     }
     
-    //MARK: -Link to DataBase
-//    static func getPassengerRecordInfo(loginMemberNo: Int) -> [PassengerRecord]{
-//        var recordings = [PassengerRecord]()
-//        Communicator.shared.getMatchRecords(memberNo: loginMemberNo, status: 0, role: 0) { (error, result) in
-//            if let error = error {
-//                NSLog("伺服器連線錯誤: \(error)")
-//                return
-//            }
-//            // success
-//            let response = result!["response"] as! [String:Any]
-//            let content = result!["content"] as! [[String:Any]]
-//            let code = response["code"] as! Int
-//
-//            if code == 0 {
-//                var recording: PassengerRecord
-//                for record in content{
-//                    let startLocation = record["boarding"] as! String
-//                    let endLocation = record["destination"] as! String
-//                    let date = record["date"] as! String
-//                    let driverFirstName = record["firstName"] as! String
-//                    let driverLastName = record["lastName"] as! String
-//                    let carNumber = record["carNo"] as! String
-//                    let driverPhone = record["phone"] as! String
-//                    let onTime = record["onTime"] as! String
-//                    let offTime = record["offTime"] as! String
-//                    let driverMemberNo = record["memberNo"] as! Int
-//                    let driverTripId = record["tripID"] as! String
-//                    recording = PassengerRecord(startLocation: startLocation,endLocation: endLocation, date: date,driverFirstName: driverFirstName,driverLastName: driverLastName,carNumber: carNumber,driverPhone: driverPhone,onTime: onTime,offTime: offTime, driverMemberNo: driverMemberNo,driverTripId: driverTripId)
-//                    recordings.append(recording)
-//                }
-//            }
-//            let msg = response ["msg"] as! String
-//            print(msg)
-//        }
-//        return recordings
-//    }
+//MARK: -Link to DataBase
+    //getProcessingRecordings
+    static func getPassengerProcessingInfo(loginMemberNo: Int) -> [PassengerRecord]{
+        var recordings = [PassengerRecord]()
+        Communicator.shared.getMatchRecords(memberNo: loginMemberNo, status: 0, role: 0) { (error, result) in
+            if let error = error {
+                NSLog("伺服器連線錯誤: \(error)")
+                return
+            }
+            // success
+            let response = result!["response"] as! [String:Any]
+            let content = result!["content"] as! [[String:Any]]
+            let code = response["code"] as! Int
+            if code == 0 {
+                var recording: PassengerRecord
+                for record in content{
+                    let startLocation = record["boarding"] as! String
+                    let endLocation = record["destination"] as! String
+                    let date = record["date"] as! String
+                    let driverFirstName = record["firstName"] as! String
+                    let driverLastName = record["lastName"] as! String
+                    let carNumber = record["carNo"] as! String
+                    let driverPhone = record["phone"] as! String
+                    let onTime = record["onTime"] as! String
+                    let offTime = record["offTime"] as! String
+                    let driverMemberNo = record["memberNo"] as! Int
+                    let driverTripId = record["tripID"] as! String
+                    recording = PassengerRecord(startLocation: startLocation,endLocation: endLocation, date: date,driverFirstName: driverFirstName,driverLastName: driverLastName,carNumber: carNumber,driverPhone: driverPhone,onTime: onTime,offTime: offTime, driverMemberNo: driverMemberNo,driverTripId: driverTripId)
+                    recordings.append(recording)
+                }
+            }
+            let msg = response ["msg"] as! String
+            print(msg)
+        }
+        return recordings
+    }
+    
+    //getProcessingRecordings
+    static func getPassengerHistoryInfo(loginMemberNo: Int) -> [PassengerRecord]{
+        var recordings = [PassengerRecord]()
+        Communicator.shared.getMatchRecords(memberNo: loginMemberNo, status: 1, role: 0) { (error, result) in
+            if let error = error {
+                NSLog("伺服器連線錯誤: \(error)")
+                return
+            }
+            // success
+            let response = result!["response"] as! [String:Any]
+            let content = result!["content"] as! [[String:Any]]
+            let code = response["code"] as! Int
+            
+            if code == 0 {
+                var recording: PassengerRecord
+                for record in content{
+                    let startLocation = record["boarding"] as! String
+                    let endLocation = record["destination"] as! String
+                    let date = record["date"] as! String
+                    let driverFirstName = record["firstName"] as! String
+                    let driverLastName = record["lastName"] as! String
+                    let carNumber = record["carNo"] as! String
+                    let driverPhone = record["phone"] as! String
+                    let onTime = record["onTime"] as! String
+                    let offTime = record["offTime"] as! String
+                    let driverMemberNo = record["memberNo"] as! Int
+                    let driverTripId = record["tripID"] as! String
+                    recording = PassengerRecord(startLocation: startLocation,endLocation: endLocation, date: date,driverFirstName: driverFirstName,driverLastName: driverLastName,carNumber: carNumber,driverPhone: driverPhone,onTime: onTime,offTime: offTime, driverMemberNo: driverMemberNo,driverTripId: driverTripId)
+                    recordings.append(recording)
+                }
+            }
+            let msg = response ["msg"] as! String
+            print(msg)
+        }
+        return recordings
+    }
 }
