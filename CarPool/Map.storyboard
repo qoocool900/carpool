@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Map View Controller-->
+        <!--CarPool-->
         <scene sceneID="GF5-0r-7IZ">
             <objects>
                 <viewController id="ba0-Hj-ptG" customClass="MapViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,18 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pxv-cF-f5s" userLabel="Guard Container View">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U5q-EN-NNu">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <connections>
-                                    <segue destination="olA-Tc-GiM" kind="embed" id="Esq-3r-blB"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBX-Qc-0Ot" userLabel="CarAndPeople Container View">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <connections>
-                                    <segue destination="4YZ-gk-DIZ" kind="embed" identifier="UserMap" id="rik-u8-h6K"/>
-                                </connections>
-                            </containerView>
+                            </mapView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4su-j8-O20">
                                 <rect key="frame" x="10" y="74" width="355" height="29"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -43,29 +34,56 @@
                                     <action selector="roleChanged:" destination="ba0-Hj-ptG" eventType="valueChanged" id="PyO-tB-rXd"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIe-Xo-49E" customClass="RoundButton" customModule="CarPool" customModuleProvider="target">
+                                <rect key="frame" x="299" y="542" width="60" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="8xi-LY-yym"/>
+                                    <constraint firstAttribute="width" constant="60" id="NQ7-0V-wxp"/>
+                                </constraints>
+                                <state key="normal" title="上車"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kX8-Km-irq" customClass="RoundButton" customModule="CarPool" customModuleProvider="target">
+                                <rect key="frame" x="299" y="466" width="60" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Mjg-gA-awc"/>
+                                    <constraint firstAttribute="height" constant="60" id="nqG-xK-76c"/>
+                                </constraints>
+                                <state key="normal" title="SOS"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GBX-Qc-0Ot" firstAttribute="bottom" secondItem="9bE-tJ-t0W" secondAttribute="bottom" id="0FD-rf-aWT"/>
+                            <constraint firstItem="9bE-tJ-t0W" firstAttribute="trailing" secondItem="DIe-Xo-49E" secondAttribute="trailing" constant="16" id="07s-RW-sFz"/>
+                            <constraint firstItem="DIe-Xo-49E" firstAttribute="top" secondItem="kX8-Km-irq" secondAttribute="bottom" constant="16" id="0hw-m4-5iC"/>
                             <constraint firstItem="4su-j8-O20" firstAttribute="top" secondItem="9bE-tJ-t0W" secondAttribute="top" constant="10" id="3tg-Ic-FD8"/>
-                            <constraint firstItem="GBX-Qc-0Ot" firstAttribute="top" secondItem="9bE-tJ-t0W" secondAttribute="top" id="Akg-vn-zQt"/>
-                            <constraint firstItem="GBX-Qc-0Ot" firstAttribute="trailing" secondItem="9bE-tJ-t0W" secondAttribute="trailing" id="Ebd-o0-sSa"/>
-                            <constraint firstItem="Pxv-cF-f5s" firstAttribute="bottom" secondItem="9bE-tJ-t0W" secondAttribute="bottom" id="Eel-ho-Cd2"/>
-                            <constraint firstItem="Pxv-cF-f5s" firstAttribute="trailing" secondItem="9bE-tJ-t0W" secondAttribute="trailing" id="HBm-0Q-JSy"/>
-                            <constraint firstItem="Pxv-cF-f5s" firstAttribute="leading" secondItem="9bE-tJ-t0W" secondAttribute="leading" id="Ooa-TK-9UC"/>
+                            <constraint firstItem="9bE-tJ-t0W" firstAttribute="trailing" secondItem="kX8-Km-irq" secondAttribute="trailing" constant="16" id="UVG-Hf-hcL"/>
+                            <constraint firstItem="U5q-EN-NNu" firstAttribute="top" secondItem="9bE-tJ-t0W" secondAttribute="top" id="VEK-Pt-MxE"/>
                             <constraint firstItem="9bE-tJ-t0W" firstAttribute="trailing" secondItem="4su-j8-O20" secondAttribute="trailing" constant="10" id="Ypy-if-ETb"/>
+                            <constraint firstItem="9bE-tJ-t0W" firstAttribute="bottom" secondItem="DIe-Xo-49E" secondAttribute="bottom" constant="16" id="Z9L-9t-UbT"/>
                             <constraint firstItem="4su-j8-O20" firstAttribute="leading" secondItem="9bE-tJ-t0W" secondAttribute="leading" constant="10" id="dQE-il-qZ0"/>
-                            <constraint firstItem="Pxv-cF-f5s" firstAttribute="top" secondItem="9bE-tJ-t0W" secondAttribute="top" id="tjd-ME-cgc"/>
-                            <constraint firstItem="GBX-Qc-0Ot" firstAttribute="leading" secondItem="9bE-tJ-t0W" secondAttribute="leading" id="ycM-eJ-H5t"/>
+                            <constraint firstItem="U5q-EN-NNu" firstAttribute="leading" secondItem="9bE-tJ-t0W" secondAttribute="leading" id="dvW-H8-j6H"/>
+                            <constraint firstItem="U5q-EN-NNu" firstAttribute="bottom" secondItem="9bE-tJ-t0W" secondAttribute="bottom" id="ifw-Qp-AfX"/>
+                            <constraint firstItem="U5q-EN-NNu" firstAttribute="trailing" secondItem="9bE-tJ-t0W" secondAttribute="trailing" id="zHQ-2k-u2K"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9bE-tJ-t0W"/>
                     </view>
-                    <navigationItem key="navigationItem" id="dNj-Dg-dY6">
-                        <nil key="title"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="CarPool" id="dNj-Dg-dY6"/>
                     <connections>
-                        <outlet property="GuardContainerView" destination="Pxv-cF-f5s" id="lFc-ea-xvn"/>
-                        <outlet property="carAndPeopleContaninerView" destination="GBX-Qc-0Ot" id="oFm-ru-Sin"/>
+                        <outlet property="getInButton" destination="DIe-Xo-49E" id="2Jp-0K-Mb1"/>
+                        <outlet property="mainMapView" destination="U5q-EN-NNu" id="4wm-hV-U7X"/>
+                        <outlet property="sosButton" destination="kX8-Km-irq" id="haL-0k-1va"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qBX-cS-Lub" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -228,63 +246,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eTj-n7-C81" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="505" y="135"/>
-        </scene>
-        <!--My Map View Controller-->
-        <scene sceneID="HtZ-au-Ico">
-            <objects>
-                <viewController storyboardIdentifier="MyMapViewController" id="4YZ-gk-DIZ" customClass="MyMapViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ohn-jr-6xn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7VR-Bi-Ib0">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
-                            </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9c-ON-MqE">
-                                <rect key="frame" x="180" y="459" width="46" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="btn:" destination="4YZ-gk-DIZ" eventType="touchUpInside" id="TOR-p8-Gh0"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Es-wT-HXr">
-                                <rect key="frame" x="100" y="381" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="QkV-Ke-9Ht" firstAttribute="bottom" secondItem="7VR-Bi-Ib0" secondAttribute="bottom" id="7bW-Kk-RoW"/>
-                            <constraint firstItem="7VR-Bi-Ib0" firstAttribute="top" secondItem="ohn-jr-6xn" secondAttribute="top" id="7fN-Tu-YJ0"/>
-                            <constraint firstItem="7VR-Bi-Ib0" firstAttribute="trailing" secondItem="QkV-Ke-9Ht" secondAttribute="trailing" id="Aul-G2-qFR"/>
-                            <constraint firstItem="7VR-Bi-Ib0" firstAttribute="leading" secondItem="QkV-Ke-9Ht" secondAttribute="leading" id="dsE-PH-pOo"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="QkV-Ke-9Ht"/>
-                    </view>
-                    <connections>
-                        <outlet property="mainMapView" destination="7VR-Bi-Ib0" id="hWi-n0-aJG"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GhU-dJ-K3H" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2301.5999999999999" y="-99.850074962518747"/>
-        </scene>
-        <!--Guard Map View Controller-->
-        <scene sceneID="v9x-DQ-eBH">
-            <objects>
-                <viewController id="olA-Tc-GiM" customClass="GuardMapViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="OEI-eC-tLd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="AdC-jK-7FB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KgI-lq-e2b" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2302" y="459"/>
         </scene>
     </scenes>
 </document>

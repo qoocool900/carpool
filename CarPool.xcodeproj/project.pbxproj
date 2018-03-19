@@ -20,13 +20,12 @@
 		3E0918D7205134CA008688D0 /* Communicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0918D2205134CA008688D0 /* Communicator.swift */; };
 		3E0918D8205134CA008688D0 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0918D3205134CA008688D0 /* Member.swift */; };
 		3E0918D9205134CA008688D0 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0918D4205134CA008688D0 /* Trip.swift */; };
+		3E0D8F3C205FBD200027F0A7 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0D8F3B205FBD200027F0A7 /* RoundButton.swift */; };
 		3E40F9E320516D760054168C /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E40F9E020516D760054168C /* Bolts.framework */; };
 		3E40F9E420516D760054168C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E40F9E120516D760054168C /* FBSDKCoreKit.framework */; };
 		3E40F9E520516D760054168C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E40F9E220516D760054168C /* FBSDKLoginKit.framework */; };
 		3E40F9E82051728D0054168C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E40F9E72051728D0054168C /* SignInViewController.swift */; };
 		3E40F9EA205172A30054168C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E40F9E9205172A30054168C /* LoginViewController.swift */; };
-		3E7AC9F120519562003EB8E2 /* MyMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7AC9F020519562003EB8E2 /* MyMapViewController.swift */; };
-		3E7AC9F320519575003EB8E2 /* GuardMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7AC9F220519575003EB8E2 /* GuardMapViewController.swift */; };
 		3E7ACA1C2054F20B003EB8E2 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7ACA1B2054F20B003EB8E2 /* CustomAnnotation.swift */; };
 		3E7ACA1E2054F537003EB8E2 /* CallOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E7ACA1D2054F537003EB8E2 /* CallOutView.xib */; };
 		3E7ACA2020550103003EB8E2 /* CallOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7ACA1F20550103003EB8E2 /* CallOutView.swift */; };
@@ -88,13 +87,12 @@
 		3E0918D2205134CA008688D0 /* Communicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communicator.swift; sourceTree = "<group>"; };
 		3E0918D3205134CA008688D0 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		3E0918D4205134CA008688D0 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		3E0D8F3B205FBD200027F0A7 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		3E40F9E020516D760054168C /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		3E40F9E120516D760054168C /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		3E40F9E220516D760054168C /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		3E40F9E72051728D0054168C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		3E40F9E9205172A30054168C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		3E7AC9F020519562003EB8E2 /* MyMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMapViewController.swift; sourceTree = "<group>"; };
-		3E7AC9F220519575003EB8E2 /* GuardMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardMapViewController.swift; sourceTree = "<group>"; };
 		3E7ACA1B2054F20B003EB8E2 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		3E7ACA1D2054F537003EB8E2 /* CallOutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallOutView.xib; sourceTree = "<group>"; };
 		3E7ACA1F20550103003EB8E2 /* CallOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallOutView.swift; sourceTree = "<group>"; };
@@ -188,8 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				3E8AC8F72049948A00DDD5AE /* MapViewController.swift */,
-				3E7AC9F020519562003EB8E2 /* MyMapViewController.swift */,
-				3E7AC9F220519575003EB8E2 /* GuardMapViewController.swift */,
 			);
 			path = MapViewController;
 			sourceTree = "<group>";
@@ -278,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				C8888B0A205BA08200E49B27 /* ShowAlert.swift */,
+				3E0D8F3B205FBD200027F0A7 /* RoundButton.swift */,
 				3EC6E3D1205AC0B200EB568C /* Data+HexString.swift */,
 				3E0918D0205134CA008688D0 /* Car.swift */,
 				3E0918D2205134CA008688D0 /* Communicator.swift */,
@@ -547,7 +544,6 @@
 				043ED8D6205BC1BE007D573A /* DRecordingTableViewCell.swift in Sources */,
 				043ED8D4205BC1A5007D573A /* PRecordingTableViewCell.swift in Sources */,
 				C8E41F9A204FE1DC00F3C77D /* PassengerRecord.swift in Sources */,
-				3E7AC9F320519575003EB8E2 /* GuardMapViewController.swift in Sources */,
 				3E0918D6205134CA008688D0 /* DriverTrip.swift in Sources */,
 				C8888ADF205B9EED00E49B27 /* DriveViewController.swift in Sources */,
 				C8888AE0205B9EED00E49B27 /* QRcodeViewController.swift in Sources */,
@@ -555,6 +551,7 @@
 				3E40F9E82051728D0054168C /* SignInViewController.swift in Sources */,
 				3EC6E3D2205AC0B200EB568C /* Data+HexString.swift in Sources */,
 				3E8AC8D92049939200DDD5AE /* AppDelegate.swift in Sources */,
+				3E0D8F3C205FBD200027F0A7 /* RoundButton.swift in Sources */,
 				C8E5EF17205116810062D4C6 /* DriverRecord.swift in Sources */,
 				C8888AE3205B9EED00E49B27 /* GuardViewController.swift in Sources */,
 				C8888AFB205B9F2E00E49B27 /* DriverNoticeReceivedTableViewCell.swift in Sources */,
