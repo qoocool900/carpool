@@ -36,7 +36,7 @@ class DriverRecordDetailTableViewCell: UITableViewCell {
             endLocationLabel.text = recordData?.endLocation
             let passengerFirstName = (recordData?.passengerFirstName)!
             let passengerLastName = (recordData?.passengerLastName)!
-            passengerNameLabel.text = passengerLastName + passengerFirstName
+            passengerNameLabel.text = passengerLastName + " " + passengerFirstName
             onTimeLabel.text = recordData?.onTime
             offTimeLabel.text = recordData?.offTime
             passengerPhone = (recordData?.passengerPhone)!

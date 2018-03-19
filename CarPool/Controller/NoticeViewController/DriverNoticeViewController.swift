@@ -13,12 +13,11 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var carCapacityLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    
-    var noticeData: [String:String] = ["startLocation":"台北車站", "endLocation":"世貿中心", "date": "2018/01/11 12:00", "carCapacity": "4","requestStatus":"0"]
-    
+
     let sectionArray = ["我收到的請求", "我發出的邀請"]
-    var receivedItem = Notice.allDriverReceivedNotice()
-    var requestItem = Notice.allDriverRequestNotice()
+    var myTrip = DriverNotice.driverShared()
+    var receivedItem = PassengerNotice.driverReceivedNotice()
+    var requestItem = PassengerNotice.driverRequestNotice()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +25,10 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func getDriverShare() {
-        startLocationLabel.text = noticeData["startLocation"]
-        endLocationLabel.text = noticeData["endLocation"]
-        dateLabel.text = noticeData["date"]
-        carCapacityLabel.text = noticeData["carCapacity"]
+        startLocationLabel.text = myTrip.startLocation
+        endLocationLabel.text = myTrip.endLocation
+        dateLabel.text = myTrip.date
+        carCapacityLabel.text = "\(myTrip.carCapacity)"
     }
     
     
@@ -81,15 +80,10 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
             let receivedNotice = receivedItem[indexPath.row]
             cell.noticeData = receivedNotice
             return cell
-        case 1:
+         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "RequestCell", for: indexPath) as! DriverNoticeRequestTableViewCell
             let requestNotice = requestItem[indexPath.row]
             cell.noticeData = requestNotice
-            return cell
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ReceivedCell", for: indexPath) as! DriverNoticeReceivedTableViewCell
-            let receivedNotice = receivedItem[indexPath.row]
-            cell.noticeData = receivedNotice
             return cell
         }
     }
