@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040AD221205F51180094FC76 /* carPool_login_png 拷貝.png in Resources */ = {isa = PBXBuildFile; fileRef = 040AD220205F51180094FC76 /* carPool_login_png 拷貝.png */; };
 		043ED8D0205BC15F007D573A /* PRecordingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8CF205BC15F007D573A /* PRecordingTableViewController.swift */; };
 		043ED8D2205BC185007D573A /* DRecordingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D1205BC185007D573A /* DRecordingTableViewController.swift */; };
 		043ED8D4205BC1A5007D573A /* PRecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */; };
@@ -73,6 +74,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040AD220205F51180094FC76 /* carPool_login_png 拷貝.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carPool_login_png 拷貝.png"; sourceTree = "<group>"; };
 		043ED8CF205BC15F007D573A /* PRecordingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRecordingTableViewController.swift; sourceTree = "<group>"; };
 		043ED8D1205BC185007D573A /* DRecordingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRecordingTableViewController.swift; sourceTree = "<group>"; };
 		043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRecordingTableViewCell.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				C8888B03205B9F5500E49B27 /* Setting.storyboard */,
 				3E8AC8E12049939200DDD5AE /* LaunchScreen.storyboard */,
 				C8888B08205B9FEB00E49B27 /* Assets.xcassets */,
+				040AD220205F51180094FC76 /* carPool_login_png 拷貝.png */,
 				3E8AC8E42049939200DDD5AE /* Info.plist */,
 				3E40F9E020516D760054168C /* Bolts.framework */,
 				3E40F9E120516D760054168C /* FBSDKCoreKit.framework */,
@@ -416,6 +419,7 @@
 				C8888B07205B9F5600E49B27 /* Notice.storyboard in Resources */,
 				3E8AC8DE2049939200DDD5AE /* Main.storyboard in Resources */,
 				C8888B09205B9FEC00E49B27 /* Assets.xcassets in Resources */,
+				040AD221205F51180094FC76 /* carPool_login_png 拷貝.png in Resources */,
 				3E8AC90420499B2200DDD5AE /* Podfile in Resources */,
 				C8888B06205B9F5600E49B27 /* Setting.storyboard in Resources */,
 				3E8AC8EB204993F300DDD5AE /* Map.storyboard in Resources */,
