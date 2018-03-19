@@ -24,8 +24,8 @@
                                 <items>
                                     <navigationItem id="RnY-DK-csd">
                                         <nil key="title"/>
-                                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="SetUpSegment" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="baN-lN-uL9">
-                                            <rect key="frame" x="146" y="7.5" width="83" height="29"/>
+                                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" restorationIdentifier="SetUpSegment" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="baN-lN-uL9">
+                                            <rect key="frame" x="36.5" y="7.5" width="302" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="乘客"/>
@@ -88,11 +88,11 @@
         <scene sceneID="ZZI-0k-Db9">
             <objects>
                 <viewController id="qWH-uN-ChF" customClass="DriverSetupViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" alpha="0.55000000000000004" contentMode="scaleToFill" id="It3-xP-oVO">
+                    <view key="view" alpha="0.84999999999999998" contentMode="scaleToFill" id="It3-xP-oVO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="510"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JLs-Y2-tal">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DriverSetup03" translatesAutoresizingMaskIntoConstraints="NO" id="JLs-Y2-tal">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="510"/>
                             </imageView>
                             <textField opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yHf-W7-zJK">
@@ -137,17 +137,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K59-Zg-DoY">
-                                <rect key="frame" x="204" y="40" width="34" height="30"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="SaveButton:" destination="qWH-uN-ChF" eventType="touchUpInside" id="kwQ-Z6-6G1"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZjT-pi-sIX">
-                                <rect key="frame" x="246" y="40" width="57" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZjT-pi-sIX">
+                                <rect key="frame" x="293" y="10" width="57" height="30"/>
                                 <state key="normal" title="Records">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -161,8 +152,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K59-Zg-DoY">
+                                <rect key="frame" x="251" y="10" width="34" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="SaveButton:" destination="qWH-uN-ChF" eventType="touchUpInside" id="kwQ-Z6-6G1"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.47843137250000001" green="0.84705882349999995" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="K59-Zg-DoY" firstAttribute="leading" secondItem="XUJ-by-ETs" secondAttribute="trailing" constant="109" id="5NZ-Nc-6rd"/>
                             <constraint firstItem="JLs-Y2-tal" firstAttribute="top" secondItem="It3-xP-oVO" secondAttribute="top" id="6LH-bQ-4wT"/>
@@ -211,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rsv-zM-OyH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-743.20000000000005" y="379.61019490254876"/>
+            <point key="canvasLocation" x="-786" y="385"/>
         </scene>
         <!--Recording Table View Controller-->
         <scene sceneID="Eoe-c6-zC6">
@@ -245,10 +245,13 @@
         <scene sceneID="I5E-dO-nQb">
             <objects>
                 <viewController id="ekg-gi-x4l" customClass="PassengerSetupViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" alpha="0.55000000000000004" contentMode="scaleToFill" id="cnE-tx-jNx">
+                    <view key="view" alpha="0.84999999999999998" contentMode="scaleToFill" id="cnE-tx-jNx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="510"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Passenger-2" translatesAutoresizingMaskIntoConstraints="NO" id="gmX-y1-R7z">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="510"/>
+                            </imageView>
                             <textField opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f2N-rq-h7k">
                                 <rect key="frame" x="43" y="77" width="288" height="40"/>
                                 <nil key="textColor"/>
@@ -310,8 +313,10 @@
                             <constraint firstAttribute="trailing" secondItem="cyI-ZO-z19" secondAttribute="trailing" constant="67" id="0N4-t3-xEo"/>
                             <constraint firstItem="6EQ-a9-FMr" firstAttribute="top" secondItem="Xbe-np-jnl" secondAttribute="bottom" constant="8" id="6C0-JF-Ylg"/>
                             <constraint firstItem="IPs-bz-gTM" firstAttribute="top" secondItem="Tp8-d6-Etb" secondAttribute="bottom" constant="8" id="6pD-zx-8Dz"/>
+                            <constraint firstItem="gmX-y1-R7z" firstAttribute="leading" secondItem="hlQ-X6-Ui2" secondAttribute="leading" id="9lV-zq-SIa"/>
                             <constraint firstItem="Xbe-np-jnl" firstAttribute="top" secondItem="IPs-bz-gTM" secondAttribute="bottom" constant="8" id="Bcy-Hc-cb5"/>
                             <constraint firstItem="hlQ-X6-Ui2" firstAttribute="trailing" secondItem="6EQ-a9-FMr" secondAttribute="trailing" constant="44" id="Eam-Yp-7ac"/>
+                            <constraint firstItem="gmX-y1-R7z" firstAttribute="top" secondItem="cnE-tx-jNx" secondAttribute="top" id="F6A-EB-ySB"/>
                             <constraint firstItem="hlQ-X6-Ui2" firstAttribute="trailing" secondItem="IPs-bz-gTM" secondAttribute="trailing" constant="44" id="Fwl-wo-uTA"/>
                             <constraint firstAttribute="trailing" secondItem="cyI-ZO-z19" secondAttribute="trailing" constant="67" id="GVk-TZ-yv3"/>
                             <constraint firstItem="iuP-lv-53w" firstAttribute="top" secondItem="hlQ-X6-Ui2" secondAttribute="top" constant="29" id="GiX-X2-E7j"/>
@@ -319,6 +324,7 @@
                             <constraint firstItem="f2N-rq-h7k" firstAttribute="top" secondItem="iuP-lv-53w" secondAttribute="bottom" constant="8" id="NMH-zK-0aW"/>
                             <constraint firstItem="cyI-ZO-z19" firstAttribute="top" secondItem="cnE-tx-jNx" secondAttribute="top" constant="19" id="R6F-aO-gyu"/>
                             <constraint firstItem="6EQ-a9-FMr" firstAttribute="leading" secondItem="hlQ-X6-Ui2" secondAttribute="leading" constant="43" id="R6J-oR-8vc"/>
+                            <constraint firstItem="gmX-y1-R7z" firstAttribute="trailing" secondItem="hlQ-X6-Ui2" secondAttribute="trailing" id="Sgg-vy-IaE"/>
                             <constraint firstItem="hlQ-X6-Ui2" firstAttribute="trailing" secondItem="f2N-rq-h7k" secondAttribute="trailing" constant="44" id="SuF-t7-dVR"/>
                             <constraint firstItem="hlQ-X6-Ui2" firstAttribute="trailing" secondItem="Tp8-d6-Etb" secondAttribute="trailing" constant="233" id="Sym-Na-WZY"/>
                             <constraint firstItem="f2N-rq-h7k" firstAttribute="leading" secondItem="hlQ-X6-Ui2" secondAttribute="leading" constant="43" id="Ucx-rT-S2h"/>
@@ -329,6 +335,7 @@
                             <constraint firstItem="IPs-bz-gTM" firstAttribute="leading" secondItem="hlQ-X6-Ui2" secondAttribute="leading" constant="43" id="m12-Nv-aEZ"/>
                             <constraint firstItem="iuP-lv-53w" firstAttribute="leading" secondItem="hlQ-X6-Ui2" secondAttribute="leading" constant="43" id="m1p-an-3od"/>
                             <constraint firstItem="cyI-ZO-z19" firstAttribute="top" secondItem="cnE-tx-jNx" secondAttribute="top" constant="19" id="uNj-8k-0X0"/>
+                            <constraint firstItem="gmX-y1-R7z" firstAttribute="bottom" secondItem="hlQ-X6-Ui2" secondAttribute="bottom" id="zJM-og-p3K"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hlQ-X6-Ui2"/>
                     </view>
@@ -340,7 +347,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gtF-7S-ahg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="57" y="-410"/>
+            <point key="canvasLocation" x="56.799999999999997" y="-410.19490254872568"/>
         </scene>
         <!--Recording Table View Controller-->
         <scene sceneID="LJP-cx-2tr">
@@ -401,4 +408,8 @@
             <point key="canvasLocation" x="772" y="-410.19490254872568"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="DriverSetup03" width="1587" height="2245"/>
+        <image name="Passenger-2" width="1587" height="2245"/>
+    </resources>
 </document>
