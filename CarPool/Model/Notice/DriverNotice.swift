@@ -48,4 +48,68 @@ class DriverNotice{
         let record2 = DriverNotice(tripId: "D1803004",startLocation: "松山車站",endLocation: "美術館", date: "2018/01/11 12:05",driverFirstName: "Sunny", driverLastName: "Lee",driverPhone: "0911111221",carNumber: "ABC-5689",requestStatus: 0,carCapacity: 4)
         return [record1,record2]
     }
+    
+//Get Driver Shared From Database
+    static func getDriverSharedInfo(loginMemberNo: Int) -> [DriverNotice]{
+        var recordings = [DriverNotice]()
+        Communicator.shared.getMyTrips(memberNo: loginMemberNo, role: 1, doneHandler: { (error, result) in
+            
+            if let error = error {
+                NSLog("伺服器連線錯誤: \(error)")
+                return
+            }
+            // success
+            let response = result!["response"] as! [String:Any]
+            let content = result!["content"] as! [[String:Any]]
+            let code = response["code"] as! Int
+            if code == 0 {
+                var recording: DriverNotice
+                for record in content{
+                    let startLocation = record["boarding"] as! String
+                    let endLocation = record["destination"] as! String
+                    let date = record["date"] as! String
+                    let driverTripId = record["tripID"] as! String
+                    recording = DriverNotice(tripId: driverTripId, startLocation: startLocation, endLocation: endLocation, date: date,driverFirstName: "", driverLastName: "",driverPhone: "",carNumber: "",requestStatus: 0,carCapacity: 0)
+                    recordings.append(recording)
+                }
+            }
+            let msg = response ["msg"] as! String
+            print(msg)
+        })
+        return recordings
+    }
+    
+//Get Passenger Received Notice From Database
+//    static func getPassengerReceivedNoticeInfo(tripId: String) -> [DriverNotice]{
+//        var recordings = [DriverNotice]()
+//        Communicator.shared.getMyRequests(tripId: tripId , role: 1) { (error, result) in
+//      
+//            if let error = error {
+//                NSLog("伺服器連線錯誤: \(error)")
+//                return
+//            }
+//            // success
+//            let response = result!["response"] as! [String:Any]
+//            let content = result!["content"] as! [[String:Any]]
+//            let code = response["code"] as! Int
+//            if code == 0 {
+//                var recording: DriverNotice
+//                for record in content{
+//                    let startLocation = record["boarding"] as! String
+//                    let endLocation = record["destination"] as! String
+//                    let date = record["date"] as! String
+//                    let driverFirstName = record["firstName"] as! String
+//                    let driverLastName = record["lastName"] as! String
+//                    let driverPhone = record["phone"]
+//                    let carNumber = record["carNo"]
+//                    let driverTripId = record["tripID"] as! String
+//                    recording = DriverNotice(tripId: driverTripId, startLocation: startLocation, endLocation: endLocation, date: date,driverFirstName: driverFirstName, driverLastName: driverLastName,driverPhone: driverPhone,carNumber: carNo,requestStatus: 0,carCapacity: 0)
+//                    recordings.append(recording)
+//                }
+//            }
+//            let msg = response ["msg"] as! String
+//            print(msg)
+//        })
+//        return recordings
+//    }
 }
