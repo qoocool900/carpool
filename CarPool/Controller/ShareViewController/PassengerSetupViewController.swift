@@ -37,8 +37,21 @@ class PassengerSetupViewController: UIViewController {
                     return
             }
             // Use your location
-            print(3455)
             print(location)
+            let LocationString = String(describing: location)
+//            let String = "Location: < 37.78583400,-122.40641700> /- 5.00m (speed
+//            -1.00 mps / course -1.00) @ 5/8/17, 10:26:50 PM Pacific Daylight
+//            Time"
+            
+            let latLongString = LocationString.components(separatedBy: "< ")[1].components(separatedBy: ">")[0]
+            
+            let lat = latLongString.components(separatedBy: ",")[0]
+            let long = latLongString.components(separatedBy: ",")[1]
+            if let latitude =  Double(lat), let longitude = Double(long) {
+                let coordinate:CLLocation = CLLocation(latitude: latitude, longitude: longitude)
+                print(latitude ,longitude)
+                
+            }
             print(5677)
             let defaults = UserDefaults.standard
             defaults.set(location, forKey: "location")
