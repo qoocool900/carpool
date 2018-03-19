@@ -50,11 +50,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             if role == 1 {
                 addPeopleAnnatation()
                 mainMapView.removeAnnotations(carAnnotations)
-                NSLog("role:1")
             } else if role == 0 {
                 addCarAnnotation()
                 mainMapView.removeAnnotations(peopleAnnotations)
-                NSLog("role:0")
             } else {
                 mainMapView.removeAnnotations(carAnnotations)
                 mainMapView.removeAnnotations(peopleAnnotations)
@@ -87,17 +85,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         // 預設false 雖然會自動關閉 但自動開啟來時 是不準確的 會延遲
         locationManager.pausesLocationUpdatesAutomatically = false
         
-        geocoder.geocodeAddressString("中央大學") { (placemarks, error) in
-            if error != nil {
-                print("Geocode failed: \(error!.localizedDescription)")
-            } else if placemarks!.count > 0 {
-                let placemark = placemarks![0]
-                let location = placemark.location
-                print("新竹車站經緯度")
-                print(location?.coordinate.latitude ?? 0)
-                print(location?.coordinate.longitude ?? 0)
-            }
-        }
+//        geocoder.geocodeAddressString("中央大學") { (placemarks, error) in
+//            if error != nil {
+//                print("Geocode failed: \(error!.localizedDescription)")
+//            } else if placemarks!.count > 0 {
+//                let placemark = placemarks![0]
+//                let location = placemark.location
+//                print("新竹車站經緯度")
+//                print(location?.coordinate.latitude ?? 0)
+//                print(location?.coordinate.longitude ?? 0)
+//            }
+//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -122,30 +120,36 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         switch sender.selectedSegmentIndex {
         case 0:
             role = 0
-            print("司機")
         case 1:
             role = 1
-            print("乘客")
         case 2:
             role = 2
-            print("守衛")
         default:
             break
         }
     }
     
     func addPeopleAnnatation() {
-        for dic in passengerDicArray {
-            let destination = dic["destination"] as! String
-            let people = dic["people"] as! String
-            let lat = dic["lat"] as! Double
-            let lon = dic["lon"] as! Double
-            let boarding = dic["boarding"] as! String
-            let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-            let peopleAnnotation = CustomAnnotation(role: 1, destination: destination, startPosition: boarding, people: people, fee: "", phone: "0800", score: 0, coordinate: coordinate)
-            peopleAnnotations.append(peopleAnnotation)
+        Communicator.shared.getTrips(status: 0, onMap: 1) { (error, result) in
+            if let error = error{
+                print(error)
+                return
+            }
+            let content = result!["content"] as! [[String : Any]]
+            print(content)
+            for dic in content {
+                let destination = dic["destination"] as! String
+                let people = dic["people"] as! String
+                let lat = dic["lat"] as! Double
+                let lon = dic["lon"] as! Double
+                let boarding = dic["boarding"] as! String
+                let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+                let peopleAnnotation = CustomAnnotation(role: 1, destination: destination, startPosition: boarding, people: people, fee: "", phone: "0800", score: 0, coordinate: coordinate)
+                self.peopleAnnotations.append(peopleAnnotation)
+            }
+            self.mainMapView.addAnnotations(self.peopleAnnotations)
         }
-        mainMapView.addAnnotations(peopleAnnotations)
+        
     }
     
     func addCarAnnotation() {
@@ -160,8 +164,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             let lon = dic["lon"] as! Double
             let score = dic["evaluation"] as! Double
             let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-            //            let passengerPin = PassengerPin(tripID: tripId, memberNo: memberNo, destination: destination, people: people, boarding: boarding, lat: lat, lon: lon)
-            //            self.passengerPins.append(passengerPin)
             let carAnnotation = CustomAnnotation(role: 0, destination: destination, startPosition: departure, people: people, fee: fee, phone: "0800", score: score, coordinate: coordinate)
             carAnnotations.append(carAnnotation)
         }
