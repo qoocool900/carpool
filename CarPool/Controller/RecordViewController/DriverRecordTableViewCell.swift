@@ -11,6 +11,8 @@ class DriverRecordTableViewCell: UITableViewCell {
     @IBOutlet weak var startLocationLabel: UILabel!
     @IBOutlet weak var endLocationLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    var driverTripId: String = ""
+    var seqNo: Int = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,14 +27,12 @@ class DriverRecordTableViewCell: UITableViewCell {
     
     var recordData: DriverRecord? {
         didSet {
+            driverTripId = (recordData?.driverTripId)!
+            seqNo = (recordData?.seqNo)!
             startLocationLabel.text = recordData?.startLocation
             endLocationLabel.text = recordData?.endLocation
             dateLabel.text = recordData?.date
         }
     }
-    
-    @IBAction func passengerBtnPressed(_ sender: Any) {
-    }
-
 }
 

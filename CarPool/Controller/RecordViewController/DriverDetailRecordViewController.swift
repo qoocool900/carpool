@@ -9,7 +9,14 @@ import UIKit
 
 class DriverDetailRecordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
+//Test Data
     var driverDeatilItem = DriverRecordDetail.allTripPassengerRecord()
+    
+//Data base
+//    var driverDeatilItem = DriverRecordDetail.getAllTripPassengerInfo(seqNo: 1)
+
+    var seqNo = 0
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +32,7 @@ class DriverDetailRecordViewController: UIViewController, UITableViewDelegate, U
         cell.recordData = record
         return cell
     }
-    
-    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //        <#code#>
-    //    }
+
     
 }
 

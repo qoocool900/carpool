@@ -18,7 +18,7 @@ class QRcodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     var previewLayer:AVCaptureVideoPreviewLayer?
     var stillImageOutput:AVCaptureStillImageOutput?
     var captureMetadataOutput = AVCaptureMetadataOutput()
-    let loginMemberNo = 4
+    let loginMemberNo = UserDefaults.standard.integer(forKey: "memberNo")
     var scanMemberNo = 0
     var scanRectView:UIView!
     

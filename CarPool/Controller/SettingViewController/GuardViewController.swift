@@ -13,7 +13,7 @@ class GuardViewController: UIViewController{
     @IBOutlet weak var guarePhoneLabel: UILabel!
     @IBOutlet weak var scanBtn: UIButton!
     
-    var loginMemberNo = 4
+    let loginMemberNo = UserDefaults.standard.integer(forKey: "memberNo")
     var scanMemberNo = 1
     var scanMemberName = ""
     var scanMemberPhone = ""

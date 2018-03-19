@@ -9,16 +9,23 @@ import UIKit
 
 class PassengerRecordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
+    let loginMemberNo = UserDefaults.standard.integer(forKey: "memberNo")
     let sectionArray = ["進行中記錄", "歷史紀錄"]
+// Test Data
     var processingItem = PassengerRecord.allProcessingRecord()
     var historyItem = PassengerRecord.allHistoryRecord()
+// Data base
+//    var processingItem = PassengerRecord.getPassengerProcessingInfo(loginMemberNo: 3)
+//    var historyItem = PassengerRecord.getPassengerHistoryInfo(loginMemberNo: 3)
+    
+    var driverMemberNo = 0
+    var driverTripId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.tableView.estimatedRowHeight = 80
-//        self.tableView.rowHeight = UITableViewAutomaticDimension
+        print(loginMemberNo)
     }
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionArray.count
     }
@@ -66,15 +73,10 @@ class PassengerRecordViewController: UIViewController, UITableViewDelegate, UITa
             let processingRecord = processingItem[indexPath.row]
             cell.recordData = processingRecord
             return cell
-        case 1:
+        default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "PassengerRecordCell", for: indexPath) as! PassengerRecordTableViewCell
             let historyRecord = historyItem[indexPath.row]
             cell.recordData = historyRecord
-            return cell
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PassengerRecordCell", for: indexPath) as! PassengerRecordTableViewCell
-//            let processingRecord = processingItem[indexPath.row]
-//            cell.recordData = processingRecord
             return cell
         }
     }
@@ -86,8 +88,39 @@ class PassengerRecordViewController: UIViewController, UITableViewDelegate, UITa
         }
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        <#code#>
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "EvaluaionViewController") as? EvaluaionViewController{
+            switch indexPath.section {
+            case 0:
+                driverMemberNo = processingItem[indexPath.row].driverMemberNo
+                driverTripId = processingItem[indexPath.row].driverTripId
+            default:
+                driverMemberNo = historyItem[indexPath.row].driverMemberNo
+                driverTripId = historyItem[indexPath.row].driverTripId
+            }
+            vc.driverMemberNo = driverMemberNo
+            vc.driverTripId = driverTripId
+            print("driverMemberNo: \(driverMemberNo),driverTripId:\(driverTripId)")
+        }
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        let selectedIndex = tableView.indexPathForSelectedRow!
+//        if let vc = storyboard?.instantiateViewController(withIdentifier: "DriverDetailRecordViewController") as? EvaluaionViewController{
+//            switch selectedIndex.section {
+//            case 0:
+//                driverMemberNo = processingItem[selectedIndex.row].driverMemberNo
+//                driverTripId = processingItem[selectedIndex.row].driverTripId
+//            default:
+//                driverMemberNo = historyItem[selectedIndex.row].driverMemberNo
+//                driverTripId = historyItem[selectedIndex.row].driverTripId
+//            }
+//            vc.driverMemberNo = driverMemberNo
+//            vc.driverTripId = driverTripId
+//            print("driverMemberNo: \(driverMemberNo),driverTripId:\(driverTripId)")
+//        }
 //    }
-
 }
+
+

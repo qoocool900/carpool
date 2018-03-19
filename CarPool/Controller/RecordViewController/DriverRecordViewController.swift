@@ -9,9 +9,16 @@ import UIKit
 
 class DriverRecordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
+    let loginMemberNo = UserDefaults.standard.integer(forKey: "memberNo")
     let sectionArray = ["進行中記錄", "歷史紀錄"]
+// Test Data
     var processingItem = DriverRecord.allProcessingRecord()
     var historyItem = DriverRecord.allHistoryRecord()
+// Data base
+//    var processingItem = DriverRecord.getDriverProcessingInfo(loginMemberNo: 3)
+//    var historyItem = DriverRecord.getDriverHistoryInfo(loginMemberNo: 3)
+   
+    var seqNo = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,23 +70,28 @@ class DriverRecordViewController: UIViewController, UITableViewDelegate, UITable
             let cell = tableView.dequeueReusableCell(withIdentifier: "DriverRecordCell", for: indexPath) as! DriverRecordTableViewCell
             let processingRecord = processingItem[indexPath.row]
             cell.recordData = processingRecord
+            seqNo = (cell.recordData?.seqNo)!
             return cell
-        case 1:
+
+        default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DriverRecordCell", for: indexPath) as! DriverRecordTableViewCell
             let historyRecord = historyItem[indexPath.row]
             cell.recordData = historyRecord
             return cell
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "DriverRecordCell", for: indexPath) as! DriverRecordTableViewCell
-            let processingRecord = processingItem[indexPath.row]
-            cell.recordData = processingRecord
-            return cell
         }
     }
     
-    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //        <#code#>
-    //    }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "DriverDetailRecordViewController") as? DriverDetailRecordViewController{
+            switch indexPath.section {
+            case 0:
+                seqNo = processingItem[indexPath.row].seqNo
+            default:
+                seqNo = historyItem[indexPath.row].seqNo
+            }
+            vc.seqNo = seqNo
+            print("seqNo: \(seqNo)")
+        }
+    }
 }
 
