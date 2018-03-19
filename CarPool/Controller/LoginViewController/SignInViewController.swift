@@ -77,23 +77,23 @@ class SignInViewController: UIViewController,UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        FirstName.placeholder = "First Name"
+        FirstName.placeholder = "名字"
         FirstName.font = UIFont(name: "System", size: 30)
         
-        LastName.placeholder = "Last Name"
+        LastName.placeholder = "姓名"
         LastName.font = UIFont(name: "System", size: 30)
         
         EmailText.placeholder = "Email"
         EmailText.font = UIFont(name: "System", size: 30)
         
-        PhoneText.placeholder = "phone"
+        PhoneText.placeholder = "電話"
         PhoneText.font = UIFont(name: "System", size: 30)
         
-        Password.placeholder = "password"
+        Password.placeholder = "密碼"
         Password.font = UIFont(name: "System", size: 30)
         
-        Gender.placeholder = "gender"
-        Gender.font = UIFont(name: "System", size: 30)
+        Gender.placeholder = "男性輸入入M，女性輸入Ｆ"
+        Gender.font = UIFont(name: "System", size: 20)
         
         // Do any additional setup after loading the view.
     }
