@@ -82,8 +82,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="carLogin" translatesAutoresizingMaskIntoConstraints="NO" id="Q4U-Uf-fT2">
-                                <rect key="frame" x="31" y="37" width="259" height="182"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="carPool_logon02" translatesAutoresizingMaskIntoConstraints="NO" id="Q4U-Uf-fT2">
+                                <rect key="frame" x="31" y="37" width="258" height="187"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -242,6 +242,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="carLogin" width="792" height="466"/>
+        <image name="carPool_logon02" width="726" height="461"/>
     </resources>
 </document>

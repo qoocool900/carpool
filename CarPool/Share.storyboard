@@ -24,8 +24,8 @@
                                 <items>
                                     <navigationItem id="RnY-DK-csd">
                                         <nil key="title"/>
-                                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" restorationIdentifier="SetUpSegment" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="baN-lN-uL9">
-                                            <rect key="frame" x="36" y="7.5" width="303" height="29"/>
+                                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="SetUpSegment" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="baN-lN-uL9">
+                                            <rect key="frame" x="146" y="7.5" width="83" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="乘客"/>
@@ -92,6 +92,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="510"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JLs-Y2-tal">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="510"/>
+                            </imageView>
                             <textField opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yHf-W7-zJK">
                                 <rect key="frame" x="43" y="78" width="288" height="40"/>
                                 <nil key="textColor"/>
@@ -162,6 +165,7 @@
                         <color key="backgroundColor" red="0.47843137250000001" green="0.84705882349999995" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="K59-Zg-DoY" firstAttribute="leading" secondItem="XUJ-by-ETs" secondAttribute="trailing" constant="109" id="5NZ-Nc-6rd"/>
+                            <constraint firstItem="JLs-Y2-tal" firstAttribute="top" secondItem="It3-xP-oVO" secondAttribute="top" id="6LH-bQ-4wT"/>
                             <constraint firstItem="yHf-W7-zJK" firstAttribute="leading" secondItem="t0u-Bh-ViG" secondAttribute="leading" constant="43" id="6RE-YO-ltO"/>
                             <constraint firstItem="E37-2g-eA9" firstAttribute="trailing" secondItem="KNH-bG-PHm" secondAttribute="trailing" id="9Xx-Ij-CIx"/>
                             <constraint firstItem="E37-2g-eA9" firstAttribute="leading" secondItem="N1q-43-Bvg" secondAttribute="leading" id="AD9-JE-s06"/>
@@ -170,11 +174,14 @@
                             <constraint firstItem="KNH-bG-PHm" firstAttribute="top" secondItem="N1q-43-Bvg" secondAttribute="bottom" constant="8" symbolic="YES" id="CW6-Vf-vHD"/>
                             <constraint firstItem="E37-2g-eA9" firstAttribute="leading" secondItem="Ik8-9l-SSX" secondAttribute="leading" id="Egr-Qf-jRN"/>
                             <constraint firstItem="Ik8-9l-SSX" firstAttribute="leading" secondItem="t0u-Bh-ViG" secondAttribute="leading" constant="43" id="Ft6-XX-P4F"/>
+                            <constraint firstAttribute="bottom" secondItem="JLs-Y2-tal" secondAttribute="bottom" id="Fza-7j-aYQ"/>
                             <constraint firstItem="N1q-43-Bvg" firstAttribute="trailing" secondItem="Ik8-9l-SSX" secondAttribute="trailing" id="HsA-ap-R3E"/>
                             <constraint firstItem="XUJ-by-ETs" firstAttribute="leading" secondItem="t0u-Bh-ViG" secondAttribute="leading" constant="43" id="JGi-2E-1e4"/>
                             <constraint firstItem="XUJ-by-ETs" firstAttribute="top" secondItem="t0u-Bh-ViG" secondAttribute="top" constant="29" id="MbT-qN-zQd"/>
                             <constraint firstItem="t0u-Bh-ViG" firstAttribute="trailing" secondItem="XUJ-by-ETs" secondAttribute="trailing" constant="280" id="Taz-8f-3Gy"/>
+                            <constraint firstItem="JLs-Y2-tal" firstAttribute="leading" secondItem="t0u-Bh-ViG" secondAttribute="leading" id="UU4-Sg-2k3"/>
                             <constraint firstItem="E37-2g-eA9" firstAttribute="trailing" secondItem="yHf-W7-zJK" secondAttribute="trailing" id="Ujm-I0-02T"/>
+                            <constraint firstAttribute="trailing" secondItem="JLs-Y2-tal" secondAttribute="trailing" id="WR0-g2-CSa"/>
                             <constraint firstItem="Ik8-9l-SSX" firstAttribute="top" secondItem="E37-2g-eA9" secondAttribute="bottom" constant="8" id="ZFF-4S-D5o"/>
                             <constraint firstItem="t0u-Bh-ViG" firstAttribute="trailing" secondItem="Ik8-9l-SSX" secondAttribute="trailing" constant="233" id="Ze9-oy-CFE"/>
                             <constraint firstItem="t0u-Bh-ViG" firstAttribute="trailing" secondItem="ZjT-pi-sIX" secondAttribute="trailing" constant="72" id="af9-lC-99n"/>
@@ -204,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rsv-zM-OyH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-743" y="380"/>
+            <point key="canvasLocation" x="-743.20000000000005" y="379.61019490254876"/>
         </scene>
         <!--Recording Table View Controller-->
         <scene sceneID="Eoe-c6-zC6">
