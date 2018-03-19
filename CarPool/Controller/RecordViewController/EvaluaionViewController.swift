@@ -8,7 +8,7 @@
 import UIKit
 
 class EvaluaionViewController: UIViewController {
-
+    
     @IBOutlet weak var scoreDriver1Btn: UIButton!
     @IBOutlet weak var scoreDriver2Btn: UIButton!
     @IBOutlet weak var scoreDriver3Btn: UIButton!
@@ -32,15 +32,24 @@ class EvaluaionViewController: UIViewController {
     var scoreDriver: Float = 0.0
     var scoreSafty: Float = 0.0
     var scoreComfort: Float = 0.0
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let blurEffect = UIBlurEffect(style: .extraLight)
-//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-//        blurEffectView.frame = view.bounds
-//        backImageView.addSubview(blurEffectView)
     }
+    
+    @IBAction func sendBtnPressed(_ sender: Any) {
         
+        addEvaluation(loginMemberNo: loginMemberNo, driverMemberNo: driverMemberNo)
+        print("driverMemberNo: \(driverMemberNo),driverTripId:\(driverTripId)")
+        navigationController?.popViewController(animated: true)
+//        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func backBtnPressed(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+//        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func scoreDriver1BtnPressed(_ sender: Any) {
         scoreDriver = 1.0
         scoreDriver1Btn.setImage(UIImage(named:"star"), for: .normal)
@@ -102,7 +111,7 @@ class EvaluaionViewController: UIViewController {
         scoreSafty5Btn.setImage(UIImage(named:"star_blank"), for: .normal)
     }
     @IBAction func scoreSafty3BtnPressed(_ sender: Any) {
-         scoreSafty = 3.0
+        scoreSafty = 3.0
         scoreSafty1Btn.setImage(UIImage(named:"star"), for: .normal)
         scoreSafty2Btn.setImage(UIImage(named:"star"), for: .normal)
         scoreSafty3Btn.setImage(UIImage(named:"star"), for: .normal)
@@ -169,22 +178,14 @@ class EvaluaionViewController: UIViewController {
         scoreComfort5Btn.setImage(UIImage(named:"star"), for: .normal)
     }
     
-    @IBAction func sendBtnPressed(_ sender: Any) {
-        addEvaluation(loginMemberNo: loginMemberNo, driverMemberNo: driverMemberNo)
-        print("driverMemberNo: \(driverMemberNo),driverTripId:\(driverTripId)")
-        dismiss(animated: true, completion: nil)
-    }
     
-    @IBAction func backBtnPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
     
-//    func addEvaluation(tripId:String, memberNo:Int, driverMemberNo:Int, scoreDriver:Float, scoreSafe:Float, scoreComfort:Float, doneHandler:@escaping DoneHandler) {
-//        let parameters: [String : Any] = [ACTION:"addEvaluation", "tripID":tripId, "memberNo":memberNo, "driverMemberNo":driverMemberNo, "scoreDriver":scoreDriver, "scoreSafe":scoreSafe, "scoreComfort":scoreComfort]
-//        doPost(urlString: RECORD_URL, parameters: parameters, doneHandler: doneHandler)
-//    }
+    //    func addEvaluation(tripId:String, memberNo:Int, driverMemberNo:Int, scoreDriver:Float, scoreSafe:Float, scoreComfort:Float, doneHandler:@escaping DoneHandler) {
+    //        let parameters: [String : Any] = [ACTION:"addEvaluation", "tripID":tripId, "memberNo":memberNo, "driverMemberNo":driverMemberNo, "scoreDriver":scoreDriver, "scoreSafe":scoreSafe, "scoreComfort":scoreComfort]
+    //        doPost(urlString: RECORD_URL, parameters: parameters, doneHandler: doneHandler)
+    //    }
     
-//MARK: -AddEvaluation to DataBase
+    //MARK: -AddEvaluation to DataBase
     func addEvaluation(loginMemberNo: Int, driverMemberNo: Int){
         print("Evluation Data - tripId: \(driverTripId), memberNo: \(loginMemberNo), driverMemberNo: \(driverMemberNo), scoreDriver: \(scoreDriver), scoreSafe: \(scoreSafty), scoreComfort: \(scoreComfort)")
         

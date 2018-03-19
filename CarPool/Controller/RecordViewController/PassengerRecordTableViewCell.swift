@@ -44,4 +44,7 @@ class PassengerRecordTableViewCell: UITableViewCell {
             driverTripId = (recordData?.driverTripId)!
         }
     }
+    @IBAction func phoneBtnPressed(_ sender: Any) {
+       callPhone(phoneNo: driverPhone)
+    }
 }
