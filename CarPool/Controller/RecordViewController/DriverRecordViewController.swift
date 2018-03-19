@@ -10,8 +10,13 @@ import UIKit
 class DriverRecordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     let sectionArray = ["進行中記錄", "歷史紀錄"]
+// Test Data
     var processingItem = DriverRecord.allProcessingRecord()
     var historyItem = DriverRecord.allHistoryRecord()
+// Data base
+//    var processingItem = DriverRecord.getDriverProcessingInfo(loginMemberNo: 3)
+//    var historyItem = DriverRecord.getDriverHistoryInfo(loginMemberNo: 3)
+   
     var seqNo = 0
     
     override func viewDidLoad() {
@@ -75,10 +80,15 @@ class DriverRecordViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    //Cell Detail buttion pressed
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? DriverDetailRecordViewController{
-            vc.seqNo = self.seqNo
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "DriverDetailRecordViewController") as? DriverDetailRecordViewController{
+            switch indexPath.section {
+            case 0:
+                seqNo = processingItem[indexPath.row].seqNo
+            default:
+                seqNo = historyItem[indexPath.row].seqNo
+            }
+            vc.seqNo = seqNo
             print("seqNo: \(seqNo)")
         }
     }

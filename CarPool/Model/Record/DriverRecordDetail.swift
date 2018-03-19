@@ -19,9 +19,8 @@ class DriverRecordDetail{
     var offTime: String
     var seqNo: Int = 0
     
-    init(_ passengerTripId: String, _ startLocation: String, _ endLocation: String,
-         _ passengerFirstName: String,_ passengerLastName: String, _ passengerPhone: String,
-         _ passengerCount: Int, _ onTime: String, _ offTime: String) {
+    init(passengerTripId: String, startLocation: String, endLocation: String,
+         passengerFirstName: String,passengerLastName: String,passengerPhone: String,passengerCount: Int,onTime: String, offTime: String) {
         
         self.passengerTripId = passengerTripId
         self.startLocation = startLocation
@@ -35,11 +34,47 @@ class DriverRecordDetail{
     }
     
     static func allTripPassengerRecord() -> [DriverRecordDetail] {
-        let record0 = DriverRecordDetail("P20180101003","台北車站","世貿中心","Penny", "Chen", "0911111111",1,"13:00","13:20")
-        let record1 = DriverRecordDetail("P20180101002","台北101","木柵動物園","Ruby", "Cheng", "0922222222",2,"13:00","13:20")
-        let record2 = DriverRecordDetail("P20180101001","新光三越南西店","忠孝東路ＳＯＧＯ","Winnie", "Hu", "0933333333",1,"13:00","13:20")
+        let record0 = DriverRecordDetail(passengerTripId: "P20180101003",startLocation: "台北車站",endLocation: "世貿中心",passengerFirstName: "Penny", passengerLastName: "Chen", passengerPhone: "0911111111",passengerCount: 1,onTime: "13:00",offTime: "13:20")
+        let record1 = DriverRecordDetail(passengerTripId: "P20180101002",startLocation: "台北101",endLocation: "木柵動物園",passengerFirstName: "Ruby", passengerLastName: "Cheng", passengerPhone: "0922222222",passengerCount: 2,onTime: "13:00",offTime: "13:20")
+        let record2 = DriverRecordDetail(passengerTripId: "P20180101001",startLocation: "新光三越南西店",endLocation: "忠孝東路ＳＯＧＯ",passengerFirstName: "Winnie", passengerLastName: "Hu", passengerPhone: "0933333333",passengerCount: 1,onTime: "13:00",offTime: "13:20")
         return [record0, record1,record2]
     }
     
-
+    
+    //getProcessingRecordings
+    static func getAllTripPassengerInfo(seqNo: Int) -> [DriverRecordDetail]{
+        var recordings = [DriverRecordDetail]()
+        Communicator.shared.getPassengerRecords(seqNo: seqNo) { (error, result) in
+            if let error = error {
+                NSLog("伺服器連線錯誤: \(error)")
+                return
+            }
+            // success
+            let response = result!["response"] as! [String:Any]
+            let content = result!["content"] as! [[String:Any]]
+            let code = response["code"] as! Int
+            
+            if code == 0 {
+                var recording: DriverRecordDetail
+                for record in content{
+                    let passengerTripId = record["tripID"] as! String
+                    let startLocation = record["boarding"] as! String
+                    let endLocation = record["destination"] as! String
+                    let passengerFirstName = record["firstName"] as! String
+                    let passengerLastName = record["lastName"] as! String
+                    let passengerPhone = record["phone"] as! String
+                    let passengerCount = record["people"] as! Int
+                    let onTime = record["onTime"] as! String
+                    let offTime = record["offTime"] as! String
+                    
+                    recording = DriverRecordDetail(passengerTripId: passengerTripId, startLocation: startLocation, endLocation: endLocation,passengerFirstName: passengerFirstName,passengerLastName: passengerLastName,passengerPhone: passengerPhone,passengerCount: passengerCount,onTime: onTime, offTime: offTime)
+                    
+                    recordings.append(recording)
+                }
+            }
+            let msg = response ["msg"] as! String
+            print(msg)
+        }
+        return recordings
+    }
 }
