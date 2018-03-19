@@ -162,23 +162,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flower_1x" translatesAutoresizingMaskIntoConstraints="NO" id="PMO-Tl-Osi">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="point" translatesAutoresizingMaskIntoConstraints="NO" id="PMO-Tl-Osi">
                                 <rect key="frame" x="47" y="225" width="30" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flower_1x" translatesAutoresizingMaskIntoConstraints="NO" id="6FD-dL-zHb">
-                                <rect key="frame" x="53" y="306" width="30" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flower_1x" translatesAutoresizingMaskIntoConstraints="NO" id="wmA-52-5q8">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="point" translatesAutoresizingMaskIntoConstraints="NO" id="wmA-52-5q8">
                                 <rect key="frame" x="210" y="304" width="30" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flower_1x" translatesAutoresizingMaskIntoConstraints="NO" id="EdK-QE-uVL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="point" translatesAutoresizingMaskIntoConstraints="NO" id="EdK-QE-uVL">
                                 <rect key="frame" x="47" y="73" width="30" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flower_1x" translatesAutoresizingMaskIntoConstraints="NO" id="YXY-SR-mae">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="point" translatesAutoresizingMaskIntoConstraints="NO" id="YXY-SR-mae">
                                 <rect key="frame" x="47" y="149" width="30" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -206,6 +202,10 @@
                                     <action selector="SaveButton:" destination="qWH-uN-ChF" eventType="touchUpInside" id="kwQ-Z6-6G1"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="point" translatesAutoresizingMaskIntoConstraints="NO" id="6FD-dL-zHb">
+                                <rect key="frame" x="47" y="307" width="30" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="t0u-Bh-ViG"/>
@@ -298,15 +298,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="magnolia-2" translatesAutoresizingMaskIntoConstraints="NO" id="TvS-HK-OQp">
-                                <rect key="frame" x="56" y="69" width="40" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="magnolia-2" translatesAutoresizingMaskIntoConstraints="NO" id="1JN-A0-Nvz">
+                            <imageView userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="point" translatesAutoresizingMaskIntoConstraints="NO" id="1JN-A0-Nvz">
                                 <rect key="frame" x="56" y="168" width="40" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="magnolia-2" translatesAutoresizingMaskIntoConstraints="NO" id="nCR-jp-xC2">
+                            <imageView userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="point" translatesAutoresizingMaskIntoConstraints="NO" id="nCR-jp-xC2">
                                 <rect key="frame" x="56" y="268" width="40" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -334,6 +330,10 @@
                                     <action selector="SavePassengerBtn:" destination="ekg-gi-x4l" eventType="touchUpInside" id="MfO-et-Lby"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="point" translatesAutoresizingMaskIntoConstraints="NO" id="TvS-HK-OQp">
+                                <rect key="frame" x="56" y="69" width="40" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.47843137250000001" green="0.84705882349999995" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -416,8 +416,7 @@
     <resources>
         <image name="DriverSetup03" width="1587" height="2245"/>
         <image name="Passenger-2" width="1587" height="2245"/>
-        <image name="flower_1x" width="58" height="63"/>
-        <image name="magnolia-2" width="68" height="65"/>
+        <image name="point" width="41" height="45"/>
         <image name="record" width="65" height="55"/>
         <image name="save_button" width="49" height="60"/>
     </resources>
