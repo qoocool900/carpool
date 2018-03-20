@@ -94,16 +94,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DriverSetup03" translatesAutoresizingMaskIntoConstraints="NO" id="JLs-Y2-tal">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="512"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="510"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="JLs-Y2-tal" secondAttribute="height" multiplier="359:490" id="K9Y-7C-Geo"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WuM-a3-RzP">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="362"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zzp-hy-QJA">
-                                        <rect key="frame" x="0.0" y="7" width="375" height="348"/>
+                                        <rect key="frame" x="0.0" y="6" width="375" height="348"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="Xjb-RX-z2P">
                                                 <rect key="frame" x="10" y="0.0" width="355" height="30"/>
