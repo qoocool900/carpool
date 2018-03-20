@@ -89,7 +89,7 @@ class PassengerNoticeRequestTableViewCell: UITableViewCell {
     
     //    Update Status to Database
     func updateStatus(seqNo: Int, status: Int) {
-        Communicator.shared.updateStatus(seqNo: seqNo, status: status) { (error, result) in
+        Communicator.shared.updateStatus(seqNo: seqNo, tripId: "", status: status) { (error, result) in
             if let error = error {
                 NSLog("伺服器連線錯誤: \(error)")
                 return

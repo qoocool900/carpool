@@ -56,7 +56,7 @@ class PassengerSetupViewController: UIViewController {
             
     }
         
-        let BoarddingAddress = DestinationPassenger.text
+        let BoarddingAddress = BoardingPoint.text
         let BoardingGeoCoder = CLGeocoder()
         BoardingGeoCoder.geocodeAddressString(BoarddingAddress!) { (placemarks, error) in
             guard
@@ -71,8 +71,8 @@ class PassengerSetupViewController: UIViewController {
             // Use your location
             var boardingLat = location.coordinate.latitude
             var boardingLong = location.coordinate.longitude
-            defaults.set(destinationLat,forKey:"boardingLat")
-            defaults.set(destinationLong, forKey: "boardingLong")
+            defaults.set(boardingLat,forKey:"boardingLat")
+            defaults.set(boardingLong, forKey: "boardingLong")
             print(boardingLat,boardingLong)
             
         }

@@ -89,7 +89,7 @@ class DriverNotice{
     //Get Passenger Received Notice From Database
     static func getPassengerReceivedNoticeInfo(tripId: String) -> [DriverNotice]{
         var recordings = [DriverNotice]()
-        Communicator.shared.getMyRequests(tripID: tripId , role: 1, status: 0) { (error, result) in
+        Communicator.shared.getMyRequests(tripID: tripId , role:0, request: 0, status: 0) { (error, result) in
             
             if let error = error {
                 NSLog("伺服器連線錯誤: \(error)")
@@ -161,7 +161,7 @@ class DriverNotice{
     
     //    Update Status to Database
     static func updateStatus(seqNo: Int, status: Int) {
-        Communicator.shared.updateStatus(seqNo: seqNo, status: status) { (error, result) in
+        Communicator.shared.updateStatus(seqNo: seqNo, tripId: "", status: status) { (error, result) in
             if let error = error {
                 NSLog("伺服器連線錯誤: \(error)")
                 return

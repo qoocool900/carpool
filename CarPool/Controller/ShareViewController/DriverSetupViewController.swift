@@ -79,8 +79,8 @@ class DriverSetupViewController: UIViewController {
             // Use your location
             var boardingLat = location.coordinate.latitude
             var boardingLong = location.coordinate.longitude
-            defaults.set(destinationLat,forKey:"boardingLat")
-            defaults.set(destinationLong, forKey: "boardingLong")
+            defaults.set(boardingLat,forKey:"boardingLat")
+            defaults.set(boardingLong, forKey: "boardingLong")
             print(boardingLat,boardingLong)
             
         }
@@ -90,10 +90,12 @@ class DriverSetupViewController: UIViewController {
         saveDriverRecord.destination = Destination.text!
         saveDriverRecord.departure = departureText.text!
         saveDriverRecord.people = Int(PeopleNumber.text!)!
+        saveDriverRecord.carNo = CarNumber.text!
+        saveDriverRecord.fee = Int(FeeField.text!)!
         saveDriverRecord.destinationLat = destinationLat
         saveDriverRecord.destinationLon = destinationLong
         saveDriverRecord.departureLat = boardingLat
-        saveDriverRecord.destinationLon = boardingLong
+        saveDriverRecord.departureLon = boardingLong
         
         
         //        savePassengerRecord.destinationLon = destinationLong
