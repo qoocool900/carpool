@@ -10,18 +10,55 @@ import CoreLocation
 
 class PassengerSetupViewController: UIViewController {
     
-    
     @IBOutlet weak var DestinationPassenger: UITextField!
     @IBOutlet weak var BoardingPoint: UITextField!
     @IBOutlet weak var PeopleNumber: UITextField!
     @IBAction func SavePassengerBtn(_ sender: Any) {
+        
         guard DestinationPassenger.text != "" else{
             return
         }
+        guard BoardingPoint.text != "" else{
+            return
+        }
+        guard PeopleNumber.text != "" else{
+            return
+        }
+        
+        // get memberNo
+        let defaults = UserDefaults.standard
+        var passengerMemberNo = defaults.integer(forKey: "memberNo")
+        var destinationLat = defaults.double(forKey: "destinationLat")
+        var destinationLong = defaults.double(forKey: "destinationLong")
+        var boardingLat = defaults.double(forKey:"boardingLat")
+        var boardingLong = defaults.double(forKey:"boardingLong")
+        defaults.synchronize()
+//        print(PassengerMemberNo)
         
         let DesitinationAddress = DestinationPassenger.text
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(DesitinationAddress!) { (placemarks, error) in
+            guard
+                let placemarks = placemarks,
+                let location = placemarks.first?.location
+                else {
+                    // handle no location found
+                    self.showAlert(message: "No data found!")
+                    return
+            }
+            // Use your location
+            var destinationLat = location.coordinate.latitude
+            var destinationLong = location.coordinate.longitude
+            print(destinationLat,destinationLong)
+            defaults.set(destinationLat,forKey:"destinationLat")
+            defaults.set(destinationLong, forKey: "destinationLong")
+            defaults.synchronize()
+            
+    }
+        
+        let BoarddingAddress = DestinationPassenger.text
+        let BoardingGeoCoder = CLGeocoder()
+        BoardingGeoCoder.geocodeAddressString(BoarddingAddress!) { (placemarks, error) in
             guard
                 let placemarks = placemarks,
                 let location = placemarks.first?.location
@@ -32,47 +69,48 @@ class PassengerSetupViewController: UIViewController {
                     return
             }
             // Use your location
-            print(location)
-            print(location.coordinate.latitude)
-            print(location.coordinate.longitude)
-            //            print(5677)
-            //            let defaults = UserDefaults.standard
-            //            defaults.set(location, forKey: "location")
-            //            defaults.synchronize()
-            //            print(defaults.string(forKey: "location"))
-            self.showAlert(message: "Yes! ")
-            // Use your location
+            var boardingLat = location.coordinate.latitude
+            var boardingLong = location.coordinate.longitude
+            defaults.set(destinationLat,forKey:"boardingLat")
+            defaults.set(destinationLong, forKey: "boardingLong")
+            print(boardingLat,boardingLong)
+            
         }
         
-        //        guard BoardingPoint.text != "" else{
-        //            return
-        //        }
-        //        guard PeopleNumber.text != "" else{
-        //            return
-        //        }
+    let savePassengerRecord = Trip(tripId: "", memberNo: 0,  destination: "", boarding: "", people: 0, onMap:0 , status:0 , date: "", boardingLat:0.0 , boardingLon: 0.0, destinationLat:0.0 , destinationLon:0.0 )
+        savePassengerRecord.memberNo = passengerMemberNo
+        savePassengerRecord.destination = DestinationPassenger.text!
+        savePassengerRecord.boarding = BoardingPoint.text!
+        savePassengerRecord.people = Int(PeopleNumber.text!)!
+        savePassengerRecord.destinationLat = destinationLat
+        savePassengerRecord.destinationLon = destinationLong
+        savePassengerRecord.boardingLat = boardingLat
+        savePassengerRecord.boardingLon = boardingLong
         
-        //        let savePassengerRecord = Trip(tripId: "", memberNo: 0,  destination: "", boarding: "", people: 0, onMap:0 , status:0 , date: "", boardingLat: 0.0, boardingLon: 0.0, destinationLat: 0.0, destinationLon: 0.0)
-        //
-        //        savePassengerRecord.destination = DestinationPassenger.text!
-        //        savePassengerRecord.boarding = BoardingPoint.text!
-        //        savePassengerRecord.people = Int(PeopleNumber.text!)!
-        //
-        //        Communicator.shared.modifyTrip(savePassengerRecord, mode: "C") { (error, result) in
-        //            if let error = error {
-        //                NSLog("doRegister fail: \(error)")
-        //
-        //                NSLog("乘客發起失敗")
-        //                self.showAlert(message: "發起失敗")
-        //            }
-        //            // success
-        //            NSLog("乘客發起成功")
-        //            self.showAlert(message: "發起成功")
-        //        }
+        
+//        savePassengerRecord.destinationLon = destinationLong
+        
+        
+        Communicator.shared.modifyTrip(savePassengerRecord, mode: "C") { (error, result) in
+            if let error = error {
+                NSLog("doSetUp fail: \(error)")
+                self.showAlert(message:"伺服器有誤")
+            }
+            // success
+            NSLog("乘客發起成功")
+            self.showAlert(message: "發起成功")
+        }
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // get memeberNo
+        let defaults = UserDefaults.standard
+        let memberNo = defaults.integer(forKey: "memberNo")
+        print(memberNo)
+        //print(4567)
         
         DestinationPassenger.font = UIFont(name: "System", size: 25)
         DestinationPassenger.placeholder = "請輸入您要去的目的地"
@@ -110,3 +148,4 @@ class PassengerSetupViewController: UIViewController {
      */
     
 }
+
