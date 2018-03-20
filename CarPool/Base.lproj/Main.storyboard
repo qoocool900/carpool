@@ -72,7 +72,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="QXp-m6-XSR">
                                                                         <rect key="frame" x="0.0" y="0.0" width="245" height="128"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kL6-dG-mh9" customClass="TransitionButton" customModule="TransitionButton">
+                                                                            <button opaque="NO" clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kL6-dG-mh9" customClass="TransitionButton" customModule="TransitionButton">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="245" height="53"/>
                                                                                 <color key="backgroundColor" red="0.29396751789999997" green="0.69037388389999998" blue="0.3461197305" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <constraints>
@@ -82,6 +82,11 @@
                                                                                 <state key="normal" title="LOGIN">
                                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 </state>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                        <integer key="value" value="10"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                                 <connections>
                                                                                     <action selector="MemberLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5J7-AF-1CT"/>
                                                                                 </connections>
