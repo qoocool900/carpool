@@ -82,6 +82,7 @@
 		043ED8D7205BC271007D573A /* DriverSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverSetupViewController.swift; sourceTree = "<group>"; };
 		04C64259205BBB7200984682 /* PassengerSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassengerSetupViewController.swift; sourceTree = "<group>"; };
 		04C6425D205BBB7300984682 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		04F5C11A2060DD9A002A016B /* CarPool.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarPool.entitlements; sourceTree = "<group>"; };
 		3E0918D0205134CA008688D0 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		3E0918D1205134CA008688D0 /* DriverTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverTrip.swift; sourceTree = "<group>"; };
 		3E0918D2205134CA008688D0 /* Communicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communicator.swift; sourceTree = "<group>"; };
@@ -234,6 +235,7 @@
 		3E8AC8D72049939200DDD5AE /* CarPool */ = {
 			isa = PBXGroup;
 			children = (
+				04F5C11A2060DD9A002A016B /* CarPool.entitlements */,
 				3E8AC8D82049939200DDD5AE /* AppDelegate.swift */,
 				3E8AC8F62049946200DDD5AE /* Controller */,
 				3E8AC90120499A3D00DDD5AE /* Model */,
@@ -396,6 +398,11 @@
 					3E8AC8D42049939200DDD5AE = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -703,9 +710,10 @@
 			baseConfigurationReference = 46EC316F6E77F72CB102B795 /* Pods-CarPool.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CarPool/CarPool.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V9YC4KNQ9G;
+				DEVELOPMENT_TEAM = 4D5NWSFDJ2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CarPool",
@@ -726,9 +734,10 @@
 			baseConfigurationReference = 59FCCA4910075DCA993F60F8 /* Pods-CarPool.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CarPool/CarPool.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V9YC4KNQ9G;
+				DEVELOPMENT_TEAM = 4D5NWSFDJ2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CarPool",

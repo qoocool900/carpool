@@ -169,8 +169,8 @@ class Communicator {
     
     // MARK: - CarPoolServlet
     // 取得目前自己有發過或受邀請的請求
-    func getMyRequests(tripID:String, role:Int, status:Int, doneHandler:@escaping DoneHandler) {
-        let parameters: [String : Any] = [ACTION:"getMyRequests", "tripID":tripID, "role":role, "status":status]
+    func getMyRequests(tripID:String, role:Int, request:Int, status:Int, doneHandler:@escaping DoneHandler) {
+        let parameters: [String : Any] = [ACTION:"getMyRequests", "tripID":tripID, "role":role, "request":request, "status":status]
         doPost(urlString: CAR_POOL_URL, parameters: parameters, doneHandler: doneHandler)
     }
     // 新增請求
@@ -179,8 +179,8 @@ class Communicator {
         doPost(urlString: CAR_POOL_URL, parameters: parameters, doneHandler: doneHandler)
     }
     // 更新狀態
-    func updateStatus(seqNo:Int, status:Int, doneHandler:@escaping DoneHandler) {
-        let parameters: [String : Any] = [ACTION:"updateStatus", "seqNo":seqNo, "status":status]
+    func updateStatus(seqNo:Int, tripId:String, status:Int, doneHandler:@escaping DoneHandler) {
+        let parameters: [String : Any] = [ACTION:"updateStatus", "seqNo":seqNo, "tripID":tripId, "status":status]
         doPost(urlString: CAR_POOL_URL, parameters: parameters, doneHandler: doneHandler)
     }
     

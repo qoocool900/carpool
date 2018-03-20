@@ -8,11 +8,11 @@
 import Foundation
 
 class DriverTrip {
-    var tripId, memberNo, people, fee, status:Int
-    var destination, departure, carNo, date:String
+    var memberNo, people, fee:Int
+    var tripId, destination, departure, carNo, date, status:String
     var departureLat, departureLon, destinationLat, destinationLon:Double
     
-    init(tripId:Int, memberNo:Int, departure:String, destination:String, carNo:String, people:Int, fee:Int, status:Int, date:String, departureLat:Double, departureLon:Double, destinationLat:Double, destinationLon:Double) {
+    init(tripId:String, memberNo:Int, departure:String, destination:String, carNo:String, people:Int, fee:Int, status:String, date:String, departureLat:Double, departureLon:Double, destinationLat:Double, destinationLon:Double) {
         self.tripId = tripId
         self.memberNo = memberNo
         self.departure = departure
@@ -28,3 +28,4 @@ class DriverTrip {
         self.destinationLon = destinationLon
     }
 }
+
