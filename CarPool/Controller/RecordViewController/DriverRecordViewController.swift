@@ -12,11 +12,11 @@ class DriverRecordViewController: UIViewController, UITableViewDelegate, UITable
     let loginMemberNo = UserDefaults.standard.integer(forKey: "memberNo")
     let sectionArray = ["進行中記錄", "歷史紀錄"]
 // Test Data
-    var processingItem = DriverRecord.allProcessingRecord()
-    var historyItem = DriverRecord.allHistoryRecord()
+//    var processingItem = DriverRecord.allProcessingRecord()
+//    var historyItem = DriverRecord.allHistoryRecord()
 // Data base
-//    var processingItem = DriverRecord.getDriverProcessingInfo(loginMemberNo: 3)
-//    var historyItem = DriverRecord.getDriverHistoryInfo(loginMemberNo: 3)
+    var processingItem = DriverRecord.getDriverProcessingInfo(loginMemberNo: 3)
+    var historyItem = DriverRecord.getDriverHistoryInfo(loginMemberNo: 3)
    
     var seqNo = 0
     

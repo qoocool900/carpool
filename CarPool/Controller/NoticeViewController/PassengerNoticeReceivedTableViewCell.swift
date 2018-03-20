@@ -8,7 +8,6 @@
 import UIKit
 
 class PassengerNoticeReceivedTableViewCell: UITableViewCell {
-
     @IBOutlet weak var startLocationLabel: UILabel!
     @IBOutlet weak var endLocationLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -21,10 +20,11 @@ class PassengerNoticeReceivedTableViewCell: UITableViewCell {
     @IBOutlet weak var refuseBtn: UIButton!
     @IBOutlet weak var acceptBtn: UIButton!
     @IBOutlet weak var phoneBtn: UIButton!
-    let wait = "0"
-    let accept = "1"
-    let refuse = "2"
-    var requestStatus = ""
+    let wait = 0
+    let accept = 1
+    let refuse = 2
+    var seqNo = 0
+    var driverPhone = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,38 +33,40 @@ class PassengerNoticeReceivedTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        checkSatus(requestStatus)
         // Configure the view for the selected state
     }
     
-    var noticeData: Notice? {
+    var noticeData: DriverNotice? {
         didSet {
+            seqNo = (noticeData?.seqNo)!
             startLocationLabel.text = noticeData?.startLocation
             endLocationLabel.text = noticeData?.endLocation
             dateLabel.text = noticeData?.date
-            carCapacityLabel.text = noticeData?.carCapacity
-            driverNameLabel.text = noticeData?.driverName
+            carCapacityLabel.text = "\((noticeData?.carCapacity)!)"
+            let driverFirstName = (noticeData?.driverFirstName)!
+            let driverLastName = (noticeData?.driverLastName)!
+            driverNameLabel.text = driverLastName + " " + driverFirstName
             carNumberLabel.text = noticeData?.carNumber
-            requestStatus = (noticeData?.requestStatus)!
-            checkSatus(requestStatus)
+            driverPhone = (noticeData?.driverPhone)!
+            checkSatusImage(requestStatus: wait)
         }
     }
     
     @IBAction func phoneBtnPressed(_ sender: Any) {
-        
+        callPhone(phoneNo: driverPhone)
     }
     
-    @IBAction func acceptBtnPressed(_ sender: Any) {
-        requestStatus = accept
-        checkSatus(requestStatus)
+    @IBAction func acceptBtnPressed(sender: Any) {
+//        DriverNotice.updateStatus(seqNo: seqNo, status: accept)
+        checkSatusImage(requestStatus: accept)
     }
     
     @IBAction func refuseBtnPressed(_ sender: Any) {
-        requestStatus = refuse
-        checkSatus(requestStatus)
+//        DriverNotice.updateStatus(seqNo: seqNo, status: refuse)
+        checkSatusImage(requestStatus: refuse)
     }
     
-    func checkSatus(_ requestStatus: String) {
+    func checkSatusImage(requestStatus: Int) {
         switch requestStatus {
         case wait:
             requestStatusIng.image = UIImage(named: "radio_click")
