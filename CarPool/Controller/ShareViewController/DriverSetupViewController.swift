@@ -85,21 +85,21 @@ class DriverSetupViewController: UIViewController {
             
         }
         
-        let saveDriverRecord = Trip(tripId: "", memberNo: 0,  destination: "", boarding: "", people: 0, onMap:0 , status:0 , date: "", boardingLat:0.0 , boardingLon: 0.0, destinationLat:0.0 , destinationLon:0.0 )
+        let saveDriverRecord = DriverTrip(tripId: "", memberNo: 0, departure: "", destination: "", carNo: "", people: 0, fee: 0, status: "", date: "", departureLat: 0.0, departureLon: 0.0, destinationLat: 0.0, destinationLon: 0.0)
         saveDriverRecord.memberNo = driverMemberNo
         saveDriverRecord.destination = Destination.text!
-        saveDriverRecord.boarding = departureText.text!
+        saveDriverRecord.departure = departureText.text!
         saveDriverRecord.people = Int(PeopleNumber.text!)!
         saveDriverRecord.destinationLat = destinationLat
         saveDriverRecord.destinationLon = destinationLong
-        saveDriverRecord.boardingLat = boardingLat
-        saveDriverRecord.boardingLon = boardingLong
+        saveDriverRecord.departureLat = boardingLat
+        saveDriverRecord.destinationLon = boardingLong
         
         
         //        savePassengerRecord.destinationLon = destinationLong
         
         
-        Communicator.shared.modifyTrip(saveDriverRecord, mode: "C") { (error, result) in
+        Communicator.shared.modifyDriverTrip(saveDriverRecord, mode: "C") { (error, result) in
             if let error = error {
                 NSLog("doSetUp fail: \(error)")
                 self.showAlert(message:"伺服器有誤")

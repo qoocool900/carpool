@@ -77,7 +77,7 @@ class PassengerSetupViewController: UIViewController {
             
         }
         
-    let savePassengerRecord = Trip(tripId: "", memberNo: 0,  destination: "", boarding: "", people: 0, onMap:0 , status:0 , date: "", boardingLat:0.0 , boardingLon: 0.0, destinationLat:0.0 , destinationLon:0.0 )
+    let savePassengerRecord = Trip(tripId: "1", memberNo:0, destination: "", boarding: "", people: 0, onMap: "1", status: "0", date: "", boardingLat: 0.0, boardingLon: 0.0, destinationLat: 0.0, destinationLon: 0.0)
         savePassengerRecord.memberNo = passengerMemberNo
         savePassengerRecord.destination = DestinationPassenger.text!
         savePassengerRecord.boarding = BoardingPoint.text!
