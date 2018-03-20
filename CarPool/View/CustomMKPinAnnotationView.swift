@@ -83,12 +83,12 @@ class CustomMKPinAnnotationView: MKAnnotationView {
                 }
                 if role == 0 {
                     callOutView.destinationLabel.text = carAnnotation.destination!
-                    callOutView.peopleLabel.text = "乘載人數：" + carAnnotation.people!
+                    callOutView.peopleLabel.text = "乘載人數：\(carAnnotation.people!)"
                     callOutView.feeLabel.text = "費用：" + carAnnotation.fee!
                     callOutView.scoreLabel.text = "總評分：\(carAnnotation.score!)"
                 } else {
                     callOutView.destinationLabel.text = carAnnotation.destination!
-                    callOutView.peopleLabel.text = "搭乘人數：" + carAnnotation.people!
+                    callOutView.peopleLabel.text = "搭乘人數：\(carAnnotation.people!)"
                     callOutView.feeLabel.text = "上車地點：" + carAnnotation.startPosition!
                     callOutView.scoreLabel.text = ""
                 }

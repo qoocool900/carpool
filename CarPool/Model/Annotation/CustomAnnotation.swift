@@ -10,15 +10,17 @@ import MapKit
 
 class CustomAnnotation: NSObject, MKAnnotation {
     let role:Int? //0:driver ; 1:passenger
+    let tripId:String?
     let destination:String?
     let startPosition:String?
-    let people:String?
+    let people:Int?
     let fee:String?
     let phone:String?
     let score:Double?
     let coordinate:CLLocationCoordinate2D
-    init(role:Int, destination:String, startPosition:String, people:String, fee:String, phone:String, score:Double, coordinate: CLLocationCoordinate2D) {
+    init(role:Int, tripId:String, destination:String, startPosition:String, people:Int, fee:String, phone:String, score:Double, coordinate: CLLocationCoordinate2D) {
         self.role = role
+        self.tripId = tripId
         self.destination = destination
         self.startPosition = startPosition
         self.people = people

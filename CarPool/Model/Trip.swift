@@ -8,11 +8,11 @@
 import Foundation
 
 class Trip {
-    var memberNo, people, onMap, status:Int
-    var tripId, destination, boarding, date:String
+    var memberNo, people:Int
+    var tripId, destination, boarding, date, status, onMap:String
     var boardingLat, boardingLon, destinationLat, destinationLon:Double
     
-    init(tripId:String, memberNo:Int, destination:String, boarding:String, people:Int, onMap:Int, status:Int, date:String, boardingLat:Double, boardingLon:Double, destinationLat:Double, destinationLon:Double) {
+    init(tripId:String, memberNo:Int, destination:String, boarding:String, people:Int, onMap:String, status:String, date:String, boardingLat:Double, boardingLon:Double, destinationLat:Double, destinationLon:Double) {
         self.tripId = tripId
         self.memberNo = memberNo
         self.destination = destination

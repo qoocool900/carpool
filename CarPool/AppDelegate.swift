@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Communicator.token = deviceToken.hexString
     }
     
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        NSLog("didFailToRegisterForRemoteNotificationsWithError: \(error)")
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true

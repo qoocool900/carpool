@@ -37,10 +37,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
     let geocoder = CLGeocoder()
+    var tipId=""
     
     let passengerDicArray = [["tripID":"P00001","memberNo":"1","destination":"中壢車站","people":"1","date":"1","onMap":"1","boarding":"中央大學", "lat":24.965639, "lon":121.191013], ["tripID":"P00002","memberNo":"2","destination":"桃園高鐵站","people":"2","date":"1","onMap":"1","boarding":"中央大學7-11", "lat":24.968854, "lon":121.191756], ["tripID":"P00003","memberNo":"3","destination":"板橋車站","people":"3","date":"1","onMap":"1","boarding":"中央大學後門全家", "lat":24.964608, "lon":121.190866]] as [[String : Any]]
     
-    let driverDicArray = [["tripID":"D00001","memberNo":"10","carNo":"123-qwe","people":"1","date":"1","destination":"亞東醫院","departure":"XXX","fee":"100", "lat":24.968292, "lon":121.196959, "evaluation":4.4], ["tripID":"D00002","memberNo":"11","carNo":"456-fgh","people":"1","date":"1","destination":"中壢車站","departure":"XXX","fee":"50", "lat":24.965322, "lon":121.191069, "evaluation":4.7], ["tripID":"D00003","memberNo":"12","carNo":"678-cvr","people":"1","date":"1","destination":"新竹大遠百","departure":"XXX","fee":"200", "lat":24.967770, "lon":121.191162, "evaluation":3.4]] as [[String:Any]]
+    let driverDicArray = [["tripID":"D00001","memberNo":"10","carNo":"123-qwe","people":1,"date":"1","destination":"亞東醫院","departure":"XXX","fee":"100", "lat":24.968292, "lon":121.196959, "evaluation":4.4], ["tripID":"D00002","memberNo":"11","carNo":"456-fgh","people":1,"date":"1","destination":"中壢車站","departure":"XXX","fee":"50", "lat":24.965322, "lon":121.191069, "evaluation":4.7], ["tripID":"D00003","memberNo":"12","carNo":"678-cvr","people":1,"date":"1","destination":"新竹大遠百","departure":"XXX","fee":"200", "lat":24.967770, "lon":121.191162, "evaluation":3.4]] as [[String:Any]]
     
     var passengerPins = [PassengerPin]()
     var carAnnotations = [CustomAnnotation]()
@@ -62,6 +63,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(Communicator.token)
         getInButton.setRadiusWithShadow()
         sosButton.setRadiusWithShadow()
         // Do any additional setup after loading the view.
@@ -138,13 +140,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             let content = result!["content"] as! [[String : Any]]
             print(content)
             for dic in content {
+                let tripId = dic["trip_ip"] as! String
                 let destination = dic["destination"] as! String
-                let people = dic["people"] as! String
+                let people = dic["people"] as! Int
                 let lat = dic["lat"] as! Double
                 let lon = dic["lon"] as! Double
                 let boarding = dic["boarding"] as! String
                 let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-                let peopleAnnotation = CustomAnnotation(role: 1, destination: destination, startPosition: boarding, people: people, fee: "", phone: "0800", score: 0, coordinate: coordinate)
+                let peopleAnnotation = CustomAnnotation(role: 1, tripId: tripId, destination: destination, startPosition: boarding, people: people, fee: "", phone: "0800", score: 0, coordinate: coordinate)
                 self.peopleAnnotations.append(peopleAnnotation)
             }
             self.mainMapView.addAnnotations(self.peopleAnnotations)
@@ -154,17 +157,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     func addCarAnnotation() {
         for dic in driverDicArray {
-            //let tripId = dic["tripID"] as! String
+            let tripId = dic["tripID"] as! String
             //let memberNo = dic["memberNO"] as! Int
             let destination = dic["destination"] as! String
             let departure = dic["departure"] as! String
-            let people = dic["people"] as! String
+            let people = dic["people"] as! Int
             let fee = dic["fee"] as! String
             let lat = dic["lat"] as! Double
             let lon = dic["lon"] as! Double
             let score = dic["evaluation"] as! Double
             let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-            let carAnnotation = CustomAnnotation(role: 0, destination: destination, startPosition: departure, people: people, fee: fee, phone: "0800", score: score, coordinate: coordinate)
+            let carAnnotation = CustomAnnotation(role: 0, tripId: tripId, destination: destination, startPosition: departure, people: people, fee: fee, phone: "0800", score: score, coordinate: coordinate)
             carAnnotations.append(carAnnotation)
         }
         mainMapView.addAnnotations(carAnnotations)
@@ -190,10 +193,17 @@ extension MapViewController: MKMapViewDelegate, inviteRidingCallOutViewDelegate 
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if view.annotation is MKUserLocation {
+            return
+        }
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         let lan = (view.annotation?.coordinate.latitude)! + 0.002
         let coordinate = CLLocationCoordinate2D(latitude: lan, longitude: (view.annotation?.coordinate.longitude)!)
         let region = MKCoordinateRegion(center: coordinate, span: span)
+        
+        let customAnnotation = view.annotation as! CustomAnnotation
+        tipId = customAnnotation.tripId!
+        print(tipId)
         mainMapView.setRegion(region, animated: true)
     }
     
@@ -217,8 +227,13 @@ extension MapViewController: MKMapViewDelegate, inviteRidingCallOutViewDelegate 
     }
     
     func inviteRiding() {
-        
         showAlert(message: "邀請成功")
+        print(tipId)
+        Communicator.shared.addRequest(driverTripID: tipId, passengerTripID: tipId, reqType: role) { (error, reseult) in
+            if let error = error {
+                
+            }
+        }
     }
 }
 
@@ -231,5 +246,4 @@ extension UIView {
         self.layer.shadowOpacity = 0.7
         self.layer.masksToBounds = false
     }
-    
 }
