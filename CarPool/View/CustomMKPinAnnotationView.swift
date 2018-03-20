@@ -8,10 +8,12 @@
 import UIKit
 import MapKit
 
-private let carPinImage = UIImage(named: "car-1")
+private let carPinImage = UIImage(named: "car")
+private let peoplePinImage = UIImage(named: "boy")
 class CustomMKPinAnnotationView: MKAnnotationView {
 
     weak var callOutView: CallOutView?
+    weak var inviteRidingDelegate: inviteRidingCallOutViewDelegate?
     
     override var annotation: MKAnnotation? {
         willSet {
@@ -22,13 +24,21 @@ class CustomMKPinAnnotationView: MKAnnotationView {
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         self.canShowCallout = false
-        self.image = carPinImage
+        if reuseIdentifier == "Car" {
+            self.image = carPinImage?.resizeWith(percentage: 0.6)
+        } else {
+            self.image = peoplePinImage?.resizeWith(percentage: 0.6)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.canShowCallout = false
-        self.image = carPinImage
+        if reuseIdentifier == "Car" {
+            self.image = carPinImage?.resizeWith(percentage: 0.6)
+        } else {
+            self.image = peoplePinImage?.resizeWith(percentage: 0.6)
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -66,10 +76,23 @@ class CustomMKPinAnnotationView: MKAnnotationView {
     func loadCustomCallOutView() -> CallOutView? {
         if let views = Bundle.main.loadNibNamed("CallOutView", owner: self, options: nil) as? [CallOutView], views.count > 0 {
             let callOutView = views.first!
+            callOutView.delegate = self.inviteRidingDelegate
             if let carAnnotation = annotation as? CustomAnnotation {
-                callOutView.destinationLabel.text = carAnnotation.destination
-                callOutView.peopleLabel.text = carAnnotation.people
-                callOutView.feeLabel.text = carAnnotation.fee
+                guard let role = carAnnotation.role else {
+                    return nil
+                }
+                if role == 0 {
+                    callOutView.destinationLabel.text = carAnnotation.destination!
+                    callOutView.peopleLabel.text = "乘載人數：" + carAnnotation.people!
+                    callOutView.feeLabel.text = "費用：" + carAnnotation.fee!
+                    callOutView.scoreLabel.text = "總評分：\(carAnnotation.score!)"
+                } else {
+                    callOutView.destinationLabel.text = carAnnotation.destination!
+                    callOutView.peopleLabel.text = "搭乘人數：" + carAnnotation.people!
+                    callOutView.feeLabel.text = "上車地點：" + carAnnotation.startPosition!
+                    callOutView.scoreLabel.text = ""
+                }
+                
             }
             return callOutView
         }
@@ -99,3 +122,35 @@ class CustomMKPinAnnotationView: MKAnnotationView {
     */
 
 }
+
+
+import UIKit
+
+extension UIImage {
+    
+    func resizeWith(percentage: CGFloat) -> UIImage? {
+        let imageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: size.width * percentage, height: size.height * percentage)))
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = self
+        UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, scale)
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+        imageView.layer.render(in: context)
+        guard let result = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
+        UIGraphicsEndImageContext()
+        return result
+    }
+    
+    func resizeWith(width: CGFloat) -> UIImage? {
+        let imageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))))
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = self
+        UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, scale)
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+        imageView.layer.render(in: context)
+        guard let result = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
+        UIGraphicsEndImageContext()
+        return result
+    }
+    
+}
+
