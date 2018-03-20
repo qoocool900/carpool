@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        //可以直接進來
         // 判斷是否登入，分別帶入不同畫面
         if memberNo == nil {
             let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LogIn")
