@@ -11,6 +11,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var memberNo = UserDefaults.standard.integer(forKey: "memberNo")
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         print("token在這裡\(deviceToken.hexString)")
@@ -23,6 +24,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // 判斷是否登入，分別帶入不同畫面
+        if memberNo == nil {
+            let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LogIn")
+            self.window?.rootViewController = controller
+        } else {
+            let controller = UIStoryboard(name: "Map", bundle: nil).instantiateViewController(withIdentifier: "TabBarController")
+            self.window?.rootViewController = controller
+            
+        }
+        
         return true
     }
 
