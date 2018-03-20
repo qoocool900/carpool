@@ -119,7 +119,9 @@ class PassengerSetupViewController: UIViewController {
         BoardingPoint.placeholder = "請輸入您的上車地點"
         
         PeopleNumber.font = UIFont(name: "System", size: 25)
-        PeopleNumber.placeholder = "請輸入您的人數"
+        PeopleNumber.placeholder = "數字"
+        
+        
         
         // Do any additional setup after loading the view.
     }
