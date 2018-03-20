@@ -19,10 +19,10 @@ class PassengerNoticeRequestTableViewCell: UITableViewCell {
     @IBOutlet weak var requestStatusMatch: UIImageView!
     @IBOutlet weak var requestStatusCancel: UIImageView!
     @IBOutlet weak var phoneBtn: UIButton!
-    let wait = "0"
-    let accept = "1"
-    let refuse = "2"
-    var requestStatus = ""
+    let wait = 0
+    let accept = 1
+    let refuse = 2
+    var requestStatus = 0
     var driverPhone = ""
     
     override func awakeFromNib() {
@@ -46,7 +46,7 @@ class PassengerNoticeRequestTableViewCell: UITableViewCell {
             let driverLastName = (noticeData?.driverLastName)!
             driverNameLabel.text = driverLastName + " " + driverFirstName
             carNumberLabel.text = noticeData?.carNumber
-            requestStatus = "\((noticeData?.requestStatus)!)"
+//            requestStatus = "\((noticeData?.requestStatus)!)"
             driverPhone = (noticeData?.driverPhone)!
             checkSatus(requestStatus)
         }
@@ -66,7 +66,7 @@ class PassengerNoticeRequestTableViewCell: UITableViewCell {
         checkSatus(requestStatus)
     }
     
-    func checkSatus(_ requestStatus: String) {
+    func checkSatus(_ requestStatus: Int) {
         switch requestStatus {
         case wait:
             requestStatusIng.image = UIImage(named: "radio_click")
@@ -85,6 +85,26 @@ class PassengerNoticeRequestTableViewCell: UITableViewCell {
         default:
             break
         }
+    }
+    
+    //    Update Status to Database
+    func updateStatus(seqNo: Int, status: Int) {
+        Communicator.shared.updateStatus(seqNo: seqNo, status: status) { (error, result) in
+            if let error = error {
+                NSLog("伺服器連線錯誤: \(error)")
+                return
+            }
+            // success
+            let response = result!["response"] as! [String:Any]
+            let content = result!["content"] as! [[String:Any]]
+            let code = response["code"] as! Int
+            if code == 0 {
+               
+            }
+            let msg = response ["msg"] as! String
+            print(msg)
+        }
+        
     }
 }
 

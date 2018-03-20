@@ -13,6 +13,9 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var passengerCountLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    var seqNo = 0
+    var driverPhone = ""
+    var status = 0
     
     let sectionArray = ["我收到的邀請", "我發出的請求"]
     let myTrip = PassengerNotice.passengerShared()

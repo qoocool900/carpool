@@ -20,7 +20,6 @@ class NoticeViewController: UIViewController {
 
     @IBOutlet weak var passengerContainer: UIView!
     
-    
     @IBAction func roleChanged(_ sender: UISegmentedControl) {
         
         switch sender.selectedSegmentIndex {
