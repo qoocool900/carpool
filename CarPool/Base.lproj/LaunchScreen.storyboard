@@ -18,16 +18,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchlayout-1" translatesAutoresizingMaskIntoConstraints="NO" id="J1Y-5P-Rzm">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUf-bv-pEY">
+                                <rect key="frame" x="86" y="406" width="297" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="41"/>
+                                <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch02" translatesAutoresizingMaskIntoConstraints="NO" id="lD6-Bo-b7p">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="J1Y-5P-Rzm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="GhL-WS-9Tw"/>
-                            <constraint firstItem="J1Y-5P-Rzm" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="VQT-Rv-D2D"/>
-                            <constraint firstItem="J1Y-5P-Rzm" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="bju-4l-5TE"/>
-                            <constraint firstItem="J1Y-5P-Rzm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tCG-qw-moX"/>
+                            <constraint firstItem="lD6-Bo-b7p" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="WbS-ds-JEp"/>
+                            <constraint firstItem="lD6-Bo-b7p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gCU-jY-3Th"/>
+                            <constraint firstItem="lD6-Bo-b7p" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="m9z-fd-vuK"/>
+                            <constraint firstItem="lD6-Bo-b7p" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="r8h-P1-Ynd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,6 +45,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launchlayout-1" width="500" height="500"/>
+        <image name="Launch02" width="1587" height="2245"/>
     </resources>
 </document>
