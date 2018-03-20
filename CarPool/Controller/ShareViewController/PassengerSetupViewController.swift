@@ -108,8 +108,8 @@ class PassengerSetupViewController: UIViewController {
         
         // get memeberNo
         let defaults = UserDefaults.standard
-        let memberNo = defaults.integer(forKey: "memberNo")
-        print(memberNo)
+        let passengerMemberNo = defaults.integer(forKey: "memberNo")
+        print(passengerMemberNo)
         //print(4567)
         
         DestinationPassenger.font = UIFont(name: "System", size: 25)
