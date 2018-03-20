@@ -12,11 +12,11 @@ class PassengerRecordViewController: UIViewController, UITableViewDelegate, UITa
     let loginMemberNo = UserDefaults.standard.integer(forKey: "memberNo")
     let sectionArray = ["進行中記錄", "歷史紀錄"]
 // Test Data
-//    var processingItem = PassengerRecord.allProcessingRecord()
-//    var historyItem = PassengerRecord.allHistoryRecord()
+    var processingItem = PassengerRecord.allProcessingRecord()
+    var historyItem = PassengerRecord.allHistoryRecord()
 // Data base
-    var processingItem = PassengerRecord.getPassengerProcessingInfo(loginMemberNo: 3)
-    var historyItem = PassengerRecord.getPassengerHistoryInfo(loginMemberNo: 3)
+//    var processingItem = PassengerRecord.getPassengerProcessingInfo(loginMemberNo: 3)
+//    var historyItem = PassengerRecord.getPassengerHistoryInfo(loginMemberNo: 3)
     
     var driverMemberNo = 0
     var driverTripId = ""

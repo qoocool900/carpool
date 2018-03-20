@@ -77,7 +77,6 @@
                             <color key="tintColor" red="0.1960784314" green="0.65490196079999996" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="logoutBtnPressed:" destination="Tte-N8-522" id="4Ix-Ko-qdh"/>
-                                <segue destination="2ol-6y-7zK" kind="presentation" animates="NO" id="CJZ-Ji-Mo5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -92,16 +91,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6dR-VP-e62" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-610" y="944"/>
-        </scene>
-        <!--Main-->
-        <scene sceneID="3SX-Db-jqt">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="LoginViewController" storyboardName="Main" id="2ol-6y-7zK" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="4ED-fL-ndV"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="F1K-G2-Xbj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-74" y="372"/>
         </scene>
         <!--Basic View Controller-->
         <scene sceneID="Uta-NL-P2U">

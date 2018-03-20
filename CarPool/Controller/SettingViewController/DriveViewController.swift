@@ -248,6 +248,14 @@ class DriveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             let response = result!["response"] as! [String:Any]
             let code = response["code"] as! Int
             if code == 0 {
+                let defaults = UserDefaults.standard
+                defaults.set(car.carNo, forKey: "carNo")
+                defaults.set(car.color, forKey: "carColor")
+                defaults.set(car.brand, forKey: "carBrand")
+                defaults.synchronize()
+                print("carNo:\(defaults.string(forKey: "carNo"))")
+                print("carColor:\(defaults.string(forKey: "carColor"))")
+                print("carBrand:\(defaults.string(forKey: "carBrand"))")
                self.showAlert(message: "更新資料成功")
             }
             let msg = response ["msg"] as! String

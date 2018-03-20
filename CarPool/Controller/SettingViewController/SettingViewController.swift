@@ -19,13 +19,20 @@ class SettingViewController: UIViewController, UITextFieldDelegate{
         driveContainer.isHidden = true
         guardContainer.isHidden = true
     }
-
+  
     @IBAction func logoutBtnPressed(_ sender: Any) {
-        //...
-        dismiss(animated: true, completion:nil)
+        let defaults = UserDefaults.standard
+        defaults.set(0, forKey: "memberNo")
+        defaults.synchronize()
+        print(defaults.integer(forKey: "memberNo"))
         print("Logout")
-        
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateInitialViewController()
+        self.view.window?.rootViewController = controller
     }
+    
+    
     @IBAction func roleChanged(_ sender: UISegmentedControl) {
         
         switch sender.selectedSegmentIndex {
