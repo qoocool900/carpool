@@ -59,9 +59,9 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
                     })
                 })
             }
-            let msg = response["msg"] as! String
-            print(msg)
-            self.showAlert(message: msg)
+//            let msg = response["msg"] as! String
+//            print(msg)
+//            self.showAlert(message: msg)
         }
     }
     
