@@ -31,6 +31,9 @@ struct PassengerPin {
 
 class MapViewController: UIViewController, CLLocationManagerDelegate {
 
+    deinit{
+        print("deinit")
+    }
     @IBOutlet weak var getInButton: RoundButton!
     @IBOutlet weak var sosButton: RoundButton!
     @IBOutlet weak var mainMapView: MKMapView!
@@ -63,7 +66,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(Communicator.token)
+
         getInButton.setRadiusWithShadow()
         sosButton.setRadiusWithShadow()
         // Do any additional setup after loading the view.
@@ -147,7 +150,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 let lon = dic["lon"] as! Double
                 let boarding = dic["boarding"] as! String
                 let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-                let peopleAnnotation = CustomAnnotation(role: 1, tripId: tripId, destination: destination, startPosition: boarding, people: people, fee: "", phone: "0800", score: 0, coordinate: coordinate)
+                let peopleAnnotation = CustomAnnotation(role: 1, tripId: tripId, destination: destination, startPosition: boarding, people: people, fee: 0, phone: "0800", score: 0, coordinate: coordinate)
                 self.peopleAnnotations.append(peopleAnnotation)
             }
             self.mainMapView.addAnnotations(self.peopleAnnotations)
@@ -156,21 +159,29 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func addCarAnnotation() {
-        for dic in driverDicArray {
-            let tripId = dic["tripID"] as! String
-            //let memberNo = dic["memberNO"] as! Int
-            let destination = dic["destination"] as! String
-            let departure = dic["departure"] as! String
-            let people = dic["people"] as! Int
-            let fee = dic["fee"] as! String
-            let lat = dic["lat"] as! Double
-            let lon = dic["lon"] as! Double
-            let score = dic["evaluation"] as! Double
-            let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-            let carAnnotation = CustomAnnotation(role: 0, tripId: tripId, destination: destination, startPosition: departure, people: people, fee: fee, phone: "0800", score: score, coordinate: coordinate)
-            carAnnotations.append(carAnnotation)
+        Communicator.shared.getDriverTrips(status: 0) { (error, result) in
+            if let error = error {
+                print(error)
+                return
+            }
+            let content = result!["content"] as! [[String : Any]]
+            print(content)
+            for dic in content {
+                let tripId = dic["trip_ip"] as! String
+                //let memberNo = dic["memberNO"] as! Int
+                let destination = dic["destination"] as! String
+                let departure = dic["boarding"] as! String
+                let people = dic["people"] as! Int
+                let fee = dic["fee"] as! Int
+                let lat = dic["lat"] as! Double
+                let lon = dic["lon"] as! Double
+                //let score = dic["evaluation"] as! Double
+                let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+                let carAnnotation = CustomAnnotation(role: 0, tripId: tripId, destination: destination, startPosition: departure, people: people, fee: fee, phone: "0800", score: 0, coordinate: coordinate)
+                self.carAnnotations.append(carAnnotation)
+            }
+            self.mainMapView.addAnnotations(self.carAnnotations)
         }
-        mainMapView.addAnnotations(carAnnotations)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -229,11 +240,12 @@ extension MapViewController: MKMapViewDelegate, inviteRidingCallOutViewDelegate 
     func inviteRiding() {
         showAlert(message: "邀請成功")
         print(tipId)
-        Communicator.shared.addRequest(driverTripID: tipId, passengerTripID: tipId, reqType: role) { (error, reseult) in
-            if let error = error {
-                
-            }
-        }
+//        Communicator.shared.addRequest(driverTripID: tipId, passengerTripID: "P180308002", reqType: role) { (error, result) in
+//            if let error = error {
+//
+//            }
+//            print(result!)
+//        }
     }
 }
 

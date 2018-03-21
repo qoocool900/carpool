@@ -68,7 +68,8 @@ class CustomMKPinAnnotationView: MKAnnotationView {
                     }, completion: { (success) in
                         self.callOutView!.removeFromSuperview()
                     })
-                } else { self.callOutView!.removeFromSuperview() } // just remove it.
+                } else {
+                    self.callOutView!.removeFromSuperview() } // just remove it.
             }
         }
     }
@@ -84,7 +85,7 @@ class CustomMKPinAnnotationView: MKAnnotationView {
                 if role == 0 {
                     callOutView.destinationLabel.text = carAnnotation.destination!
                     callOutView.peopleLabel.text = "乘載人數：\(carAnnotation.people!)"
-                    callOutView.feeLabel.text = "費用：" + carAnnotation.fee!
+                    callOutView.feeLabel.text = "費用：\(carAnnotation.fee!)"
                     callOutView.scoreLabel.text = "總評分：\(carAnnotation.score!)"
                 } else {
                     callOutView.destinationLabel.text = carAnnotation.destination!
