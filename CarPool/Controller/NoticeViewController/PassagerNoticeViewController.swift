@@ -13,25 +13,32 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var passengerCountLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    let loginMemberNo = UserDefaults.standard.integer(forKey: "memberNo")
     var seqNo = 0
     var driverPhone = ""
     var status = 0
     
     let sectionArray = ["我收到的邀請", "我發出的請求"]
-    let myTrip = PassengerNotice.passengerShared()
-    var receivedItem = DriverNotice.passengerReceivedNotice()
-    var requestItem = DriverNotice.passengerRequestNotice()
-  
+    var myTrip: Trip!
+    var receivedItem = [DriverNotice]()
+    var requestItem = [DriverNotice]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        getPassengerSend()
-    }
-    
-    func getPassengerSend() {
-        startLocationLabel.text = myTrip.startLocation
-        endLocationLabel.text = myTrip.endLocation
+        //Test sata
+//        myTrip = PassengerNotice.passengerShared()
+//        receivedItem = DriverNotice.passengerReceivedNotice()
+//        requestItem = DriverNotice.passengerRequestNotice()
+        
+        //Database data
+        myTrip = PassengerNotice.getPassengerSharedInfo(loginMemberNo: loginMemberNo)
+        receivedItem = DriverNotice.getPassengerReceivedNoticeInfo(passengerTripId: myTrip.tripId)
+        requestItem = DriverNotice.getPassengerRequestNoticeInfo(tripId: myTrip.tripId)
+        
+        startLocationLabel.text = myTrip.boarding
+        endLocationLabel.text = myTrip.destination
         dateLabel.text = myTrip.date
-        passengerCountLabel.text = "\(myTrip.passengerCount)"
+        passengerCountLabel.text = "\(myTrip.people)"
     }
     
     // MARK: - TableView Setting

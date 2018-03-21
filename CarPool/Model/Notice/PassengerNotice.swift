@@ -50,10 +50,10 @@ class PassengerNotice{
     }
     
     
-//Get Passenger Shared From Database
-    static func getPassengerSharedInfo(loginMemberNo: Int) -> [PassengerNotice]{
-        var recordings = [PassengerNotice]()
-        Communicator.shared.getMyTrips(memberNo: loginMemberNo, role: 0, doneHandler: { (error, result) in
+    //Get Passenger Shared From Database
+    static func getPassengerSharedInfo(loginMemberNo: Int) -> Trip{
+        var firstTrip: Trip!
+        Communicator.shared.getMyTrips(memberNo: loginMemberNo, role: 0) { (error, result) in
             if let error = error {
                 NSLog("伺服器連線錯誤: \(error)")
                 return
@@ -66,25 +66,13 @@ class PassengerNotice{
             let content = result!["content"] as! [[String:Any]]
             let code = response["code"] as! Int
             if code == 0 {
-                var recording: PassengerNotice
-                for record in content{
-                    let seqNo = record["seqNo"] as! Int
-                    let passengerTripId = record["tripID"] as! String
-                    let startLocation = record["boarding"] as! String
-                    let endLocation = record["destination"] as! String
-                    let date = record["date"] as! String
-                    let passengerFirstName = record["firstName"] as! String
-                    let passengerLastName = record["lastName"] as! String
-                    let passengerPhone = record["phone"] as! String
-                    let passengerCount = record["people"] as! Int
-                    recording = PassengerNotice(seqNo: seqNo, tripId: passengerTripId, startLocation: startLocation, endLocation: endLocation, date: date, passengerCount:passengerCount, passengerFirstName: passengerFirstName, passengerLastName: passengerLastName,passengerPhone: passengerPhone,requestStatus:0)
-                    recordings.append(recording)
-                }
+                firstTrip = Common.shared.getFirstPassengerTrip(passengerTripsArray: content)
             }
             let msg = response ["msg"] as! String
             print(msg)
-        })
-        return recordings
+        }
+        
+        return firstTrip
     }
     
     //Get Driver Received Notice From Database
@@ -125,7 +113,7 @@ class PassengerNotice{
         }
         return recordings
     }
-  
+    
     //Get Driver Request Notice From Database
     static func getDriverRequestNoticeInfo(driverTripId: String) -> [DriverNotice]{
         var recordings = [DriverNotice]()
