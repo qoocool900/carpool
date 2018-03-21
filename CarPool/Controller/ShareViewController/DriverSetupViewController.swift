@@ -10,19 +10,18 @@ import CoreLocation
 
 class DriverSetupViewController: UIViewController {
     
+    
+    @IBOutlet weak var DepartureText: UITextField!
+    
     @IBOutlet weak var Destination: UITextField!
     @IBOutlet weak var CarNumber: UITextField!
-    @IBOutlet weak var departureText: UITextField!
-    @IBOutlet weak var PeopleNumber:
-    UITextField!
+    @IBOutlet weak var PeopleNumber: UITextField!
     @IBOutlet weak var FeeField: UITextField!
-    
-    
     @IBAction func SaveButton(_ sender: Any) {
         guard Destination.text != "" else{
             return
         }
-        guard departureText.text != ""
+        guard DepartureText.text != ""
             else{
                 return
         }
@@ -64,7 +63,7 @@ class DriverSetupViewController: UIViewController {
             
         }
         
-        let BoarddingAddress = departureText.text
+        let BoarddingAddress = DepartureText.text
         let BoardingGeoCoder = CLGeocoder()
         BoardingGeoCoder.geocodeAddressString(BoarddingAddress!) { (placemarks, error) in
             guard
@@ -88,7 +87,7 @@ class DriverSetupViewController: UIViewController {
         let saveDriverRecord = DriverTrip(tripId: "", memberNo: 0, departure: "", destination: "", carNo: "", people: 0, fee: 0, status: "", date: "", departureLat: 0.0, departureLon: 0.0, destinationLat: 0.0, destinationLon: 0.0)
         saveDriverRecord.memberNo = driverMemberNo
         saveDriverRecord.destination = Destination.text!
-        saveDriverRecord.departure = departureText.text!
+        saveDriverRecord.departure = DepartureText.text!
         saveDriverRecord.people = Int(PeopleNumber.text!)!
         saveDriverRecord.carNo = CarNumber.text!
         saveDriverRecord.fee = Int(FeeField.text!)!
@@ -125,18 +124,18 @@ class DriverSetupViewController: UIViewController {
         Destination.font = UIFont(name: "System", size: 25)
         Destination.placeholder = "請輸入您要去的目的地"
         
-        departureText.font = UIFont(name: "System", size: 25)
-        departureText.placeholder = "請輸入您的出發地"
+        DepartureText.font = UIFont(name: "System", size: 25)
+        DepartureText.placeholder = "請輸入您的出發地"
         
         CarNumber.font = UIFont(name: "System", size: 25)
         CarNumber.placeholder = "請輸入您的車牌號碼"
         
         
         PeopleNumber.font = UIFont(name: "System", size: 25)
-        PeopleNumber.placeholder = "數字"
+        PeopleNumber.placeholder = "可乘載人數"
         
         FeeField.font = UIFont(name: "System", size: 15)
-        FeeField.placeholder = "(0~5000)"
+        FeeField.placeholder = "輸入費用(0~5000)"
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
