@@ -14,11 +14,11 @@ class CustomAnnotation: NSObject, MKAnnotation {
     let destination:String?
     let startPosition:String?
     let people:Int?
-    let fee:String?
+    let fee:Int?
     let phone:String?
     let score:Double?
     let coordinate:CLLocationCoordinate2D
-    init(role:Int, tripId:String, destination:String, startPosition:String, people:Int, fee:String, phone:String, score:Double, coordinate: CLLocationCoordinate2D) {
+    init(role:Int, tripId:String, destination:String, startPosition:String, people:Int, fee:Int, phone:String, score:Double, coordinate: CLLocationCoordinate2D) {
         self.role = role
         self.tripId = tripId
         self.destination = destination
