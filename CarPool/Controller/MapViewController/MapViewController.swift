@@ -35,11 +35,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var sosButton: RoundButton!
     @IBOutlet weak var mainMapView: MKMapView!
     
+    var timer:Timer?
     let locationManager = CLLocationManager()
     let geocoder = CLGeocoder()
     var myTripId:String?
     var invitedTripId:String?
-    var MemberNo: Int?
+    var memberNo: Int?
     let defaults = UserDefaults.standard
     
     var passengerPins = [PassengerPin]()
@@ -62,9 +63,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mainMapView.delegate = self
         
-        MemberNo = defaults.integer(forKey: "memberNo")
-        print("地圖彥面：\(MemberNo!)")
+        memberNo = defaults.integer(forKey: "memberNo")
+        print("地圖彥面：\(memberNo!)")
         
         getInButton.setRadiusWithShadow()
         sosButton.setRadiusWithShadow()
@@ -101,6 +103,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 //                print(location?.coordinate.longitude ?? 0)
 //            }
 //        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -194,6 +197,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         }
         //guard let 用法 如果條件不合 就放行 與if是相反的
         NSLog("Current Location: \(coordinate.latitude),\(coordinate.longitude)")
+//        var points: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
+//
+//        for annotation in self.carAnnotations {
+//            points.append(annotation.coordinate)
+//        }
+//
+//
+//        let polyline = MKPolyline(coordinates: &points, count: points.count)
+//
+//        self.mainMapView.add(polyline)
     }
 
 }
@@ -201,6 +214,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 
 // MARK: - MKMapViewDelegate Methods.
 extension MapViewController: MKMapViewDelegate, inviteRidingCallOutViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let polylineRenderer = MKPolylineRenderer(overlay: overlay)
+        
+        if overlay is MKPolyline {
+            polylineRenderer.strokeColor = UIColor.blue
+            polylineRenderer.lineWidth = 5
+            
+        }
+        return polylineRenderer
+    }
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         let center = mapView.region.center
@@ -242,7 +266,41 @@ extension MapViewController: MKMapViewDelegate, inviteRidingCallOutViewDelegate 
     }
     
     func inviteRiding() {
-        showAlert(message: "邀請成功")
+        if role == 0 {
+            Communicator.shared.getMyTrips(memberNo: memberNo!, role: 0, doneHandler: { (error, result) in
+                if let error = error {
+                    print(error)
+                    return
+                }
+                let content = result!["content"] as! [[String:Any]]
+                if (content.isEmpty) {
+                    self.showAlert(message: "尚未發起共乘")
+                    
+                } else {
+                    let firstPassengerTrip = Common.shared.getFirstPassengerTrip(passengerTripsArray: content)
+                    self.myTripId = firstPassengerTrip.tripId
+                    self.showAlert(message: "邀請成功")
+                }
+            })
+        } else if role == 1 {
+            Communicator.shared.getMyTrips(memberNo: memberNo!, role: 1, doneHandler: { (error, result) in
+                if let error = error {
+                    print(error)
+                    return
+                }
+                let content = result!["content"] as! [[String:Any]]
+                if content.isEmpty {
+                    self.showAlert(message: "您尚未發起共乘，無法邀請乘客上車")
+                } else {
+                    let firstDriverTrip = Common.shared.getFirstDriverTrip(diverTripsArray: content)
+                    self.myTripId = firstDriverTrip.tripId
+                    self.showAlert(message: "邀請成功")
+                }
+            })
+        }
+        
+        
+        //showAlert(message: "邀請成功")
         print(invitedTripId)
 //        Communicator.shared.addRequest(driverTripID: tipId, passengerTripID: "P180308002", reqType: role) { (error, result) in
 //            if let error = error {
@@ -251,17 +309,17 @@ extension MapViewController: MKMapViewDelegate, inviteRidingCallOutViewDelegate 
 //            print(result!)
 //        }
         
-        Communicator.shared.getMyTrips(memberNo: 12, role: 0) { (error, result) in
-            if let error = error {
-                return
-            }
-            let content = result!["content"] as! [[String:Any]]
-            print(content)
-            let myTrips = Common.shared.getMyPassengerTrips(passengerTripsArray: content)
-            print((myTrips.first?.tripId)!)
-            let myFirstTrip = Common.shared.getFirstPassengerTrip(passengerTripsArray: content)
-            print((myFirstTrip.tripId))
-        }
+//        Communicator.shared.getMyTrips(memberNo: 12, role: 0) { (error, result) in
+//            if let error = error {
+//                return
+//            }
+//            let content = result!["content"] as! [[String:Any]]
+//            print(content)
+//            let myTrips = Common.shared.getMyPassengerTrips(passengerTripsArray: content)
+//            print((myTrips.first?.tripId)!)
+//            let myFirstTrip = Common.shared.getFirstPassengerTrip(passengerTripsArray: content)
+//            print((myFirstTrip.tripId))
+//        }
     }
 }
 
