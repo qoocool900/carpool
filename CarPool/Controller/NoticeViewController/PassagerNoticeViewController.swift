@@ -13,12 +13,14 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var passengerCountLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-  
-    var noticeData: [String:String] = ["startLocation":"台北車站", "endLocation":"世貿中心", "date": "2018/01/11 12:00", "passengerCount": "2","requestStatus":"0"]
+    var seqNo = 0
+    var driverPhone = ""
+    var status = 0
     
     let sectionArray = ["我收到的邀請", "我發出的請求"]
-    var receivedItem = Notice.allReceivedNotice()
-    var requestItem = Notice.allReceivedNotice()
+    let myTrip = PassengerNotice.passengerShared()
+    var receivedItem = DriverNotice.passengerReceivedNotice()
+    var requestItem = DriverNotice.passengerRequestNotice()
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +28,10 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func getPassengerSend() {
-        startLocationLabel.text = noticeData["startLocation"]
-        endLocationLabel.text = noticeData["endLocation"]
-        dateLabel.text = noticeData["date"]
-        passengerCountLabel.text = noticeData["passengerCount"]
+        startLocationLabel.text = myTrip.startLocation
+        endLocationLabel.text = myTrip.endLocation
+        dateLabel.text = myTrip.date
+        passengerCountLabel.text = "\(myTrip.passengerCount)"
     }
     
     // MARK: - TableView Setting

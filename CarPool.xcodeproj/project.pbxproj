@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		040AD221205F51180094FC76 /* carPool_login_png 拷貝.png in Resources */ = {isa = PBXBuildFile; fileRef = 040AD220205F51180094FC76 /* carPool_login_png 拷貝.png */; };
 		043ED8D0205BC15F007D573A /* PRecordingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8CF205BC15F007D573A /* PRecordingTableViewController.swift */; };
 		043ED8D2205BC185007D573A /* DRecordingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D1205BC185007D573A /* DRecordingTableViewController.swift */; };
 		043ED8D4205BC1A5007D573A /* PRecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */; };
@@ -30,7 +29,7 @@
 		3E7ACA1E2054F537003EB8E2 /* CallOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E7ACA1D2054F537003EB8E2 /* CallOutView.xib */; };
 		3E7ACA2020550103003EB8E2 /* CallOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7ACA1F20550103003EB8E2 /* CallOutView.swift */; };
 		3E7ACA2220550296003EB8E2 /* CustomMKPinAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7ACA2120550296003EB8E2 /* CustomMKPinAnnotationView.swift */; };
-		3E7ACA3920576511003EB8E2 /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7ACA3820576511003EB8E2 /* Notice.swift */; };
+		3E7ACA3920576511003EB8E2 /* DriverNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7ACA3820576511003EB8E2 /* DriverNotice.swift */; };
 		3E8AC8D92049939200DDD5AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8AC8D82049939200DDD5AE /* AppDelegate.swift */; };
 		3E8AC8DB2049939200DDD5AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8AC8DA2049939200DDD5AE /* ViewController.swift */; };
 		3E8AC8DE2049939200DDD5AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8AC8DC2049939200DDD5AE /* Main.storyboard */; };
@@ -67,13 +66,13 @@
 		C8888B07205B9F5600E49B27 /* Notice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8888B04205B9F5600E49B27 /* Notice.storyboard */; };
 		C8888B09205B9FEC00E49B27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8888B08205B9FEB00E49B27 /* Assets.xcassets */; };
 		C8888B0B205BA08300E49B27 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8888B0A205BA08200E49B27 /* ShowAlert.swift */; };
+		C8DFD955205FD13B00D736E7 /* PassengerNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DFD954205FD13B00D736E7 /* PassengerNotice.swift */; };
 		C8E41F9A204FE1DC00F3C77D /* PassengerRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E41F99204FE1DC00F3C77D /* PassengerRecord.swift */; };
 		C8E5EF17205116810062D4C6 /* DriverRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E5EF16205116810062D4C6 /* DriverRecord.swift */; };
 		C8E5EF19205116980062D4C6 /* DriverRecordDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E5EF18205116980062D4C6 /* DriverRecordDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		040AD220205F51180094FC76 /* carPool_login_png 拷貝.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carPool_login_png 拷貝.png"; sourceTree = "<group>"; };
 		043ED8CF205BC15F007D573A /* PRecordingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRecordingTableViewController.swift; sourceTree = "<group>"; };
 		043ED8D1205BC185007D573A /* DRecordingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRecordingTableViewController.swift; sourceTree = "<group>"; };
 		043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRecordingTableViewCell.swift; sourceTree = "<group>"; };
@@ -97,7 +96,7 @@
 		3E7ACA1D2054F537003EB8E2 /* CallOutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallOutView.xib; sourceTree = "<group>"; };
 		3E7ACA1F20550103003EB8E2 /* CallOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallOutView.swift; sourceTree = "<group>"; };
 		3E7ACA2120550296003EB8E2 /* CustomMKPinAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMKPinAnnotationView.swift; sourceTree = "<group>"; };
-		3E7ACA3820576511003EB8E2 /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
+		3E7ACA3820576511003EB8E2 /* DriverNotice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverNotice.swift; sourceTree = "<group>"; };
 		3E8AC8D52049939200DDD5AE /* CarPool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarPool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E8AC8D82049939200DDD5AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E8AC8DA2049939200DDD5AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +137,7 @@
 		C8888B04205B9F5600E49B27 /* Notice.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notice.storyboard; sourceTree = "<group>"; };
 		C8888B08205B9FEB00E49B27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8888B0A205BA08200E49B27 /* ShowAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
+		C8DFD954205FD13B00D736E7 /* PassengerNotice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerNotice.swift; sourceTree = "<group>"; };
 		C8E41F99204FE1DC00F3C77D /* PassengerRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerRecord.swift; sourceTree = "<group>"; };
 		C8E5EF16205116810062D4C6 /* DriverRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRecord.swift; sourceTree = "<group>"; };
 		C8E5EF18205116980062D4C6 /* DriverRecordDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRecordDetail.swift; sourceTree = "<group>"; };
@@ -246,7 +246,6 @@
 				C8888B03205B9F5500E49B27 /* Setting.storyboard */,
 				3E8AC8E12049939200DDD5AE /* LaunchScreen.storyboard */,
 				C8888B08205B9FEB00E49B27 /* Assets.xcassets */,
-				040AD220205F51180094FC76 /* carPool_login_png 拷貝.png */,
 				3E8AC8E42049939200DDD5AE /* Info.plist */,
 				3E40F9E020516D760054168C /* Bolts.framework */,
 				3E40F9E120516D760054168C /* FBSDKCoreKit.framework */,
@@ -276,13 +275,13 @@
 				C8888B0A205BA08200E49B27 /* ShowAlert.swift */,
 				3E0D8F3B205FBD200027F0A7 /* RoundButton.swift */,
 				3EC6E3D1205AC0B200EB568C /* Data+HexString.swift */,
-				3E0918D0205134CA008688D0 /* Car.swift */,
 				3E0918D2205134CA008688D0 /* Communicator.swift */,
 				3E0918D1205134CA008688D0 /* DriverTrip.swift */,
 				3E0918D3205134CA008688D0 /* Member.swift */,
 				3E0918D4205134CA008688D0 /* Trip.swift */,
-				3E7ACA3820576511003EB8E2 /* Notice.swift */,
+				3E0918D0205134CA008688D0 /* Car.swift */,
 				3E7ACA1A2054F16B003EB8E2 /* Annotation */,
+				C8DFD953205FD03E00D736E7 /* Notice */,
 				C8E5EF0F205112E40062D4C6 /* Record */,
 			);
 			path = Model;
@@ -325,6 +324,15 @@
 				C8888ADB205B9EEC00E49B27 /* QRcodeViewController.swift */,
 			);
 			path = SettingViewController;
+			sourceTree = "<group>";
+		};
+		C8DFD953205FD03E00D736E7 /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				3E7ACA3820576511003EB8E2 /* DriverNotice.swift */,
+				C8DFD954205FD13B00D736E7 /* PassengerNotice.swift */,
+			);
+			path = Notice;
 			sourceTree = "<group>";
 		};
 		C8E41F98204EF4BA00F3C77D /* RecordViewController */ = {
@@ -423,7 +431,6 @@
 				C8888B07205B9F5600E49B27 /* Notice.storyboard in Resources */,
 				3E8AC8DE2049939200DDD5AE /* Main.storyboard in Resources */,
 				C8888B09205B9FEC00E49B27 /* Assets.xcassets in Resources */,
-				040AD221205F51180094FC76 /* carPool_login_png 拷貝.png in Resources */,
 				3E8AC90420499B2200DDD5AE /* Podfile in Resources */,
 				C8888B06205B9F5600E49B27 /* Setting.storyboard in Resources */,
 				3E8AC8EB204993F300DDD5AE /* Map.storyboard in Resources */,
@@ -514,6 +521,7 @@
 				C8888AEC205B9F0E00E49B27 /* DriverRecordTableViewCell.swift in Sources */,
 				3E40F9EA205172A30054168C /* LoginViewController.swift in Sources */,
 				3E8AC8F52049945A00DDD5AE /* TabBarController.swift in Sources */,
+				C8DFD955205FD13B00D736E7 /* PassengerNotice.swift in Sources */,
 				C8888AFD205B9F2E00E49B27 /* DriverNoticeRequestTableViewCell.swift in Sources */,
 				C8888AF0205B9F0E00E49B27 /* DriverDetailRecordViewController.swift in Sources */,
 				043ED8D8205BC271007D573A /* DriverSetupViewController.swift in Sources */,
@@ -534,7 +542,7 @@
 				3E7ACA2220550296003EB8E2 /* CustomMKPinAnnotationView.swift in Sources */,
 				C8888AEE205B9F0E00E49B27 /* DriverRecordDetailTableViewCell.swift in Sources */,
 				C8888AE2205B9EED00E49B27 /* BasicViewController.swift in Sources */,
-				3E7ACA3920576511003EB8E2 /* Notice.swift in Sources */,
+				3E7ACA3920576511003EB8E2 /* DriverNotice.swift in Sources */,
 				043ED8D6205BC1BE007D573A /* DRecordingTableViewCell.swift in Sources */,
 				043ED8D4205BC1A5007D573A /* PRecordingTableViewCell.swift in Sources */,
 				C8E41F9A204FE1DC00F3C77D /* PassengerRecord.swift in Sources */,
@@ -701,7 +709,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4D5NWSFDJ2;
+				DEVELOPMENT_TEAM = V9YC4KNQ9G;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CarPool",
@@ -725,7 +733,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4D5NWSFDJ2;
+				DEVELOPMENT_TEAM = V9YC4KNQ9G;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CarPool",

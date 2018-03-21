@@ -22,6 +22,7 @@ class DriverNoticeRequestTableViewCell: UITableViewCell {
     let accept = "1"
     let refuse = "2"
     var requestStatus = ""
+    var passengerPhone = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,30 +35,23 @@ class DriverNoticeRequestTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    var noticeData: Notice? {
+    var noticeData: PassengerNotice? {
         didSet {
             startLocationLabel.text = noticeData?.startLocation
             endLocationLabel.text = noticeData?.endLocation
             dateLabel.text = noticeData?.date
-            passengerCountLabel.text = noticeData?.passengerCount
-            passengerNameLabel.text = noticeData?.passengerName
-            requestStatus = (noticeData?.requestStatus)!
+            let passengerFirstName = (noticeData?.passengerFirstName)!
+            let passengerLastName = (noticeData?.passengerLastName)!
+            passengerCountLabel.text = "\((noticeData?.passengerCount)!)"
+            passengerNameLabel.text = passengerLastName + " " + passengerFirstName
+            requestStatus = "\((noticeData?.requestStatus)!)"
+            passengerPhone = (noticeData?.passengerPhone)!
             checkSatus(requestStatus)
         }
     }
     
     @IBAction func phoneBtnPressed(_ sender: Any) {
-//        callPhone(phoneNo: <#T##String#>)
-    }
-    
-    @IBAction func acceptBtnPressed(_ sender: Any) {
-        requestStatus = accept
-        checkSatus(requestStatus)
-    }
-    
-    @IBAction func refuseBtnPressed(_ sender: Any) {
-        requestStatus = refuse
-        checkSatus(requestStatus)
+      callPhone(phoneNo: passengerPhone)
     }
     
     func checkSatus(_ requestStatus: String) {

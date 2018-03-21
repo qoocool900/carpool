@@ -22,6 +22,16 @@ class DriverDetailRecordViewController: UIViewController, UITableViewDelegate, U
         super.viewDidLoad()
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell")
+        cell?.textLabel?.text = "乘客清單"
+        return cell
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return driverDeatilItem.count
     }

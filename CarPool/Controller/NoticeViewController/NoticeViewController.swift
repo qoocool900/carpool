@@ -9,7 +9,6 @@ import UIKit
 
 class NoticeViewController: UIViewController {
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         driverContainer.isHidden = true
@@ -19,7 +18,6 @@ class NoticeViewController: UIViewController {
     @IBOutlet weak var driverContainer: UIView!
 
     @IBOutlet weak var passengerContainer: UIView!
-    
     
     @IBAction func roleChanged(_ sender: UISegmentedControl) {
         

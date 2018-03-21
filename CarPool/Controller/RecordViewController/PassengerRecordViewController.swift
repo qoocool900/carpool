@@ -20,10 +20,14 @@ class PassengerRecordViewController: UIViewController, UITableViewDelegate, UITa
     
     var driverMemberNo = 0
     var driverTripId = ""
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print(loginMemberNo)
+        tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -82,9 +86,15 @@ class PassengerRecordViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete{
-            historyItem.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+       
+        switch indexPath.section {
+        case 0:
+            return
+        default:
+            if editingStyle == .delete{
+                historyItem.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
         }
     }
     
