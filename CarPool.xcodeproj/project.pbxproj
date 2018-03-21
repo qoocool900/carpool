@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		040AD221205F51180094FC76 /* carPool_login_png 拷貝.png in Resources */ = {isa = PBXBuildFile; fileRef = 040AD220205F51180094FC76 /* carPool_login_png 拷貝.png */; };
 		043ED8D0205BC15F007D573A /* PRecordingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8CF205BC15F007D573A /* PRecordingTableViewController.swift */; };
 		043ED8D2205BC185007D573A /* DRecordingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D1205BC185007D573A /* DRecordingTableViewController.swift */; };
 		043ED8D4205BC1A5007D573A /* PRecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */; };
@@ -21,6 +20,7 @@
 		3E0918D8205134CA008688D0 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0918D3205134CA008688D0 /* Member.swift */; };
 		3E0918D9205134CA008688D0 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0918D4205134CA008688D0 /* Trip.swift */; };
 		3E0D8F3C205FBD200027F0A7 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0D8F3B205FBD200027F0A7 /* RoundButton.swift */; };
+		3E0D8F3E2061FF010027F0A7 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0D8F3D2061FF010027F0A7 /* Common.swift */; };
 		3E40F9E320516D760054168C /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E40F9E020516D760054168C /* Bolts.framework */; };
 		3E40F9E420516D760054168C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E40F9E120516D760054168C /* FBSDKCoreKit.framework */; };
 		3E40F9E520516D760054168C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E40F9E220516D760054168C /* FBSDKLoginKit.framework */; };
@@ -74,7 +74,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		040AD220205F51180094FC76 /* carPool_login_png 拷貝.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carPool_login_png 拷貝.png"; sourceTree = "<group>"; };
 		043ED8CF205BC15F007D573A /* PRecordingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRecordingTableViewController.swift; sourceTree = "<group>"; };
 		043ED8D1205BC185007D573A /* DRecordingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRecordingTableViewController.swift; sourceTree = "<group>"; };
 		043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRecordingTableViewCell.swift; sourceTree = "<group>"; };
@@ -89,6 +88,7 @@
 		3E0918D3205134CA008688D0 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		3E0918D4205134CA008688D0 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		3E0D8F3B205FBD200027F0A7 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		3E0D8F3D2061FF010027F0A7 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		3E40F9E020516D760054168C /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		3E40F9E120516D760054168C /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		3E40F9E220516D760054168C /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -248,7 +248,6 @@
 				C8888B03205B9F5500E49B27 /* Setting.storyboard */,
 				3E8AC8E12049939200DDD5AE /* LaunchScreen.storyboard */,
 				C8888B08205B9FEB00E49B27 /* Assets.xcassets */,
-				040AD220205F51180094FC76 /* carPool_login_png 拷貝.png */,
 				3E8AC8E42049939200DDD5AE /* Info.plist */,
 				3E40F9E020516D760054168C /* Bolts.framework */,
 				3E40F9E120516D760054168C /* FBSDKCoreKit.framework */,
@@ -275,6 +274,7 @@
 		3E8AC90120499A3D00DDD5AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3E0D8F3D2061FF010027F0A7 /* Common.swift */,
 				C8888B0A205BA08200E49B27 /* ShowAlert.swift */,
 				3E0D8F3B205FBD200027F0A7 /* RoundButton.swift */,
 				3EC6E3D1205AC0B200EB568C /* Data+HexString.swift */,
@@ -434,7 +434,6 @@
 				C8888B07205B9F5600E49B27 /* Notice.storyboard in Resources */,
 				3E8AC8DE2049939200DDD5AE /* Main.storyboard in Resources */,
 				C8888B09205B9FEC00E49B27 /* Assets.xcassets in Resources */,
-				040AD221205F51180094FC76 /* carPool_login_png 拷貝.png in Resources */,
 				3E8AC90420499B2200DDD5AE /* Podfile in Resources */,
 				C8888B06205B9F5600E49B27 /* Setting.storyboard in Resources */,
 				3E8AC8EB204993F300DDD5AE /* Map.storyboard in Resources */,
@@ -560,6 +559,7 @@
 				3E0D8F3C205FBD200027F0A7 /* RoundButton.swift in Sources */,
 				C8E5EF17205116810062D4C6 /* DriverRecord.swift in Sources */,
 				C8888AE3205B9EED00E49B27 /* GuardViewController.swift in Sources */,
+				3E0D8F3E2061FF010027F0A7 /* Common.swift in Sources */,
 				C8888AFB205B9F2E00E49B27 /* DriverNoticeReceivedTableViewCell.swift in Sources */,
 				C8888AFC205B9F2E00E49B27 /* PassengerNoticeRequestTableViewCell.swift in Sources */,
 				C8888AEF205B9F0E00E49B27 /* PassengerRecordViewController.swift in Sources */,
