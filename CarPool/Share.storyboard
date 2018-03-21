@@ -447,6 +447,13 @@
                             <outlet property="delegate" destination="KRS-Ox-M9c" id="6ae-vr-Ink"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="driverDeparture" destination="yz1-go-Muw" id="XW2-8T-JKk"/>
+                        <outlet property="driverDestination" destination="sdh-Ag-W3C" id="DUY-Df-7ay"/>
+                        <outlet property="driverSetDate" destination="aZB-A4-vY1" id="4fR-Qt-aFq"/>
+                        <outlet property="driverSetFee" destination="viX-Jg-lVO" id="Hmm-YC-Dpf"/>
+                        <outlet property="driverSetPeople" destination="fMi-oM-ug7" id="zYB-jc-7dp"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fb4-1Z-bCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -596,7 +603,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bTq-pj-Pmg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="68" y="384"/>
+            <point key="canvasLocation" x="-222" y="385"/>
         </scene>
         <!--Passenger Setup View Controller-->
         <scene sceneID="I5E-dO-nQb">

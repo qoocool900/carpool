@@ -53,9 +53,7 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
                         button.stopAnimation(animationStyle: .expand, completion: {
                             
                         })
-                        let storyboard = UIStoryboard(name: "Map", bundle: nil)
-                        let controller = storyboard.instantiateInitialViewController()
-                        self.view.window?.rootViewController = controller
+                        
                     })
                 })
             }

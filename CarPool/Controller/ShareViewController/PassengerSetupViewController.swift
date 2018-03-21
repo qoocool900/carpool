@@ -33,7 +33,7 @@ class PassengerSetupViewController: UIViewController {
         var boardingLat = defaults.double(forKey:"boardingLat")
         var boardingLong = defaults.double(forKey:"boardingLong")
         defaults.synchronize()
-//        print(PassengerMemberNo)
+        //        print(PassengerMemberNo)
         
         let DesitinationAddress = DestinationPassenger.text
         let geoCoder = CLGeocoder()
@@ -54,7 +54,7 @@ class PassengerSetupViewController: UIViewController {
             defaults.set(destinationLong, forKey: "destinationLong")
             defaults.synchronize()
             
-    }
+        }
         
         let BoarddingAddress = BoardingPoint.text
         let BoardingGeoCoder = CLGeocoder()
@@ -77,7 +77,7 @@ class PassengerSetupViewController: UIViewController {
             
         }
         
-    let savePassengerRecord = Trip(tripId: "1", memberNo:0, destination: "", boarding: "", people: 0, onMap: "1", status: "0", date: "", boardingLat: 0.0, boardingLon: 0.0, destinationLat: 0.0, destinationLon: 0.0)
+        let savePassengerRecord = Trip(tripId: "1", memberNo:0, destination: "", boarding: "", people: 0, onMap: "1", status: "0", date: "", boardingLat: 0.0, boardingLon: 0.0, destinationLat: 0.0, destinationLon: 0.0)
         savePassengerRecord.memberNo = passengerMemberNo
         savePassengerRecord.destination = DestinationPassenger.text!
         savePassengerRecord.boarding = BoardingPoint.text!
@@ -88,7 +88,7 @@ class PassengerSetupViewController: UIViewController {
         savePassengerRecord.boardingLon = boardingLong
         
         
-//        savePassengerRecord.destinationLon = destinationLong
+        //        savePassengerRecord.destinationLon = destinationLong
         
         
         Communicator.shared.modifyTrip(savePassengerRecord, mode: "C") { (error, result) in
@@ -105,12 +105,6 @@ class PassengerSetupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // get memeberNo
-        let defaults = UserDefaults.standard
-        let passengerMemberNo = defaults.integer(forKey: "memberNo")
-        print(passengerMemberNo)
-        //print(4567)
         
         DestinationPassenger.font = UIFont(name: "System", size: 25)
         DestinationPassenger.placeholder = "請輸入您要去的目的地"

@@ -12,7 +12,6 @@ class DriverSetupViewController: UIViewController {
     
     
     @IBOutlet weak var DepartureText: UITextField!
-    
     @IBOutlet weak var Destination: UITextField!
     @IBOutlet weak var CarNumber: UITextField!
     @IBOutlet weak var PeopleNumber: UITextField!
@@ -114,11 +113,11 @@ class DriverSetupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // get memeberNo
-        let defaults = UserDefaults.standard
-        let driverMemberNo = defaults.integer(forKey: "memberNo")
-        print(driverMemberNo)
-        //print(4567)
+//        // get memeberNo
+//        let defaults = UserDefaults.standard
+//        let driverMemberNo = defaults.integer(forKey: "memberNo")
+//        print(driverMemberNo)
+//        //print(4567)
         
         //Destination.placeholder = "目的地"
         Destination.font = UIFont(name: "System", size: 25)
