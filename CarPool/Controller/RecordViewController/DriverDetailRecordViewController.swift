@@ -9,17 +9,16 @@ import UIKit
 
 class DriverDetailRecordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
-//Test Data
-    var driverDeatilItem = DriverRecordDetail.allTripPassengerRecord()
-    
-//Data base
-//    var driverDeatilItem = DriverRecordDetail.getAllTripPassengerInfo(seqNo: 1)
-
+    var driverDeatilItem = [DriverRecordDetail]()
     var seqNo = 0
- 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Test Data
+        //    driverDeatilItem = DriverRecordDetail.allTripPassengerRecord()
+        
+        //Data base
+        driverDeatilItem = DriverRecordDetail.getAllTripPassengerInfo(seqNo: seqNo)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

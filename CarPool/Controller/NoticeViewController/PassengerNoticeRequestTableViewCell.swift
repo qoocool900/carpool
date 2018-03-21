@@ -98,7 +98,6 @@ class PassengerNoticeRequestTableViewCell: UITableViewCell {
             }
             // success
             let response = result!["response"] as! [String:Any]
-            let content = result!["content"] as! [[String:Any]]
             let code = response["code"] as! Int
             if code == 0 {
                

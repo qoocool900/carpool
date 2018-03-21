@@ -448,7 +448,7 @@
                                                                                                 <color key="titleColor" red="0.1960784314" green="0.65490196079999996" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                             </state>
                                                                                             <connections>
-                                                                                                <action selector="acceptBtnPressed:" destination="H94-CI-8za" eventType="touchUpInside" id="hkg-xX-Cb7"/>
+                                                                                                <action selector="acceptBtnPressedWithSender:" destination="H94-CI-8za" eventType="touchUpInside" id="FJg-mf-0q1"/>
                                                                                             </connections>
                                                                                         </button>
                                                                                     </subviews>
