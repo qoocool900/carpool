@@ -367,7 +367,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <color key="barTintColor" red="0.57380741830000004" green="0.56553578380000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="barTintColor" red="0.75527045329999998" green="0.84545012949999998" blue="0.37374503380000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <items>
                                 <navigationItem title="司機發起紀錄" id="arq-Bl-pLO"/>
                             </items>
@@ -388,7 +388,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018/07/01" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="bf3-hV-nL8">
                                                             <rect key="frame" x="0.0" y="0.0" width="184" height="28"/>
-                                                            <color key="backgroundColor" red="0.75527045329999998" green="0.7130174038" blue="0.37374503380000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <color key="backgroundColor" red="0.75527045329999998" green="0.84545012949999998" blue="0.37374503380000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="28" id="6kP-TQ-zvq"/>
                                                                 <constraint firstAttribute="width" constant="184" id="XJ3-tY-xMg"/>
@@ -399,7 +399,7 @@
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="狀態" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Dgk-oO-mDD">
                                                             <rect key="frame" x="184" y="0.0" width="170" height="28"/>
-                                                            <color key="backgroundColor" red="0.75527045329999998" green="0.7130174038" blue="0.37374503380000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <color key="backgroundColor" red="0.75527045329999998" green="0.84545012949999998" blue="0.37374503380000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="28" id="VfX-wB-whm"/>
                                                                 <constraint firstAttribute="width" constant="170" id="vbJ-8J-9YC"/>
@@ -410,7 +410,7 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="next" translatesAutoresizingMaskIntoConstraints="NO" id="IqM-Zw-gxy">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow1" translatesAutoresizingMaskIntoConstraints="NO" id="IqM-Zw-gxy">
                                                     <rect key="frame" x="132" y="49" width="100" height="26"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="26" id="pIh-RV-cEW"/>
@@ -703,7 +703,7 @@
                         <navigationBar key="tableHeaderView" contentMode="scaleToFill" barStyle="blackTranslucent" id="iQB-vE-xH5">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="barTintColor" red="0.57380741830000004" green="0.56553578380000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="barTintColor" red="0.75527045329999998" green="0.7130174038" blue="0.37374503380000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <items>
                                 <navigationItem title="乘客發起紀錄" id="f45-4a-wof"/>
                             </items>
@@ -777,7 +777,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="next" translatesAutoresizingMaskIntoConstraints="NO" id="7Bc-Lg-S7n">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow1" translatesAutoresizingMaskIntoConstraints="NO" id="7Bc-Lg-S7n">
                                                     <rect key="frame" x="128" y="68" width="99" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="gxz-Wd-Zkn"/>
@@ -826,7 +826,7 @@
     <resources>
         <image name="DriverSetup03" width="1587" height="2245"/>
         <image name="Passenger-2" width="1587" height="2245"/>
-        <image name="next" width="644" height="230"/>
+        <image name="arrow1" width="60" height="20"/>
         <image name="point" width="41" height="45"/>
         <image name="record" width="65" height="55"/>
         <image name="record_3x" width="114" height="114"/>
