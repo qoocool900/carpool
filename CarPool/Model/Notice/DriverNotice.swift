@@ -60,6 +60,9 @@ class DriverNotice{
                 return
             }
             // success
+            guard result?.isEmpty == false else {
+                return
+            }
             let response = result!["response"] as! [String:Any]
             let content = result!["content"] as! [[String:Any]]
             let code = response["code"] as! Int
@@ -87,15 +90,18 @@ class DriverNotice{
     }
     
     //Get Passenger Received Notice From Database
-    static func getPassengerReceivedNoticeInfo(tripId: String) -> [DriverNotice]{
+    static func getPassengerReceivedNoticeInfo(passengerTripId: String) -> [DriverNotice]{
         var recordings = [DriverNotice]()
-        Communicator.shared.getMyRequests(tripID: tripId , role: 1, request: 1, status: 0) { (error, result) in
+        Communicator.shared.getMyRequests(tripID: passengerTripId , role: 0, request: 1, status: 0) { (error, result) in
             
             if let error = error {
                 NSLog("伺服器連線錯誤: \(error)")
                 return
             }
             // success
+            guard result?.isEmpty == false else {
+                return
+            }
             let response = result!["response"] as! [String:Any]
             let content = result!["content"] as! [[String:Any]]
             let code = response["code"] as! Int
@@ -123,41 +129,43 @@ class DriverNotice{
     }
         
     //Get Passenger Request Notice From Database
-    //    static func getPassengerRequestNoticeInfo(tripId: String) -> [DriverNotice]{
-    //        var recordings = [DriverNotice]()
-    //        Communicator.shared.getMyRequests(tripID: tripId , role: 1, status: 0) { (error, result) in
-    //
-    //            if let error = error {
-    //                NSLog("伺服器連線錯誤: \(error)")
-    //                return
-    //            }
-    //            // success
-    //            let response = result!["response"] as! [String:Any]
-    //            let content = result!["content"] as! [[String:Any]]
-    //            let code = response["code"] as! Int
-    //            if code == 0 {
-    //                var recording: DriverNotice
-    //                for record in content{
-    //                    let seqNo = record["seqNo"] as! Int
-    //                    let driverTripId = record["tripID"] as! String
-    //                    let startLocation = record["boarding"] as! String
-    //                    let endLocation = record["destination"] as! String
-    //                    let date = record["date"] as! String
-    //                    let driverFirstName = record["firstName"] as! String
-    //                    let driverLastName = record["lastName"] as! String
-    //                    let driverPhone = record["phone"] as! String
-    //                    let carNumber = record["carNo"] as! String
-    //                    let carCapacity = record["people"] as! Int
-    //                    recording = DriverNotice(seqNo: seqNo,tripId: driverTripId, startLocation: startLocation, endLocation: endLocation, date: date,driverFirstName: driverFirstName, driverLastName: driverLastName,driverPhone: driverPhone,carNumber: carNumber,carCapacity: carCapacity)
-    //                    recordings.append(recording)
-    //                }
-    //            }
-    //            let msg = response ["msg"] as! String
-    //            print(msg)
-    //        }
-    //        return recordings
-    //    }
-    
+    static func getPassengerRequestNoticeInfo(tripId: String) -> [DriverNotice]{
+        var recordings = [DriverNotice]()
+        Communicator.shared.getMyRequests(tripID: tripId , role: 0, request: 0, status: 0) { (error, result) in
+            
+            if let error = error {
+                NSLog("伺服器連線錯誤: \(error)")
+                return
+            }
+            // success
+            guard result?.isEmpty == false else {
+                return
+            }
+            let response = result!["response"] as! [String:Any]
+            let content = result!["content"] as! [[String:Any]]
+            let code = response["code"] as! Int
+            if code == 0 {
+                var recording: DriverNotice
+                for record in content{
+                    let seqNo = record["seqNo"] as! Int
+                    let driverTripId = record["tripID"] as! String
+                    let startLocation = record["boarding"] as! String
+                    let endLocation = record["destination"] as! String
+                    let date = record["date"] as! String
+                    let driverFirstName = record["firstName"] as! String
+                    let driverLastName = record["lastName"] as! String
+                    let driverPhone = record["phone"] as! String
+                    let carNumber = record["carNo"] as! String
+                    let carCapacity = record["people"] as! Int
+                    recording = DriverNotice(seqNo: seqNo,tripId: driverTripId, startLocation: startLocation, endLocation: endLocation, date: date,driverFirstName: driverFirstName, driverLastName: driverLastName,driverPhone: driverPhone,carNumber: carNumber,carCapacity: carCapacity)
+                    recordings.append(recording)
+                }
+            }
+            let msg = response ["msg"] as! String
+            print(msg)
+        }
+        return recordings
+    }
     
     //    Update Status to Database
     static func updateStatus(seqNo: Int, status: Int, tripId: String) {
@@ -167,6 +175,9 @@ class DriverNotice{
                 return
             }
             // success
+            guard result?.isEmpty == false else {
+                return
+            }
             let response = result!["response"] as! [String:Any]
             let code = response["code"] as! Int
             if code == 0 {

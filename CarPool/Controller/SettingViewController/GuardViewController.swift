@@ -31,13 +31,12 @@ class GuardViewController: UIViewController{
     @IBAction func scanPressed(_ sender: Any) {
         performSegue(withIdentifier: "goScanning", sender: nil)
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? QRcodeViewController {
             vc.resultHandler = { (success:Bool, memberInfo:[String]) -> Void in
                 
                 NSLog("result: \(memberInfo)]")
-                
                 self.scanMemberName = memberInfo[0]
                 self.scanMemberPhone = memberInfo[1]
                 self.guareNameLabel.text = self.scanMemberName

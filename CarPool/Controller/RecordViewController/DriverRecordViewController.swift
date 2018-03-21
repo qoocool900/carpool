@@ -11,17 +11,18 @@ class DriverRecordViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var tableView: UITableView!
     let loginMemberNo = UserDefaults.standard.integer(forKey: "memberNo")
     let sectionArray = ["進行中記錄", "歷史紀錄"]
-// Test Data
-    var processingItem = DriverRecord.allProcessingRecord()
-    var historyItem = DriverRecord.allHistoryRecord()
-// Data base
-//    var processingItem = DriverRecord.getDriverProcessingInfo(loginMemberNo: 3)
-//    var historyItem = DriverRecord.getDriverHistoryInfo(loginMemberNo: 3)
-   
+    var processingItem = [DriverRecord]()
+    var historyItem = [DriverRecord] ()
     var seqNo = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Test Data
+        //    processingItem = DriverRecord.allProcessingRecord()
+        //    historyItem = DriverRecord.allHistoryRecord()
+        // Data base
+        processingItem = DriverRecord.getDriverProcessingInfo(loginMemberNo: loginMemberNo)
+        historyItem = DriverRecord.getDriverHistoryInfo(loginMemberNo: loginMemberNo)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

@@ -45,7 +45,7 @@ class DriverRecord{
                 return
             }
             // success
-            guard (result?.isEmpty)! else{
+            guard result?.isEmpty == false else {
                 return
             }
             let response = result!["response"] as! [String:Any]
@@ -79,6 +79,9 @@ class DriverRecord{
                 return
             }
             // success
+            guard result?.isEmpty == false else {
+                return
+            }
             let response = result!["response"] as! [String:Any]
             let content = result!["content"] as! [[String:Any]]
             let code = response["code"] as! Int
