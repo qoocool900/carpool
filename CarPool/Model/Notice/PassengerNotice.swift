@@ -49,10 +49,11 @@ class PassengerNotice{
         return [record1,record2]
     }
     
-    
+    typealias Completion = (_ result:Trip) -> Void
     //Get Passenger Shared From Database
-    static func getPassengerSharedInfo(loginMemberNo: Int) -> Trip{
+    static func getPassengerSharedInfo(loginMemberNo: Int, completion: @escaping Completion) {
         var firstTrip: Trip!
+       
         Communicator.shared.getMyTrips(memberNo: loginMemberNo, role: 0) { (error, result) in
             if let error = error {
                 NSLog("伺服器連線錯誤: \(error)")
@@ -67,12 +68,13 @@ class PassengerNotice{
             let code = response["code"] as! Int
             if code == 0 {
                 firstTrip = Common.shared.getFirstPassengerTrip(passengerTripsArray: content)
+                print(firstTrip.boarding)
             }
             let msg = response ["msg"] as! String
             print(msg)
+            completion(firstTrip)
         }
-        
-        return firstTrip
+
     }
     
     //Get Driver Received Notice From Database

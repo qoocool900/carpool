@@ -31,14 +31,20 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
 //        requestItem = DriverNotice.passengerRequestNotice()
         
         //Database data
-        myTrip = PassengerNotice.getPassengerSharedInfo(loginMemberNo: loginMemberNo)
-        receivedItem = DriverNotice.getPassengerReceivedNoticeInfo(passengerTripId: myTrip.tripId)
-        requestItem = DriverNotice.getPassengerRequestNoticeInfo(tripId: myTrip.tripId)
+        //myTrip = PassengerNotice.getPassengerSharedInfo(loginMemberNo: loginMemberNo)
+        PassengerNotice.getPassengerSharedInfo(loginMemberNo: loginMemberNo) { (trip) in
+            self.startLocationLabel.text = trip.boarding
+            self.endLocationLabel.text = trip.destination
+            print(self.startLocationLabel.text!)
+        }
         
-        startLocationLabel.text = myTrip.boarding
-        endLocationLabel.text = myTrip.destination
-        dateLabel.text = myTrip.date
-        passengerCountLabel.text = "\(myTrip.people)"
+//        receivedItem = DriverNotice.getPassengerReceivedNoticeInfo(passengerTripId: myTrip.tripId)
+//        requestItem = DriverNotice.getPassengerRequestNoticeInfo(tripId: myTrip.tripId)
+//
+//        startLocationLabel.text = myTrip.boarding
+//        endLocationLabel.text = myTrip.destination
+//        dateLabel.text = myTrip.date
+//        passengerCountLabel.text = "\(myTrip.people)"
     }
     
     // MARK: - TableView Setting
