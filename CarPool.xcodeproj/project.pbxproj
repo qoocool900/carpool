@@ -177,6 +177,7 @@
 				043ED8D1205BC185007D573A /* DRecordingTableViewController.swift */,
 				04C6425D205BBB7300984682 /* ShareViewController.swift */,
 				04C64259205BBB7200984682 /* PassengerSetupViewController.swift */,
+				040FEAAC2063A0A800B077A6 /* PRecordingViewController.swift */,
 				043ED8CF205BC15F007D573A /* PRecordingTableViewController.swift */,
 				043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */,
 			);
@@ -554,6 +555,7 @@
 				C8888AE0205B9EED00E49B27 /* QRcodeViewController.swift in Sources */,
 				C8E5EF19205116980062D4C6 /* DriverRecordDetail.swift in Sources */,
 				3E40F9E82051728D0054168C /* SignInViewController.swift in Sources */,
+				040FEAAD2063A0A800B077A6 /* PRecordingViewController.swift in Sources */,
 				3EC6E3D2205AC0B200EB568C /* Data+HexString.swift in Sources */,
 				3E8AC8D92049939200DDD5AE /* AppDelegate.swift in Sources */,
 				3E0D8F3C205FBD200027F0A7 /* RoundButton.swift in Sources */,
