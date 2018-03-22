@@ -35,7 +35,6 @@ class DRecordingTableViewCell: UITableViewCell {
     var recordData: DriverSetRecord? {
         didSet {
             
-            
             driverBoarding.text = recordData?.driverDeparture
             driverDestination.text = recordData?.driverDestination
             driverCapacity.text = String(describing: recordData?.driverSetPeople)

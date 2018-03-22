@@ -15,7 +15,6 @@ class DRecordingTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         // get memeberNo
         let defaults = UserDefaults.standard
         let driverMemberNo = defaults.integer(forKey: "memberNo")
@@ -51,23 +50,22 @@ class DRecordingTableViewController: UITableViewController {
     
     
     
-    //    override func numberOfSections(in tableView: UITableView) -> Int {
-    //        return 1
-    //}DriverSetItem
-    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //...
     }
     
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 10
     }
     
-    @IBOutlet weak var driverSetDate: UILabel!
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? DRecordingTableViewCell {
-            
             return cell
         }
         
