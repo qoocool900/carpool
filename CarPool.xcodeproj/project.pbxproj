@@ -172,12 +172,12 @@
 		3E40F9EB205172D10054168C /* ShareViewController */ = {
 			isa = PBXGroup;
 			children = (
-				0408328D2063D6F3002DF8C3 /* PRecordingViewController.swift */,
 				043ED8D7205BC271007D573A /* DriverSetupViewController.swift */,
 				043ED8D5205BC1BE007D573A /* DRecordingTableViewCell.swift */,
 				043ED8D1205BC185007D573A /* DRecordingTableViewController.swift */,
 				04C6425D205BBB7300984682 /* ShareViewController.swift */,
 				04C64259205BBB7200984682 /* PassengerSetupViewController.swift */,
+				0408328D2063D6F3002DF8C3 /* PRecordingViewController.swift */,
 				043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */,
 			);
 			path = ShareViewController;
