@@ -18,10 +18,11 @@ class DriverNoticeRequestTableViewCell: UITableViewCell {
     @IBOutlet weak var requestStatusAccept: UIImageView!
     @IBOutlet weak var requestStatusRefuse: UIImageView!
     @IBOutlet weak var phoneBtn: UIButton!
-    let wait = "0"
-    let accept = "1"
-    let refuse = "2"
-    var requestStatus = ""
+    let wait = 0
+    let accept = 1
+    let refuse = 2
+    var tripId = ""
+    var requestStatus = 0
     var passengerPhone = ""
     
     override func awakeFromNib() {
@@ -44,7 +45,6 @@ class DriverNoticeRequestTableViewCell: UITableViewCell {
             let passengerLastName = (noticeData?.passengerLastName)!
             passengerCountLabel.text = "\((noticeData?.passengerCount)!)"
             passengerNameLabel.text = passengerLastName + " " + passengerFirstName
-            requestStatus = "\((noticeData?.requestStatus)!)"
             passengerPhone = (noticeData?.passengerPhone)!
             checkSatus(requestStatus)
         }
@@ -54,7 +54,7 @@ class DriverNoticeRequestTableViewCell: UITableViewCell {
       callPhone(phoneNo: passengerPhone)
     }
     
-    func checkSatus(_ requestStatus: String) {
+    func checkSatus(_ requestStatus: Int) {
         switch requestStatus {
         case wait:
             requestStatusWait.image = UIImage(named: "radio_click")

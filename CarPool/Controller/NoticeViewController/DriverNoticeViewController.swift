@@ -13,24 +13,35 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var carCapacityLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-
+    
+    let loginMemberNo = UserDefaults.standard.integer(forKey: "memberNo")
     let sectionArray = ["我收到的請求", "我發出的邀請"]
-    var myTrip = DriverNotice.driverShared()
-    var receivedItem = PassengerNotice.driverReceivedNotice()
-    var requestItem = PassengerNotice.driverRequestNotice()
+    var driverTripId = ""
+    var receivedItem = [PassengerNotice]()
+    var requestItem = [PassengerNotice]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getDriverShare()
+        //Test Data
+//                myTrip = DriverNotice.passengerShared()
+//                receivedItem = PassengerNotice.passengerReceivedNotice()
+//                requestItem = Passenger.passengerRequestNotice()
+        
+        //Database data
+        DriverNotice.getDriverSharedInfo(loginMemberNo: loginMemberNo) { (trip) in
+            self.startLocationLabel.text = trip.departure
+            self.endLocationLabel.text = trip.destination
+            self.dateLabel.text = trip.date
+            self.carCapacityLabel.text = "\(trip.people)"
+            self.driverTripId = trip.tripId
+        }
+        PassengerNotice.getDriverReceivedNoticeInfo(driverTripId: driverTripId) { (received) in
+            self.receivedItem = received
+        }
+        PassengerNotice.getDriverRequestNoticeInfo(driverTripId: driverTripId) { (request) in
+            self.requestItem = request
+        }
     }
-    
-    func getDriverShare() {
-        startLocationLabel.text = myTrip.startLocation
-        endLocationLabel.text = myTrip.endLocation
-        dateLabel.text = myTrip.date
-        carCapacityLabel.text = "\(myTrip.carCapacity)"
-    }
-    
     
     // MARK: - TableView Setting
     func numberOfSections(in tableView: UITableView) -> Int {

@@ -23,8 +23,12 @@ class DriverRecordViewController: UIViewController, UITableViewDelegate, UITable
         //    processingItem = DriverRecord.allProcessingRecord()
         //    historyItem = DriverRecord.allHistoryRecord()
         // Data base
-        processingItem = DriverRecord.getDriverProcessingInfo(loginMemberNo: loginMemberNo)
-        historyItem = DriverRecord.getDriverHistoryInfo(loginMemberNo: loginMemberNo)
+        DriverRecord.getDriverProcessingInfo(loginMemberNo: loginMemberNo) { (recordings) in
+            self.processingItem = recordings
+        }
+        DriverRecord.getDriverHistoryInfo(loginMemberNo: loginMemberNo) { (recordings) in
+            self.historyItem = recordings
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

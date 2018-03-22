@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		040FEAAA2062C4A900B077A6 /* DriverSetRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040FEAA92062C4A900B077A6 /* DriverSetRecord.swift */; };
 		043ED8D0205BC15F007D573A /* PRecordingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8CF205BC15F007D573A /* PRecordingTableViewController.swift */; };
 		043ED8D2205BC185007D573A /* DRecordingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D1205BC185007D573A /* DRecordingTableViewController.swift */; };
 		043ED8D4205BC1A5007D573A /* PRecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */; };
@@ -75,7 +74,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		040FEAA92062C4A900B077A6 /* DriverSetRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverSetRecord.swift; sourceTree = "<group>"; };
 		043ED8CF205BC15F007D573A /* PRecordingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRecordingTableViewController.swift; sourceTree = "<group>"; };
 		043ED8D1205BC185007D573A /* DRecordingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRecordingTableViewController.swift; sourceTree = "<group>"; };
 		043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRecordingTableViewCell.swift; sourceTree = "<group>"; };
@@ -181,7 +179,6 @@
 				04C64259205BBB7200984682 /* PassengerSetupViewController.swift */,
 				043ED8CF205BC15F007D573A /* PRecordingTableViewController.swift */,
 				043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */,
-				040FEAA92062C4A900B077A6 /* DriverSetRecord.swift */,
 			);
 			path = ShareViewController;
 			sourceTree = "<group>";
@@ -559,7 +556,6 @@
 				3E40F9E82051728D0054168C /* SignInViewController.swift in Sources */,
 				3EC6E3D2205AC0B200EB568C /* Data+HexString.swift in Sources */,
 				3E8AC8D92049939200DDD5AE /* AppDelegate.swift in Sources */,
-				040FEAAA2062C4A900B077A6 /* DriverSetRecord.swift in Sources */,
 				3E0D8F3C205FBD200027F0A7 /* RoundButton.swift in Sources */,
 				C8E5EF17205116810062D4C6 /* DriverRecord.swift in Sources */,
 				C8888AE3205B9EED00E49B27 /* GuardViewController.swift in Sources */,

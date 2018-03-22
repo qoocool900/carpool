@@ -18,7 +18,9 @@ class DriverDetailRecordViewController: UIViewController, UITableViewDelegate, U
         //    driverDeatilItem = DriverRecordDetail.allTripPassengerRecord()
         
         //Data base
-        driverDeatilItem = DriverRecordDetail.getAllTripPassengerInfo(seqNo: seqNo)
+        DriverRecordDetail.getAllTripPassengerInfo(seqNo: seqNo) { (recordings) in
+            self.driverDeatilItem = recordings
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

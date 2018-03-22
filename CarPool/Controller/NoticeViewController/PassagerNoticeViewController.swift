@@ -19,7 +19,7 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
     var status = 0
     
     let sectionArray = ["我收到的邀請", "我發出的請求"]
-    var myTrip: Trip!
+    var passengerTripId = ""
     var receivedItem = [DriverNotice]()
     var requestItem = [DriverNotice]()
     
@@ -27,24 +27,27 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
         super.viewDidLoad()
         //Test sata
 //        myTrip = PassengerNotice.passengerShared()
-//        receivedItem = DriverNotice.passengerReceivedNotice()
-//        requestItem = DriverNotice.passengerRequestNotice()
-        
-        //Database data
-        //myTrip = PassengerNotice.getPassengerSharedInfo(loginMemberNo: loginMemberNo)
-        PassengerNotice.getPassengerSharedInfo(loginMemberNo: loginMemberNo) { (trip) in
-            self.startLocationLabel.text = trip.boarding
-            self.endLocationLabel.text = trip.destination
-            print(self.startLocationLabel.text!)
-        }
-        
-//        receivedItem = DriverNotice.getPassengerReceivedNoticeInfo(passengerTripId: myTrip.tripId)
-//        requestItem = DriverNotice.getPassengerRequestNoticeInfo(tripId: myTrip.tripId)
-//
 //        startLocationLabel.text = myTrip.boarding
 //        endLocationLabel.text = myTrip.destination
 //        dateLabel.text = myTrip.date
 //        passengerCountLabel.text = "\(myTrip.people)"
+//        receivedItem = DriverNotice.passengerReceivedNotice()
+//        requestItem = DriverNotice.passengerRequestNotice()
+        
+        //Database data
+        PassengerNotice.getPassengerSharedInfo(loginMemberNo: loginMemberNo) { (trip) in
+            self.startLocationLabel.text = trip.boarding
+            self.endLocationLabel.text = trip.destination
+            self.dateLabel.text = trip.date
+            self.passengerCountLabel.text = "\(trip.people)"
+            self.passengerTripId = trip.tripId
+        }
+        DriverNotice.getPassengerReceivedNoticeInfo(passengerTripId: passengerTripId) { (received) in
+            self.receivedItem = received
+        }
+        DriverNotice.getPassengerRequestNoticeInfo(passengerTripId: passengerTripId) { (request) in
+            self.requestItem = request
+        }
     }
     
     // MARK: - TableView Setting

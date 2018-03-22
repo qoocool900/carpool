@@ -33,16 +33,9 @@ class DriverRecordDetail{
         self.offTime = offTime
     }
     
-    static func allTripPassengerRecord() -> [DriverRecordDetail] {
-        let record0 = DriverRecordDetail(passengerTripId: "P20180101003",startLocation: "台北車站",endLocation: "世貿中心",passengerFirstName: "Penny", passengerLastName: "Chen", passengerPhone: "0911111111",passengerCount: 1,onTime: "13:00",offTime: "13:20")
-        let record1 = DriverRecordDetail(passengerTripId: "P20180101002",startLocation: "台北101",endLocation: "木柵動物園",passengerFirstName: "Ruby", passengerLastName: "Cheng", passengerPhone: "0922222222",passengerCount: 2,onTime: "13:00",offTime: "13:20")
-        let record2 = DriverRecordDetail(passengerTripId: "P20180101001",startLocation: "新光三越南西店",endLocation: "忠孝東路ＳＯＧＯ",passengerFirstName: "Winnie", passengerLastName: "Hu", passengerPhone: "0933333333",passengerCount: 1,onTime: "13:00",offTime: "13:20")
-        return [record0, record1,record2]
-    }
-    
-    
     //getProcessingRecordings
-    static func getAllTripPassengerInfo(seqNo: Int) -> [DriverRecordDetail]{
+     typealias Completion = (_ result: [DriverRecordDetail]) -> Void
+    static func getAllTripPassengerInfo(seqNo: Int, completion: @escaping Completion){
         var recordings = [DriverRecordDetail]()
         Communicator.shared.getPassengerRecords(seqNo: seqNo) { (error, result) in
             if let error = error {
@@ -77,7 +70,15 @@ class DriverRecordDetail{
             }
             let msg = response ["msg"] as! String
             print(msg)
+            completion(recordings)
         }
-        return recordings
     }
+    
+    //    static func allTripPassengerRecord() -> [DriverRecordDetail] {
+    //        let record0 = DriverRecordDetail(passengerTripId: "P20180101003",startLocation: "台北車站",endLocation: "世貿中心",passengerFirstName: "Penny", passengerLastName: "Chen", passengerPhone: "0911111111",passengerCount: 1,onTime: "13:00",offTime: "13:20")
+    //        let record1 = DriverRecordDetail(passengerTripId: "P20180101002",startLocation: "台北101",endLocation: "木柵動物園",passengerFirstName: "Ruby", passengerLastName: "Cheng", passengerPhone: "0922222222",passengerCount: 2,onTime: "13:00",offTime: "13:20")
+    //        let record2 = DriverRecordDetail(passengerTripId: "P20180101001",startLocation: "新光三越南西店",endLocation: "忠孝東路ＳＯＧＯ",passengerFirstName: "Winnie", passengerLastName: "Hu", passengerPhone: "0933333333",passengerCount: 1,onTime: "13:00",offTime: "13:20")
+    //        return [record0, record1,record2]
+    //    }
+
 }

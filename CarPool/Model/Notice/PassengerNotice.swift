@@ -17,9 +17,8 @@ class PassengerNotice{
     var passengerFirstName: String
     var passengerLastName: String
     var passengerPhone: String
-    var requestStatus: Int
     
-    init(seqNo: Int, tripId: String, startLocation: String, endLocation: String, date: String, passengerCount: Int, passengerFirstName: String, passengerLastName: String,passengerPhone: String,requestStatus:Int) {
+    init(seqNo: Int, tripId: String, startLocation: String, endLocation: String, date: String, passengerCount: Int, passengerFirstName: String, passengerLastName: String,passengerPhone: String) {
         self.seqNo = seqNo
         self.tripId = tripId
         self.startLocation = startLocation
@@ -29,28 +28,10 @@ class PassengerNotice{
         self.passengerFirstName = passengerFirstName
         self.passengerLastName = passengerLastName
         self.passengerPhone = passengerPhone
-        self.requestStatus = requestStatus
     }
     
-    static func passengerShared() -> PassengerNotice {
-        let record1 = PassengerNotice(seqNo: 1, tripId: "P180301001", startLocation: "國父紀念館", endLocation: "世貿二館", date: "2018/01/11 12:01", passengerCount: 2, passengerFirstName: "Helen", passengerLastName: "Lin",passengerPhone: "098888899",requestStatus:0)
-        return record1
-    }
-    
-    static func driverReceivedNotice() -> [PassengerNotice] {
-        let record1 = PassengerNotice(seqNo: 2, tripId: "P180301001", startLocation: "台北車站", endLocation: "捷運中山站", date: "2018/01/11 12:02", passengerCount: 2, passengerFirstName: "Ally", passengerLastName: "Lin",passengerPhone: "098888881",requestStatus:0)
-        let record2 = PassengerNotice(seqNo: 3, tripId: "P180301002", startLocation: "台北捷運站", endLocation: "台北101", date: "2018/01/11 12:00", passengerCount: 1, passengerFirstName: "Sandy", passengerLastName: "Wang",passengerPhone: "0988888882",requestStatus:0)
-        return [record1,record2]
-    }
-    
-    static func driverRequestNotice() -> [PassengerNotice] {
-        let record1 = PassengerNotice(seqNo: 4, tripId: "P180301003", startLocation: "捷運中山站", endLocation: "世貿二館", date: "2018/01/11 12:03", passengerCount: 1, passengerFirstName: "Vicky", passengerLastName: "Wu",passengerPhone: "0988888883",requestStatus:0)
-        let record2 = PassengerNotice(seqNo: 5, tripId: "P180301004", startLocation: "木柵動物園", endLocation: "台北101", date: "2018/01/11 12:07", passengerCount: 1, passengerFirstName: "Jacky", passengerLastName: "Lee",passengerPhone: "0988888884",requestStatus:0)
-        return [record1,record2]
-    }
-    
-    typealias Completion = (_ result:Trip) -> Void
     //Get Passenger Shared From Database
+    typealias Completion = (_ result:Trip) -> Void
     static func getPassengerSharedInfo(loginMemberNo: Int, completion: @escaping Completion) {
         var firstTrip: Trip!
        
@@ -68,18 +49,18 @@ class PassengerNotice{
             let code = response["code"] as! Int
             if code == 0 {
                 firstTrip = Common.shared.getFirstPassengerTrip(passengerTripsArray: content)
-                print(firstTrip.boarding)
+                print(firstTrip)
             }
             let msg = response ["msg"] as! String
             print(msg)
             completion(firstTrip)
         }
-
     }
     
     //Get Driver Received Notice From Database
-    static func getDriverReceivedNoticeInfo(driverTripId: String) -> [DriverNotice]{
-        var recordings = [DriverNotice]()
+    typealias CompletionReceived = (_ result: [PassengerNotice]) -> Void
+    static func getDriverReceivedNoticeInfo(driverTripId: String, completion: @escaping CompletionReceived){
+        var recordings = [PassengerNotice]()
         Communicator.shared.getMyRequests(tripID: driverTripId , role: 1, request: 0, status: 0) { (error, result) in
             
             if let error = error {
@@ -94,31 +75,32 @@ class PassengerNotice{
             let content = result!["content"] as! [[String:Any]]
             let code = response["code"] as! Int
             if code == 0 {
-                var recording: DriverNotice
+                var recording: PassengerNotice
                 for record in content{
                     let seqNo = record["seqNo"] as! Int
-                    let driverTripId = record["tripID"] as! String
+                    let passengerTripId = record["tripID"] as! String
                     let startLocation = record["boarding"] as! String
                     let endLocation = record["destination"] as! String
                     let date = record["date"] as! String
-                    let driverFirstName = record["firstName"] as! String
-                    let driverLastName = record["lastName"] as! String
-                    let driverPhone = record["phone"] as! String
-                    let carNumber = record["carNo"] as! String
-                    let carCapacity = record["people"] as! Int
-                    recording = DriverNotice(seqNo: seqNo,tripId: driverTripId, startLocation: startLocation, endLocation: endLocation, date: date,driverFirstName: driverFirstName, driverLastName: driverLastName,driverPhone: driverPhone,carNumber: carNumber,carCapacity: carCapacity)
+                    let passengerFirstName = record["firstName"] as! String
+                    let passengerLastName = record["lastName"] as! String
+                    let passengerPhone = record["phone"] as! String
+                    let passengerCount = record["people"] as! Int
+                   
+                    recording = PassengerNotice(seqNo: seqNo, tripId: passengerTripId, startLocation: startLocation, endLocation: endLocation, date: date, passengerCount: passengerCount, passengerFirstName: passengerFirstName, passengerLastName: passengerLastName,passengerPhone: passengerPhone)
                     recordings.append(recording)
                 }
             }
             let msg = response ["msg"] as! String
             print(msg)
+            completion(recordings)
         }
-        return recordings
     }
     
     //Get Driver Request Notice From Database
-    static func getDriverRequestNoticeInfo(driverTripId: String) -> [DriverNotice]{
-        var recordings = [DriverNotice]()
+    typealias CompletionRequest = (_ result: [PassengerNotice]) -> Void
+    static func getDriverRequestNoticeInfo(driverTripId: String, completion: @escaping CompletionRequest){
+        var recordings = [PassengerNotice]()
         Communicator.shared.getMyRequests(tripID: driverTripId , role: 1, request: 1, status: 0) { (error, result) in
             
             if let error = error {
@@ -133,26 +115,25 @@ class PassengerNotice{
             let content = result!["content"] as! [[String:Any]]
             let code = response["code"] as! Int
             if code == 0 {
-                var recording: DriverNotice
+                var recording: PassengerNotice
                 for record in content{
                     let seqNo = record["seqNo"] as! Int
-                    let driverTripId = record["tripID"] as! String
+                    let passengerTripId = record["tripID"] as! String
                     let startLocation = record["boarding"] as! String
                     let endLocation = record["destination"] as! String
                     let date = record["date"] as! String
-                    let driverFirstName = record["firstName"] as! String
-                    let driverLastName = record["lastName"] as! String
-                    let driverPhone = record["phone"] as! String
-                    let carNumber = record["carNo"] as! String
-                    let carCapacity = record["people"] as! Int
-                    recording = DriverNotice(seqNo: seqNo,tripId: driverTripId, startLocation: startLocation, endLocation: endLocation, date: date,driverFirstName: driverFirstName, driverLastName: driverLastName,driverPhone: driverPhone,carNumber: carNumber,carCapacity: carCapacity)
+                    let passengerFirstName = record["firstName"] as! String
+                    let passengerLastName = record["lastName"] as! String
+                    let passengerPhone = record["phone"] as! String
+                    let passengerCount = record["people"] as! Int
+                    recording = PassengerNotice(seqNo: seqNo, tripId: passengerTripId, startLocation: startLocation, endLocation: endLocation, date: date, passengerCount: passengerCount, passengerFirstName: passengerFirstName, passengerLastName: passengerLastName,passengerPhone: passengerPhone)
                     recordings.append(recording)
                 }
             }
             let msg = response ["msg"] as! String
             print(msg)
+            completion(recordings)
         }
-        return recordings
     }
     
     //    Update Status to Database
@@ -177,5 +158,22 @@ class PassengerNotice{
         
     }
     
+    
+//    static func passengerShared() -> PassengerNotice {
+//        let record1 = PassengerNotice(seqNo: 1, tripId: "P180301001", startLocation: "國父紀念館", endLocation: "世貿二館", date: "2018/01/11 12:01", passengerCount: 2, passengerFirstName: "Helen", passengerLastName: "Lin",passengerPhone: "098888899",requestStatus:0)
+//        return record1
+//    }
+//
+//    static func driverReceivedNotice() -> [PassengerNotice] {
+//        let record1 = PassengerNotice(seqNo: 2, tripId: "P180301001", startLocation: "台北車站", endLocation: "捷運中山站", date: "2018/01/11 12:02", passengerCount: 2, passengerFirstName: "Ally", passengerLastName: "Lin",passengerPhone: "098888881",requestStatus:0)
+//        let record2 = PassengerNotice(seqNo: 3, tripId: "P180301002", startLocation: "台北捷運站", endLocation: "台北101", date: "2018/01/11 12:00", passengerCount: 1, passengerFirstName: "Sandy", passengerLastName: "Wang",passengerPhone: "0988888882")
+//        return [record1,record2]
+//    }
+//
+//    static func driverRequestNotice() -> [PassengerNotice] {
+//        let record1 = PassengerNotice(seqNo: 4, tripId: "P180301003", startLocation: "捷運中山站", endLocation: "世貿二館", date: "2018/01/11 12:03", passengerCount: 1, passengerFirstName: "Vicky", passengerLastName: "Wu",passengerPhone: "0988888883")
+//        let record2 = PassengerNotice(seqNo: 5, tripId: "P180301004", startLocation: "木柵動物園", endLocation: "台北101", date: "2018/01/11 12:07", passengerCount: 1, passengerFirstName: "Jacky", passengerLastName: "Lee",passengerPhone: "0988888884")
+//        return [record1,record2]
+//    }
 }
 

@@ -23,8 +23,12 @@ class PassengerRecordViewController: UIViewController, UITableViewDelegate, UITa
         //    processingItem = PassengerRecord.allProcessingRecord()
         //    historyItem = PassengerRecord.allHistoryRecord()
         // Data base
-        processingItem = PassengerRecord.getPassengerProcessingInfo(loginMemberNo: loginMemberNo)
-        historyItem = PassengerRecord.getPassengerHistoryInfo(loginMemberNo: loginMemberNo)
+        PassengerRecord.getPassengerProcessingInfo(loginMemberNo: loginMemberNo) { (recordings) in
+            self.processingItem = recordings
+        }
+        PassengerRecord.getPassengerHistoryInfo(loginMemberNo: loginMemberNo) { (recordings) in
+            self.historyItem = recordings
+        }
     }
     
     override func viewDidLoad() {

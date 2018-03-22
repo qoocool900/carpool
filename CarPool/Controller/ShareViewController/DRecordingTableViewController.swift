@@ -11,7 +11,7 @@ let driverRecordCellIndentifier = "driverSetupCell"
 
 class DRecordingTableViewController: UITableViewController {
     
-   var DriverSetItem = [DriverSetRecord]()
+//   var DriverSetItem = [DriverSetRecord]()
     
     @IBOutlet weak var driverDeparture: UILabel!
     @IBOutlet weak var driverDestination: UILabel!
@@ -70,7 +70,7 @@ class DRecordingTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DriverSetItem.count
+        return 0
     }
     
     //    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

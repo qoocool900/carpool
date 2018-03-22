@@ -47,7 +47,6 @@ class DriverNoticeReceivedTableViewCell: UITableViewCell {
             let passengerLastName = (noticeData?.passengerLastName)!
             passengerCountLabel.text = "\((noticeData?.passengerCount)!)"
             passengerNameLabel.text = passengerLastName + " " + passengerFirstName
-            requestStatus = "\((noticeData?.requestStatus)!)"
             passengerPhone = (noticeData?.passengerPhone)!
             checkSatus(requestStatus)
         }

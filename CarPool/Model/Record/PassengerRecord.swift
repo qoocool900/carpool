@@ -33,22 +33,11 @@ class PassengerRecord{
         self.driverMemberNo = driverMemberNo
         self.driverTripId = driverTripId
     }
-    
-    static func allProcessingRecord() -> [PassengerRecord] {
-        let processingRecord = PassengerRecord(startLocation: "台北車站",endLocation: "世貿中心", date: "2018/01/11",driverFirstName: "Eric ",driverLastName: "Lin",carNumber: "ABC-1234", driverPhone: "0911111111",onTime: "13:00",offTime: "13:20", driverMemberNo: 3,driverTripId: "D180308004")
-        return [processingRecord]
-    }
-    
-    static func allHistoryRecord() -> [PassengerRecord] {
-        let record1 = PassengerRecord(startLocation: "台北101",endLocation: "木柵動物園", date: "2018/01/03",driverFirstName: "Alan",driverLastName: "Lee",carNumber: "ABC-5678", driverPhone: "0922222222",onTime: "13:00",offTime: "13:20", driverMemberNo: 3,driverTripId: "D180308003")
-        let record2 = PassengerRecord(startLocation: "新光三越南西店",endLocation: "忠孝東路ＳＯＧＯ", date: "2018/01/02",driverFirstName: "Patric",driverLastName: "Lo",carNumber: "DEF-1234",driverPhone: "0933333333",onTime: "13:00",offTime: "13:20", driverMemberNo: 3,driverTripId: "D180308002")
-        let record3 = PassengerRecord(startLocation: "台北國稅局",endLocation: "宏泰世紀大樓", date: "2018/01/01",driverFirstName: "Grace",driverLastName: "Wang",carNumber: "DEF-5678",driverPhone: "0944444444",onTime: "13:00",offTime: "13:20", driverMemberNo: 3,driverTripId: "D180308001")
-        return [record1,record2,record3]
-    }
-    
+        
 //MARK: -Link to DataBase
     //getProcessingRecordings
-    static func getPassengerProcessingInfo(loginMemberNo: Int) -> [PassengerRecord]{
+    typealias Completion = (_ result: [PassengerRecord]) -> Void
+    static func getPassengerProcessingInfo(loginMemberNo: Int, completion: @escaping Completion){
         var recordings = [PassengerRecord]()
         Communicator.shared.getMatchRecords(memberNo: loginMemberNo, status: 0, role: 0) { (error, result) in
             if let error = error {
@@ -82,12 +71,12 @@ class PassengerRecord{
             }
             let msg = response ["msg"] as! String
             print(msg)
+            completion(recordings)
         }
-        return recordings
     }
     
     //getProcessingRecordings
-    static func getPassengerHistoryInfo(loginMemberNo: Int) -> [PassengerRecord]{
+    static func getPassengerHistoryInfo(loginMemberNo: Int, completion: @escaping Completion){
         var recordings = [PassengerRecord]()
         Communicator.shared.getMatchRecords(memberNo: loginMemberNo, status: 1, role: 0) { (error, result) in
             if let error = error {
@@ -122,7 +111,19 @@ class PassengerRecord{
             }
             let msg = response ["msg"] as! String
             print(msg)
+            completion(recordings)
         }
-        return recordings
     }
+    
+//    static func allProcessingRecord() -> [PassengerRecord] {
+//        let processingRecord = PassengerRecord(startLocation: "台北車站",endLocation: "世貿中心", date: "2018/01/11",driverFirstName: "Eric ",driverLastName: "Lin",carNumber: "ABC-1234", driverPhone: "0911111111",onTime: "13:00",offTime: "13:20", driverMemberNo: 3,driverTripId: "D180308004")
+//        return [processingRecord]
+//    }
+//    
+//    static func allHistoryRecord() -> [PassengerRecord] {
+//        let record1 = PassengerRecord(startLocation: "台北101",endLocation: "木柵動物園", date: "2018/01/03",driverFirstName: "Alan",driverLastName: "Lee",carNumber: "ABC-5678", driverPhone: "0922222222",onTime: "13:00",offTime: "13:20", driverMemberNo: 3,driverTripId: "D180308003")
+//        let record2 = PassengerRecord(startLocation: "新光三越南西店",endLocation: "忠孝東路ＳＯＧＯ", date: "2018/01/02",driverFirstName: "Patric",driverLastName: "Lo",carNumber: "DEF-1234",driverPhone: "0933333333",onTime: "13:00",offTime: "13:20", driverMemberNo: 3,driverTripId: "D180308002")
+//        let record3 = PassengerRecord(startLocation: "台北國稅局",endLocation: "宏泰世紀大樓", date: "2018/01/01",driverFirstName: "Grace",driverLastName: "Wang",carNumber: "DEF-5678",driverPhone: "0944444444",onTime: "13:00",offTime: "13:20", driverMemberNo: 3,driverTripId: "D180308001")
+//        return [record1,record2,record3]
+//    }
 }
