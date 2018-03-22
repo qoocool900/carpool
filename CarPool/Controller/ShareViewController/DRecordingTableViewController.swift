@@ -7,11 +7,11 @@
 
 import UIKit
 
-let reuseIdentifier = "driverSetupCell"
+//let reuseIdentifier = "driverSetupCell"
 
 class DRecordingTableViewController: UITableViewController {
     
-  
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,33 +46,22 @@ class DRecordingTableViewController: UITableViewController {
         //                self.driverSetPeople.text = driverSetPeople
         //                self.driverSetDate.text = driverSetDate
         //
-    }
-    
-    
-    
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
-    }
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        //...
-//    }
-//
-//
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        if let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? DRecordingTableViewCell {
+        
+        
+        func numberOfSections(in tableView: UITableView) -> Int {
+            return 1
+        }
+       
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return 1
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "driverSetupCell", for: indexPath) as! DRecordingTableViewCell
+            
             return cell
         }
-
-        return UITableViewCell()
+       
     }
-    
-    
     
 }
