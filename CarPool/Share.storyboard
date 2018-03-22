@@ -643,8 +643,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="passengerBoarding" destination="8Kf-XB-KwA" id="jyW-5h-95D"/>
-                                            <outlet property="passengerDestination" destination="zVl-Yc-Aad" id="63x-e2-HXe"/>
+                                            <outlet property="passengerBoarding" destination="8Kf-XB-KwA" id="dqd-Fi-7yi"/>
+                                            <outlet property="passengerDestination" destination="zVl-Yc-Aad" id="aAg-J9-fgg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -670,7 +670,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y8n-KP-qcg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="824.79999999999995" y="-399.40029985007499"/>
+            <point key="canvasLocation" x="790" y="-399"/>
         </scene>
         <!--Recording Table View Controller-->
         <scene sceneID="LJP-cx-2tr">
