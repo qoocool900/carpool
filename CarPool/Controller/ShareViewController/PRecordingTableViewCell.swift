@@ -9,6 +9,11 @@ import UIKit
 
 class PRecordingTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var passengerBoarding: UILabel!
+    
+    @IBOutlet weak var passengerDestination: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

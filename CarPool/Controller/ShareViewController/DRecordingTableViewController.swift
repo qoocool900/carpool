@@ -11,10 +11,17 @@ import UIKit
 
 class DRecordingTableViewController: UITableViewController {
     
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var boarding = ["Hsinchu", "Taipei","Taichung" ]
+        var destination  = ["天津", "上海","Holland"]
+        var date = ["02/12","04/05","08/09"]
+        var fee = [100,200,300]
+        var people = [2,3,4]
+        
         
         // get memeberNo
         let defaults = UserDefaults.standard
@@ -49,15 +56,21 @@ class DRecordingTableViewController: UITableViewController {
         
         
         func numberOfSections(in tableView: UITableView) -> Int {
-            return 1
+            return 0
         }
        
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 1
+            return 10
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "driverSetupCell", for: indexPath) as! DRecordingTableViewCell
+            cell.driverBoarding.text = boarding[indexPath.count]
+            cell.driverDestination.text = destination[indexPath.count]
+          cell.driverFee.text  = String(fee[indexPath.count])
+          cell.driverCapacity.text = String(people[indexPath.count])
+            cell.driverSetdate.text = date[indexPath.count]
+            
             
             return cell
         }
