@@ -17,6 +17,10 @@ class DriverRecordViewController: UIViewController, UITableViewDelegate, UITable
     var historyItem = [DriverRecord] ()
     var driverTripId = ""
     
+    override func viewWillAppear(_ animated: Bool) {
+//        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Test Data
@@ -25,9 +29,11 @@ class DriverRecordViewController: UIViewController, UITableViewDelegate, UITable
         // Data base
         DriverRecord.getDriverProcessingInfo(loginMemberNo: loginMemberNo) { (recordings) in
             self.processingItem = recordings
+            self.tableView.reloadData()
         }
         DriverRecord.getDriverHistoryInfo(loginMemberNo: loginMemberNo) { (recordings) in
             self.historyItem = recordings
+            self.tableView.reloadData()
         }
     }
     
@@ -96,8 +102,9 @@ class DriverRecordViewController: UIViewController, UITableViewDelegate, UITable
             default:
                 driverTripId = historyItem[indexPath.row].driverTripId
             }
+             print("driverTripId: \(driverTripId)")
             vc.driverTripId = driverTripId
-            print("seqNo: \(driverTripId)")
+            show(vc, sender: nil)
         }
     }
 }

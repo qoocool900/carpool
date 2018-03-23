@@ -18,7 +18,7 @@ class PassengerRecordViewController: UIViewController, UITableViewDelegate, UITa
     var historyItem = [PassengerRecord] ()
     
     override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
+//        tableView.reloadData()
     }
         
     override func viewDidLoad() {
@@ -34,6 +34,7 @@ class PassengerRecordViewController: UIViewController, UITableViewDelegate, UITa
         }
         PassengerRecord.getPassengerHistoryInfo(loginMemberNo: loginMemberNo) { (recordings) in
             self.historyItem = recordings
+                    print("driver record: \(recordings.count)")
             self.tableView.reloadData()
         }
         tableView.reloadData()
