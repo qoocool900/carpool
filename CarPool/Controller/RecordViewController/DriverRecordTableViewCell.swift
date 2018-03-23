@@ -28,7 +28,6 @@ class DriverRecordTableViewCell: UITableViewCell {
     var recordData: DriverRecord? {
         didSet {
             driverTripId = (recordData?.driverTripId)!
-            seqNo = (recordData?.seqNo)!
             startLocationLabel.text = recordData?.startLocation
             endLocationLabel.text = recordData?.endLocation
             dateLabel.text = recordData?.date

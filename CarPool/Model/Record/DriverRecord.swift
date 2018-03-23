@@ -9,15 +9,13 @@ import Foundation
 
 class DriverRecord{
     var driverTripId: String
-    var seqNo: Int
     var startLocation: String
     var endLocation: String
     var date: String
     
     
-    init(driverTripId: String,seqNo: Int,startLocation: String,endLocation: String, date: String) {
+    init(driverTripId: String,startLocation: String,endLocation: String, date: String) {
         self.driverTripId = driverTripId
-        self.seqNo = seqNo
         self.startLocation = startLocation
         self.endLocation = endLocation
         self.date = date
@@ -47,9 +45,8 @@ class DriverRecord{
                     let startLocation = record["boarding"] as! String
                     let endLocation = record["destination"] as! String
                     let date = record["date"] as! String
-                    let seqNo = record["seqNo"] as! Int
                     let driverTripId = record["tripID"] as! String
-                    recording = DriverRecord(driverTripId: driverTripId, seqNo: seqNo, startLocation: startLocation, endLocation: endLocation, date: date)
+                    recording = DriverRecord(driverTripId: driverTripId, startLocation: startLocation, endLocation: endLocation, date: date)
                     recordings.append(recording)
                 }
             }
@@ -81,9 +78,8 @@ class DriverRecord{
                     let startLocation = record["boarding"] as! String
                     let endLocation = record["destination"] as! String
                     let date = record["date"] as! String
-                    let seqNo = record["seqNo"] as! Int
                     let driverTripId = record["tripID"] as! String
-                    recording = DriverRecord(driverTripId: driverTripId, seqNo: seqNo, startLocation: startLocation, endLocation: endLocation, date: date)
+                    recording = DriverRecord(driverTripId: driverTripId, startLocation: startLocation, endLocation: endLocation, date: date)
                     recordings.append(recording)
                 }
             }
@@ -94,14 +90,14 @@ class DriverRecord{
     }
     
 //    static func allProcessingRecord() -> [DriverRecord] {
-//        let processingRecord = DriverRecord(driverTripId: "D20180101004",seqNo: 4,startLocation: "台北車站",endLocation: "世貿中心", date: "2018/01/11")
+//        let processingRecord = DriverRecord(driverTripId: "D20180101004",startLocation: "台北車站",endLocation: "世貿中心", date: "2018/01/11")
 //        return [processingRecord]
 //    }
 //    
 //    static func allHistoryRecord() -> [DriverRecord] {
-//        let record1 = DriverRecord(driverTripId: "D20180101003",seqNo: 3,startLocation: "台北101",endLocation: "木柵動物園", date: "2018/01/03")
-//        let record2 = DriverRecord(driverTripId: "D20180101002",seqNo: 2,startLocation: "新光三越南西店",endLocation: "忠孝東路ＳＯＧＯ", date: "2018/01/02")
-//        let record3 = DriverRecord(driverTripId: "D20180101001",seqNo: 1,startLocation: "台北國稅局",endLocation: "宏泰世紀大樓", date: "2018/01/01")
+//        let record1 = DriverRecord(driverTripId: "D20180101003",startLocation: "台北101",endLocation: "木柵動物園", date: "2018/01/03")
+//        let record2 = DriverRecord(driverTripId: "D20180101002",startLocation: "新光三越南西店",endLocation: "忠孝東路ＳＯＧＯ", date: "2018/01/02")
+//        let record3 = DriverRecord(driverTripId: "D20180101001",startLocation: "台北國稅局",endLocation: "宏泰世紀大樓", date: "2018/01/01")
 //        return [record1,record2,record3]
 //    }
 }

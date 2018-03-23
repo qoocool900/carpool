@@ -35,9 +35,9 @@ class DriverRecordDetail{
     
     //getProcessingRecordings
      typealias Completion = (_ result: [DriverRecordDetail]) -> Void
-    static func getAllTripPassengerInfo(seqNo: Int, completion: @escaping Completion){
+    static func getAllTripPassengerInfo(tripId: String, completion: @escaping Completion){
         var recordings = [DriverRecordDetail]()
-        Communicator.shared.getPassengerRecords(seqNo: seqNo) { (error, result) in
+        Communicator.shared.getPassengerRecords(tripId: tripId) { (error, result) in
             if let error = error {
                 NSLog("伺服器連線錯誤: \(error)")
                 return

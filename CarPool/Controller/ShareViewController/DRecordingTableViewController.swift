@@ -11,14 +11,7 @@ import UIKit
 
 class DRecordingTableViewController: UITableViewController {
     
-//   var DriverSetItem = [DriverSetRecord]()
-    
-    @IBOutlet weak var driverDeparture: UILabel!
-    @IBOutlet weak var driverDestination: UILabel!
-    @IBOutlet weak var driverSetPeople: UILabel!
-    @IBOutlet weak var driverSetFee: UILabel!
-    @IBOutlet weak var driverSetDate: UILabel!
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,29 +76,5 @@ class DRecordingTableViewController: UITableViewController {
         }
        
     }
-    
-    
-    
-    //    override func numberOfSections(in tableView: UITableView) -> Int {
-    //        return 1
-    //    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //...
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-    
-    //    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    //        if let cell = tableView.dequeueReusableCell(withIdentifier: driverRecordCellIndentifier, for: indexPath) as? DRecordingTableViewCell{
-    //
-    //            return cell
-    //        }
-    //
-    //        return UITableViewCell()
-    //    }
-    
     
 }

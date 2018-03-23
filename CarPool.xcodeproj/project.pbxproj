@@ -81,7 +81,6 @@
 		043ED8D7205BC271007D573A /* DriverSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverSetupViewController.swift; sourceTree = "<group>"; };
 		04C64259205BBB7200984682 /* PassengerSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassengerSetupViewController.swift; sourceTree = "<group>"; };
 		04C6425D205BBB7300984682 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
-		04F5C11A2060DD9A002A016B /* CarPool.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarPool.entitlements; sourceTree = "<group>"; };
 		3E0918D0205134CA008688D0 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		3E0918D1205134CA008688D0 /* DriverTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverTrip.swift; sourceTree = "<group>"; };
 		3E0918D2205134CA008688D0 /* Communicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communicator.swift; sourceTree = "<group>"; };
@@ -114,6 +113,7 @@
 		46EC316F6E77F72CB102B795 /* Pods-CarPool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarPool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarPool/Pods-CarPool.debug.xcconfig"; sourceTree = "<group>"; };
 		59FCCA4910075DCA993F60F8 /* Pods-CarPool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarPool.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarPool/Pods-CarPool.release.xcconfig"; sourceTree = "<group>"; };
 		94BBD5498FD2EC505E6B55FE /* Pods_CarPool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarPool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C81635D52063B1A10030EEC9 /* CarPool.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarPool.entitlements; sourceTree = "<group>"; };
 		C8888ADA205B9EEC00E49B27 /* DriveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveViewController.swift; sourceTree = "<group>"; };
 		C8888ADB205B9EEC00E49B27 /* QRcodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRcodeViewController.swift; sourceTree = "<group>"; };
 		C8888ADC205B9EEC00E49B27 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -177,7 +177,6 @@
 				043ED8D1205BC185007D573A /* DRecordingTableViewController.swift */,
 				04C6425D205BBB7300984682 /* ShareViewController.swift */,
 				04C64259205BBB7200984682 /* PassengerSetupViewController.swift */,
-				040FEAAC2063A0A800B077A6 /* PRecordingViewController.swift */,
 				043ED8CF205BC15F007D573A /* PRecordingTableViewController.swift */,
 				043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */,
 			);
@@ -236,7 +235,7 @@
 		3E8AC8D72049939200DDD5AE /* CarPool */ = {
 			isa = PBXGroup;
 			children = (
-				04F5C11A2060DD9A002A016B /* CarPool.entitlements */,
+				C81635D52063B1A10030EEC9 /* CarPool.entitlements */,
 				3E8AC8D82049939200DDD5AE /* AppDelegate.swift */,
 				3E8AC8F62049946200DDD5AE /* Controller */,
 				3E8AC90120499A3D00DDD5AE /* Model */,
@@ -555,7 +554,6 @@
 				C8888AE0205B9EED00E49B27 /* QRcodeViewController.swift in Sources */,
 				C8E5EF19205116980062D4C6 /* DriverRecordDetail.swift in Sources */,
 				3E40F9E82051728D0054168C /* SignInViewController.swift in Sources */,
-				040FEAAD2063A0A800B077A6 /* PRecordingViewController.swift in Sources */,
 				3EC6E3D2205AC0B200EB568C /* Data+HexString.swift in Sources */,
 				3E8AC8D92049939200DDD5AE /* AppDelegate.swift in Sources */,
 				3E0D8F3C205FBD200027F0A7 /* RoundButton.swift in Sources */,
