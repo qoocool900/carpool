@@ -36,6 +36,7 @@ class PRecordingViewController: UIViewController, UITableViewDelegate,UITableVie
         cell.passengerBoarding.text = SetRecord[indexPath.row].boarding
         cell.passengerDestination.text = SetRecord[indexPath.row].destination
         cell.passengerSetDate.text = SetRecord[indexPath.row].date
+        cell.passengerPeople.text = String(SetRecord[indexPath.row].people)
         
         return cell
     }
