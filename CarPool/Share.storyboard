@@ -260,15 +260,23 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="save"/>
                                                     <connections>
-                                                        <segue destination="dL9-DN-97p" kind="show" id="CbC-ps-3yh"/>
+                                                        <segue destination="dL9-DN-97p" kind="show" id="bdG-PJ-vjR"/>
                                                     </connections>
                                                 </button>
-                                            </barButtonItem>
-                                            <barButtonItem title="儲存" id="8N2-q5-9Ga">
-                                                <color key="tintColor" red="0.092533580958843231" green="0.66834145784378052" blue="0.6762121319770813" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
-                                                    <action selector="SaveButton:" destination="qWH-uN-ChF" id="H2e-pN-CE0"/>
+                                                    <segue destination="dL9-DN-97p" kind="show" id="375-Xs-vod"/>
                                                 </connections>
+                                            </barButtonItem>
+                                            <barButtonItem image="save_button" style="plain" id="avs-20-zv9">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Gj3-4h-UE1">
+                                                    <rect key="frame" x="208" y="0.0" width="103" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <inset key="imageEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <state key="normal" image="save_button"/>
+                                                    <connections>
+                                                        <action selector="SaveButton:" destination="qWH-uN-ChF" eventType="touchUpInside" id="6Dh-PQ-9BZ"/>
+                                                    </connections>
+                                                </button>
                                             </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>
@@ -529,17 +537,27 @@
                                 <items>
                                     <navigationItem id="0PJ-TP-LFe">
                                         <rightBarButtonItems>
-                                            <barButtonItem title="Record" id="pD1-La-cI6">
-                                                <connections>
-                                                    <segue destination="FOH-s0-4qD" kind="show" id="olt-hN-122"/>
-                                                </connections>
+                                            <barButtonItem image="save" style="plain" id="BKq-il-wjX">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="raZ-Db-dDQ">
+                                                    <rect key="frame" x="319" y="2" width="40" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <state key="normal" image="save"/>
+                                                    <connections>
+                                                        <segue destination="FOH-s0-4qD" kind="show" id="WsF-Oh-jbI"/>
+                                                    </connections>
+                                                </button>
                                             </barButtonItem>
-                                            <barButtonItem title="Item" style="plain" id="QnH-hS-2LT">
-                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FNh-84-ir4">
-                                                    <rect key="frame" x="202.5" y="2" width="94" height="40"/>
+                                            <barButtonItem title="Item" image="save_button" style="plain" id="ryx-JO-baS">
+                                                <inset key="imageInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zgB-M6-vcw">
+                                                    <rect key="frame" x="208" y="0.0" width="103" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <inset key="imageEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    <state key="normal" image="save"/>
+                                                    <state key="normal" image="save_button"/>
+                                                    <connections>
+                                                        <action selector="SavePassengerBtn:" destination="ekg-gi-x4l" eventType="touchUpInside" id="XzT-y5-bBG"/>
+                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                         </rightBarButtonItems>
@@ -588,11 +606,11 @@
                                 <color key="sectionIndexColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" red="0.72156862749999995" green="0.72156862749999995" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="passengerSetCell" focusStyle="custom" rowHeight="150" id="KOD-bW-8Ml" customClass="PRecordingTableViewCell" customModule="CarPool" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="150"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="passengerSetCell" focusStyle="custom" rowHeight="159" id="KOD-bW-8Ml" customClass="PRecordingTableViewCell" customModule="CarPool" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="159"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KOD-bW-8Ml" id="C5D-cQ-pK4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="158.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gWS-tb-C8o">
@@ -605,26 +623,19 @@
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="ueS-jH-DyP">
-                                                            <rect key="frame" x="257" y="44" width="59" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hsinchu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8Kf-XB-KwA">
-                                                            <rect key="frame" x="27" y="87" width="62.5" height="20.5"/>
+                                                            <rect key="frame" x="27" y="75" width="62.5" height="20.5"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="17"/>
                                                             <color key="textColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow1" translatesAutoresizingMaskIntoConstraints="NO" id="khl-RH-xfs">
-                                                            <rect key="frame" x="109" y="87" width="130" height="21"/>
+                                                            <rect key="frame" x="107" y="73" width="130" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Taipei" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="zVl-Yc-Aad">
-                                                            <rect key="frame" x="262" y="86" width="63" height="21"/>
+                                                            <rect key="frame" x="257" y="73" width="63" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="17"/>
                                                             <color key="textColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -642,7 +653,14 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="人數：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piU-9c-9vl">
-                                                            <rect key="frame" x="213" y="44" width="52" height="21"/>
+                                                            <rect key="frame" x="27" y="108" width="52" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="ueS-jH-DyP">
+                                                            <rect key="frame" x="73" y="107" width="59" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -695,7 +713,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y8n-KP-qcg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="789.60000000000002" y="-399.40029985007499"/>
+            <point key="canvasLocation" x="789.60000000000002" y="-399.85007496251876"/>
         </scene>
         <!--Recording Table View Controller-->
         <scene sceneID="LJP-cx-2tr">
@@ -826,5 +844,9 @@
         <image name="arrow1" width="60" height="20"/>
         <image name="point" width="41" height="45"/>
         <image name="save" width="40" height="40"/>
+        <image name="save_button" width="49" height="60"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="375-Xs-vod"/>
+    </inferredMetricsTieBreakers>
 </document>
