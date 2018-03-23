@@ -17,7 +17,7 @@ class DriverRecordDetail{
     var passengerPhone: String
     var onTime: String
     var offTime: String
-    var seqNo: Int = 0
+    var driverTripId: Int = 0
     
     init(passengerTripId: String, startLocation: String, endLocation: String,
          passengerFirstName: String,passengerLastName: String,passengerPhone: String,passengerCount: Int,onTime: String, offTime: String) {
@@ -34,10 +34,10 @@ class DriverRecordDetail{
     }
     
     //getProcessingRecordings
-     typealias Completion = (_ result: [DriverRecordDetail]) -> Void
-    static func getAllTripPassengerInfo(tripId: String, completion: @escaping Completion){
+    typealias Completion = (_ result: [DriverRecordDetail]) -> Void
+    static func getAllTripPassengerInfo(driverTripId: String, completion: @escaping Completion){
         var recordings = [DriverRecordDetail]()
-        Communicator.shared.getPassengerRecords(tripId: tripId) { (error, result) in
+        Communicator.shared.getPassengerRecords(driverTripID: driverTripId) { (error, result) in
             if let error = error {
                 NSLog("伺服器連線錯誤: \(error)")
                 return
@@ -60,17 +60,27 @@ class DriverRecordDetail{
                     let passengerLastName = record["lastName"] as! String
                     let passengerPhone = record["phone"] as! String
                     let passengerCount = record["people"] as! Int
-                    let onTime = record["onTime"] as! String
-                    let offTime = record["offTime"] as! String
+                    var onTime =  record["onTime"] as! String
+                    var offTime =  record["offTime"] as! String
+                    if  onTime != ""{
+                        onTime = (onTime as NSString).substring(with: NSRange(location:11, length:5))
+                    } else {
+                        onTime = ""
+                    }
+                    if  offTime != ""{
+                        offTime = (offTime as NSString).substring(with: NSRange(location:11, length:5))
+                    } else {
+                        onTime = ""
+                    }
                     
                     recording = DriverRecordDetail(passengerTripId: passengerTripId, startLocation: startLocation, endLocation: endLocation,passengerFirstName: passengerFirstName,passengerLastName: passengerLastName,passengerPhone: passengerPhone,passengerCount: passengerCount,onTime: onTime, offTime: offTime)
                     
                     recordings.append(recording)
                 }
+                completion(recordings)
             }
             let msg = response ["msg"] as! String
             print(msg)
-            completion(recordings)
         }
     }
     
@@ -80,5 +90,5 @@ class DriverRecordDetail{
     //        let record2 = DriverRecordDetail(passengerTripId: "P20180101001",startLocation: "新光三越南西店",endLocation: "忠孝東路ＳＯＧＯ",passengerFirstName: "Winnie", passengerLastName: "Hu", passengerPhone: "0933333333",passengerCount: 1,onTime: "13:00",offTime: "13:20")
     //        return [record0, record1,record2]
     //    }
-
+    
 }

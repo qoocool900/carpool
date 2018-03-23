@@ -94,7 +94,7 @@ class DriverRecordViewController: UIViewController, UITableViewDelegate, UITable
             case 0:
                 driverTripId = processingItem[indexPath.row].driverTripId
             default:
-tripId = historyItem[indexPath.row].seqNo
+                driverTripId = historyItem[indexPath.row].driverTripId
             }
             vc.driverTripId = driverTripId
             print("seqNo: \(driverTripId)")

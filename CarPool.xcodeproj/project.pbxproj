@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0408328E2063D6F3002DF8C3 /* PRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408328D2063D6F3002DF8C3 /* PRecordingViewController.swift */; };
 		043ED8D2205BC185007D573A /* DRecordingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D1205BC185007D573A /* DRecordingTableViewController.swift */; };
 		043ED8D4205BC1A5007D573A /* PRecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */; };
 		043ED8D6205BC1BE007D573A /* DRecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D5205BC1BE007D573A /* DRecordingTableViewCell.swift */; };
@@ -74,7 +73,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0408328D2063D6F3002DF8C3 /* PRecordingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRecordingViewController.swift; sourceTree = "<group>"; };
 		043ED8D1205BC185007D573A /* DRecordingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRecordingTableViewController.swift; sourceTree = "<group>"; };
 		043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRecordingTableViewCell.swift; sourceTree = "<group>"; };
 		043ED8D5205BC1BE007D573A /* DRecordingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRecordingTableViewCell.swift; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 				043ED8D1205BC185007D573A /* DRecordingTableViewController.swift */,
 				04C6425D205BBB7300984682 /* ShareViewController.swift */,
 				04C64259205BBB7200984682 /* PassengerSetupViewController.swift */,
-				043ED8CF205BC15F007D573A /* PRecordingTableViewController.swift */,
 				043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */,
 			);
 			path = ShareViewController;
@@ -554,7 +551,6 @@
 				C8E5EF19205116980062D4C6 /* DriverRecordDetail.swift in Sources */,
 				3E40F9E82051728D0054168C /* SignInViewController.swift in Sources */,
 				3EC6E3D2205AC0B200EB568C /* Data+HexString.swift in Sources */,
-				0408328E2063D6F3002DF8C3 /* PRecordingViewController.swift in Sources */,
 				3E8AC8D92049939200DDD5AE /* AppDelegate.swift in Sources */,
 				3E0D8F3C205FBD200027F0A7 /* RoundButton.swift in Sources */,
 				C8E5EF17205116810062D4C6 /* DriverRecord.swift in Sources */,

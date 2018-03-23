@@ -17,8 +17,7 @@ class DriverDetailRecordViewController: UIViewController, UITableViewDelegate, U
         //    driverDeatilItem = DriverRecordDetail.allTripPassengerRecord()
         
         //Data base
-        DriverRecordDetail
-            .getAllTripPassengerInfo(seqNo: seqNo) { (recordings) in
+        DriverRecordDetail.getAllTripPassengerInfo(driverTripId: driverTripId) { (recordings) in
             self.driverDeatilItem = recordings
         }
     }
