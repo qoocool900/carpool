@@ -8,6 +8,8 @@
 import Foundation
 
 class PassengerRecord{
+    var pStartLocation: String
+    var pEndLocation: String
     var startLocation: String
     var endLocation: String
     var date: String
@@ -20,7 +22,9 @@ class PassengerRecord{
     var driverMemberNo: Int
     var driverTripId: String
     
-    init(startLocation: String, endLocation: String, date: String, driverFirstName: String, driverLastName: String, carNumber: String, driverPhone: String, onTime: String, offTime: String, driverMemberNo: Int, driverTripId: String) {
+    init(pStartLocation: String, pEndLocation: String, startLocation: String, endLocation: String, date: String, driverFirstName: String, driverLastName: String, carNumber: String, driverPhone: String, onTime: String, offTime: String, driverMemberNo: Int, driverTripId: String) {
+        self.pStartLocation = pStartLocation
+        self.pEndLocation = pEndLocation
         self.startLocation = startLocation
         self.endLocation = endLocation
         self.date = date
@@ -33,8 +37,8 @@ class PassengerRecord{
         self.driverMemberNo = driverMemberNo
         self.driverTripId = driverTripId
     }
-        
-//MARK: -Link to DataBase
+    
+    //MARK: -Link to DataBase
     //getProcessingRecordings
     typealias Completion = (_ result: [PassengerRecord]) -> Void
     static func getPassengerProcessingInfo(loginMemberNo: Int, completion: @escaping Completion){
@@ -54,24 +58,38 @@ class PassengerRecord{
             if code == 0 {
                 var recording: PassengerRecord
                 for record in content{
+                    let pStartLocation = record["p_boarding"] as! String
+                    let pEndLocation = record["p_destination"] as! String
                     let startLocation = record["boarding"] as! String
                     let endLocation = record["destination"] as! String
-                    let date = record["date"] as! String
+                    let date = (record["date"] as! NSString).substring(with: NSRange(location:0, length:10))
                     let driverFirstName = record["firstName"] as! String
                     let driverLastName = record["lastName"] as! String
                     let carNumber = record["carNo"] as! String
                     let driverPhone = record["phone"] as! String
-                    let onTime = record["onTime"] as! String
-                    let offTime = record["offTime"] as! String
+                    
+                    var onTime =  record["onTime"] as! String
+                    var offTime =  record["offTime"] as! String
+                    if  onTime != ""{
+                        onTime = (onTime as NSString).substring(with: NSRange(location:11, length:5))
+                    } else {
+                        onTime = ""
+                    }
+                    if  offTime != ""{
+                        offTime = (offTime as NSString).substring(with: NSRange(location:11, length:5))
+                    } else {
+                        onTime = ""
+                    }
+                    
                     let driverMemberNo = record["memberNo"] as! Int
                     let driverTripId = record["tripID"] as! String
-                    recording = PassengerRecord(startLocation: startLocation,endLocation: endLocation, date: date,driverFirstName: driverFirstName,driverLastName: driverLastName,carNumber: carNumber,driverPhone: driverPhone,onTime: onTime,offTime: offTime, driverMemberNo: driverMemberNo,driverTripId: driverTripId)
+                    recording = PassengerRecord(pStartLocation: pStartLocation, pEndLocation: pEndLocation, startLocation: startLocation,endLocation: endLocation, date: date,driverFirstName: driverFirstName,driverLastName: driverLastName,carNumber: carNumber,driverPhone: driverPhone,onTime: onTime,offTime: offTime, driverMemberNo: driverMemberNo,driverTripId: driverTripId)
                     recordings.append(recording)
                 }
+                completion(recordings)
             }
             let msg = response ["msg"] as! String
             print(msg)
-            completion(recordings)
         }
     }
     
@@ -94,36 +112,48 @@ class PassengerRecord{
             if code == 0 {
                 var recording: PassengerRecord
                 for record in content{
+                    let pStartLocation = record["p_boarding"] as! String
+                    let pEndLocation = record["p_destination"] as! String
                     let startLocation = record["boarding"] as! String
                     let endLocation = record["destination"] as! String
-                    let date = record["date"] as! String
+                    let date = (record["date"] as! NSString).substring(with: NSRange(location:0, length:10))
                     let driverFirstName = record["firstName"] as! String
                     let driverLastName = record["lastName"] as! String
                     let carNumber = record["carNo"] as! String
                     let driverPhone = record["phone"] as! String
-                    let onTime = record["onTime"] as! String
-                    let offTime = record["offTime"] as! String
+                    var onTime =  record["onTime"] as! String
+                    var offTime =  record["offTime"] as! String
+                    if  onTime != ""{
+                        onTime = (onTime as NSString).substring(with: NSRange(location:11, length:5))
+                    } else {
+                        onTime = ""
+                    }
+                    if  offTime != ""{
+                        offTime = (offTime as NSString).substring(with: NSRange(location:11, length:5))
+                    } else {
+                        onTime = ""
+                    }
                     let driverMemberNo = record["memberNo"] as! Int
                     let driverTripId = record["tripID"] as! String
-                    recording = PassengerRecord(startLocation: startLocation,endLocation: endLocation, date: date,driverFirstName: driverFirstName,driverLastName: driverLastName,carNumber: carNumber,driverPhone: driverPhone,onTime: onTime,offTime: offTime, driverMemberNo: driverMemberNo,driverTripId: driverTripId)
+                    recording = PassengerRecord(pStartLocation: pStartLocation, pEndLocation: pEndLocation, startLocation: startLocation,endLocation: endLocation, date: date,driverFirstName: driverFirstName,driverLastName: driverLastName,carNumber: carNumber,driverPhone: driverPhone,onTime: onTime,offTime: offTime, driverMemberNo: driverMemberNo,driverTripId: driverTripId)
                     recordings.append(recording)
                 }
+                completion(recordings)
             }
             let msg = response ["msg"] as! String
             print(msg)
-            completion(recordings)
         }
     }
     
-//    static func allProcessingRecord() -> [PassengerRecord] {
-//        let processingRecord = PassengerRecord(startLocation: "台北車站",endLocation: "世貿中心", date: "2018/01/11",driverFirstName: "Eric ",driverLastName: "Lin",carNumber: "ABC-1234", driverPhone: "0911111111",onTime: "13:00",offTime: "13:20", driverMemberNo: 3,driverTripId: "D180308004")
-//        return [processingRecord]
-//    }
-//    
-//    static func allHistoryRecord() -> [PassengerRecord] {
-//        let record1 = PassengerRecord(startLocation: "台北101",endLocation: "木柵動物園", date: "2018/01/03",driverFirstName: "Alan",driverLastName: "Lee",carNumber: "ABC-5678", driverPhone: "0922222222",onTime: "13:00",offTime: "13:20", driverMemberNo: 3,driverTripId: "D180308003")
-//        let record2 = PassengerRecord(startLocation: "新光三越南西店",endLocation: "忠孝東路ＳＯＧＯ", date: "2018/01/02",driverFirstName: "Patric",driverLastName: "Lo",carNumber: "DEF-1234",driverPhone: "0933333333",onTime: "13:00",offTime: "13:20", driverMemberNo: 3,driverTripId: "D180308002")
-//        let record3 = PassengerRecord(startLocation: "台北國稅局",endLocation: "宏泰世紀大樓", date: "2018/01/01",driverFirstName: "Grace",driverLastName: "Wang",carNumber: "DEF-5678",driverPhone: "0944444444",onTime: "13:00",offTime: "13:20", driverMemberNo: 3,driverTripId: "D180308001")
-//        return [record1,record2,record3]
-//    }
+    //    static func allProcessingRecord() -> [PassengerRecord] {
+    //        let processingRecord = PassengerRecord(startLocation: "台北車站",endLocation: "世貿中心", date: "2018/01/11",driverFirstName: "Eric ",driverLastName: "Lin",carNumber: "ABC-1234", driverPhone: "0911111111",onTime: "13:00",offTime: "13:20", driverMemberNo: 3,driverTripId: "D180308004")
+    //        return [processingRecord]
+    //    }
+    //    
+    //    static func allHistoryRecord() -> [PassengerRecord] {
+    //        let record1 = PassengerRecord(startLocation: "台北101",endLocation: "木柵動物園", date: "2018/01/03",driverFirstName: "Alan",driverLastName: "Lee",carNumber: "ABC-5678", driverPhone: "0922222222",onTime: "13:00",offTime: "13:20", driverMemberNo: 3,driverTripId: "D180308003")
+    //        let record2 = PassengerRecord(startLocation: "新光三越南西店",endLocation: "忠孝東路ＳＯＧＯ", date: "2018/01/02",driverFirstName: "Patric",driverLastName: "Lo",carNumber: "DEF-1234",driverPhone: "0933333333",onTime: "13:00",offTime: "13:20", driverMemberNo: 3,driverTripId: "D180308002")
+    //        let record3 = PassengerRecord(startLocation: "台北國稅局",endLocation: "宏泰世紀大樓", date: "2018/01/01",driverFirstName: "Grace",driverLastName: "Wang",carNumber: "DEF-5678",driverPhone: "0944444444",onTime: "13:00",offTime: "13:20", driverMemberNo: 3,driverTripId: "D180308001")
+    //        return [record1,record2,record3]
+    //    }
 }

@@ -19,21 +19,23 @@ class PassengerRecordViewController: UIViewController, UITableViewDelegate, UITa
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+    }
+        
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print(loginMemberNo)
         // Test Data
         //    processingItem = PassengerRecord.allProcessingRecord()
         //    historyItem = PassengerRecord.allHistoryRecord()
         // Data base
         PassengerRecord.getPassengerProcessingInfo(loginMemberNo: loginMemberNo) { (recordings) in
             self.processingItem = recordings
+            self.tableView.reloadData()
         }
         PassengerRecord.getPassengerHistoryInfo(loginMemberNo: loginMemberNo) { (recordings) in
             self.historyItem = recordings
+            self.tableView.reloadData()
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print(loginMemberNo)
         tableView.reloadData()
     }
     

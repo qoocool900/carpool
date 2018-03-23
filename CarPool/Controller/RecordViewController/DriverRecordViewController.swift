@@ -15,7 +15,7 @@ class DriverRecordViewController: UIViewController, UITableViewDelegate, UITable
     let sectionArray = ["進行中記錄", "歷史紀錄"]
     var processingItem = [DriverRecord]()
     var historyItem = [DriverRecord] ()
-    var seqNo = 0
+    var driverTripId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +77,7 @@ class DriverRecordViewController: UIViewController, UITableViewDelegate, UITable
             let cell = tableView.dequeueReusableCell(withIdentifier: "DriverRecordCell", for: indexPath) as! DriverRecordTableViewCell
             let processingRecord = processingItem[indexPath.row]
             cell.recordData = processingRecord
-            seqNo = (cell.recordData?.seqNo)!
+            driverTripId = (cell.recordData?.driverTripId)!
             return cell
 
         default:
@@ -92,12 +92,12 @@ class DriverRecordViewController: UIViewController, UITableViewDelegate, UITable
         if let vc = storyboard?.instantiateViewController(withIdentifier: "DriverDetailRecordViewController") as? DriverDetailRecordViewController{
             switch indexPath.section {
             case 0:
-                seqNo = processingItem[indexPath.row].seqNo
+                driverTripId = processingItem[indexPath.row].driverTripId
             default:
-                seqNo = historyItem[indexPath.row].seqNo
+                driverTripId = historyItem[indexPath.row].driverTripId
             }
-            vc.seqNo = seqNo
-            print("seqNo: \(seqNo)")
+            vc.driverTripId = driverTripId
+            print("seqNo: \(driverTripId)")
         }
     }
 }

@@ -39,8 +39,10 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
             self.startLocationLabel.text = trip.boarding
             self.endLocationLabel.text = trip.destination
             self.dateLabel.text = trip.date
+            print(trip.people)
             self.passengerCountLabel.text = "\(trip.people)"
             self.passengerTripId = trip.tripId
+            print("Notice Passenger People: \(trip.people)")
         }
         DriverNotice.getPassengerReceivedNoticeInfo(passengerTripId: passengerTripId) { (received) in
             self.receivedItem = received

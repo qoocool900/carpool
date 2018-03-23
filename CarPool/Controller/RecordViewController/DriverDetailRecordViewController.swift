@@ -10,15 +10,14 @@ import UIKit
 class DriverDetailRecordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     var driverDeatilItem = [DriverRecordDetail]()
-    var seqNo = 0
-    
+    var driverTripId = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         //Test Data
         //    driverDeatilItem = DriverRecordDetail.allTripPassengerRecord()
         
         //Data base
-        DriverRecordDetail.getAllTripPassengerInfo(seqNo: seqNo) { (recordings) in
+        DriverRecordDetail.getAllTripPassengerInfo(driverTripId: driverTripId) { (recordings) in
             self.driverDeatilItem = recordings
         }
     }

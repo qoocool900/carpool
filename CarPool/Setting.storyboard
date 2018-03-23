@@ -697,7 +697,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                 <state key="normal" image="phone"/>
                                                                 <connections>
-                                                                    <action selector="phonePressed:" destination="k8C-Mo-qXq" eventType="touchUpInside" id="TZP-8D-6KY"/>
+                                                                    <action selector="phonePressed:" destination="k8C-Mo-qXq" eventType="touchUpInside" id="KeP-1b-ArK"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -717,7 +717,7 @@
                                                         <rect key="frame" x="39.5" y="27.5" width="256" height="256"/>
                                                         <state key="normal" image="searchQR"/>
                                                         <connections>
-                                                            <action selector="scanPressed:" destination="k8C-Mo-qXq" eventType="touchUpInside" id="jpU-5j-5Fx"/>
+                                                            <action selector="scanPressed:" destination="k8C-Mo-qXq" eventType="touchUpInside" id="PGA-C0-XEi"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>

@@ -43,7 +43,7 @@ class DriverNotice{
                 return
             }
             // success
-            guard result?.isEmpty == false else {
+            guard result == nil || result?.isEmpty == false else {
                 return
             }
             let response = result!["response"] as! [String:Any]
@@ -52,10 +52,10 @@ class DriverNotice{
             if code == 0 {
                 firstTrip = Common.shared.getFirstDriverTrip(diverTripsArray: content)
                 print(firstTrip)
+                completion(firstTrip)
             }
             let msg = response ["msg"] as! String
             print(msg)
-            completion(firstTrip)
         }
     }
     
@@ -92,10 +92,10 @@ class DriverNotice{
                     recording = DriverNotice(seqNo: seqNo,tripId: driverTripId, startLocation: startLocation, endLocation: endLocation, date: date,driverFirstName: driverFirstName, driverLastName: driverLastName,driverPhone: driverPhone,carNumber: carNumber,carCapacity: carCapacity)
                     recordings.append(recording)
                 }
+                completion(recordings)
             }
             let msg = response ["msg"] as! String
             print(msg)
-            completion(recordings)
         }
     }
     
@@ -132,10 +132,10 @@ class DriverNotice{
                     recording = DriverNotice(seqNo: seqNo,tripId: driverTripId, startLocation: startLocation, endLocation: endLocation, date: date,driverFirstName: driverFirstName, driverLastName: driverLastName,driverPhone: driverPhone,carNumber: carNumber,carCapacity: carCapacity)
                     recordings.append(recording)
                 }
+                completion(recordings)
             }
             let msg = response ["msg"] as! String
             print(msg)
-            completion(recordings)
         }
     }
     
@@ -161,21 +161,21 @@ class DriverNotice{
         
     }
     
-//    static func driverShared() -> DriverNotice {
-//        let record1 = DriverNotice(seqNo: 0, tripId: "D1803001",startLocation: "板橋火車站",endLocation: "世貿三館", date: "2018/01/11 12:01",driverFirstName: "Patric", driverLastName: "Lo",driverPhone: "0911131111",carNumber: "ABC-5699",carCapacity: 4)
-//        return record1
-//    }
-//
-//    static func passengerReceivedNotice() -> [DriverNotice] {
-//        let record1 = DriverNotice(seqNo: 0, tripId: "D1803001",startLocation: "台北車站",endLocation: "木柵動物園", date: "2018/01/11 12:02",driverFirstName: "Alan", driverLastName: "Lee",driverPhone: "0911111111",carNumber: "ABC-5678",carCapacity: 4)
-//        let record2 = DriverNotice(seqNo: 0,tripId: "D1803002",startLocation: "松山車站",endLocation: "青年公園", date: "2018/01/11 12:03",driverFirstName: "Eric", driverLastName: "Lee",driverPhone: "0911111121",carNumber: "ABC-5679",carCapacity: 4)
-//        return [record1,record2]
-//    }
-//
-//    static func passengerRequestNotice() -> [DriverNotice] {
-//        let record1 = DriverNotice(seqNo: 0,tripId: "D1803003",startLocation: "台北車站",endLocation: "歷史博物館", date: "2018/01/11 12:04",driverFirstName: "Brian", driverLastName: "Lin",driverPhone: "0911111131",carNumber: "ABC-5678",carCapacity: 4)
-//        let record2 = DriverNotice(seqNo: 0,tripId: "D1803004",startLocation: "松山車站",endLocation: "美術館", date: "2018/01/11 12:05",driverFirstName: "Sunny", driverLastName: "Lee",driverPhone: "0911111221",carNumber: "ABC-5689",carCapacity: 4)
-//        return [record1,record2]
-//    }
+    //    static func driverShared() -> DriverNotice {
+    //        let record1 = DriverNotice(seqNo: 0, tripId: "D1803001",startLocation: "板橋火車站",endLocation: "世貿三館", date: "2018/01/11 12:01",driverFirstName: "Patric", driverLastName: "Lo",driverPhone: "0911131111",carNumber: "ABC-5699",carCapacity: 4)
+    //        return record1
+    //    }
+    //
+    //    static func passengerReceivedNotice() -> [DriverNotice] {
+    //        let record1 = DriverNotice(seqNo: 0, tripId: "D1803001",startLocation: "台北車站",endLocation: "木柵動物園", date: "2018/01/11 12:02",driverFirstName: "Alan", driverLastName: "Lee",driverPhone: "0911111111",carNumber: "ABC-5678",carCapacity: 4)
+    //        let record2 = DriverNotice(seqNo: 0,tripId: "D1803002",startLocation: "松山車站",endLocation: "青年公園", date: "2018/01/11 12:03",driverFirstName: "Eric", driverLastName: "Lee",driverPhone: "0911111121",carNumber: "ABC-5679",carCapacity: 4)
+    //        return [record1,record2]
+    //    }
+    //
+    //    static func passengerRequestNotice() -> [DriverNotice] {
+    //        let record1 = DriverNotice(seqNo: 0,tripId: "D1803003",startLocation: "台北車站",endLocation: "歷史博物館", date: "2018/01/11 12:04",driverFirstName: "Brian", driverLastName: "Lin",driverPhone: "0911111131",carNumber: "ABC-5678",carCapacity: 4)
+    //        let record2 = DriverNotice(seqNo: 0,tripId: "D1803004",startLocation: "松山車站",endLocation: "美術館", date: "2018/01/11 12:05",driverFirstName: "Sunny", driverLastName: "Lee",driverPhone: "0911111221",carNumber: "ABC-5689",carCapacity: 4)
+    //        return [record1,record2]
+    //    }
     
 }

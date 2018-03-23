@@ -30,15 +30,18 @@ class PassengerRecordTableViewCell: UITableViewCell {
     
     var recordData: PassengerRecord? {
         didSet {
-            startLocationLabel.text = recordData?.startLocation
-            endLocationLabel.text = recordData?.endLocation
-            dateLabel.text = recordData?.date
+            startLocationLabel.text = recordData?.pStartLocation
+            endLocationLabel.text = recordData?.pEndLocation
+            carNumberLabel.text = recordData?.carNumber
+            
             let firstName = (recordData?.driverFirstName)!
             let lastName = (recordData?.driverLastName)!
             driverNameLabel.text = firstName + " " + lastName
-            carNumberLabel.text = recordData?.carNumber
+            
+            dateLabel.text = recordData?.date
             onTimeLabel.text = recordData?.onTime
             offTimeLabel.text = recordData?.offTime
+            
             driverMemberNo = (recordData?.driverMemberNo)!
             driverPhone = (recordData?.driverPhone)!
             driverTripId = (recordData?.driverTripId)!
