@@ -146,14 +146,14 @@ class Communicator {
     }
     
     // 取得我自己載過的乘客
-    func getPassengerRecords(seqNo:Int, doneHandler:@escaping DoneHandler) {
-        let parameters:[String:Any] = [ACTION:"getPassengerRecords", "seqNo":seqNo]
+    func getPassengerRecords(driverTripID:String, doneHandler:@escaping DoneHandler) {
+        let parameters:[String:Any] = [ACTION:"getPassengerRecords", "tripID":driverTripID]
         doPost(urlString: RECORD_URL, parameters: parameters, doneHandler: doneHandler)
     }
     
     // 新增配對成功記錄 (暫無使用)
-    func addRecord(seqNo:Int, doneHandler:@escaping DoneHandler) {
-        let parameters: [String : Any] = [ACTION:"addRecord", "seqNo":seqNo]
+    func addRecord(driverTripID:String, passengerTripID:String, doneHandler:@escaping DoneHandler) {
+        let parameters: [String : Any] = [ACTION:"addRecord", "driverTripID":driverTripID, "passengerTripID":passengerTripID]
         doPost(urlString: RECORD_URL, parameters: parameters, doneHandler: doneHandler)
     }
     // 更新記錄 上下車
