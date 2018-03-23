@@ -148,7 +148,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 return
             }
             let content = result!["content"] as! [[String : Any]]
-            print(content)
+            //print(content)
             for dic in content {
                 let tripId = dic["trip_ip"] as! String
                 let destination = dic["destination"] as! String
@@ -172,7 +172,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 return
             }
             let content = result!["content"] as! [[String : Any]]
-            print(content)
+            //print(content)
             for dic in content {
                 let tripId = dic["trip_ip"] as! String
                 //let memberNo = dic["memberNO"] as! Int
@@ -196,7 +196,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             return
         }
         //guard let 用法 如果條件不合 就放行 與if是相反的
-        NSLog("Current Location: \(coordinate.latitude),\(coordinate.longitude)")
+        //NSLog("Current Location: \(coordinate.latitude),\(coordinate.longitude)")
 //        var points: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
 //
 //        for annotation in self.carAnnotations {
@@ -279,7 +279,14 @@ extension MapViewController: MKMapViewDelegate, inviteRidingCallOutViewDelegate 
                 } else {
                     let firstPassengerTrip = Common.shared.getFirstPassengerTrip(passengerTripsArray: content)
                     self.myTripId = firstPassengerTrip.tripId
-                    self.showAlert(message: "邀請成功")
+                    Communicator.shared.addRequest(driverTripID: self.invitedTripId!, passengerTripID: self.myTripId!, reqType: self.role) { (error, result) in
+                        if let error = error {
+                            print(error)
+                        }
+                        //print(result!)
+                        self.showAlert(message: "邀請成功")
+                    }
+                    
                 }
             })
         } else if role == 1 {
@@ -294,20 +301,21 @@ extension MapViewController: MKMapViewDelegate, inviteRidingCallOutViewDelegate 
                 } else {
                     let firstDriverTrip = Common.shared.getFirstDriverTrip(diverTripsArray: content)
                     self.myTripId = firstDriverTrip.tripId
-                    self.showAlert(message: "邀請成功")
+                    Communicator.shared.addRequest(driverTripID: self.myTripId!, passengerTripID: self.invitedTripId!, reqType: self.role) { (error, result) in
+                        if let error = error {
+                            print(error)
+                        }
+                        //print(result!)
+                        self.showAlert(message: "邀請成功")
+                    }
                 }
             })
         }
         
         
         //showAlert(message: "邀請成功")
-        print(invitedTripId)
-//        Communicator.shared.addRequest(driverTripID: tipId, passengerTripID: "P180308002", reqType: role) { (error, result) in
-//            if let error = error {
-//
-//            }
-//            print(result!)
-//        }
+        //print(invitedTripId)
+        
         
 //        Communicator.shared.getMyTrips(memberNo: 12, role: 0) { (error, result) in
 //            if let error = error {
