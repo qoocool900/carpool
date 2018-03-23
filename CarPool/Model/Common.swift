@@ -44,7 +44,7 @@ class Common {
             //let memberNo = trip["member_no"] as! Int
             let boarding = trip["boarding"] as! String
             let destination = trip["destination"] as! String
-            //let people = trip["people"] as! Int
+            let people = trip["people"] as! Int
             //let status = trip["status"] as! Int
             let date = trip["date"] as! String
             //let departureLat = trip["member_no"] as! Int
@@ -52,7 +52,7 @@ class Common {
             //let destinationLat = trip["lat"] as! Double
             //let destinationLon = trip["lon"] as! Double
             
-            let passengerTrip = Trip(tripId: tripId, memberNo: 0, destination: destination, boarding: boarding, people: 0, onMap: "", status: "", date: date, boardingLat: 0, boardingLon: 0, destinationLat: 0, destinationLon: 0)
+            let passengerTrip = Trip(tripId: tripId, memberNo: 0, destination: destination, boarding: boarding, people: people, onMap: "", status: "", date: date, boardingLat: 0, boardingLon: 0, destinationLat: 0, destinationLon: 0)
             myPassengerTripsArray.append(passengerTrip)
         }
         return myPassengerTripsArray

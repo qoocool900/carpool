@@ -49,7 +49,7 @@ class PassengerNotice{
             let code = response["code"] as! Int
             if code == 0 {
                 firstTrip = Common.shared.getFirstPassengerTrip(passengerTripsArray: content)
-                print(firstTrip)
+                print("Notice Passenger Trip: \(firstTrip)")
                 completion(firstTrip)
             }
             let msg = response ["msg"] as! String
