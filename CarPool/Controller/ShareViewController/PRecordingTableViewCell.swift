@@ -9,6 +9,11 @@ import UIKit
 
 class PRecordingTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var passengerSetDate: UILabel!
+    
+    @IBOutlet weak var passengerPeopel: UILabel!
+
+    @IBOutlet weak var passengerFee: UILabel!
     @IBOutlet weak var passengerBoarding: UILabel!
     
     @IBOutlet weak var passengerDestination: UILabel!
