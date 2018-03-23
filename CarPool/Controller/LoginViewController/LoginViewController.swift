@@ -5,7 +5,7 @@ import FBSDKLoginKit
 import TransitionButton
 
 
-// Login revised
+
 class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDelegate {
     
     @IBOutlet weak var UserMailTextField: UITextField!
@@ -27,7 +27,7 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
                 return
             }
             // success
-            // Prepare userdefault for MemberNo
+            // Prepare Userdefault for MemberNo
             let content = result!["content"] as![String:Any]
             let memberNo = content["memberNo"] as? Int
             let defaults = UserDefaults.standard
@@ -36,7 +36,6 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
             print(defaults.integer(forKey: "memberNo"))
             // print(56778)
             
-            // Feedbacks of responses from the server
             let response = result!["response"] as! [String:Any]
             let code = response["code"] as! Int
             if code == 0 {
@@ -59,9 +58,9 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
                     })
                 })
             }
-//            let msg = response["msg"] as! String
-//            print(msg)
-//            self.showAlert(message: msg)
+            let msg = response["msg"] as? String
+            print(msg)
+            self.showAlert(message:(msg)!)
         }
     }
     
@@ -201,9 +200,22 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
                         NSLog("doFBRegister ok")
                         
                     })
-                    //Communicator.share.fbCheckUrl //
+                    //                    Communicator.shared.checkUser(fbMember.email: "0", fbMember.firstName: "a") { (error, result) in
+                    //                        if let error = error {
+                    //                            NSLog("checkUser fail: \(error)")
+                    //                            let msg = result!["msg"] as? String
+                    //                            return
+                    //                        }
+                    //                        // success
+                    //                        print(result!)
+                    //                        guard let memberNo = result!["memberNo"] as? Int else {
+                    //                            return
+                    //                        }
+                    //                        guard let memberName = result!["memberNo"] as? Int else {
+                    //                            return
+                    //                        }
                     
-                    //........
+                    
                 }
                 // show main page
                 
