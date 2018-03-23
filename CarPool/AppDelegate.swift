@@ -12,6 +12,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var memberNo = UserDefaults.standard.integer(forKey: "memberNo")
+//    let defaults = UserDefaults.standard
+//    let memberNo = defaults.object
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         print("token在這裡\(deviceToken.hexString)")
