@@ -83,6 +83,7 @@ class DriverRecord{
                     recordings.append(recording)
                 }
                 completion(recordings)
+        
             }
             let msg = response ["msg"] as! String
             print(msg)

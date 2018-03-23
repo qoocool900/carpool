@@ -175,7 +175,6 @@
                                             <outlet property="dateLabel" destination="Yfp-8H-gug" id="un7-05-bgG"/>
                                             <outlet property="endLocationLabel" destination="AVR-f5-Yjk" id="nxP-Ym-th3"/>
                                             <outlet property="startLocationLabel" destination="MDx-L2-lNn" id="Age-3q-cr5"/>
-                                            <segue destination="KcC-2h-0wC" kind="show" id="Bkm-T6-Txz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -206,11 +205,11 @@
             <objects>
                 <viewController storyboardIdentifier="DriverDetailRecordViewController" id="KcC-2h-0wC" customClass="DriverDetailRecordViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NRq-Mw-lz1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="506"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ap0-Kk-Y96">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="506"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" textLabel="ho9-f1-77k" rowHeight="60" style="IBUITableViewCellStyleDefault" id="F0h-xT-R78">

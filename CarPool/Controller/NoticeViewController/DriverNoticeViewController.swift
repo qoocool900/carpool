@@ -37,9 +37,11 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
         }
         PassengerNotice.getDriverReceivedNoticeInfo(driverTripId: driverTripId) { (received) in
             self.receivedItem = received
+            self.tableView.reloadData()
         }
         PassengerNotice.getDriverRequestNoticeInfo(driverTripId: driverTripId) { (request) in
             self.requestItem = request
+            self.tableView.reloadData()
         }
     }
     
