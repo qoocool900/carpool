@@ -58,9 +58,12 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
                     })
                 })
             }
-            let msg = response["msg"] as? String
-            print(msg)
-            self.showAlert(message:(msg)!)
+            else {
+                self.showAlert(message: "帳號密碼有誤")
+            }
+//            let msg = response["msg"] as? String
+//            print(msg)
+//            self.showAlert(message:(msg)!)
         }
     }
     
