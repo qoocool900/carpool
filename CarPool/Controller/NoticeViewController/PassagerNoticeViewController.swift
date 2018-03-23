@@ -38,19 +38,18 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
         PassengerNotice.getPassengerSharedInfo(loginMemberNo: loginMemberNo) { (trip) in
             self.startLocationLabel.text = trip.boarding
             self.endLocationLabel.text = trip.destination
-            self.dateLabel.text = trip.date
-            print(trip.people)
+            self.dateLabel.text = (trip.date as NSString).substring(with: NSRange(location:0, length:16))
             self.passengerCountLabel.text = "\(trip.people)"
             self.passengerTripId = trip.tripId
-            print("Notice Passenger People: \(trip.people)")
-        }
-        DriverNotice.getPassengerReceivedNoticeInfo(passengerTripId: passengerTripId) { (received) in
-            self.receivedItem = received
-            self.tableView.reloadData()
-        }
-        DriverNotice.getPassengerRequestNoticeInfo(passengerTripId: passengerTripId) { (request) in
-            self.requestItem = request
-             self.tableView.reloadData()
+            print("乘客TripId: \(trip.tripId)")
+            DriverNotice.getPassengerReceivedNoticeInfo(passengerTripId: self.passengerTripId) { (received) in
+                self.receivedItem = received
+                self.tableView.reloadData()
+            }
+            DriverNotice.getPassengerRequestNoticeInfo(passengerTripId: self.passengerTripId) { (request) in
+                self.requestItem = request
+                self.tableView.reloadData()
+            }
         }
     }
     

@@ -31,17 +31,16 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
         DriverNotice.getDriverSharedInfo(loginMemberNo: loginMemberNo) { (trip) in
             self.startLocationLabel.text = trip.departure
             self.endLocationLabel.text = trip.destination
-            self.dateLabel.text = trip.date
-            self.carCapacityLabel.text = "\(trip.people)"
+            self.dateLabel.text = (trip.date as NSString).substring(with: NSRange(location:0, length:16))
             self.driverTripId = trip.tripId
-        }
-        PassengerNotice.getDriverReceivedNoticeInfo(driverTripId: driverTripId) { (received) in
-            self.receivedItem = received
-            self.tableView.reloadData()
-        }
-        PassengerNotice.getDriverRequestNoticeInfo(driverTripId: driverTripId) { (request) in
-            self.requestItem = request
-            self.tableView.reloadData()
+            PassengerNotice.getDriverReceivedNoticeInfo(driverTripId: self.driverTripId) { (received) in
+                self.receivedItem = received
+                self.tableView.reloadData()
+            }
+            PassengerNotice.getDriverRequestNoticeInfo(driverTripId: self.driverTripId) { (request) in
+                self.requestItem = request
+                self.tableView.reloadData()
+            }
         }
     }
     

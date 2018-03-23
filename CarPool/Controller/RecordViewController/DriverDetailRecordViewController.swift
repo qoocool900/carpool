@@ -17,7 +17,6 @@ class DriverDetailRecordViewController: UIViewController, UITableViewDelegate, U
         //    driverDeatilItem = DriverRecordDetail.allTripPassengerRecord()
         
         //Data base
-        print("driverTripId: \(self.driverTripId)")
         DriverRecordDetail.getAllTripPassengerInfo(driverTripId: self.driverTripId) { (recordings) in
             self.driverDeatilItem = recordings
             self.tableView.reloadData()

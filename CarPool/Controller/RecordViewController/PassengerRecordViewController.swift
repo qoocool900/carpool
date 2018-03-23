@@ -34,7 +34,6 @@ class PassengerRecordViewController: UIViewController, UITableViewDelegate, UITa
         }
         PassengerRecord.getPassengerHistoryInfo(loginMemberNo: loginMemberNo) { (recordings) in
             self.historyItem = recordings
-                    print("driver record: \(recordings.count)")
             self.tableView.reloadData()
         }
         tableView.reloadData()
