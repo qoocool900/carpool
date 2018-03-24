@@ -46,10 +46,10 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
                 self.receivedItem = received
                 self.tableView.reloadData()
             }
-            DriverNotice.getPassengerRequestNoticeInfo(passengerTripId: self.passengerTripId) { (request) in
-                self.requestItem = request
-                self.tableView.reloadData()
-            }
+//            DriverNotice.getPassengerRequestNoticeInfo(passengerTripId: self.passengerTripId) { (request) in
+//                self.requestItem = request
+//                self.tableView.reloadData()
+//            }
         }
     }
     

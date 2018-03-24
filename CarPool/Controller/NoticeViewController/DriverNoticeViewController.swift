@@ -33,14 +33,14 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
             self.endLocationLabel.text = trip.destination
             self.dateLabel.text = (trip.date as NSString).substring(with: NSRange(location:0, length:16))
             self.driverTripId = trip.tripId
-            PassengerNotice.getDriverReceivedNoticeInfo(driverTripId: self.driverTripId) { (received) in
-                self.receivedItem = received
-                self.tableView.reloadData()
-            }
-            PassengerNotice.getDriverRequestNoticeInfo(driverTripId: self.driverTripId) { (request) in
-                self.requestItem = request
-                self.tableView.reloadData()
-            }
+//            PassengerNotice.getDriverReceivedNoticeInfo(driverTripId: self.driverTripId) { (received) in
+//                self.receivedItem = received
+//                self.tableView.reloadData()
+//            }
+//            PassengerNotice.getDriverRequestNoticeInfo(driverTripId: self.driverTripId) { (request) in
+//                self.requestItem = request
+//                self.tableView.reloadData()
+//            }
         }
     }
     

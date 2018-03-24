@@ -120,6 +120,7 @@ class PassengerRecordViewController: UIViewController, UITableViewDelegate, UITa
             vc.driverMemberNo = driverMemberNo
             vc.driverTripId = driverTripId
             print("driverMemberNo: \(driverMemberNo),driverTripId:\(driverTripId)")
+            show(vc, sender: nil)
         }
     }
     

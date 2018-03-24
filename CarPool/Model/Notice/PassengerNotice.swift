@@ -77,7 +77,7 @@ class PassengerNotice{
             if code == 0 {
                 var recording: PassengerNotice
                 for record in content{
-                    let seqNo = record["seqNo"] as! Int
+                    let seqNo = record["reqNo"] as! Int
                     let passengerTripId = record["tripID"] as! String
                     let startLocation = record["boarding"] as! String
                     let endLocation = record["destination"] as! String
@@ -117,7 +117,7 @@ class PassengerNotice{
             if code == 0 {
                 var recording: PassengerNotice
                 for record in content{
-                    let seqNo = record["seqNo"] as! Int
+                    let seqNo = record["reqNo"] as! Int
                     let passengerTripId = record["tripID"] as! String
                     let startLocation = record["boarding"] as! String
                     let endLocation = record["destination"] as! String

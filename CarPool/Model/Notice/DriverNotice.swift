@@ -62,9 +62,8 @@ class DriverNotice{
     typealias CompletionReceived = (_ result: [DriverNotice]) -> Void
     //Get Passenger Received Notice From Database
     static func getPassengerReceivedNoticeInfo(passengerTripId: String, completion: @escaping CompletionReceived) {
-        var recordings = [DriverNotice]()
         Communicator.shared.getMyRequests(tripID: passengerTripId , role: 0, request: 1, status: 0) { (error, result) in
-            
+          var recordings = [DriverNotice]()
             if let error = error {
                 NSLog("伺服器連線錯誤: \(error)")
                 return
@@ -79,7 +78,7 @@ class DriverNotice{
             if code == 0 {
                 var recording: DriverNotice
                 for record in content{
-                    let seqNo = record["seqNo"] as! Int
+                    let seqNo = record["reqNo"] as! Int
                     let driverTripId = record["tripID"] as! String
                     let startLocation = record["boarding"] as! String
                     let endLocation = record["destination"] as! String
@@ -119,7 +118,7 @@ class DriverNotice{
             if code == 0 {
                 var recording: DriverNotice
                 for record in content{
-                    let seqNo = record["seqNo"] as! Int
+                    let seqNo = record["reqNo"] as! Int
                     let driverTripId = record["tripID"] as! String
                     let startLocation = record["boarding"] as! String
                     let endLocation = record["destination"] as! String

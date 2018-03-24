@@ -171,6 +171,7 @@ class Communicator {
     // 取得目前自己有發過或受邀請的請求
     func getMyRequests(tripID:String, role:Int, request:Int, status:Int, doneHandler:@escaping DoneHandler) {
         let parameters: [String : Any] = [ACTION:"getMyRequests", "tripID":tripID, "role":role, "request":request, "status":status]
+        print("tripID:\(tripID), role:\(role), request:\(request), status:\(status)")
         doPost(urlString: CAR_POOL_URL, parameters: parameters, doneHandler: doneHandler)
     }
     // 新增請求

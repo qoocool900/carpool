@@ -189,7 +189,7 @@ class EvaluaionViewController: UIViewController {
     func addEvaluation(loginMemberNo: Int, driverMemberNo: Int){
         print("Evluation Data - tripId: \(driverTripId), memberNo: \(loginMemberNo), driverMemberNo: \(driverMemberNo), scoreDriver: \(scoreDriver), scoreSafe: \(scoreSafty), scoreComfort: \(scoreComfort)")
         
-        Communicator.shared.addEvaluation(tripId: driverTripId, memberNo: loginMemberNo, driverMemberNo: driverMemberNo, scoreDriver: scoreDriver, scoreSafe: scoreSafty, scoreComfort: scoreComfort, doneHandler: { (error, result) in
+        Communicator.shared.addEvaluation(tripId: driverTripId, memberNo: loginMemberNo, driverMemberNo: driverMemberNo, scoreDriver: scoreDriver, scoreSafe: scoreSafty, scoreComfort: scoreComfort) { (error, result) in
             if let error = error {
                 NSLog("伺服器連線錯誤: \(error)")
                 return
@@ -202,6 +202,6 @@ class EvaluaionViewController: UIViewController {
             }
             let msg = response ["msg"] as! String
             print(msg)
-        })
+        }
     }
 }
