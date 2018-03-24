@@ -61,14 +61,16 @@ class Common {
     func getFirstDriverTrip(diverTripsArray:[[String:Any]]) -> DriverTrip {
         var firstTrip:DriverTrip?
         let tripsArray = getMyDriverTrips(diverTripsArray: diverTripsArray)
-        firstTrip = tripsArray.sorted { $0.date < $1.date }.first
+        firstTrip = tripsArray.sorted { $0.tripId > $1.tripId }.first
+        print(firstTrip?.tripId)
         return firstTrip!
     }
     
     func getFirstPassengerTrip(passengerTripsArray:[[String:Any]]) -> Trip {
         var firstTrip:Trip?
         let tripsArray = getMyPassengerTrips(passengerTripsArray: passengerTripsArray)
-        firstTrip = tripsArray.sorted { $0.date < $1.date }.first
+        firstTrip = tripsArray.sorted { $0.tripId > $1.tripId }.first
+        print(firstTrip?.tripId)
         return firstTrip!
     }
     
