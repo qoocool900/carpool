@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		043ED8D2205BC185007D573A /* DRecordingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D1205BC185007D573A /* DRecordingTableViewController.swift */; };
 		043ED8D4205BC1A5007D573A /* PRecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */; };
 		043ED8D6205BC1BE007D573A /* DRecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D5205BC1BE007D573A /* DRecordingTableViewCell.swift */; };
 		043ED8D8205BC271007D573A /* DriverSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D7205BC271007D573A /* DriverSetupViewController.swift */; };
 		04C64263205BBB7300984682 /* PassengerSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C64259205BBB7200984682 /* PassengerSetupViewController.swift */; };
 		04C64267205BBB7300984682 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C6425D205BBB7300984682 /* ShareViewController.swift */; };
+		04FE45B9206627EE004450C3 /* PRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE45B8206627EE004450C3 /* PRecordingViewController.swift */; };
+		04FE45BB20663014004450C3 /* DRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE45BA20663014004450C3 /* DRecordingViewController.swift */; };
 		3E0918D5205134CA008688D0 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0918D0205134CA008688D0 /* Car.swift */; };
 		3E0918D6205134CA008688D0 /* DriverTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0918D1205134CA008688D0 /* DriverTrip.swift */; };
 		3E0918D7205134CA008688D0 /* Communicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0918D2205134CA008688D0 /* Communicator.swift */; };
@@ -73,12 +74,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		043ED8D1205BC185007D573A /* DRecordingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRecordingTableViewController.swift; sourceTree = "<group>"; };
 		043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRecordingTableViewCell.swift; sourceTree = "<group>"; };
 		043ED8D5205BC1BE007D573A /* DRecordingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRecordingTableViewCell.swift; sourceTree = "<group>"; };
 		043ED8D7205BC271007D573A /* DriverSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverSetupViewController.swift; sourceTree = "<group>"; };
 		04C64259205BBB7200984682 /* PassengerSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassengerSetupViewController.swift; sourceTree = "<group>"; };
 		04C6425D205BBB7300984682 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		04FE45B8206627EE004450C3 /* PRecordingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRecordingViewController.swift; sourceTree = "<group>"; };
+		04FE45BA20663014004450C3 /* DRecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRecordingViewController.swift; sourceTree = "<group>"; };
 		3E0918D0205134CA008688D0 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		3E0918D1205134CA008688D0 /* DriverTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverTrip.swift; sourceTree = "<group>"; };
 		3E0918D2205134CA008688D0 /* Communicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communicator.swift; sourceTree = "<group>"; };
@@ -170,9 +172,10 @@
 			isa = PBXGroup;
 			children = (
 				043ED8D7205BC271007D573A /* DriverSetupViewController.swift */,
+				04FE45BA20663014004450C3 /* DRecordingViewController.swift */,
 				043ED8D5205BC1BE007D573A /* DRecordingTableViewCell.swift */,
-				043ED8D1205BC185007D573A /* DRecordingTableViewController.swift */,
 				04C6425D205BBB7300984682 /* ShareViewController.swift */,
+				04FE45B8206627EE004450C3 /* PRecordingViewController.swift */,
 				04C64259205BBB7200984682 /* PassengerSetupViewController.swift */,
 				043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */,
 			);
@@ -537,9 +540,11 @@
 				3E0918D8205134CA008688D0 /* Member.swift in Sources */,
 				04C64263205BBB7300984682 /* PassengerSetupViewController.swift in Sources */,
 				3E7ACA2220550296003EB8E2 /* CustomMKPinAnnotationView.swift in Sources */,
+				04FE45B9206627EE004450C3 /* PRecordingViewController.swift in Sources */,
 				C8888AEE205B9F0E00E49B27 /* DriverRecordDetailTableViewCell.swift in Sources */,
 				C8888AE2205B9EED00E49B27 /* BasicViewController.swift in Sources */,
 				3E7ACA3920576511003EB8E2 /* DriverNotice.swift in Sources */,
+				04FE45BB20663014004450C3 /* DRecordingViewController.swift in Sources */,
 				043ED8D6205BC1BE007D573A /* DRecordingTableViewCell.swift in Sources */,
 				043ED8D4205BC1A5007D573A /* PRecordingTableViewCell.swift in Sources */,
 				C8E41F9A204FE1DC00F3C77D /* PassengerRecord.swift in Sources */,
@@ -558,7 +563,6 @@
 				C8888AFC205B9F2E00E49B27 /* PassengerNoticeRequestTableViewCell.swift in Sources */,
 				C8888AEF205B9F0E00E49B27 /* PassengerRecordViewController.swift in Sources */,
 				3E8AC8F82049948A00DDD5AE /* MapViewController.swift in Sources */,
-				043ED8D2205BC185007D573A /* DRecordingTableViewController.swift in Sources */,
 				C8888AF3205B9F0E00E49B27 /* DriverRecordViewController.swift in Sources */,
 				C8888B0B205BA08300E49B27 /* ShowAlert.swift in Sources */,
 				C8888AFF205B9F2E00E49B27 /* NoticeViewController.swift in Sources */,
