@@ -189,7 +189,7 @@ class Communicator {
         
         // Perform Post!
         Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
-            print(response)
+//            print(response)
             self.handleResponse(response, doneHandler: doneHandler)
             
         }
@@ -203,7 +203,7 @@ class Communicator {
             NSLog("doPost success with result: \(json)")
             // 因為這邊 Alamofire 都處理過 不太可能為 nil 所以幾乎用!
             let resultJSON = json as! [String:Any]
-            print(resultJSON)
+//            print(resultJSON)
             doneHandler(nil, resultJSON)
 //            let response = resultJSON["response"] as! [String:Any]
 //            let code = response["code"] as! Int
