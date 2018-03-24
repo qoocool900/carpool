@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class SettingViewController: UIViewController, UITextFieldDelegate{
 
@@ -26,12 +27,15 @@ class SettingViewController: UIViewController, UITextFieldDelegate{
 //        defaults.set(0, forKey: "memberNo")
         defaults.synchronize()
         print(defaults.integer(forKey: "memberNo"))
+        FBSDKLoginManager().logOut()
         print("Logout")
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateInitialViewController()
         self.view.window?.rootViewController = controller
     }
+    
+    
     
     
     @IBAction func roleChanged(_ sender: UISegmentedControl) {
