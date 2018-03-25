@@ -180,8 +180,8 @@ class Communicator {
         doPost(urlString: CAR_POOL_URL, parameters: parameters, doneHandler: doneHandler)
     }
     // 更新狀態
-    func updateStatus(seqNo:Int, tripId:String, status:Int, doneHandler:@escaping DoneHandler) {
-        let parameters: [String : Any] = [ACTION:"updateStatus", "seqNo":seqNo, "tripID":tripId, "status":status]
+    func updateStatus(reqNo:Int, tripId:String, status:Int, doneHandler:@escaping DoneHandler) {
+        let parameters: [String : Any] = [ACTION:"updateStatus", "reqNo":reqNo, "tripID":tripId, "status":status]
         doPost(urlString: CAR_POOL_URL, parameters: parameters, doneHandler: doneHandler)
     }
     

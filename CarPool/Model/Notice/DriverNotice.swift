@@ -139,8 +139,8 @@ class DriverNotice{
     }
     
     //    Update Status to Database
-    static func updateStatus(seqNo: Int, status: Int, tripId: String) {
-        Communicator.shared.updateStatus(seqNo: seqNo, tripId: tripId, status: status) { (error, result) in
+    static func updateStatus(reqNo: Int, status: Int, tripId: String) {
+        Communicator.shared.updateStatus(reqNo: reqNo, tripId: tripId, status: status) { (error, result) in
             if let error = error {
                 NSLog("伺服器連線錯誤: \(error)")
                 return
