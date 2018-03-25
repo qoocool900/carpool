@@ -10,8 +10,6 @@ import UIKit
 class DRecordingTableViewCell: UITableViewCell {
     
    
-    
-    @IBOutlet weak var CellView: UIView!
     @IBOutlet weak var driverBoarding: UILabel!
     @IBOutlet weak var driverDestination: UILabel!
     @IBOutlet weak var driverCapacity: UILabel!
