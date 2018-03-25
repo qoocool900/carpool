@@ -10,7 +10,9 @@ import UIKit
 
 
 class PRecordingViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
+    
     var SetRecord = [Trip]()
+    
 //    var passengerSetRecord = DriverTrip(tripId: "", memberNo: 0, departure: "", destination: "", carNo: "", people: 0, fee: 0, status: "", date: "", departureLat: 0.0, departureLon: 0.0, destinationLat: 0.0, destinationLon: 0.0)
     
     //    let boarding = ["Hsichu", "Taipei"]

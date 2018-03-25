@@ -9,6 +9,8 @@ import UIKit
 
 class DRecordingTableViewCell: UITableViewCell {
     
+   
+    
     @IBOutlet weak var CellView: UIView!
     @IBOutlet weak var driverBoarding: UILabel!
     @IBOutlet weak var driverDestination: UILabel!
@@ -20,6 +22,17 @@ class DRecordingTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    var setRecord: DriverTrip? {
+        didSet {
+            driverBoarding.text = setRecord?.departure
+            driverDestination.text = setRecord?.destination
+            driverSetdate.text = setRecord?.date
+            driverCapacity.text = String(describing: setRecord?.people)
+            driverFee.text = String(describing: setRecord?.fee)
+        }
+    }
+    
     
     
     

@@ -259,6 +259,9 @@
                                                     <rect key="frame" x="319" y="2" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="save"/>
+                                                    <connections>
+                                                        <segue destination="Eig-Ov-ASE" kind="show" id="Y3b-Yx-tl8"/>
+                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                             <barButtonItem image="save_button" style="plain" id="avs-20-zv9">
@@ -292,19 +295,19 @@
             </objects>
             <point key="canvasLocation" x="-786.39999999999998" y="384.10794602698655"/>
         </scene>
-        <!--Recording View Controller-->
+        <!--Recordging View Controller-->
         <scene sceneID="2Go-QB-pr5">
             <objects>
-                <viewController id="Eig-Ov-ASE" customClass="DRecordingViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Eig-Ov-ASE" customClass="DRecordgingViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PN8-Gk-i6l">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="510"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PPH-8O-wTw">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="490"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="driverSetCell" rowHeight="159" id="6dG-OT-2HX">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="driverSetCell" rowHeight="159" id="6dG-OT-2HX" customClass="DRecordingTableViewCell" customModule="CarPool" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="159"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6dG-OT-2HX" id="LID-bD-O5o">
@@ -382,6 +385,13 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="driverBoarding" destination="4p9-6z-MLd" id="5Ra-4n-4D3"/>
+                                            <outlet property="driverCapacity" destination="f9a-DS-xBh" id="xqo-6T-obw"/>
+                                            <outlet property="driverDestination" destination="fWt-pJ-g5P" id="Bbj-mF-gyQ"/>
+                                            <outlet property="driverFee" destination="iLQ-Q4-1nX" id="I5a-Yj-5sF"/>
+                                            <outlet property="driverSetdate" destination="rMK-GZ-QqJ" id="5sF-x2-ma9"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -402,113 +412,12 @@
                         <viewLayoutGuide key="safeArea" id="4Df-BT-ILh"/>
                     </view>
                     <connections>
-                        <outlet property="DrTableView" destination="PPH-8O-wTw" id="2mO-Vk-bvV"/>
+                        <outlet property="DRecordingTableView" destination="PPH-8O-wTw" id="0Dw-AD-xHa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EhQ-3I-1Ky" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="72.799999999999997" y="454.72263868065971"/>
-        </scene>
-        <!--Recording Table View Controller-->
-        <scene sceneID="Eoe-c6-zC6">
-            <objects>
-                <tableViewController id="dL9-DN-97p" customClass="DRecordingTableViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hM3-q2-Q4X">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" barStyle="blackTranslucent" id="hZI-Aa-R1L">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="barTintColor" red="0.75527045329999998" green="0.7130174038" blue="0.37374503380000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <items>
-                                <navigationItem title="司機發起紀錄" id="vyI-4B-ijS"/>
-                            </items>
-                        </navigationBar>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="driverRecordCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="driverSetUpCell" rowHeight="150" id="M9i-XI-8Ps" customClass="DRecordingTableViewCell" customModule="CarPool">
-                                <rect key="frame" x="0.0" y="72" width="375" height="150"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M9i-XI-8Ps" id="vjx-kG-jiY">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4rE-qe-lQ6">
-                                            <rect key="frame" x="10" y="5" width="355" height="139.5"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2018/06/30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="G7B-ja-dtF">
-                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="28"/>
-                                                    <color key="backgroundColor" red="0.75527045329999998" green="0.7130174038" blue="0.37374503380000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="184" id="IYf-du-Wbd"/>
-                                                        <constraint firstAttribute="height" constant="28" id="wbd-WP-PDB"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="新竹" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyQ-9S-yhv">
-                                                    <rect key="frame" x="60" y="53" width="64" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yl4-a7-bCH">
-                                                    <rect key="frame" x="60" y="96" width="64" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="費用" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pF-lY-7NV">
-                                                    <rect key="frame" x="265" y="95" width="64" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="台北" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMw-bn-D7a">
-                                                    <rect key="frame" x="265" y="52" width="64" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow1" translatesAutoresizingMaskIntoConstraints="NO" id="2dm-YV-BgX">
-                                                    <rect key="frame" x="112" y="60" width="131" height="19"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </view>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="4rE-qe-lQ6" secondAttribute="trailing" constant="10" id="60t-i7-e7k"/>
-                                        <constraint firstAttribute="bottom" secondItem="4rE-qe-lQ6" secondAttribute="bottom" constant="5" id="672-a6-aoX"/>
-                                        <constraint firstItem="4rE-qe-lQ6" firstAttribute="top" secondItem="vjx-kG-jiY" secondAttribute="top" constant="5" id="I6l-eu-qTz"/>
-                                        <constraint firstItem="4rE-qe-lQ6" firstAttribute="leading" secondItem="vjx-kG-jiY" secondAttribute="leading" constant="10" id="Xhv-RC-kOY"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="CellView" destination="4rE-qe-lQ6" id="85H-lh-GIX"/>
-                                    <outlet property="driverBoarding" destination="uyQ-9S-yhv" id="SnU-F0-MwV"/>
-                                    <outlet property="driverCapacity" destination="yl4-a7-bCH" id="FEv-El-rAy"/>
-                                    <outlet property="driverDestination" destination="KMw-bn-D7a" id="3iY-gJ-SKc"/>
-                                    <outlet property="driverFee" destination="9pF-lY-7NV" id="4kQ-wD-oTP"/>
-                                    <outlet property="driverSetdate" destination="G7B-ja-dtF" id="nXe-k8-v5L"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="dL9-DN-97p" id="B1g-o5-Ikh"/>
-                            <outlet property="delegate" destination="dL9-DN-97p" id="23g-Tm-9fK"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bTq-pj-Pmg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1130" y="426"/>
+            <point key="canvasLocation" x="66" y="384"/>
         </scene>
         <!--Passenger Setup View Controller-->
         <scene sceneID="I5E-dO-nQb">
