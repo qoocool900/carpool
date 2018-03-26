@@ -1128,7 +1128,7 @@
                                                                                                 <color key="titleColor" red="0.1960784314" green="0.65490196079999996" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                             </state>
                                                                                             <connections>
-                                                                                                <action selector="acceptBtnPressed:" destination="mrD-fO-X3M" eventType="touchUpInside" id="szv-dK-4X8"/>
+                                                                                                <action selector="acceptBtnPressedWithSender:" destination="mrD-fO-X3M" eventType="touchUpInside" id="DdC-1J-vAG"/>
                                                                                             </connections>
                                                                                         </button>
                                                                                     </subviews>
@@ -1157,9 +1157,9 @@
                                             <outlet property="passengerNameLabel" destination="eOT-AZ-nqH" id="NrU-ww-vLb"/>
                                             <outlet property="phoneBtn" destination="FBC-LG-c3m" id="Bgr-L4-WpM"/>
                                             <outlet property="refuseBtn" destination="ZEy-SS-5gL" id="PYv-Q8-amg"/>
-                                            <outlet property="requestStatusAccept" destination="QNL-gd-VqN" id="NK6-1Z-cYG"/>
-                                            <outlet property="requestStatusRefuse" destination="Ucy-yl-eDE" id="04X-eA-1mD"/>
-                                            <outlet property="requestStatusWait" destination="hOI-qU-PVm" id="lfs-zp-wFQ"/>
+                                            <outlet property="requestStatusCancel" destination="Ucy-yl-eDE" id="Dry-nc-XNH"/>
+                                            <outlet property="requestStatusIng" destination="hOI-qU-PVm" id="32p-sj-01S"/>
+                                            <outlet property="requestStatusMatch" destination="QNL-gd-VqN" id="Vde-a1-DVF"/>
                                             <outlet property="startLocationLabel" destination="B0w-ba-8Dt" id="oLM-Ye-ul2"/>
                                         </connections>
                                     </tableViewCell>

@@ -137,26 +137,6 @@ class PassengerNotice{
         }
     }
     
-    //    Update Status to Database
-    static func updateStatus(reqNo: Int, status: Int, tripId: String) {
-        Communicator.shared.updateStatus(reqNo: reqNo, tripId: tripId, status: status) { (error, result) in
-            if let error = error {
-                NSLog("伺服器連線錯誤: \(error)")
-                return
-            }
-            // success
-            guard result?.isEmpty == false else {
-                return
-            }
-            let response = result!["response"] as! [String:Any]
-            let code = response["code"] as! Int
-            if code == 0 {
-                
-            }
-            let msg = response ["msg"] as! String
-            print(msg)
-        }
-    }
     
     
     //    static func passengerShared() -> PassengerNotice {

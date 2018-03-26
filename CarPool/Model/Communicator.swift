@@ -182,6 +182,7 @@ class Communicator {
     // 更新狀態
     func updateStatus(reqNo:Int, tripId:String, status:Int, doneHandler:@escaping DoneHandler) {
         let parameters: [String : Any] = [ACTION:"updateStatus", "reqNo":reqNo, "tripID":tripId, "status":status]
+        print("updateStatus: reqNo\(reqNo), tripID:\(tripId), status:\(status)")
         doPost(urlString: CAR_POOL_URL, parameters: parameters, doneHandler: doneHandler)
     }
     
