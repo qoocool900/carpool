@@ -32,7 +32,7 @@
                                     <navigationItem id="RnY-DK-csd">
                                         <nil key="title"/>
                                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" restorationIdentifier="SetUpSegment" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="baN-lN-uL9">
-                                            <rect key="frame" x="21" y="7.5" width="333" height="29"/>
+                                            <rect key="frame" x="35.5" y="7.5" width="304" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="乘客"/>
@@ -310,13 +310,12 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="driverSetCell" rowHeight="159" id="6dG-OT-2HX" customClass="DRecordingTableViewCell" customModule="CarPool" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="159"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6dG-OT-2HX" id="LID-bD-O5o">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6dG-OT-2HX" id="LID-bD-O5o">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="158.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UrH-yK-Joo">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="148"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UrH-yK-Joo">
+                                                    <rect key="frame" x="10" y="0.0" width="345" height="148"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="司機發起紀錄" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AH6-Oa-az6">
                                                             <rect key="frame" x="0.0" y="8" width="345" height="21"/>
@@ -369,7 +368,7 @@
                                                             <rect key="frame" x="243" y="112" width="52" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" red="0.47450980390000003" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLQ-Q4-1nX">
@@ -379,15 +378,33 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="車號" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Hp2-He-Qrf">
+                                                            <rect key="frame" x="253" y="47" width="60" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.20830020730000001" green="0.33333334329999997" blue="0.2262739131" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="345" id="Mit-Pb-fJl"/>
+                                                        <constraint firstAttribute="height" constant="148" id="X4G-xe-JDA"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="UrH-yK-Joo" secondAttribute="bottom" constant="15" id="1su-Wq-qQf"/>
+                                                <constraint firstItem="UrH-yK-Joo" firstAttribute="leading" secondItem="LID-bD-O5o" secondAttribute="leading" constant="10" id="PRa-Cv-WmQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="UrH-yK-Joo" secondAttribute="trailing" constant="10" id="cZe-tD-ZMk"/>
+                                                <constraint firstItem="UrH-yK-Joo" firstAttribute="top" secondItem="LID-bD-O5o" secondAttribute="top" constant="5" id="eh7-rp-YnJ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                         <connections>
                                             <outlet property="driverBoarding" destination="4p9-6z-MLd" id="5Ra-4n-4D3"/>
                                             <outlet property="driverCapacity" destination="f9a-DS-xBh" id="xqo-6T-obw"/>
+                                            <outlet property="driverCarNo" destination="Hp2-He-Qrf" id="q4g-DM-Wjy"/>
                                             <outlet property="driverDestination" destination="fWt-pJ-g5P" id="Bbj-mF-gyQ"/>
                                             <outlet property="driverFee" destination="iLQ-Q4-1nX" id="I5a-Yj-5sF"/>
                                             <outlet property="driverSetdate" destination="rMK-GZ-QqJ" id="5sF-x2-ma9"/>
@@ -417,7 +434,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EhQ-3I-1Ky" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="66" y="384"/>
+            <point key="canvasLocation" x="64.799999999999997" y="383.20839580209901"/>
         </scene>
         <!--Passenger Setup View Controller-->
         <scene sceneID="I5E-dO-nQb">
