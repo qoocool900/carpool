@@ -738,6 +738,7 @@
                     <connections>
                         <outlet property="guareNameLabel" destination="bjm-O9-Qwh" id="mIF-J2-flX"/>
                         <outlet property="guarePhoneLabel" destination="y9P-p2-RAQ" id="xQE-xN-IQe"/>
+                        <outlet property="scanBtn" destination="929-zW-jiQ" id="hx0-FQ-d8A"/>
                         <segue destination="PGy-19-9p8" kind="presentation" identifier="goScanning" animates="NO" id="njF-g6-4A6"/>
                     </connections>
                 </viewController>

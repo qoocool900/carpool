@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol PassengerReceivedCellDelegate {
+    func updateReceivedAcceptStatus(reqNo: Int, status: Int, tripId: String)
+    func updateReceivedRefuseStatus(reqNo: Int, status: Int, tripId: String)
+}
+
 class PassengerNoticeReceivedTableViewCell: UITableViewCell {
+    var delegate: PassengerReceivedCellDelegate?
     @IBOutlet weak var startLocationLabel: UILabel!
     @IBOutlet weak var endLocationLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -24,6 +30,7 @@ class PassengerNoticeReceivedTableViewCell: UITableViewCell {
     let accept = 1
     let refuse = 2
     var seqNo = 0
+    var tripId = ""
     var driverPhone = ""
     
     override func awakeFromNib() {
@@ -48,7 +55,7 @@ class PassengerNoticeReceivedTableViewCell: UITableViewCell {
             driverNameLabel.text = driverLastName + " " + driverFirstName
             carNumberLabel.text = noticeData?.carNumber
             driverPhone = (noticeData?.driverPhone)!
-            checkSatusImage(requestStatus: wait)
+            tripId = (noticeData?.tripId)!
         }
     }
     
@@ -57,12 +64,12 @@ class PassengerNoticeReceivedTableViewCell: UITableViewCell {
     }
     
     @IBAction func acceptBtnPressed(sender: Any) {
-//        DriverNotice.updateStatus(seqNo: seqNo, status: accept)
+        delegate?.updateReceivedAcceptStatus(reqNo: seqNo, status: accept, tripId: tripId)
         checkSatusImage(requestStatus: accept)
     }
     
     @IBAction func refuseBtnPressed(_ sender: Any) {
-//        DriverNotice.updateStatus(seqNo: seqNo, status: refuse)
+        delegate?.updateReceivedRefuseStatus(reqNo: seqNo, status: refuse, tripId: tripId)
         checkSatusImage(requestStatus: refuse)
     }
     

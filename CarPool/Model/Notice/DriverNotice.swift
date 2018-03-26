@@ -138,27 +138,6 @@ class DriverNotice{
         }
     }
     
-    //    Update Status to Database
-    static func updateStatus(reqNo: Int, status: Int, tripId: String) {
-        Communicator.shared.updateStatus(reqNo: reqNo, tripId: tripId, status: status) { (error, result) in
-            if let error = error {
-                NSLog("伺服器連線錯誤: \(error)")
-                return
-            }
-            // success
-            guard result?.isEmpty == false else {
-                return
-            }
-            let response = result!["response"] as! [String:Any]
-            let code = response["code"] as! Int
-            if code == 0 {
-                
-            }
-            let msg = response ["msg"] as! String
-            print(msg)
-        }
-        
-    }
     
     //    static func driverShared() -> DriverNotice {
     //        let record1 = DriverNotice(seqNo: 0, tripId: "D1803001",startLocation: "板橋火車站",endLocation: "世貿三館", date: "2018/01/11 12:01",driverFirstName: "Patric", driverLastName: "Lo",driverPhone: "0911131111",carNumber: "ABC-5699",carCapacity: 4)

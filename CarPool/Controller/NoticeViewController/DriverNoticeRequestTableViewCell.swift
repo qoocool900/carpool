@@ -22,7 +22,6 @@ class DriverNoticeRequestTableViewCell: UITableViewCell {
     let accept = 1
     let refuse = 2
     var tripId = ""
-    var requestStatus = 0
     var passengerPhone = ""
     
     override func awakeFromNib() {
@@ -32,7 +31,6 @@ class DriverNoticeRequestTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        checkSatus(requestStatus)
         // Configure the view for the selected state
     }
     
@@ -46,7 +44,6 @@ class DriverNoticeRequestTableViewCell: UITableViewCell {
             passengerCountLabel.text = "\((noticeData?.passengerCount)!)"
             passengerNameLabel.text = passengerLastName + " " + passengerFirstName
             passengerPhone = (noticeData?.passengerPhone)!
-            checkSatus(requestStatus)
         }
     }
     

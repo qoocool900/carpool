@@ -16,12 +16,15 @@ class PassengerSetupViewController: UIViewController {
     @IBAction func SavePassengerBtn(_ sender: Any) {
         
         guard DestinationPassenger.text != "" else{
+            showAlert(message: "沒有目的地")
             return
         }
         guard BoardingPoint.text != "" else{
+            showAlert(message: "沒有出發地")
             return
         }
         guard PeopleNumber.text != "" else{
+            showAlert(message: "沒有輸入人")
             return
         }
         
@@ -113,7 +116,7 @@ class PassengerSetupViewController: UIViewController {
         BoardingPoint.placeholder = "請輸入您的上車地點"
         
         PeopleNumber.font = UIFont(name: "System", size: 25)
-        PeopleNumber.placeholder = "數字"
+        PeopleNumber.placeholder = "請輸入數字"
         
         
         

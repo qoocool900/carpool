@@ -7,7 +7,8 @@
 
 import UIKit
 
-class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,PassengerReceivedCellDelegate{
+
     @IBOutlet weak var startLocationLabel: UILabel!
     @IBOutlet weak var endLocationLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -42,16 +43,21 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
             self.passengerCountLabel.text = "\(trip.people)"
             self.passengerTripId = trip.tripId
             print("乘客TripId: \(trip.tripId)")
-            DriverNotice.getPassengerReceivedNoticeInfo(passengerTripId: self.passengerTripId) { (received) in
-                self.receivedItem = received
-                self.tableView.reloadData()
-            }
-            DriverNotice.getPassengerRequestNoticeInfo(passengerTripId: self.passengerTripId) { (request) in
-                self.requestItem = request
-                self.tableView.reloadData()
-            }
+            self.dataFromDataBase()
         }
     }
+    
+    func dataFromDataBase(){
+        DriverNotice.getPassengerReceivedNoticeInfo(passengerTripId: self.passengerTripId) { (received) in
+            self.receivedItem = received
+            self.tableView.reloadData()
+        }
+        DriverNotice.getPassengerRequestNoticeInfo(passengerTripId: self.passengerTripId) { (request) in
+            self.requestItem = request
+            self.tableView.reloadData()
+        }
+    }
+    
     
     // MARK: - TableView Setting
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -62,10 +68,8 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
         switch section {
         case 0:
             return sectionArray[0]
-        case 1:
-            return sectionArray[1]
         default:
-            return nil
+            return sectionArray[1]
         }
     }
     
@@ -74,10 +78,8 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
         switch section {
         case 0:
             cell?.textLabel?.text = sectionArray[0]
-        case 1:
-            cell?.textLabel?.text = sectionArray[1]
         default:
-            break
+            cell?.textLabel?.text = sectionArray[1]
         }
         return cell
     }
@@ -86,10 +88,8 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
         switch section {
         case 0:
             return receivedItem.count
-        case 1:
-            return requestItem.count
         default:
-            return 0
+            return requestItem.count
         }
     }
     
@@ -100,17 +100,58 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
             let cell = tableView.dequeueReusableCell(withIdentifier: "ReceivedCell", for: indexPath) as! PassengerNoticeReceivedTableViewCell
             let receivedNotice = receivedItem[indexPath.row]
             cell.noticeData = receivedNotice
+            cell.delegate = self
             return cell
-        case 1:
+        default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "RequestCell", for: indexPath) as! PassengerNoticeRequestTableViewCell
             let requestNotice = requestItem[indexPath.row]
             cell.noticeData = requestNotice
             return cell
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ReceivedCell", for: indexPath) as! PassengerNoticeReceivedTableViewCell
-            let receivedNotice = receivedItem[indexPath.row]
-            cell.noticeData = receivedNotice
-            return cell
+        }
+    }
+    
+    // MARK: - PassengerReceivedCellDelegate
+    func updateReceivedAcceptStatus(reqNo: Int, status: Int, tripId: String) {
+        Communicator.shared.updateStatus(reqNo: reqNo, tripId: tripId, status: status) { (error, result) in
+            if let error = error {
+                NSLog("伺服器連線錯誤: \(error)")
+                return
+            }
+            // success
+            guard result?.isEmpty == false else {
+                return
+            }
+            let response = result!["response"] as! [String:Any]
+            let code = response["code"] as! Int
+            if code == 0 {
+                self.showAlert(message: "配對成功!\n請至「乘車紀錄」查詢")
+                self.dataFromDataBase()
+            }
+            let msg = response ["msg"] as! String
+            print(msg)
+        }
+    }
+    
+    func updateReceivedRefuseStatus(reqNo: Int, status: Int, tripId: String) {
+        Communicator.shared.updateStatus(reqNo: reqNo, tripId: tripId, status: status) { (error, result) in
+            if let error = error {
+                NSLog("伺服器連線錯誤: \(error)")
+                return
+            }
+            // success
+            guard result?.isEmpty == false else {
+                return
+            }
+            let response = result!["response"] as! [String:Any]
+            let code = response["code"] as! Int
+            if code == 0 {
+                DispatchQueue.main.async {
+                    self.showAlert(message: "已拒絕邀請/請求")
+                    self.dataFromDataBase()
+                }
+            }
+            let msg = response ["msg"] as! String
+            print(msg)
         }
     }
 }

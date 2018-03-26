@@ -18,16 +18,20 @@ class DriverSetupViewController: UIViewController {
     @IBOutlet weak var FeeField: UITextField!
     @IBAction func SaveButton(_ sender: Any) {
         guard Destination.text != "" else{
+            showAlert(message: "沒有目的地")
             return
         }
         guard DepartureText.text != ""
             else{
+                showAlert(message: "沒有出發地")
                 return
         }
         guard CarNumber.text != "" else{
+             showAlert(message: "沒有車牌號碼")
             return
         }
         guard PeopleNumber.text != "" else{
+             showAlert(message: "沒有輸入人數")
             return
         }
         

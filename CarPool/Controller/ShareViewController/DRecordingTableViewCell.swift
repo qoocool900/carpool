@@ -9,7 +9,8 @@ import UIKit
 
 class DRecordingTableViewCell: UITableViewCell {
     
-   
+    
+    @IBOutlet weak var driverCarNo: UILabel!
     @IBOutlet weak var driverBoarding: UILabel!
     @IBOutlet weak var driverDestination: UILabel!
     @IBOutlet weak var driverCapacity: UILabel!
@@ -28,6 +29,8 @@ class DRecordingTableViewCell: UITableViewCell {
             driverSetdate.text = setRecord?.date
             driverCapacity.text = String(describing: setRecord?.people)
             driverFee.text = String(describing: setRecord?.fee)
+            driverCarNo.text = setRecord?.carNo
+            
         }
     }
     
@@ -40,17 +43,17 @@ class DRecordingTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-//    var recordData: DriverSetRecord? {
-//        didSet {
-//            
-//            driverBoarding.text = recordData?.driverDeparture
-//            driverDestination.text = recordData?.driverDestination
-//            driverCapacity.text = String(describing: recordData?.driverSetPeople)
-//            driverFee.text = String(describing:recordData?.driverSetFee)
-//            driverSetdate.text = recordData?.driverSetDate
-//            
-//        }
-//    }
+    //    var recordData: DriverSetRecord? {
+    //        didSet {
+    //
+    //            driverBoarding.text = recordData?.driverDeparture
+    //            driverDestination.text = recordData?.driverDestination
+    //            driverCapacity.text = String(describing: recordData?.driverSetPeople)
+    //            driverFee.text = String(describing:recordData?.driverSetFee)
+    //            driverSetdate.text = recordData?.driverSetDate
+    //
+    //        }
+    //    }
     
 }
 

@@ -19,11 +19,12 @@ class PassengerNoticeRequestTableViewCell: UITableViewCell {
     @IBOutlet weak var requestStatusMatch: UIImageView!
     @IBOutlet weak var requestStatusCancel: UIImageView!
     @IBOutlet weak var phoneBtn: UIButton!
+    
     let wait = 0
     let accept = 1
     let refuse = 2
+    var seqNo = 0
     var tripId = ""
-    var requestStatus = 0
     var driverPhone = ""
     
     override func awakeFromNib() {
@@ -33,12 +34,12 @@ class PassengerNoticeRequestTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        checkSatus(requestStatus)
         // Configure the view for the selected state
     }
     
     var noticeData: DriverNotice? {
         didSet {
+            seqNo = (noticeData?.seqNo)!
             tripId = (noticeData?.tripId)!
             startLocationLabel.text = noticeData?.startLocation
             endLocationLabel.text = noticeData?.endLocation
@@ -48,9 +49,7 @@ class PassengerNoticeRequestTableViewCell: UITableViewCell {
             let driverLastName = (noticeData?.driverLastName)!
             driverNameLabel.text = driverLastName + " " + driverFirstName
             carNumberLabel.text = noticeData?.carNumber
-//            requestStatus = "\((noticeData?.requestStatus)!)"
             driverPhone = (noticeData?.driverPhone)!
-            checkSatus(requestStatus)
         }
     }
     
@@ -58,17 +57,7 @@ class PassengerNoticeRequestTableViewCell: UITableViewCell {
         callPhone(phoneNo: driverPhone)
     }
     
-    @IBAction func acceptBtnPressed(_ sender: Any) {
-        requestStatus = accept
-        checkSatus(requestStatus)
-    }
-    
-    @IBAction func refuseBtnPressed(_ sender: Any) {
-        requestStatus = refuse
-        checkSatus(requestStatus)
-    }
-    
-    func checkSatus(_ requestStatus: Int) {
+    func checkSatusImage(requestStatus: Int) {
         switch requestStatus {
         case wait:
             requestStatusIng.image = UIImage(named: "radio_click")
@@ -87,25 +76,6 @@ class PassengerNoticeRequestTableViewCell: UITableViewCell {
         default:
             break
         }
-    }
-    
-    //    Update Status to Database
-    func updateStatus(reqNo: Int, status: Int) {
-        Communicator.shared.updateStatus(reqNo: reqNo, tripId: tripId, status: status) { (error, result) in
-            if let error = error {
-                NSLog("伺服器連線錯誤: \(error)")
-                return
-            }
-            // success
-            let response = result!["response"] as! [String:Any]
-            let code = response["code"] as! Int
-            if code == 0 {
-               
-            }
-            let msg = response ["msg"] as! String
-            print(msg)
-        }
-        
     }
 }
 
