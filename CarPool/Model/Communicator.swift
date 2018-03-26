@@ -101,8 +101,8 @@ class Communicator {
     }
     
     // 上傳上車後路線
-    func addRoutes(tripId:String, memberNo:Int, doneHandler:@escaping DoneHandler) {
-        let parameters: [String : Any] = [ACTION:"addRoutes", "tripID":tripId, "memberNo":memberNo]
+    func addRoutes(tripId:String, memberNo:Int, geoPosition:[[Double]], doneHandler:@escaping DoneHandler) {
+        let parameters: [String : Any] = [ACTION:"addRoutes", "tripID":tripId, "memberNo":memberNo, "geoPosition":geoPosition]
         doPost(urlString: LOCATION_URL, parameters: parameters, doneHandler: doneHandler)
     }
     // 上傳user位置
