@@ -43,16 +43,21 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
             self.passengerCountLabel.text = "\(trip.people)"
             self.passengerTripId = trip.tripId
             print("乘客TripId: \(trip.tripId)")
-            DriverNotice.getPassengerReceivedNoticeInfo(passengerTripId: self.passengerTripId) { (received) in
-                self.receivedItem = received
-                self.tableView.reloadData()
-            }
-            DriverNotice.getPassengerRequestNoticeInfo(passengerTripId: self.passengerTripId) { (request) in
-                self.requestItem = request
-                self.tableView.reloadData()
-            }
+            self.dataFromDataBase()
         }
     }
+    
+    func dataFromDataBase(){
+        DriverNotice.getPassengerReceivedNoticeInfo(passengerTripId: self.passengerTripId) { (received) in
+            self.receivedItem = received
+            self.tableView.reloadData()
+        }
+        DriverNotice.getPassengerRequestNoticeInfo(passengerTripId: self.passengerTripId) { (request) in
+            self.requestItem = request
+            self.tableView.reloadData()
+        }
+    }
+    
     
     // MARK: - TableView Setting
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -120,7 +125,7 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
             let code = response["code"] as! Int
             if code == 0 {
                 self.showAlert(message: "配對成功!\n請至「乘車紀錄」查詢")
-                self.tableView.reloadData()
+                self.dataFromDataBase()
             }
             let msg = response ["msg"] as! String
             print(msg)
@@ -140,8 +145,10 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
             let response = result!["response"] as! [String:Any]
             let code = response["code"] as! Int
             if code == 0 {
-                self.showAlert(message: "已拒絕邀請/請求")
-                self.tableView.reloadData()
+                DispatchQueue.main.async {
+                    self.showAlert(message: "已拒絕邀請/請求")
+                    self.dataFromDataBase()
+                }
             }
             let msg = response ["msg"] as! String
             print(msg)
