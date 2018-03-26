@@ -35,7 +35,7 @@
                                     <navigationItem id="RnY-DK-csd">
                                         <nil key="title"/>
                                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" restorationIdentifier="SetUpSegment" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="baN-lN-uL9">
-                                            <rect key="frame" x="9" y="7.5" width="357" height="29"/>
+                                            <rect key="frame" x="24.5" y="7.5" width="326" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="乘客"/>
@@ -478,7 +478,7 @@
                                                                     <constraint firstAttribute="width" constant="62" id="CCR-UK-U6i"/>
                                                                     <constraint firstAttribute="height" constant="30" id="jQP-Jw-LVe"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                                 <color key="textColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -577,34 +577,15 @@
                                 <items>
                                     <navigationItem id="0PJ-TP-LFe">
                                         <rightBarButtonItems>
-                                            <barButtonItem title="Item" style="plain" id="BKq-il-wjX">
-                                                <button key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="raZ-Db-dDQ">
-                                                    <rect key="frame" x="300" y="2" width="59" height="40"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.44524481599999999" green="0.80462184879999998" blue="0.84545012949999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                    <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    <state key="normal" title="紀錄">
-                                                        <color key="titleColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <color key="titleShadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="5"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <segue destination="FOH-s0-4qD" kind="show" id="WsF-Oh-jbI"/>
-                                                    </connections>
-                                                </button>
-                                            </barButtonItem>
                                             <barButtonItem title="Item" style="plain" id="ryx-JO-baS">
+                                                <inset key="imageInsets" minX="0.0" minY="0.0" maxX="6" maxY="0.0"/>
+                                                <inset key="landscapeImageInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zgB-M6-vcw">
-                                                    <rect key="frame" x="189" y="0.0" width="103" height="44"/>
+                                                    <rect key="frame" x="285" y="2" width="74" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.44524481599999999" green="0.80462184879999998" blue="0.84545012949999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                    <state key="normal" title="儲存">
+                                                    <state key="normal" title="儲存" image="icons8-turn-16">
                                                         <color key="titleColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
@@ -617,6 +598,27 @@
                                                     </connections>
                                                 </button>
                                                 <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </barButtonItem>
+                                            <barButtonItem title="Item" width="30" style="plain" id="BKq-il-wjX">
+                                                <inset key="imageInsets" minX="20" minY="2" maxX="0.0" maxY="0.0"/>
+                                                <button key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="raZ-Db-dDQ">
+                                                    <rect key="frame" x="234" y="2" width="43" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                    <inset key="contentEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                                                    <state key="normal" image="icons8-turn-16">
+                                                        <color key="titleShadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <segue destination="FOH-s0-4qD" kind="show" id="WsF-Oh-jbI"/>
+                                                    </connections>
+                                                </button>
                                             </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>
@@ -900,6 +902,7 @@
         <image name="DriverSetup03" width="1587" height="2245"/>
         <image name="Passenger-2" width="1587" height="2245"/>
         <image name="arrow1" width="60" height="20"/>
+        <image name="icons8-turn-16" width="40" height="40"/>
         <image name="point" width="41" height="45"/>
         <image name="save" width="40" height="40"/>
         <image name="save_button" width="49" height="60"/>
