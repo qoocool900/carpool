@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04373A5620685F4000E11FE3 /* DRecordgingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04373A5520685F4000E11FE3 /* DRecordgingViewController.swift */; };
 		043ED8D4205BC1A5007D573A /* PRecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */; };
 		043ED8D6205BC1BE007D573A /* DRecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D5205BC1BE007D573A /* DRecordingTableViewCell.swift */; };
 		043ED8D8205BC271007D573A /* DriverSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D7205BC271007D573A /* DriverSetupViewController.swift */; };
@@ -73,6 +74,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04373A5520685F4000E11FE3 /* DRecordgingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRecordgingViewController.swift; sourceTree = "<group>"; };
 		043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRecordingTableViewCell.swift; sourceTree = "<group>"; };
 		043ED8D5205BC1BE007D573A /* DRecordingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRecordingTableViewCell.swift; sourceTree = "<group>"; };
 		043ED8D7205BC271007D573A /* DriverSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverSetupViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				043ED8D7205BC271007D573A /* DriverSetupViewController.swift */,
+				04373A5520685F4000E11FE3 /* DRecordgingViewController.swift */,
 				043ED8D5205BC1BE007D573A /* DRecordingTableViewCell.swift */,
 				04C6425D205BBB7300984682 /* ShareViewController.swift */,
 				04FE45B8206627EE004450C3 /* PRecordingViewController.swift */,
@@ -537,6 +540,7 @@
 				3E0918D8205134CA008688D0 /* Member.swift in Sources */,
 				04C64263205BBB7300984682 /* PassengerSetupViewController.swift in Sources */,
 				3E7ACA2220550296003EB8E2 /* CustomMKPinAnnotationView.swift in Sources */,
+				04373A5620685F4000E11FE3 /* DRecordgingViewController.swift in Sources */,
 				04FE45B9206627EE004450C3 /* PRecordingViewController.swift in Sources */,
 				C8888AEE205B9F0E00E49B27 /* DriverRecordDetailTableViewCell.swift in Sources */,
 				C8888AE2205B9EED00E49B27 /* BasicViewController.swift in Sources */,
