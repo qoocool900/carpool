@@ -15,6 +15,9 @@
         <array key="ArialHB.ttc">
             <string>ArialHebrew-Bold</string>
         </array>
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </array>
     </customFonts>
     <scenes>
         <!--發起共乘-->
@@ -32,7 +35,7 @@
                                     <navigationItem id="RnY-DK-csd">
                                         <nil key="title"/>
                                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" restorationIdentifier="SetUpSegment" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="baN-lN-uL9">
-                                            <rect key="frame" x="21" y="7.5" width="333" height="29"/>
+                                            <rect key="frame" x="24.5" y="7.5" width="326" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="乘客"/>
@@ -310,13 +313,12 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="driverSetCell" rowHeight="159" id="6dG-OT-2HX" customClass="DRecordingTableViewCell" customModule="CarPool" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="159"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6dG-OT-2HX" id="LID-bD-O5o">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6dG-OT-2HX" id="LID-bD-O5o">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="158.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UrH-yK-Joo">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="148"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UrH-yK-Joo">
+                                                    <rect key="frame" x="10" y="0.0" width="345" height="148"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="司機發起紀錄" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AH6-Oa-az6">
                                                             <rect key="frame" x="0.0" y="8" width="345" height="21"/>
@@ -369,25 +371,43 @@
                                                             <rect key="frame" x="243" y="112" width="52" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" red="0.47450980390000003" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLQ-Q4-1nX">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="iLQ-Q4-1nX">
                                                             <rect key="frame" x="289" y="111" width="48" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="車號" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Hp2-He-Qrf">
+                                                            <rect key="frame" x="253" y="47" width="60" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.20830020730000001" green="0.33333334329999997" blue="0.2262739131" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="345" id="Mit-Pb-fJl"/>
+                                                        <constraint firstAttribute="height" constant="148" id="X4G-xe-JDA"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="UrH-yK-Joo" secondAttribute="bottom" constant="15" id="1su-Wq-qQf"/>
+                                                <constraint firstItem="UrH-yK-Joo" firstAttribute="leading" secondItem="LID-bD-O5o" secondAttribute="leading" constant="10" id="PRa-Cv-WmQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="UrH-yK-Joo" secondAttribute="trailing" constant="10" id="cZe-tD-ZMk"/>
+                                                <constraint firstItem="UrH-yK-Joo" firstAttribute="top" secondItem="LID-bD-O5o" secondAttribute="top" constant="5" id="eh7-rp-YnJ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                         <connections>
                                             <outlet property="driverBoarding" destination="4p9-6z-MLd" id="5Ra-4n-4D3"/>
                                             <outlet property="driverCapacity" destination="f9a-DS-xBh" id="xqo-6T-obw"/>
+                                            <outlet property="driverCarNo" destination="Hp2-He-Qrf" id="q4g-DM-Wjy"/>
                                             <outlet property="driverDestination" destination="fWt-pJ-g5P" id="Bbj-mF-gyQ"/>
                                             <outlet property="driverFee" destination="iLQ-Q4-1nX" id="I5a-Yj-5sF"/>
                                             <outlet property="driverSetdate" destination="rMK-GZ-QqJ" id="5sF-x2-ma9"/>
@@ -417,7 +437,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EhQ-3I-1Ky" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="66" y="384"/>
+            <point key="canvasLocation" x="64.799999999999997" y="383.20839580209901"/>
         </scene>
         <!--Passenger Setup View Controller-->
         <scene sceneID="I5E-dO-nQb">
@@ -557,26 +577,46 @@
                                 <items>
                                     <navigationItem id="0PJ-TP-LFe">
                                         <rightBarButtonItems>
-                                            <barButtonItem image="save" style="plain" id="BKq-il-wjX">
-                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="raZ-Db-dDQ">
-                                                    <rect key="frame" x="319" y="2" width="40" height="40"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    <state key="normal" image="save"/>
-                                                    <connections>
-                                                        <segue destination="FOH-s0-4qD" kind="show" id="WsF-Oh-jbI"/>
-                                                    </connections>
-                                                </button>
-                                            </barButtonItem>
-                                            <barButtonItem title="Item" image="save_button" style="plain" id="ryx-JO-baS">
-                                                <inset key="imageInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <barButtonItem title="Item" style="plain" id="ryx-JO-baS">
+                                                <inset key="imageInsets" minX="0.0" minY="0.0" maxX="6" maxY="0.0"/>
+                                                <inset key="landscapeImageInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zgB-M6-vcw">
-                                                    <rect key="frame" x="208" y="0.0" width="103" height="44"/>
+                                                    <rect key="frame" x="285" y="2" width="74" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <inset key="imageEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    <state key="normal" image="save_button"/>
+                                                    <color key="backgroundColor" red="0.44524481599999999" green="0.80462184879999998" blue="0.84545012949999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                    <state key="normal" title="儲存" image="icons8-turn-16">
+                                                        <color key="titleColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="SavePassengerBtn:" destination="ekg-gi-x4l" eventType="touchUpInside" id="XzT-y5-bBG"/>
+                                                    </connections>
+                                                </button>
+                                                <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </barButtonItem>
+                                            <barButtonItem title="Item" width="30" style="plain" id="BKq-il-wjX">
+                                                <inset key="imageInsets" minX="20" minY="2" maxX="0.0" maxY="0.0"/>
+                                                <button key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="raZ-Db-dDQ">
+                                                    <rect key="frame" x="234" y="2" width="43" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                    <inset key="contentEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                                                    <state key="normal" image="icons8-turn-16">
+                                                        <color key="titleShadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <segue destination="FOH-s0-4qD" kind="show" id="WsF-Oh-jbI"/>
                                                     </connections>
                                                 </button>
                                             </barButtonItem>
@@ -862,6 +902,7 @@
         <image name="DriverSetup03" width="1587" height="2245"/>
         <image name="Passenger-2" width="1587" height="2245"/>
         <image name="arrow1" width="60" height="20"/>
+        <image name="icons8-turn-16" width="40" height="40"/>
         <image name="point" width="41" height="45"/>
         <image name="save" width="40" height="40"/>
         <image name="save_button" width="49" height="60"/>

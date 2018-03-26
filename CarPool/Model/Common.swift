@@ -21,7 +21,7 @@ class Common {
             //let memberNo = trip["member_no"] as! Int
             let departure = trip["boarding"] as! String
             let destination = trip["destination"] as! String
-            let carNo = trip["car_no"] as! String
+            let carNo = trip["car_no"] as? String
             let people = trip["people"] as! Int
             let fee = trip["fee"] as! Int
             //let status = trip["status"] as! Int
@@ -31,7 +31,7 @@ class Common {
             //let destinationLat = trip["lat"] as! Double
             //let destinationLon = trip["lon"] as! Double
             
-            let driverTrip = DriverTrip(tripId: tripId, memberNo: 0, departure: departure, destination: destination, carNo: carNo, people: people, fee: fee, status: "", date: date, departureLat: 0, departureLon: 0, destinationLat: 0, destinationLon: 0)
+            let driverTrip = DriverTrip(tripId: tripId, memberNo: 0, departure: departure, destination: destination, carNo: carNo!, people: people, fee: fee, status: "", date: date, departureLat: 0, departureLon: 0, destinationLat: 0, destinationLon: 0)
             myDriverTripsArray.append(driverTrip)
         }
         return myDriverTripsArray
