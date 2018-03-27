@@ -61,7 +61,7 @@ class PassengerNotice{
     typealias CompletionReceived = (_ result: [PassengerNotice]) -> Void
     static func getDriverReceivedNoticeInfo(driverTripId: String, completion: @escaping CompletionReceived){
         var recordings = [PassengerNotice]()
-        Communicator.shared.getMyRequests(tripID: driverTripId , role: 1, request: 0, status: 0) { (error, result) in
+        Communicator.shared.getMyRequests(tripID: driverTripId , role: 1, request: 1, status: 0) { (error, result) in
             
             if let error = error {
                 NSLog("伺服器連線錯誤: \(error)")
@@ -101,7 +101,7 @@ class PassengerNotice{
     typealias CompletionRequest = (_ result: [PassengerNotice]) -> Void
     static func getDriverRequestNoticeInfo(driverTripId: String, completion: @escaping CompletionRequest){
         var recordings = [PassengerNotice]()
-        Communicator.shared.getMyRequests(tripID: driverTripId , role: 1, request: 1, status: 0) { (error, result) in
+        Communicator.shared.getMyRequests(tripID: driverTripId , role: 1, request: 0, status: 0) { (error, result) in
             
             if let error = error {
                 NSLog("伺服器連線錯誤: \(error)")

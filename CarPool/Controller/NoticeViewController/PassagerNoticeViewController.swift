@@ -8,7 +8,7 @@
 import UIKit
 
 class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,PassengerReceivedCellDelegate{
-
+    
     @IBOutlet weak var startLocationLabel: UILabel!
     @IBOutlet weak var endLocationLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -26,15 +26,14 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Test sata
-//        myTrip = PassengerNotice.passengerShared()
-//        startLocationLabel.text = myTrip.boarding
-//        endLocationLabel.text = myTrip.destination
-//        dateLabel.text = myTrip.date
-//        passengerCountLabel.text = "\(myTrip.people)"
-//        receivedItem = DriverNotice.passengerReceivedNotice()
-//        requestItem = DriverNotice.passengerRequestNotice()
-        
+        dataFromDataBase()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        dataFromDataBase()
+    }
+    
+    func dataFromDataBase(){
         //Database data
         PassengerNotice.getPassengerSharedInfo(loginMemberNo: loginMemberNo) { (trip) in
             self.startLocationLabel.text = trip.boarding
@@ -43,19 +42,16 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
             self.passengerCountLabel.text = "\(trip.people)"
             self.passengerTripId = trip.tripId
             print("乘客TripId: \(trip.tripId)")
-            self.dataFromDataBase()
+            DriverNotice.getPassengerReceivedNoticeInfo(passengerTripId: self.passengerTripId) { (received) in
+                self.receivedItem = received
+                self.tableView.reloadData()
+            }
+            DriverNotice.getPassengerRequestNoticeInfo(passengerTripId: self.passengerTripId) { (request) in
+                self.requestItem = request
+                self.tableView.reloadData()
+            }
         }
-    }
-    
-    func dataFromDataBase(){
-        DriverNotice.getPassengerReceivedNoticeInfo(passengerTripId: self.passengerTripId) { (received) in
-            self.receivedItem = received
-            self.tableView.reloadData()
-        }
-        DriverNotice.getPassengerRequestNoticeInfo(passengerTripId: self.passengerTripId) { (request) in
-            self.requestItem = request
-            self.tableView.reloadData()
-        }
+        tableView.reloadData()
     }
     
     

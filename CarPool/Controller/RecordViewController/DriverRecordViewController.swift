@@ -18,15 +18,15 @@ class DriverRecordViewController: UIViewController, UITableViewDelegate, UITable
     var driverTripId = ""
     
     override func viewWillAppear(_ animated: Bool) {
-//        tableView.reloadData()
+        dataFromeDataBase()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Test Data
-        //    processingItem = DriverRecord.allProcessingRecord()
-        //    historyItem = DriverRecord.allHistoryRecord()
-        // Data base
+       dataFromeDataBase()
+    }
+    
+    func dataFromeDataBase(){
         DriverRecord.getDriverProcessingInfo(loginMemberNo: loginMemberNo) { (recordings) in
             self.processingItem = recordings
             self.tableView.reloadData()
@@ -35,6 +35,7 @@ class DriverRecordViewController: UIViewController, UITableViewDelegate, UITable
             self.historyItem = recordings
             self.tableView.reloadData()
         }
+        tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

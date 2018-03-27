@@ -17,12 +17,16 @@ class PassengerRecordViewController: UIViewController, UITableViewDelegate, UITa
     var processingItem = [PassengerRecord]()
     var historyItem = [PassengerRecord] ()
     
-    override func viewWillAppear(_ animated: Bool) {
-//        tableView.reloadData()
-    }
-        
     override func viewDidLoad() {
         super.viewDidLoad()
+        dataFromDataBase()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        dataFromDataBase()
+    }
+    
+    func dataFromDataBase()  {
         print(loginMemberNo)
         // Test Data
         //    processingItem = PassengerRecord.allProcessingRecord()

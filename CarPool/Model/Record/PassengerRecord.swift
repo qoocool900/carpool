@@ -78,7 +78,7 @@ class PassengerRecord{
                     if  offTime != ""{
                         offTime = (offTime as NSString).substring(with: NSRange(location:11, length:5))
                     } else {
-                        onTime = ""
+                        offTime = ""
                     }
                     
                     let driverMemberNo = record["memberNo"] as! Int
@@ -131,7 +131,7 @@ class PassengerRecord{
                     if  offTime != ""{
                         offTime = (offTime as NSString).substring(with: NSRange(location:11, length:5))
                     } else {
-                        onTime = ""
+                        offTime = ""
                     }
                     let driverMemberNo = record["memberNo"] as! Int
                     let driverTripId = record["tripID"] as! String

@@ -20,17 +20,16 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
     var receivedItem = [PassengerNotice]()
     var requestItem = [PassengerNotice]()
     
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Test Data
-//                myTrip = DriverNotice.passengerShared()
-//                receivedItem = PassengerNotice.passengerReceivedNotice()
-//                requestItem = Passenger.passengerRequestNotice()
-        
+        dataFromDataBase()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        dataFromDataBase()
+    }
+    
+    func dataFromDataBase(){
         //Database data
         DriverNotice.getDriverSharedInfo(loginMemberNo: loginMemberNo) { (trip) in
             self.startLocationLabel.text = trip.departure
@@ -46,6 +45,7 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
                 self.tableView.reloadData()
             }
         }
+        tableView.reloadData()
     }
     
     // MARK: - TableView Setting
