@@ -10,6 +10,7 @@
 		043ED8D4205BC1A5007D573A /* PRecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */; };
 		043ED8D6205BC1BE007D573A /* DRecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D5205BC1BE007D573A /* DRecordingTableViewCell.swift */; };
 		043ED8D8205BC271007D573A /* DriverSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED8D7205BC271007D573A /* DriverSetupViewController.swift */; };
+		04A61582206A1ECA0049A86B /* DRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A61581206A1ECA0049A86B /* DRecordingViewController.swift */; };
 		04C64263205BBB7300984682 /* PassengerSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C64259205BBB7200984682 /* PassengerSetupViewController.swift */; };
 		04C64267205BBB7300984682 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C6425D205BBB7300984682 /* ShareViewController.swift */; };
 		04FE45B9206627EE004450C3 /* PRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE45B8206627EE004450C3 /* PRecordingViewController.swift */; };
@@ -76,6 +77,7 @@
 		043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRecordingTableViewCell.swift; sourceTree = "<group>"; };
 		043ED8D5205BC1BE007D573A /* DRecordingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRecordingTableViewCell.swift; sourceTree = "<group>"; };
 		043ED8D7205BC271007D573A /* DriverSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverSetupViewController.swift; sourceTree = "<group>"; };
+		04A61581206A1ECA0049A86B /* DRecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRecordingViewController.swift; sourceTree = "<group>"; };
 		04C64259205BBB7200984682 /* PassengerSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassengerSetupViewController.swift; sourceTree = "<group>"; };
 		04C6425D205BBB7300984682 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		04FE45B8206627EE004450C3 /* PRecordingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRecordingViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				04FE45B8206627EE004450C3 /* PRecordingViewController.swift */,
 				04C64259205BBB7200984682 /* PassengerSetupViewController.swift */,
 				043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */,
+				04A61581206A1ECA0049A86B /* DRecordingViewController.swift */,
 			);
 			path = ShareViewController;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				C8888AEE205B9F0E00E49B27 /* DriverRecordDetailTableViewCell.swift in Sources */,
 				C8888AE2205B9EED00E49B27 /* BasicViewController.swift in Sources */,
 				3E7ACA3920576511003EB8E2 /* DriverNotice.swift in Sources */,
+				04A61582206A1ECA0049A86B /* DRecordingViewController.swift in Sources */,
 				043ED8D6205BC1BE007D573A /* DRecordingTableViewCell.swift in Sources */,
 				043ED8D4205BC1A5007D573A /* PRecordingTableViewCell.swift in Sources */,
 				C8E41F9A204FE1DC00F3C77D /* PassengerRecord.swift in Sources */,
