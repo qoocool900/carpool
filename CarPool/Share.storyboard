@@ -320,9 +320,8 @@
                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UrH-yK-Joo">
                                                     <rect key="frame" x="10" y="0.0" width="345" height="148"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="司機發起紀錄" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AH6-Oa-az6">
+                                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="司機發起紀錄" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AH6-Oa-az6">
                                                             <rect key="frame" x="0.0" y="8" width="345" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" red="0.5186987270465393" green="0.75527045329999998" blue="0.67013114768114634" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -391,8 +390,10 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
+                                                        <constraint firstItem="AH6-Oa-az6" firstAttribute="leading" secondItem="UrH-yK-Joo" secondAttribute="leading" id="1b5-wj-key"/>
                                                         <constraint firstAttribute="width" constant="345" id="Mit-Pb-fJl"/>
                                                         <constraint firstAttribute="height" constant="148" id="X4G-xe-JDA"/>
+                                                        <constraint firstAttribute="trailing" secondItem="AH6-Oa-az6" secondAttribute="trailing" id="mCp-Dv-SfW"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -601,7 +602,7 @@
                                             </barButtonItem>
                                             <barButtonItem title="Item" width="30" style="plain" id="BKq-il-wjX">
                                                 <inset key="imageInsets" minX="20" minY="2" maxX="0.0" maxY="0.0"/>
-                                                <button key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="raZ-Db-dDQ">
+                                                <button key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="raZ-Db-dDQ">
                                                     <rect key="frame" x="234" y="2" width="43" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
