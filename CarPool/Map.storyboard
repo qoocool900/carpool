@@ -47,6 +47,9 @@
                                         <real key="value" value="30"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="getInButtonPressed:" destination="ba0-Hj-ptG" eventType="touchUpInside" id="aEJ-Qc-j8s"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kX8-Km-irq" customClass="RoundButton" customModule="CarPool" customModuleProvider="target">
                                 <rect key="frame" x="299" y="466" width="60" height="60"/>
@@ -61,6 +64,9 @@
                                         <real key="value" value="30"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sosButtonPressed:" destination="ba0-Hj-ptG" eventType="touchUpInside" id="myC-Or-uJq"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

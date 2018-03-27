@@ -36,6 +36,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mainMapView: MKMapView!
     
     var timer:Timer?
+    var point:CLLocationCoordinate2D?
+    var points: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
     let locationManager = CLLocationManager()
     let geocoder = CLGeocoder()
     var myTripId:String?
@@ -60,16 +62,52 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
+    var carRideMode:Int = 0 {
+        didSet {
+            if carRideMode == 0 {
+                getInButton.setTitle("上車", for: .normal)
+                sosButton.isHidden = true
+            } else {
+                getInButton.setTitle("下車", for: .normal)
+                sosButton.isHidden = false
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Communicator.shared.updateStatus(reqNo: 8, tripId: "D1803229", status: 2) { (error, result) in
+            if let error = error {
+                print(error)
+            }
+            
+            let response = result!["response"] as! [String:Any]
+            let msg = response ["msg"] as! String
+            print(msg)
+        }
+//        Communicator.shared.getRoutes(tripId: "P180320001", memberNo: 4) { (error, result) in
+//            if let error = error {
+//                print(error)
+//            }
+//            guard let content = result!["content"] as? [String : Any] else {
+//                return
+//            }
+//            print(content)
+//            guard let positions = content["geoPosition"] as? [[Double]] else {
+//                return
+//            }
+//            for position in positions {
+//                print("lan: \(position[0]), \(position[1])")
+//            }
+//        }
         mainMapView.delegate = self
-        
         memberNo = defaults.integer(forKey: "memberNo")
         print("地圖彥面：\(memberNo!)")
         
+        // init UI
         getInButton.setRadiusWithShadow()
         sosButton.setRadiusWithShadow()
+        sosButton.isHidden = true
         
         // Do any additional setup after loading the view.
         addCarAnnotation()
@@ -195,6 +233,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         guard let coordinate = locations.last?.coordinate else {
             return
         }
+        point = coordinate
         //guard let 用法 如果條件不合 就放行 與if是相反的
         //NSLog("Current Location: \(coordinate.latitude),\(coordinate.longitude)")
 //        var points: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
@@ -209,6 +248,37 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 //        self.mainMapView.add(polyline)
     }
 
+    @IBAction func getInButtonPressed(_ sender: Any) {
+        if carRideMode == 0 {
+            timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(drawLine), userInfo: nil, repeats: true)
+            carRideMode = 1
+        } else {
+            timer?.invalidate()
+            carRideMode = 0
+        }
+        
+
+    }
+    @objc func drawLine() {
+        guard let drawPoint = point else {
+            return
+        }
+        print("Location: \(drawPoint.latitude),\(drawPoint.longitude)")
+        points.append(drawPoint)
+        print("新增 \(points.count)")
+        if points.count > 1 {
+            let polyline = MKPolyline(coordinates: &points, count: points.count)
+            self.mainMapView.add(polyline)
+            points.remove(at: 0)
+            print(points.count)
+            print("刪除 \(points.count)")
+        }
+        
+    }
+    
+    @IBAction func sosButtonPressed(_ sender: Any) {
+        
+    }
 }
 
 
@@ -220,7 +290,7 @@ extension MapViewController: MKMapViewDelegate, inviteRidingCallOutViewDelegate 
         
         if overlay is MKPolyline {
             polylineRenderer.strokeColor = UIColor.blue
-            polylineRenderer.lineWidth = 5
+            polylineRenderer.lineWidth = 2
             
         }
         return polylineRenderer
