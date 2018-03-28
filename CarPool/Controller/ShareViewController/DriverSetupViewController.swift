@@ -26,21 +26,23 @@ class DriverSetupViewController: UIViewController {
                 showAlert(message: "沒有出發地")
                 return
         }
-        let defaultNo = UserDefaults.standard
-        let carNo = defaultNo.object(forKey:"carNo" )
-        if CarNumber.text == carNo as? String {
-            guard CarNumber.text != "" else {
-               self.showAlert(message: "沒有車牌號碼,必填喔")
-                return
-        }
-        }
-      
+        //        let defaultNo = UserDefaults.standard
+        //        let carNo = defaultNo.integer(forKey:"carNo" )
+        //        print(carNo)
+        //        print(4566)
+        //        if CarNumber.text == carNo as? String {
+        //            guard CarNumber.text != "" else {
+        //                return
+        //        }
+        //            defaultNo.set(CarNumber.text, forKey:"carNo")
+        //        }
+        
         guard CarNumber.text != "" else{
-             showAlert(message: "沒有車牌號碼")
+            showAlert(message: "沒有車牌號碼")
             return
         }
         guard PeopleNumber.text != "" else{
-             showAlert(message: "沒有輸入人數")
+            showAlert(message: "沒有輸入人數")
             return
         }
         
@@ -69,7 +71,7 @@ class DriverSetupViewController: UIViewController {
             var destinationLat = location.coordinate.latitude
             var destinationLong = location.coordinate.longitude
             print(destinationLat,destinationLong)
-             defaults.set(destinationLat,forKey:"destinationLat")
+            defaults.set(destinationLat,forKey:"destinationLat")
             defaults.set(destinationLong, forKey: "destinationLong")
             defaults.synchronize()
             
@@ -121,26 +123,55 @@ class DriverSetupViewController: UIViewController {
             NSLog("乘客發起成功")
             self.showAlert(message: "發起成功")
         }
-
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        // get memeberNo
-//        let defaults = UserDefaults.standard
-//        let driverMemberNo = defaults.integer(forKey: "memberNo")
-//        print(driverMemberNo)
-//        //print(4567)
+        //        // get memeberNo
+        //        let defaults = UserDefaults.standard
+        //        let driverMemberNo = defaults.integer(forKey: "memberNo")
+        //        print(driverMemberNo)
+        //        //print(4567)
         
         //Destination.placeholder = "目的地"
+        //        let defaults = UserDefaults.standard
+        //        let carNo = defaults.string(forKey:"carNo" )
+        //        print(carNo)
+        //        CarNumber.text == carNo
+        //        guard CarNumber.text != "" else {
+        //            self.showAlert(message: "車牌必填喔！")
+        //                return
+        //            }
+        //            defaults.set(CarNumber.text, forKey:"carNo")
+        
         Destination.font = UIFont(name: "System", size: 25)
         Destination.placeholder = "請輸入您要去的目的地"
         
         DepartureText.font = UIFont(name: "System", size: 25)
         DepartureText.placeholder = "請輸入您的出發地"
         
-        CarNumber.font = UIFont(name: "System", size: 25)
-        CarNumber.placeholder = "請輸入您的車牌號碼"
+        
+        let defaults = UserDefaults.standard
+        let carNo = defaults.string(forKey:"carNo" )
+        print(carNo)
+        CarNumber.text = carNo
+        guard carNo != "" || CarNumber.text != "" else {
+            self.CarNumber.font = UIFont(name: "System", size: 25)
+            CarNumber.placeholder = "請輸入您的車牌號碼"
+            return
+        }
+//        guard CarNumber.text  != "" else {
+//            showAlert(message: "沒有車牌號碼 請至個人設定")
+//            return
+//        }
+//        CarNumber.text = carNo
+//        guard CarNumber.text != "" else {
+//            CarNumber.font = UIFont(name: "System", size: 25)
+//            CarNumber.placeholder = "請輸入您的車牌號碼"
+//            return
+//        }
+        defaults.set(CarNumber.text, forKey:"carNo")
         
         
         PeopleNumber.font = UIFont(name: "System", size: 25)
@@ -149,6 +180,7 @@ class DriverSetupViewController: UIViewController {
         FeeField.font = UIFont(name: "System", size: 15)
         FeeField.placeholder = "輸入費用(0~5000)"
     }
+    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
         textField.resignFirstResponder()
