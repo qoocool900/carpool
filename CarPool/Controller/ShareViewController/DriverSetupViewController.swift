@@ -26,6 +26,15 @@ class DriverSetupViewController: UIViewController {
                 showAlert(message: "沒有出發地")
                 return
         }
+        let defaultNo = UserDefaults.standard
+        let carNo = defaultNo.object(forKey:"carNo" )
+        if CarNumber.text == carNo as? String {
+            guard CarNumber.text != "" else {
+               self.showAlert(message: "沒有車牌號碼,必填喔")
+                return
+        }
+        }
+      
         guard CarNumber.text != "" else{
              showAlert(message: "沒有車牌號碼")
             return

@@ -172,12 +172,12 @@
 			isa = PBXGroup;
 			children = (
 				043ED8D7205BC271007D573A /* DriverSetupViewController.swift */,
+				04A61581206A1ECA0049A86B /* DRecordingViewController.swift */,
 				043ED8D5205BC1BE007D573A /* DRecordingTableViewCell.swift */,
 				04C6425D205BBB7300984682 /* ShareViewController.swift */,
 				04FE45B8206627EE004450C3 /* PRecordingViewController.swift */,
 				04C64259205BBB7200984682 /* PassengerSetupViewController.swift */,
 				043ED8D3205BC1A5007D573A /* PRecordingTableViewCell.swift */,
-				04A61581206A1ECA0049A86B /* DRecordingViewController.swift */,
 			);
 			path = ShareViewController;
 			sourceTree = "<group>";
