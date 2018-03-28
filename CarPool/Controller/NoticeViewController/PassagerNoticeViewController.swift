@@ -8,7 +8,7 @@
 import UIKit
 
 class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,PassengerReceivedCellDelegate{
-
+    
     @IBOutlet weak var startLocationLabel: UILabel!
     @IBOutlet weak var endLocationLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -26,15 +26,22 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Test sata
-//        myTrip = PassengerNotice.passengerShared()
-//        startLocationLabel.text = myTrip.boarding
-//        endLocationLabel.text = myTrip.destination
-//        dateLabel.text = myTrip.date
-//        passengerCountLabel.text = "\(myTrip.people)"
-//        receivedItem = DriverNotice.passengerReceivedNotice()
-//        requestItem = DriverNotice.passengerRequestNotice()
-        
+        dataFromDataBase()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(getNotification(aNotification:)), name: .UIKeyboardWillShow, object: nil)
+        dataFromDataBase()
+    }
+    
+    @objc func getNotification(aNotification: Notification){
+        let info = aNotification.userInfo
+        let reqNo = info!["reqNo"] as! Int
+        print("Notification:\(reqNo)")
+        tableView.reloadData()
+    }
+    
+    func dataFromDataBase(){
         //Database data
         PassengerNotice.getPassengerSharedInfo(loginMemberNo: loginMemberNo) { (trip) in
             self.startLocationLabel.text = trip.boarding
@@ -43,18 +50,14 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
             self.passengerCountLabel.text = "\(trip.people)"
             self.passengerTripId = trip.tripId
             print("乘客TripId: \(trip.tripId)")
-            self.dataFromDataBase()
-        }
-    }
-    
-    func dataFromDataBase(){
-        DriverNotice.getPassengerReceivedNoticeInfo(passengerTripId: self.passengerTripId) { (received) in
-            self.receivedItem = received
-            self.tableView.reloadData()
-        }
-        DriverNotice.getPassengerRequestNoticeInfo(passengerTripId: self.passengerTripId) { (request) in
-            self.requestItem = request
-            self.tableView.reloadData()
+            DriverNotice.getPassengerReceivedNoticeInfo(passengerTripId: self.passengerTripId) { (received) in
+                self.receivedItem = received
+                self.tableView.reloadData()
+            }
+            DriverNotice.getPassengerRequestNoticeInfo(passengerTripId: self.passengerTripId) { (request) in
+                self.requestItem = request
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -124,6 +127,9 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
             let response = result!["response"] as! [String:Any]
             let code = response["code"] as! Int
             if code == 0 {
+                let center = NotificationCenter.default
+                center.post(name: NSNotification.Name(rawValue:"MatchSuccess"), object: nil, userInfo: ["reqNo": reqNo])
+                print("Notification: reqNo\(reqNo)")
                 self.showAlert(message: "配對成功!\n請至「乘車紀錄」查詢")
                 self.dataFromDataBase()
             }

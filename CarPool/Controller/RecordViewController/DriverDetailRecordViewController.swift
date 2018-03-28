@@ -13,9 +13,14 @@ class DriverDetailRecordViewController: UIViewController, UITableViewDelegate, U
     var driverTripId = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Test Data
-        //    driverDeatilItem = DriverRecordDetail.allTripPassengerRecord()
-        
+        dataFromDataBsase()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        dataFromDataBsase()
+    }
+    
+    func dataFromDataBsase() {
         //Data base
         DriverRecordDetail.getAllTripPassengerInfo(driverTripId: self.driverTripId) { (recordings) in
             self.driverDeatilItem = recordings

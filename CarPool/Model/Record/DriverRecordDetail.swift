@@ -148,7 +148,7 @@ class DriverRecordDetail{
                     if  offTime != ""{
                         offTime = (offTime as NSString).substring(with: NSRange(location:11, length:5))
                     } else {
-                        onTime = ""
+                        offTime = ""
                     }
                     
                     recording = DriverRecordDetail(passengerTripId: passengerTripId, startLocation: startLocation, endLocation: endLocation,passengerFirstName: passengerFirstName,passengerLastName: passengerLastName,passengerPhone: passengerPhone,passengerCount: passengerCount,onTime: onTime, offTime: offTime)

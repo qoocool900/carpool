@@ -76,15 +76,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Communicator.shared.updateStatus(reqNo: 8, tripId: "D1803229", status: 2) { (error, result) in
-            if let error = error {
-                print(error)
-            }
-            
-            let response = result!["response"] as! [String:Any]
-            let msg = response ["msg"] as! String
-            print(msg)
-        }
+//        Communicator.shared.updateStatus(reqNo: 8, tripId: "D1803229", status: 2) { (error, result) in
+//            if let error = error {
+//                print(error)
+//            }
+//
+//            let response = result!["response"] as! [String:Any]
+//            let msg = response ["msg"] as! String
+//            print(msg)
+//        }
 //        Communicator.shared.getRoutes(tripId: "P180320001", memberNo: 4) { (error, result) in
 //            if let error = error {
 //                print(error)

@@ -34,10 +34,7 @@ class SettingViewController: UIViewController, UITextFieldDelegate{
         let controller = storyboard.instantiateInitialViewController()
         self.view.window?.rootViewController = controller
     }
-    
-    
-    
-    
+       
     @IBAction func roleChanged(_ sender: UISegmentedControl) {
         
         switch sender.selectedSegmentIndex {

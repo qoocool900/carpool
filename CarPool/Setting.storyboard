@@ -372,7 +372,7 @@
                                                         </constraints>
                                                         <state key="normal" image="save"/>
                                                         <connections>
-                                                            <action selector="saveBtnPressed:" destination="moE-wK-89c" eventType="touchUpInside" id="yzO-ud-Vmv"/>
+                                                            <action selector="saveBtnPressed:" destination="moE-wK-89c" eventType="touchUpInside" id="qea-qt-TMW"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -797,7 +797,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LRI-MC-FGD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1447" y="1503"/>
+            <point key="canvasLocation" x="1476" y="1460"/>
         </scene>
     </scenes>
     <resources>

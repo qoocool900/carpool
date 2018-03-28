@@ -82,7 +82,7 @@ class DriverNotice{
                     let driverTripId = record["tripID"] as! String
                     let startLocation = record["boarding"] as! String
                     let endLocation = record["destination"] as! String
-                    let date = record["date"] as! String
+                    let date = (record["date"] as! NSString).substring(with: NSRange(location:0, length:16))
                     let driverFirstName = record["firstName"] as! String
                     let driverLastName = record["lastName"] as! String
                     let driverPhone = record["phone"] as! String
@@ -122,7 +122,7 @@ class DriverNotice{
                     let driverTripId = record["tripID"] as! String
                     let startLocation = record["boarding"] as! String
                     let endLocation = record["destination"] as! String
-                    let date = record["date"] as! String
+                    let date = (record["date"] as! NSString).substring(with: NSRange(location:0, length:16))
                     let driverFirstName = record["firstName"] as! String
                     let driverLastName = record["lastName"] as! String
                     let driverPhone = record["phone"] as! String
@@ -132,7 +132,7 @@ class DriverNotice{
                     recordings.append(recording)
                 }
                 completion(recordings)
-            }
+            } 
             let msg = response ["msg"] as! String
             print(msg)
         }
