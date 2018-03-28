@@ -102,7 +102,12 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         print("didCompleteWith", error, Thread.isMainThread)
         fetchProfile()
+        
+        
     }
+    
+    
+
     
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
@@ -172,15 +177,15 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
                 
                 
                 if let resultNew = result as? [String:Any]{
-                    
+                    let defaults = UserDefaults.standard
                     print("成功登入")
                     
                     let email = resultNew["email"]  as! String
+                    defaults.set(String(describing: resultNew["email"]), forKey: "email")
                     print(email)
                     
                     let firstName = resultNew["first_name"] as! String
                     print(firstName)
-                    let defaults = UserDefaults.standard
                     defaults.set(String(describing: resultNew["first_name"]), forKey: "first_name")
                     defaults.synchronize()
                     print(defaults.string(forKey: "first_name"))
@@ -203,6 +208,8 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
                         NSLog("doFBRegister ok")
                         
                     })
+                    
+                    
                     //                    Communicator.shared.checkUser(fbMember.email: "0", fbMember.firstName: "a") { (error, result) in
                     //                        if let error = error {
                     //                            NSLog("checkUser fail: \(error)")
