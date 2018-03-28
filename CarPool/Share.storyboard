@@ -141,7 +141,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="isf-dv-c8k">
                                         <rect key="frame" x="0.0" y="0.0" width="302" height="36"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="point" translatesAutoresizingMaskIntoConstraints="NO" id="dsF-Sx-XV2">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="check_icon" translatesAutoresizingMaskIntoConstraints="NO" id="dsF-Sx-XV2">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="eP1-Fx-VM1"/>
@@ -163,7 +163,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Fif-Kh-xOj">
                                         <rect key="frame" x="0.0" y="61" width="302" height="36"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="point" translatesAutoresizingMaskIntoConstraints="NO" id="Ysx-qJ-wRS">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="check_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Ysx-qJ-wRS">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="dO0-uD-wwB"/>
@@ -185,7 +185,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="riX-qg-AwH">
                                         <rect key="frame" x="0.0" y="122" width="302" height="36"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="point" translatesAutoresizingMaskIntoConstraints="NO" id="yxE-pa-jDa">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="check_icon" translatesAutoresizingMaskIntoConstraints="NO" id="yxE-pa-jDa">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="MHH-dx-dck"/>
@@ -207,7 +207,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Cqo-De-3gM">
                                         <rect key="frame" x="0.0" y="183" width="302" height="36"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="point" translatesAutoresizingMaskIntoConstraints="NO" id="AEh-qZ-agG">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="check_icon" translatesAutoresizingMaskIntoConstraints="NO" id="AEh-qZ-agG">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="bd1-Dt-Kth"/>
@@ -229,7 +229,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="CRL-TN-4FC">
                                         <rect key="frame" x="0.0" y="244" width="302" height="36"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="point" translatesAutoresizingMaskIntoConstraints="NO" id="WD7-cT-TJ1">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="check_icon" translatesAutoresizingMaskIntoConstraints="NO" id="WD7-cT-TJ1">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="5Mp-iL-uJT"/>
@@ -494,7 +494,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fNE-dA-oZ9">
                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="30"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="point" translatesAutoresizingMaskIntoConstraints="NO" id="TvS-HK-OQp">
+                                                            <imageView userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_icon" translatesAutoresizingMaskIntoConstraints="NO" id="TvS-HK-OQp">
                                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="30" id="1W2-V9-GaX"/>
@@ -538,7 +538,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Kxj-k7-5EG">
                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="30"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="point" translatesAutoresizingMaskIntoConstraints="NO" id="YcA-Hr-so2">
+                                                    <imageView userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_icon" translatesAutoresizingMaskIntoConstraints="NO" id="YcA-Hr-so2">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="PCQ-wv-odv"/>
@@ -571,7 +571,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qTk-Ri-lhD">
                                                 <rect key="frame" x="0.0" y="0.0" width="140" height="30"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="point" translatesAutoresizingMaskIntoConstraints="NO" id="ZeY-rm-mJz">
+                                                    <imageView userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_icon" translatesAutoresizingMaskIntoConstraints="NO" id="ZeY-rm-mJz">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="30" id="KcM-0H-sQa"/>
@@ -938,8 +938,8 @@
         <image name="DriverSetup03" width="1587" height="2245"/>
         <image name="Passenger-2" width="1587" height="2245"/>
         <image name="arrow1" width="60" height="20"/>
+        <image name="check_icon" width="56" height="56"/>
         <image name="icon_record" width="40" height="40"/>
-        <image name="point" width="41" height="45"/>
         <image name="save" width="40" height="40"/>
         <image name="save_01" width="45" height="45"/>
     </resources>

@@ -152,11 +152,11 @@ class DriverSetupViewController: UIViewController {
         DepartureText.placeholder = "請輸入您的出發地"
         let defaults = UserDefaults.standard
         let carNo = defaults.string(forKey:"carNo" )
-        switch carNo {
-        case nil:
+        if  String(describing: carNo).isEmpty {
             self.CarNumber.font = UIFont(name: "System", size: 25)
             CarNumber.placeholder = "請輸入您的車牌號碼"
-        default:
+       
+        }else{
             print(carNo)
             CarNumber.text = carNo
         }
