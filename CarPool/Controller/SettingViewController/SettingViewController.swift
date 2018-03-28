@@ -16,6 +16,7 @@ class SettingViewController: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let image = UIImage(named: "tab_setting")?.withRenderingMode(.alwaysOriginal)
         basicContainer.isHidden = false
         driveContainer.isHidden = true
         guardContainer.isHidden = true

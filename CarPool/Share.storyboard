@@ -262,11 +262,11 @@
                                             <barButtonItem title="Item" style="plain" id="dKH-yz-rZp">
                                                 <inset key="imageInsets" minX="0.0" minY="0.0" maxX="6" maxY="0.0"/>
                                                 <inset key="landscapeImageInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
-                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HR8-IL-kMY">
-                                                    <rect key="frame" x="319" y="2" width="40" height="40"/>
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HR8-IL-kMY">
+                                                    <rect key="frame" x="314" y="0.0" width="45" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                    <state key="normal" image="icons8-turn-16">
+                                                    <state key="normal" image="save_01">
                                                         <color key="titleColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
@@ -283,12 +283,12 @@
                                             <barButtonItem title="Item" width="30" style="plain" id="nKH-XH-XAx">
                                                 <inset key="imageInsets" minX="20" minY="2" maxX="0.0" maxY="0.0"/>
                                                 <button key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0l8-XX-xbD">
-                                                    <rect key="frame" x="243" y="0.0" width="68" height="44"/>
+                                                    <rect key="frame" x="258" y="0.0" width="48" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                     <inset key="contentEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                                    <state key="normal" image="record-1">
+                                                    <state key="normal" image="icon_record">
                                                         <color key="titleShadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
@@ -516,14 +516,19 @@
                                                     <textField opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f2N-rq-h7k">
                                                         <rect key="frame" x="0.0" y="36" width="280" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="280" id="5VM-Be-GOI"/>
-                                                            <constraint firstAttribute="height" constant="40" id="GG0-qe-pwn"/>
+                                                            <constraint firstAttribute="height" constant="40" id="ctM-5O-I4T"/>
+                                                            <constraint firstAttribute="width" constant="280" id="mBw-vZ-7HG"/>
                                                         </constraints>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="f2N-rq-h7k" secondAttribute="trailing" id="f9h-JX-qNS"/>
+                                                    <constraint firstItem="f2N-rq-h7k" firstAttribute="top" secondItem="fNE-dA-oZ9" secondAttribute="bottom" constant="6" id="qQR-q6-tg1"/>
+                                                    <constraint firstItem="f2N-rq-h7k" firstAttribute="leading" secondItem="460-Yy-A7h" secondAttribute="leading" id="uDv-KE-fde"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                     </stackView>
@@ -600,20 +605,23 @@
                                     <constraint firstAttribute="width" secondItem="51T-Q8-HjV" secondAttribute="height" multiplier="70:69" id="xbf-SH-IWa"/>
                                 </constraints>
                             </stackView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AT5-Ml-zSt">
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tKF-KB-6jR">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Tnz-na-kNu"/>
+                                    <constraint firstAttribute="width" constant="375" id="n46-ik-hqb"/>
+                                </constraints>
                                 <items>
-                                    <navigationItem id="0PJ-TP-LFe">
+                                    <navigationItem id="dNi-am-Idh">
                                         <rightBarButtonItems>
-                                            <barButtonItem title="Item" style="plain" id="ryx-JO-baS">
+                                            <barButtonItem title="Item" style="plain" id="9uh-hd-pcD">
                                                 <inset key="imageInsets" minX="0.0" minY="0.0" maxX="6" maxY="0.0"/>
                                                 <inset key="landscapeImageInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
-                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zgB-M6-vcw">
-                                                    <rect key="frame" x="319" y="2" width="40" height="40"/>
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6bW-Xe-wAS">
+                                                    <rect key="frame" x="314" y="0.0" width="45" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                    <state key="normal" image="icons8-turn-16">
+                                                    <state key="normal" image="save_01">
                                                         <color key="titleColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
@@ -622,20 +630,20 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="SavePassengerBtn:" destination="ekg-gi-x4l" eventType="touchUpInside" id="XzT-y5-bBG"/>
+                                                        <action selector="SavePassengerBtn:" destination="ekg-gi-x4l" eventType="touchUpInside" id="SfH-9G-L9Z"/>
                                                     </connections>
                                                 </button>
                                                 <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </barButtonItem>
-                                            <barButtonItem title="Item" width="30" style="plain" id="BKq-il-wjX">
+                                            <barButtonItem title="Item" width="30" style="plain" id="Q07-SE-g14">
                                                 <inset key="imageInsets" minX="20" minY="2" maxX="0.0" maxY="0.0"/>
-                                                <button key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="raZ-Db-dDQ">
-                                                    <rect key="frame" x="243" y="0.0" width="68" height="44"/>
+                                                <button key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="m8l-Ux-Atb">
+                                                    <rect key="frame" x="258" y="0.0" width="48" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                     <inset key="contentEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                                    <state key="normal" image="record-1">
+                                                    <state key="normal" image="icon_record">
                                                         <color key="titleShadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
@@ -644,7 +652,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <segue destination="FOH-s0-4qD" kind="show" id="WsF-Oh-jbI"/>
+                                                        <segue destination="FOH-s0-4qD" kind="show" id="rTF-rA-gHl"/>
                                                     </connections>
                                                 </button>
                                             </barButtonItem>
@@ -930,9 +938,9 @@
         <image name="DriverSetup03" width="1587" height="2245"/>
         <image name="Passenger-2" width="1587" height="2245"/>
         <image name="arrow1" width="60" height="20"/>
-        <image name="icons8-turn-16" width="40" height="40"/>
+        <image name="icon_record" width="40" height="40"/>
         <image name="point" width="41" height="45"/>
-        <image name="record-1" width="50" height="50"/>
         <image name="save" width="40" height="40"/>
+        <image name="save_01" width="45" height="45"/>
     </resources>
 </document>

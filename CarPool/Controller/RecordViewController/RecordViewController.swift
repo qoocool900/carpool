@@ -12,6 +12,7 @@ class RecordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let image = UIImage(named: "tab_record")?.withRenderingMode(.alwaysOriginal)
         driverContainer.isHidden = true
         // Do any additional setup after loading the view.
     }

@@ -150,28 +150,33 @@ class DriverSetupViewController: UIViewController {
         
         DepartureText.font = UIFont(name: "System", size: 25)
         DepartureText.placeholder = "請輸入您的出發地"
-        
-        
         let defaults = UserDefaults.standard
         let carNo = defaults.string(forKey:"carNo" )
-        print(carNo)
-        CarNumber.text = carNo
-        guard carNo != "" || CarNumber.text != "" else {
+        switch carNo {
+        case nil:
             self.CarNumber.font = UIFont(name: "System", size: 25)
             CarNumber.placeholder = "請輸入您的車牌號碼"
-            return
+        default:
+            print(carNo)
+            CarNumber.text = carNo
         }
-//        guard CarNumber.text  != "" else {
-//            showAlert(message: "沒有車牌號碼 請至個人設定")
-//            return
-//        }
-//        CarNumber.text = carNo
-//        guard CarNumber.text != "" else {
-//            CarNumber.font = UIFont(name: "System", size: 25)
-//            CarNumber.placeholder = "請輸入您的車牌號碼"
-//            return
-//        }
-        defaults.set(CarNumber.text, forKey:"carNo")
+        
+        //        CarNumber.text = carNo
+        //        if carNo != "" || CarNumber.text != "" {
+        //            self.CarNumber.font = UIFont(name: "System", size: 25)
+        //            CarNumber.placeholder = "請輸入您的車牌號碼"
+        //        }
+        //        guard CarNumber.text  != "" else {
+        //            showAlert(message: "沒有車牌號碼 請至個人設定")
+        //            return
+        //        }
+        //        CarNumber.text = carNo
+        //        guard CarNumber.text != "" else {
+        //            CarNumber.font = UIFont(name: "System", size: 25)
+        //            CarNumber.placeholder = "請輸入您的車牌號碼"
+        //            return
+        //        }
+        //        defaults.set(CarNumber.text, forKey:"carNo")
         
         
         PeopleNumber.font = UIFont(name: "System", size: 25)

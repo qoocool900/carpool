@@ -162,7 +162,7 @@
         <scene sceneID="N92-XN-cKU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DTC-O9-D4P" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="發起共乘" id="zdw-1j-qSb"/>
+                    <tabBarItem key="tabBarItem" title="發起共乘" image="tab_passenger" id="zdw-1j-qSb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5Vg-md-Nty">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -181,7 +181,7 @@
         <scene sceneID="lDM-Fb-BF3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HqK-tr-Dpf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="通知中心" id="rwD-q1-ag4"/>
+                    <tabBarItem key="tabBarItem" title="通知中心" image="tab_alarm" id="rwD-q1-ag4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="C45-dI-ZAI">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -200,7 +200,7 @@
         <scene sceneID="UMD-VK-bLo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="II7-IQ-MZg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="乘車紀錄" id="hVP-aP-MUq"/>
+                    <tabBarItem key="tabBarItem" title="乘車紀錄" image="tab_record" id="hVP-aP-MUq"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6dS-V1-P9F">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -219,7 +219,7 @@
         <scene sceneID="IUd-9R-nC5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gac-FT-GO1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="個人設定" id="WfW-Zk-82R"/>
+                    <tabBarItem key="tabBarItem" title="個人設定" image="tab_setting" id="WfW-Zk-82R"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4oQ-nx-0uu">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -238,7 +238,7 @@
         <scene sceneID="RXg-EI-MpV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="y6U-i0-BZv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="地圖" id="bWb-Ti-h0d"/>
+                    <tabBarItem key="tabBarItem" title="地圖" image="tab_map" id="bWb-Ti-h0d"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="q2X-2E-pbw">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -254,4 +254,11 @@
             <point key="canvasLocation" x="505" y="135"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tab_alarm" width="40" height="40"/>
+        <image name="tab_map" width="30" height="30"/>
+        <image name="tab_passenger" width="40" height="40"/>
+        <image name="tab_record" width="40" height="40"/>
+        <image name="tab_setting" width="40" height="40"/>
+    </resources>
 </document>
