@@ -141,11 +141,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cbZ-wJ-pN8">
-                                <rect key="frame" x="0.0" y="25.5" width="303.5" height="44"/>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cbZ-wJ-pN8">
+                                <rect key="frame" x="0.0" y="26" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </navigationBar>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3XY-33-6qJ">
-                                <rect key="frame" x="0.0" y="69.5" width="303.5" height="44"/>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3XY-33-6qJ">
+                                <rect key="frame" x="28" y="25" width="319" height="44"/>
                                 <items>
                                     <navigationItem id="nK1-MH-ebX">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="iXx-gh-NRz">
@@ -164,7 +165,7 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Euf-uR-cTn">
-                                <rect key="frame" x="32" y="153.5" width="240" height="360"/>
+                                <rect key="frame" x="67.5" y="153.5" width="240" height="360"/>
                                 <subviews>
                                     <textField opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="orM-GZ-d8S">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="40"/>
@@ -207,12 +208,9 @@
                                     <constraint firstAttribute="width" constant="240" id="dqO-58-9L7"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4Z-Ye-SGu">
-                                <rect key="frame" x="114" y="69.5" width="76.5" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="92" id="JBR-3w-ZQC"/>
-                                    <constraint firstAttribute="height" constant="32.5" id="WqB-1j-rBj"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4Z-Ye-SGu">
+                                <rect key="frame" x="141" y="31" width="147" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -221,17 +219,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.72156862745098038" green="0.72156862745098038" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="3XY-33-6qJ" firstAttribute="centerX" secondItem="J4Z-Ye-SGu" secondAttribute="centerX" id="2EO-Dg-4j6"/>
-                            <constraint firstItem="Euf-uR-cTn" firstAttribute="top" secondItem="J4Z-Ye-SGu" secondAttribute="bottom" constant="51.5" id="9Db-z0-lpe"/>
-                            <constraint firstItem="cbZ-wJ-pN8" firstAttribute="bottom" secondItem="3XY-33-6qJ" secondAttribute="top" id="9rU-AY-WP8"/>
                             <constraint firstItem="Euf-uR-cTn" firstAttribute="centerX" secondItem="cHS-0Q-C1B" secondAttribute="centerX" id="ATc-bs-Kw4"/>
-                            <constraint firstItem="DmV-ay-5rW" firstAttribute="trailing" secondItem="J4Z-Ye-SGu" secondAttribute="trailing" constant="114" id="HuE-q3-aNr"/>
-                            <constraint firstItem="3XY-33-6qJ" firstAttribute="trailing" secondItem="cbZ-wJ-pN8" secondAttribute="trailing" id="RRD-zD-zsu"/>
                             <constraint firstItem="3XY-33-6qJ" firstAttribute="leading" secondItem="cHS-0Q-C1B" secondAttribute="leading" id="ghW-9K-lZ3"/>
-                            <constraint firstItem="J4Z-Ye-SGu" firstAttribute="leading" secondItem="DmV-ay-5rW" secondAttribute="leading" constant="114" id="gy0-FY-GMB"/>
                             <constraint firstItem="Euf-uR-cTn" firstAttribute="centerY" secondItem="cHS-0Q-C1B" secondAttribute="centerY" id="lUU-Fu-zF1"/>
-                            <constraint firstItem="J4Z-Ye-SGu" firstAttribute="top" secondItem="cbZ-wJ-pN8" secondAttribute="bottom" id="sfr-wu-baz"/>
-                            <constraint firstItem="cbZ-wJ-pN8" firstAttribute="leading" secondItem="3XY-33-6qJ" secondAttribute="leading" id="zIL-eG-wSx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DmV-ay-5rW"/>
                     </view>
@@ -246,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PIx-sg-nVl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-667.5" y="883.09859154929575"/>
+            <point key="canvasLocation" x="-668" y="882.90854572713647"/>
         </scene>
         <!--TabBarController-->
         <scene sceneID="LnE-te-v2A">
