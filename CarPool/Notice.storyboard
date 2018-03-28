@@ -795,7 +795,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DtU-qP-8vw">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="20.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="台北車站" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="51l-cM-hiE">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="51l-cM-hiE">
                                                 <rect key="frame" x="0.0" y="0.0" width="113" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -807,7 +807,7 @@
                                                     <constraint firstAttribute="width" secondItem="8ha-pA-09R" secondAttribute="height" multiplier="11:2" id="iqM-TV-jqS"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="國父紀念館" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EwW-X7-OCV">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EwW-X7-OCV">
                                                 <rect key="frame" x="242" y="0.0" width="113" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -826,7 +826,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="20.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0f-3d-D3R">
-                                                        <rect key="frame" x="0.0" y="0.0" width="275.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="347" height="20.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請求時間：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dp6-Hq-vtU">
                                                                 <rect key="frame" x="0.0" y="0.0" width="71.5" height="20.5"/>
@@ -834,8 +834,8 @@
                                                                 <color key="textColor" red="0.1960784314" green="0.65490196079999996" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="2018/01/01 12:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ytp-jG-xQI">
-                                                                <rect key="frame" x="71.5" y="0.0" width="204" height="20.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ytp-jG-xQI">
+                                                                <rect key="frame" x="71.5" y="0.0" width="275.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
@@ -843,16 +843,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TNT-Nq-W57">
-                                                        <rect key="frame" x="275.5" y="0.0" width="79.5" height="20.5"/>
+                                                        <rect key="frame" x="347" y="0.0" width="8" height="20.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="容納人數：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5ya-LY-ty7">
-                                                                <rect key="frame" x="0.0" y="0.0" width="71.5" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" red="0.1960784314" green="0.65490196079999996" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aJh-qj-r9z">
-                                                                <rect key="frame" x="71.5" y="0.0" width="8" height="20.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aJh-qj-r9z">
+                                                                <rect key="frame" x="0.0" y="0.0" width="8" height="20.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="8" id="W0n-oM-JNM"/>
                                                                 </constraints>
@@ -1416,7 +1416,7 @@
                         <viewLayoutGuide key="safeArea" id="5Nn-s6-Ttz"/>
                     </view>
                     <connections>
-                        <outlet property="carCapacityLabel" destination="aJh-qj-r9z" id="cAf-c7-NMq"/>
+                        <outlet property="carCapacityLabel" destination="aJh-qj-r9z" id="56R-Jw-7wU"/>
                         <outlet property="dateLabel" destination="Ytp-jG-xQI" id="Kmz-Rq-a78"/>
                         <outlet property="endLocationLabel" destination="EwW-X7-OCV" id="0XW-9o-nvV"/>
                         <outlet property="startLocationLabel" destination="51l-cM-hiE" id="4Hr-pS-XFj"/>

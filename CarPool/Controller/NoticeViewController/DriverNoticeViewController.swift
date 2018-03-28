@@ -26,14 +26,22 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func viewWillAppear(_ animated: Bool) {
+//        NotificationCenter.default.addObserver(self, selector: #selector(getNotification(aNotification:)), name: .UIKeyboardWillShow, object: nil)
         dataFromDataBase()
     }
+    
+//    @objc func getNotification(aNotification: Notification){
+//        let info = aNotification.userInfo
+//        let reqNo = info!["reqNo"] as! Int
+//        print("Notification:\(reqNo)")
+//    }
     
     func dataFromDataBase(){
         //Database data
         DriverNotice.getDriverSharedInfo(loginMemberNo: loginMemberNo) { (trip) in
             self.startLocationLabel.text = trip.departure
             self.endLocationLabel.text = trip.destination
+            self.carCapacityLabel.text = "\(trip.people)"
             self.dateLabel.text = (trip.date as NSString).substring(with: NSRange(location:0, length:16))
             self.driverTripId = trip.tripId
             PassengerNotice.getDriverReceivedNoticeInfo(driverTripId: self.driverTripId) { (received) in
@@ -45,7 +53,6 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
                 self.tableView.reloadData()
             }
         }
-        tableView.reloadData()
     }
     
     // MARK: - TableView Setting
@@ -113,12 +120,16 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
             let response = result!["response"] as! [String:Any]
             let code = response["code"] as! Int
             if code == 0 {
+                let center = NotificationCenter.default
+                center.post(name: NSNotification.Name(rawValue:"MatchSuccess"), object: nil, userInfo: ["reqNo": reqNo])
+                print("Notification: reqNo\(reqNo)")
+                self.dataFromDataBase()
+                self.tableView.reloadData()
                 self.showAlert(message: "配對成功!\n請至「乘車紀錄」查詢")
             }
             let msg = response ["msg"] as! String
             print(msg)
         }
-        self.tableView.reloadData()
     }
     
     func updateReceivedRefuseStatus(reqNo: Int, status: Int, tripId: String) {
@@ -135,6 +146,7 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
             let code = response["code"] as! Int
             if code == 0 {
                 self.showAlert(message: "已拒絕邀請/請求")
+                self.dataFromDataBase()
             }
             let msg = response ["msg"] as! String
             print(msg)

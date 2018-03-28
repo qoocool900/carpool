@@ -30,7 +30,15 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(getNotification(aNotification:)), name: .UIKeyboardWillShow, object: nil)
         dataFromDataBase()
+    }
+    
+    @objc func getNotification(aNotification: Notification){
+        let info = aNotification.userInfo
+        let reqNo = info!["reqNo"] as! Int
+        print("Notification:\(reqNo)")
+        tableView.reloadData()
     }
     
     func dataFromDataBase(){
@@ -51,7 +59,6 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
                 self.tableView.reloadData()
             }
         }
-        tableView.reloadData()
     }
     
     
@@ -120,6 +127,9 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
             let response = result!["response"] as! [String:Any]
             let code = response["code"] as! Int
             if code == 0 {
+                let center = NotificationCenter.default
+                center.post(name: NSNotification.Name(rawValue:"MatchSuccess"), object: nil, userInfo: ["reqNo": reqNo])
+                print("Notification: reqNo\(reqNo)")
                 self.showAlert(message: "配對成功!\n請至「乘車紀錄」查詢")
                 self.dataFromDataBase()
             }
