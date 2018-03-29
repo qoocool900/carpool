@@ -65,6 +65,8 @@ class Communicator {
         doPost(urlString: MEMBER_URL, parameters: parameters, doneHandler: doneHandler)
     }
     // 修改會員資料
+//    var fbMember = Member()
+//    modifyMemberInfo(member:fbMember,doneHandler)
     func modifyMemberInfo(_ member:Member, doneHandler:@escaping DoneHandler) {
         let parameters: [String : Any] = [ACTION:"modifyMemberInfo", "memberNo":member.memberNo ,"lastName":member.lastName, "firstName":member.firstName, "phone":member.phone, "sex":member.gender]
         

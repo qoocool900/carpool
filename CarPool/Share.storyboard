@@ -523,8 +523,8 @@
                                                     <textField opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f2N-rq-h7k">
                                                         <rect key="frame" x="0.0" y="36" width="280" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="ctM-5O-I4T"/>
-                                                            <constraint firstAttribute="width" constant="280" id="mBw-vZ-7HG"/>
+                                                            <constraint firstAttribute="width" constant="280" id="R6c-Uv-mev"/>
+                                                            <constraint firstAttribute="height" constant="40" id="Z3s-mt-F6c"/>
                                                         </constraints>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -532,9 +532,9 @@
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="f2N-rq-h7k" secondAttribute="trailing" id="f9h-JX-qNS"/>
-                                                    <constraint firstItem="f2N-rq-h7k" firstAttribute="top" secondItem="fNE-dA-oZ9" secondAttribute="bottom" constant="6" id="qQR-q6-tg1"/>
-                                                    <constraint firstItem="f2N-rq-h7k" firstAttribute="leading" secondItem="460-Yy-A7h" secondAttribute="leading" id="uDv-KE-fde"/>
+                                                    <constraint firstItem="f2N-rq-h7k" firstAttribute="leading" secondItem="460-Yy-A7h" secondAttribute="leading" id="GyD-d6-xxX"/>
+                                                    <constraint firstItem="f2N-rq-h7k" firstAttribute="top" secondItem="fNE-dA-oZ9" secondAttribute="bottom" constant="6" id="iCE-XQ-fjE"/>
+                                                    <constraint firstAttribute="trailing" secondItem="f2N-rq-h7k" secondAttribute="trailing" id="swY-Pq-kz6"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
