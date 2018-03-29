@@ -8,6 +8,7 @@ import TransitionButton
 
 class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDelegate {
     
+    static var fbEmail: String!
     
     @IBOutlet weak var UserMailTextField: UITextField!
     @IBOutlet weak var PasswordText: UITextField!
@@ -183,6 +184,7 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
                     
                     let email = resultNew["email"]  as! String
                     defaults.set(String(describing: resultNew["email"]), forKey: "email")
+                    LoginViewController.fbEmail = resultNew["email"]  as! String
                     print(email)
                     
                     let firstName = resultNew["first_name"] as! String
@@ -208,7 +210,7 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
                         }
                         
                         NSLog("doFBRegister ok")
-                        getFacebookInfo(mail: fbMember.mail)
+                        getFacebookInfo(mail: LoginViewController.fbEmail)
                         let fbmemberNo = defaults.integer(forKey: "fbMemberNo")
                         print(fbmemberNo)
                         
@@ -249,8 +251,10 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
 func getFacebookInfo(mail: String){
     let fbMember = Member()
     let fbPassword = "123"
-    Communicator.shared.checkUser(mail: fbMember.mail, password: fbPassword, doneHandler: { (error, result) in
-        if let error = error {
+    print("fbMember.mail",LoginViewController.fbEmail)
+    Communicator.shared.checkUser(mail: LoginViewController.fbEmail, password: fbPassword) { (error, result) in
+        print("result", result)
+        if error != nil {
             NSLog("伺服器連線錯誤:\(error)")
             return
         }
@@ -270,7 +274,7 @@ func getFacebookInfo(mail: String){
         let msg = response ["msg"] as! String
         print(msg)
     }
-)}
+}
     extension UITextView: UITextViewDelegate {
         override open var bounds: CGRect {
             didSet {
