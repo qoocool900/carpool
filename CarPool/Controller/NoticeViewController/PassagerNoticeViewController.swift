@@ -30,15 +30,7 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        NotificationCenter.default.addObserver(self, selector: #selector(getNotification(aNotification:)), name: .UIKeyboardWillShow, object: nil)
         dataFromDataBase()
-    }
-    
-    @objc func getNotification(aNotification: Notification){
-        let info = aNotification.userInfo
-        let reqNo = info!["reqNo"] as! Int
-        print("Notification:\(reqNo)")
-        tableView.reloadData()
     }
     
     func dataFromDataBase(){
@@ -59,8 +51,7 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
                 self.tableView.reloadData()
             }
         }
-    }
-    
+    }    
     
     // MARK: - TableView Setting
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -114,7 +105,7 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     // MARK: - PassengerReceivedCellDelegate
-    func updateReceivedAcceptStatus(reqNo: Int, status: Int, tripId: String) {
+    func updateReceivedAcceptStatus(Cell:UITableViewCell,reqNo: Int, status: Int, tripId: String) {
         Communicator.shared.updateStatus(reqNo: reqNo, tripId: tripId, status: status) { (error, result) in
             if let error = error {
                 NSLog("伺服器連線錯誤: \(error)")
@@ -128,8 +119,8 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
             let code = response["code"] as! Int
             if code == 0 {
                 let center = NotificationCenter.default
-                center.post(name: NSNotification.Name(rawValue:"MatchSuccess"), object: nil, userInfo: ["reqNo": reqNo])
-                print("Notification: reqNo\(reqNo)")
+                center.post(name: NSNotification.Name(rawValue:"MatchSuccess"), object: nil, userInfo: ["reqNo": reqNo,"tripId":tripId])
+                print("Notification: reqNo:\(reqNo), tripId:\(tripId)")
                 self.showAlert(message: "配對成功!\n請至「乘車紀錄」查詢")
                 self.dataFromDataBase()
             }
@@ -138,7 +129,7 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
-    func updateReceivedRefuseStatus(reqNo: Int, status: Int, tripId: String) {
+    func updateReceivedRefuseStatus(Cell:UITableViewCell,reqNo: Int, status: Int, tripId: String) {
         Communicator.shared.updateStatus(reqNo: reqNo, tripId: tripId, status: status) { (error, result) in
             if let error = error {
                 NSLog("伺服器連線錯誤: \(error)")

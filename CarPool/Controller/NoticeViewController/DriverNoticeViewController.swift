@@ -26,15 +26,8 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        NotificationCenter.default.addObserver(self, selector: #selector(getNotification(aNotification:)), name: .UIKeyboardWillShow, object: nil)
         dataFromDataBase()
     }
-    
-//    @objc func getNotification(aNotification: Notification){
-//        let info = aNotification.userInfo
-//        let reqNo = info!["reqNo"] as! Int
-//        print("Notification:\(reqNo)")
-//    }
     
     func dataFromDataBase(){
         //Database data
@@ -107,7 +100,7 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     // MARK: - DriverReceivedCellDelegate
-    func updateReceivedAcceptStatus(reqNo: Int, status: Int, tripId: String) {
+    func updateReceivedAcceptStatus(Cell:UITableViewCell,reqNo: Int, status: Int, tripId: String) {
         Communicator.shared.updateStatus(reqNo: reqNo, tripId: tripId, status: status) { (error, result) in
             if let error = error {
                 NSLog("伺服器連線錯誤: \(error)")
@@ -121,10 +114,9 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
             let code = response["code"] as! Int
             if code == 0 {
                 let center = NotificationCenter.default
-                center.post(name: NSNotification.Name(rawValue:"MatchSuccess"), object: nil, userInfo: ["reqNo": reqNo])
-                print("Notification: reqNo\(reqNo)")
+                center.post(name: NSNotification.Name(rawValue:"MatchSuccess"), object: nil, userInfo: ["reqNo": reqNo,"tripId":tripId])
+                print("Notification: reqNo:\(reqNo), tripId:\(tripId)")
                 self.dataFromDataBase()
-                self.tableView.reloadData()
                 self.showAlert(message: "配對成功!\n請至「乘車紀錄」查詢")
             }
             let msg = response ["msg"] as! String
@@ -132,7 +124,7 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    func updateReceivedRefuseStatus(reqNo: Int, status: Int, tripId: String) {
+    func updateReceivedRefuseStatus(Cell:UITableViewCell,reqNo: Int, status: Int, tripId: String) {
         Communicator.shared.updateStatus(reqNo: reqNo, tripId: tripId, status: status) { (error, result) in
             if let error = error {
                 NSLog("伺服器連線錯誤: \(error)")

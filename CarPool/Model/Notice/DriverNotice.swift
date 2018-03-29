@@ -91,8 +91,8 @@ class DriverNotice{
                     recording = DriverNotice(seqNo: seqNo,tripId: driverTripId, startLocation: startLocation, endLocation: endLocation, date: date,driverFirstName: driverFirstName, driverLastName: driverLastName,driverPhone: driverPhone,carNumber: carNumber,carCapacity: carCapacity)
                     recordings.append(recording)
                 }
-                completion(recordings)
             }
+            completion(recordings)
             let msg = response ["msg"] as! String
             print(msg)
         }
@@ -131,8 +131,8 @@ class DriverNotice{
                     recording = DriverNotice(seqNo: seqNo,tripId: driverTripId, startLocation: startLocation, endLocation: endLocation, date: date,driverFirstName: driverFirstName, driverLastName: driverLastName,driverPhone: driverPhone,carNumber: carNumber,carCapacity: carCapacity)
                     recordings.append(recording)
                 }
-                completion(recordings)
-            } 
+            }
+            completion(recordings)
             let msg = response ["msg"] as! String
             print(msg)
         }

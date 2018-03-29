@@ -40,7 +40,6 @@ class PassengerRecordViewController: UIViewController, UITableViewDelegate, UITa
             self.historyItem = recordings
             self.tableView.reloadData()
         }
-        tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -98,18 +97,18 @@ class PassengerRecordViewController: UIViewController, UITableViewDelegate, UITa
         }
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-       
-        switch indexPath.section {
-        case 0:
-            return
-        default:
-            if editingStyle == .delete{
-                historyItem.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .automatic)
-            }
-        }
-    }
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//
+//        switch indexPath.section {
+//        case 0:
+//            return
+//        default:
+//            if editingStyle == .delete{
+//                historyItem.remove(at: indexPath.row)
+//                tableView.deleteRows(at: [indexPath], with: .automatic)
+//            }
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "EvaluaionViewController") as? EvaluaionViewController{

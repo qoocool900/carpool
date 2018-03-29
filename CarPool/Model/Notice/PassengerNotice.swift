@@ -90,8 +90,8 @@ class PassengerNotice{
                     recording = PassengerNotice(seqNo: seqNo, tripId: passengerTripId, startLocation: startLocation, endLocation: endLocation, date: date, passengerCount: passengerCount, passengerFirstName: passengerFirstName, passengerLastName: passengerLastName,passengerPhone: passengerPhone)
                     recordings.append(recording)
                 }
-                completion(recordings)
             }
+            completion(recordings)
             let msg = response ["msg"] as! String
             print(msg)
         }
@@ -129,8 +129,8 @@ class PassengerNotice{
                     recording = PassengerNotice(seqNo: seqNo, tripId: passengerTripId, startLocation: startLocation, endLocation: endLocation, date: date, passengerCount: passengerCount, passengerFirstName: passengerFirstName, passengerLastName: passengerLastName,passengerPhone: passengerPhone)
                     recordings.append(recording)
                 }
-                completion(recordings)
             }
+            completion(recordings)
             let msg = response ["msg"] as! String
             print(msg)
         }

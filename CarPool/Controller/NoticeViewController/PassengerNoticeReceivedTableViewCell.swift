@@ -8,8 +8,8 @@
 import UIKit
 
 protocol PassengerReceivedCellDelegate {
-    func updateReceivedAcceptStatus(reqNo: Int, status: Int, tripId: String)
-    func updateReceivedRefuseStatus(reqNo: Int, status: Int, tripId: String)
+    func updateReceivedAcceptStatus(Cell: UITableViewCell,reqNo: Int, status: Int, tripId: String)
+    func updateReceivedRefuseStatus(Cell: UITableViewCell,reqNo: Int, status: Int, tripId: String)
 }
 
 class PassengerNoticeReceivedTableViewCell: UITableViewCell {
@@ -64,12 +64,12 @@ class PassengerNoticeReceivedTableViewCell: UITableViewCell {
     }
     
     @IBAction func acceptBtnPressed(sender: Any) {
-        delegate?.updateReceivedAcceptStatus(reqNo: seqNo, status: accept, tripId: tripId)
+        delegate?.updateReceivedAcceptStatus(Cell:self,reqNo: seqNo, status: accept, tripId: tripId)
         checkSatusImage(requestStatus: accept)
     }
     
     @IBAction func refuseBtnPressed(_ sender: Any) {
-        delegate?.updateReceivedRefuseStatus(reqNo: seqNo, status: refuse, tripId: tripId)
+        delegate?.updateReceivedRefuseStatus(Cell:self,reqNo: seqNo, status: refuse, tripId: tripId)
         checkSatusImage(requestStatus: refuse)
     }
     

@@ -86,8 +86,8 @@ class PassengerRecord{
                     recording = PassengerRecord(pStartLocation: pStartLocation, pEndLocation: pEndLocation, startLocation: startLocation,endLocation: endLocation, date: date,driverFirstName: driverFirstName,driverLastName: driverLastName,carNumber: carNumber,driverPhone: driverPhone,onTime: onTime,offTime: offTime, driverMemberNo: driverMemberNo,driverTripId: driverTripId)
                     recordings.append(recording)
                 }
-                completion(recordings)
             }
+            completion(recordings)
             let msg = response ["msg"] as! String
             print(msg)
         }
@@ -138,8 +138,8 @@ class PassengerRecord{
                     recording = PassengerRecord(pStartLocation: pStartLocation, pEndLocation: pEndLocation, startLocation: startLocation,endLocation: endLocation, date: date,driverFirstName: driverFirstName,driverLastName: driverLastName,carNumber: carNumber,driverPhone: driverPhone,onTime: onTime,offTime: offTime, driverMemberNo: driverMemberNo,driverTripId: driverTripId)
                     recordings.append(recording)
                 }
-                completion(recordings)
             }
+            completion(recordings)
             let msg = response ["msg"] as! String
             print(msg)
         }

@@ -49,8 +49,8 @@ class DriverRecord{
                     recording = DriverRecord(driverTripId: driverTripId, startLocation: startLocation, endLocation: endLocation, date: date)
                     recordings.append(recording)
                 }
-                completion(recordings)
             }
+            completion(recordings)
             let msg = response ["msg"] as! String
             print(msg)
         }
@@ -82,9 +82,8 @@ class DriverRecord{
                     recording = DriverRecord(driverTripId: driverTripId, startLocation: startLocation, endLocation: endLocation, date: date)
                     recordings.append(recording)
                 }
-                completion(recordings)
-        
             }
+            completion(recordings)
             let msg = response ["msg"] as! String
             print(msg)
         }
