@@ -32,6 +32,7 @@ class DriverNoticeReceivedTableViewCell: UITableViewCell {
     var seqNo = 0
     var tripId = ""
     var passengerPhone = ""
+    var status = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -55,6 +56,8 @@ class DriverNoticeReceivedTableViewCell: UITableViewCell {
             passengerCountLabel.text = "\((noticeData?.passengerCount)!)"
             passengerNameLabel.text = passengerLastName + " " + passengerFirstName
             passengerPhone = (noticeData?.passengerPhone)!
+            status = (noticeData?.status)!
+            checkSatusImage(requestStatus: status)
         }
     }
     
@@ -78,12 +81,16 @@ class DriverNoticeReceivedTableViewCell: UITableViewCell {
             requestStatusIng.image = UIImage(named: "radio_click")
             requestStatusMatch.image = UIImage(named: "radio")
             requestStatusCancel.image = UIImage(named: "radio")
+            acceptBtn.isHidden = false
+            refuseBtn.isHidden = false
+            phoneBtn.isEnabled = true
         case accept:
             requestStatusIng.image = UIImage(named: "radio")
             requestStatusMatch.image = UIImage(named: "radio_click")
             requestStatusCancel.image = UIImage(named: "radio")
             acceptBtn.isHidden = true
             refuseBtn.isHidden = true
+            phoneBtn.isEnabled = true
             
         case refuse:
             requestStatusIng.image = UIImage(named: "radio")

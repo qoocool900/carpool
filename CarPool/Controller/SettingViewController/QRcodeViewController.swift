@@ -143,7 +143,7 @@ class QRcodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                 let firstName = content["firstName"] as! String
                 let phone = content["phone"] as! String
                 
-                let scanMemberName = lastName + firstName
+                let scanMemberName = "\(lastName) \(firstName)"
                 let scanMemberPhone = phone
                 self.showResultAlert(memberName: scanMemberName, memberPhone: scanMemberPhone)
             } else {

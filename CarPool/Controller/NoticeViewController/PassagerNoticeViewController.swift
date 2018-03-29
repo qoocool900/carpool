@@ -14,6 +14,8 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var passengerCountLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+
+    
     let loginMemberNo = UserDefaults.standard.integer(forKey: "memberNo")
     var seqNo = 0
     var driverPhone = ""
@@ -27,13 +29,20 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         dataFromDataBase()
+        if #available(iOS 10.0, *) {
+            Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
+                self.dataFromDataBase()
+            }
+        } else {
+            Timer.scheduledTimer(timeInterval: 5,target: self,selector: #selector(self.dataFromDataBase),userInfo: nil,repeats: true)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         dataFromDataBase()
     }
     
-    func dataFromDataBase(){
+    @objc func dataFromDataBase(){
         //Database data
         PassengerNotice.getPassengerSharedInfo(loginMemberNo: loginMemberNo) { (trip) in
             self.startLocationLabel.text = trip.boarding

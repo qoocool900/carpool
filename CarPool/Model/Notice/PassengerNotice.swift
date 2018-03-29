@@ -17,8 +17,9 @@ class PassengerNotice{
     var passengerFirstName: String
     var passengerLastName: String
     var passengerPhone: String
+    var status: Int
     
-    init(seqNo: Int, tripId: String, startLocation: String, endLocation: String, date: String, passengerCount: Int, passengerFirstName: String, passengerLastName: String,passengerPhone: String) {
+    init(seqNo: Int, tripId: String, startLocation: String, endLocation: String, date: String, passengerCount: Int, passengerFirstName: String, passengerLastName: String,passengerPhone: String, status: Int) {
         self.seqNo = seqNo
         self.tripId = tripId
         self.startLocation = startLocation
@@ -28,6 +29,7 @@ class PassengerNotice{
         self.passengerFirstName = passengerFirstName
         self.passengerLastName = passengerLastName
         self.passengerPhone = passengerPhone
+        self.status = status
     }
     
     //Get Passenger Shared From Database
@@ -62,7 +64,6 @@ class PassengerNotice{
     static func getDriverReceivedNoticeInfo(driverTripId: String, completion: @escaping CompletionReceived){
         var recordings = [PassengerNotice]()
         Communicator.shared.getMyRequests(tripID: driverTripId , role: 1, request: 1, status: 0) { (error, result) in
-            
             if let error = error {
                 NSLog("伺服器連線錯誤: \(error)")
                 return
@@ -87,13 +88,13 @@ class PassengerNotice{
                     let passengerPhone = record["phone"] as! String
                     let passengerCount = record["people"] as! Int
                     
-                    recording = PassengerNotice(seqNo: seqNo, tripId: passengerTripId, startLocation: startLocation, endLocation: endLocation, date: date, passengerCount: passengerCount, passengerFirstName: passengerFirstName, passengerLastName: passengerLastName,passengerPhone: passengerPhone)
+                    recording = PassengerNotice(seqNo: seqNo, tripId: passengerTripId, startLocation: startLocation, endLocation: endLocation, date: date, passengerCount: passengerCount, passengerFirstName: passengerFirstName, passengerLastName: passengerLastName,passengerPhone: passengerPhone, status: 0)
                     recordings.append(recording)
                 }
             }
             completion(recordings)
             let msg = response ["msg"] as! String
-            print(msg)
+            print("Status = 0 :\(msg)")
         }
     }
     
@@ -102,7 +103,6 @@ class PassengerNotice{
     static func getDriverRequestNoticeInfo(driverTripId: String, completion: @escaping CompletionRequest){
         var recordings = [PassengerNotice]()
         Communicator.shared.getMyRequests(tripID: driverTripId , role: 1, request: 0, status: 0) { (error, result) in
-            
             if let error = error {
                 NSLog("伺服器連線錯誤: \(error)")
                 return
@@ -126,13 +126,79 @@ class PassengerNotice{
                     let passengerLastName = record["lastName"] as! String
                     let passengerPhone = record["phone"] as! String
                     let passengerCount = record["people"] as! Int
-                    recording = PassengerNotice(seqNo: seqNo, tripId: passengerTripId, startLocation: startLocation, endLocation: endLocation, date: date, passengerCount: passengerCount, passengerFirstName: passengerFirstName, passengerLastName: passengerLastName,passengerPhone: passengerPhone)
+                    recording = PassengerNotice(seqNo: seqNo, tripId: passengerTripId, startLocation: startLocation, endLocation: endLocation, date: date, passengerCount: passengerCount, passengerFirstName: passengerFirstName, passengerLastName: passengerLastName,passengerPhone: passengerPhone,status: 0)
                     recordings.append(recording)
                 }
             }
             completion(recordings)
             let msg = response ["msg"] as! String
-            print(msg)
+            print("Status = 0 :\(msg)")
+        }
+        
+        Communicator.shared.getMyRequests(tripID: driverTripId , role: 1, request: 0, status: 1) { (error, result) in
+            if let error = error {
+                NSLog("伺服器連線錯誤: \(error)")
+                return
+            }
+            // success
+            guard result?.isEmpty == false else {
+                return
+            }
+            let response = result!["response"] as! [String:Any]
+            let content = result!["content"] as! [[String:Any]]
+            let code = response["code"] as! Int
+            if code == 0 {
+                var recording: PassengerNotice
+                for record in content{
+                    let seqNo = record["reqNo"] as! Int
+                    let passengerTripId = record["tripID"] as! String
+                    let startLocation = record["boarding"] as! String
+                    let endLocation = record["destination"] as! String
+                    let date = (record["date"] as! NSString).substring(with: NSRange(location:0, length:16))
+                    let passengerFirstName = record["firstName"] as! String
+                    let passengerLastName = record["lastName"] as! String
+                    let passengerPhone = record["phone"] as! String
+                    let passengerCount = record["people"] as! Int
+                    recording = PassengerNotice(seqNo: seqNo, tripId: passengerTripId, startLocation: startLocation, endLocation: endLocation, date: date, passengerCount: passengerCount, passengerFirstName: passengerFirstName, passengerLastName: passengerLastName,passengerPhone: passengerPhone,status: 1)
+                    recordings.append(recording)
+                }
+            }
+            completion(recordings)
+            let msg = response ["msg"] as! String
+            print("Status = 1 :\(msg)")
+        }
+        
+        Communicator.shared.getMyRequests(tripID: driverTripId , role: 1, request: 0, status: 2) { (error, result) in
+            if let error = error {
+                NSLog("伺服器連線錯誤: \(error)")
+                return
+            }
+            // success
+            guard result?.isEmpty == false else {
+                return
+            }
+            let response = result!["response"] as! [String:Any]
+            let content = result!["content"] as! [[String:Any]]
+            let code = response["code"] as! Int
+            if code == 0 {
+                var recording: PassengerNotice
+                for record in content{
+                    let seqNo = record["reqNo"] as! Int
+                    let passengerTripId = record["tripID"] as! String
+                    let startLocation = record["boarding"] as! String
+                    let endLocation = record["destination"] as! String
+                    let date = (record["date"] as! NSString).substring(with: NSRange(location:0, length:16))
+                    let passengerFirstName = record["firstName"] as! String
+                    let passengerLastName = record["lastName"] as! String
+                    let passengerPhone = record["phone"] as! String
+                    let passengerCount = record["people"] as! Int
+                    recording = PassengerNotice(seqNo: seqNo, tripId: passengerTripId, startLocation: startLocation, endLocation: endLocation, date: date, passengerCount: passengerCount, passengerFirstName: passengerFirstName, passengerLastName: passengerLastName,passengerPhone: passengerPhone,status: 2)
+                    recordings.append(recording)
+                }
+            }
+            completion(recordings)
+            let msg = response ["msg"] as! String
+            print("Status = 2 :\(msg)")
         }
     }
     

@@ -23,13 +23,20 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         dataFromDataBase()
+        if #available(iOS 10.0, *) {
+            Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
+                self.dataFromDataBase()
+            }
+        } else {
+            Timer.scheduledTimer(timeInterval: 5,target: self,selector: #selector(self.dataFromDataBase),userInfo: nil,repeats: true)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         dataFromDataBase()
     }
     
-    func dataFromDataBase(){
+    @objc func dataFromDataBase(){
         //Database data
         DriverNotice.getDriverSharedInfo(loginMemberNo: loginMemberNo) { (trip) in
             self.startLocationLabel.text = trip.departure

@@ -19,6 +19,7 @@ class PassengerNoticeRequestTableViewCell: UITableViewCell {
     @IBOutlet weak var requestStatusMatch: UIImageView!
     @IBOutlet weak var requestStatusCancel: UIImageView!
     @IBOutlet weak var phoneBtn: UIButton!
+    @IBOutlet weak var matchLabel: UILabel!
     
     let wait = 0
     let accept = 1
@@ -26,6 +27,7 @@ class PassengerNoticeRequestTableViewCell: UITableViewCell {
     var seqNo = 0
     var tripId = ""
     var driverPhone = ""
+    var status = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,6 +52,8 @@ class PassengerNoticeRequestTableViewCell: UITableViewCell {
             driverNameLabel.text = driverLastName + " " + driverFirstName
             carNumberLabel.text = noticeData?.carNumber
             driverPhone = (noticeData?.driverPhone)!
+            status = (noticeData?.status)!
+            checkSatusImage(requestStatus: status)
         }
     }
     
@@ -63,16 +67,21 @@ class PassengerNoticeRequestTableViewCell: UITableViewCell {
             requestStatusIng.image = UIImage(named: "radio_click")
             requestStatusMatch.image = UIImage(named: "radio")
             requestStatusCancel.image = UIImage(named: "radio")
+            matchLabel.text = ""
+            phoneBtn.isEnabled = true
         case accept:
             requestStatusIng.image = UIImage(named: "radio")
             requestStatusMatch.image = UIImage(named: "radio_click")
             requestStatusCancel.image = UIImage(named: "radio")
+            matchLabel.text = "已配對成功，請至「乘車紀錄」查詢"
+            phoneBtn.isEnabled = true
             
         case refuse:
             requestStatusIng.image = UIImage(named: "radio")
             requestStatusMatch.image = UIImage(named: "radio")
             requestStatusCancel.image = UIImage(named: "radio_click")
             phoneBtn.isEnabled = false
+            matchLabel.text = "對方已拒絕您的請求"
         default:
             break
         }

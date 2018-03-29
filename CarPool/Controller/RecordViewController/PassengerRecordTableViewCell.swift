@@ -36,7 +36,7 @@ class PassengerRecordTableViewCell: UITableViewCell {
             
             let firstName = (recordData?.driverFirstName)!
             let lastName = (recordData?.driverLastName)!
-            driverNameLabel.text = firstName + " " + lastName
+            driverNameLabel.text = lastName + " " + firstName
             
             dateLabel.text = recordData?.date
             onTimeLabel.text = recordData?.onTime
