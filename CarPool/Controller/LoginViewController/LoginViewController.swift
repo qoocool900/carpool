@@ -9,6 +9,7 @@ import TransitionButton
 class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDelegate {
     
     static var fbEmail: String!
+    static var fbPassword:String! = "123"
     
     @IBOutlet weak var UserMailTextField: UITextField!
     @IBOutlet weak var PasswordText: UITextField!
@@ -200,6 +201,7 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
                     fbMember.firstName = firstName
                     fbMember.lastName = lastName
                     fbMember.mail = email
+                    fbMember.password = "123"
                     
                     Communicator.shared.doRegister(fbMember, doneHandler: { (error,result ) in
                         if let error = error {
@@ -210,29 +212,11 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
                         }
                         
                         NSLog("doFBRegister ok")
-                        getFacebookInfo(mail: LoginViewController.fbEmail)
-                        let fbmemberNo = defaults.integer(forKey: "fbMemberNo")
-                        print(fbmemberNo)
-                        
-                        
                     })
                     
-                    
-                    //                    Communicator.shared.checkUser(fbMember.email: "0", fbMember.firstName: "a") { (error, result) in
-                    //                        if let error = error {
-                    //                            NSLog("checkUser fail: \(error)")
-                    //                            let msg = result!["msg"] as? String
-                    //                            return
-                    //                        }
-                    //                        // success
-                    //                        print(result!)
-                    //                        guard let memberNo = result!["memberNo"] as? Int else {
-                    //                            return
-                    //                        }
-                    //                        guard let memberName = result!["memberNo"] as? Int else {
-                    //                            return
-                    //                        }
-                    
+                    getFacebookInfo(mail: LoginViewController.fbEmail,password:LoginViewController.fbPassword )
+                    let fbmemberNo = defaults.integer(forKey: "fbMemberNo")
+                    print("fbmemberNo",fbmemberNo)
                     
                 }
                 // show main page
@@ -248,11 +232,11 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
     }
 }
 
-func getFacebookInfo(mail: String){
+func getFacebookInfo(mail: String, password: String){
     let fbMember = Member()
-    let fbPassword = "123"
-    print("fbMember.mail",LoginViewController.fbEmail)
-    Communicator.shared.checkUser(mail: LoginViewController.fbEmail, password: fbPassword) { (error, result) in
+    let fbPassword = LoginViewController.fbPassword
+    print("fbMember.mail",LoginViewController.fbEmail, "fbPassword", LoginViewController.fbPassword )
+    Communicator.shared.checkUser(mail: LoginViewController.fbEmail, password: LoginViewController.fbPassword) { (error, result) in
         print("result", result)
         if error != nil {
             NSLog("伺服器連線錯誤:\(error)")
@@ -263,10 +247,10 @@ func getFacebookInfo(mail: String){
         let content = result!["content"] as! [String:Any]
         let code = response["code"] as! Int
         if code == 0 {
-            let lastName = content["lastName"] as! String
-            let firstName = content["firstName"] as! String
+            let lastName = content["lastName"] as? String
+            let firstName = content["firstName"] as? String
             let fbMemberNo = content["memberNo"] as! Int
-            print(fbMemberNo)
+            print("fbMemberNo",fbMemberNo)
             let defaults = UserDefaults.standard
             defaults.set(fbMemberNo, forKey: "fbMemberNo")
             defaults.synchronize()
