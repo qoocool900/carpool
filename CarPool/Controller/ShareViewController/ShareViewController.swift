@@ -37,6 +37,7 @@ class ShareViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let image = UIImage(named: "tab_passenger")?.withRenderingMode(.alwaysOriginal)
         
         PassengerSetup.isHidden = true
         // Do any additional setup after loading the view.

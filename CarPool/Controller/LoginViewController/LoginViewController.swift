@@ -8,6 +8,9 @@ import TransitionButton
 
 class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDelegate {
     
+    static var fbEmail: String!
+    static var fbPassword:String! = "123"
+    
     @IBOutlet weak var UserMailTextField: UITextField!
     @IBOutlet weak var PasswordText: UITextField!
     @IBAction func MemberLogin(_ button: TransitionButton) {
@@ -61,9 +64,9 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
             else {
                 self.showAlert(message: "帳號密碼有誤")
             }
-//            let msg = response["msg"] as? String
-//            print(msg)
-//            self.showAlert(message:(msg)!)
+            //            let msg = response["msg"] as? String
+            //            print(msg)
+            //            self.showAlert(message:(msg)!)
         }
     }
     
@@ -102,7 +105,12 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         print("didCompleteWith", error, Thread.isMainThread)
         fetchProfile()
+        
+        
     }
+    
+    
+    
     
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
@@ -172,15 +180,16 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
                 
                 
                 if let resultNew = result as? [String:Any]{
-                    
+                    let defaults = UserDefaults.standard
                     print("成功登入")
                     
                     let email = resultNew["email"]  as! String
+                    defaults.set(String(describing: resultNew["email"]), forKey: "email")
+                    LoginViewController.fbEmail = resultNew["email"]  as! String
                     print(email)
                     
                     let firstName = resultNew["first_name"] as! String
                     print(firstName)
-                    let defaults = UserDefaults.standard
                     defaults.set(String(describing: resultNew["first_name"]), forKey: "first_name")
                     defaults.synchronize()
                     print(defaults.string(forKey: "first_name"))
@@ -192,6 +201,7 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
                     fbMember.firstName = firstName
                     fbMember.lastName = lastName
                     fbMember.mail = email
+                    fbMember.password = "123"
                     
                     Communicator.shared.doRegister(fbMember, doneHandler: { (error,result ) in
                         if let error = error {
@@ -200,24 +210,13 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
                             
                             return
                         }
-                        NSLog("doFBRegister ok")
                         
+                        NSLog("doFBRegister ok")
                     })
-                    //                    Communicator.shared.checkUser(fbMember.email: "0", fbMember.firstName: "a") { (error, result) in
-                    //                        if let error = error {
-                    //                            NSLog("checkUser fail: \(error)")
-                    //                            let msg = result!["msg"] as? String
-                    //                            return
-                    //                        }
-                    //                        // success
-                    //                        print(result!)
-                    //                        guard let memberNo = result!["memberNo"] as? Int else {
-                    //                            return
-                    //                        }
-                    //                        guard let memberName = result!["memberNo"] as? Int else {
-                    //                            return
-                    //                        }
                     
+                    getFacebookInfo(mail: LoginViewController.fbEmail,password:LoginViewController.fbPassword )
+                    let fbmemberNo = defaults.integer(forKey: "fbMemberNo")
+                    print("fbmemberNo",fbmemberNo)
                     
                 }
                 // show main page
@@ -233,73 +232,100 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
     }
 }
 
-extension UITextView: UITextViewDelegate {
-    override open var bounds: CGRect {
-        didSet {
-            self.resizePlaceholder()
+func getFacebookInfo(mail: String, password: String){
+    let fbMember = Member()
+    let fbPassword = LoginViewController.fbPassword
+    print("fbMember.mail",LoginViewController.fbEmail, "fbPassword", LoginViewController.fbPassword )
+    Communicator.shared.checkUser(mail: LoginViewController.fbEmail, password: LoginViewController.fbPassword) { (error, result) in
+        print("result", result)
+        if error != nil {
+            NSLog("伺服器連線錯誤:\(error)")
+            return
         }
-    }
-    
-    public var placeholder: String? {
-        get {
-            var placeholderText: String?
-            
-            if let placeholderLbl = self.viewWithTag(50) as? UILabel {
-                placeholderText = placeholderLbl.text
-            }
-            
-            return placeholderText
+        // success
+        let response = result!["response"] as! [String:Any]
+        let content = result!["content"] as! [String:Any]
+        let code = response["code"] as! Int
+        if code == 0 {
+            let lastName = content["lastName"] as? String
+            let firstName = content["firstName"] as? String
+            let fbMemberNo = content["memberNo"] as! Int
+            print("fbMemberNo",fbMemberNo)
+            let defaults = UserDefaults.standard
+            defaults.set(fbMemberNo, forKey: "fbMemberNo")
+            defaults.synchronize()
         }
-        set {
-            if let placeholderLbl = self.viewWithTag(50) as! UILabel? {
-                placeholderLbl.text = newValue
-                placeholderLbl.sizeToFit()
-            } else {
-                self.addPlaceholder(newValue!)
-            }
-        }
-    }
-    
-    public func textViewDidChange(_ textView: UITextView) {
-        if let placeholderLbl = self.viewWithTag(50) as? UILabel {
-            placeholderLbl.isHidden = self.text.characters.count > 0
-        }
-    }
-    
-    private func resizePlaceholder() {
-        if let placeholderLbl = self.viewWithTag(50) as! UILabel? {
-            let x = self.textContainer.lineFragmentPadding
-            let y = self.textContainerInset.top - 2
-            let width = self.frame.width - (x * 2)
-            let height = placeholderLbl.frame.height
-            
-            placeholderLbl.frame = CGRect(x: x, y: y, width: width, height: height)
-        }
-    }
-    
-    private func addPlaceholder(_ placeholderText: String) {
-        let placeholderLbl = UILabel()
-        
-        placeholderLbl.text = placeholderText
-        placeholderLbl.sizeToFit()
-        
-        placeholderLbl.font = self.font
-        placeholderLbl.textColor = UIColor.lightGray
-        placeholderLbl.tag = 50
-        
-        placeholderLbl.isHidden = self.text.characters.count > 0
-        
-        self.addSubview(placeholderLbl)
-        self.resizePlaceholder()
-        self.delegate = self
+        let msg = response ["msg"] as! String
+        print(msg)
     }
 }
-extension UITextView {
-    func decreaseFontSize () {
-        self.font =  UIFont(name: self.font!.fontName, size: self.font!.pointSize-10)!
+    extension UITextView: UITextViewDelegate {
+        override open var bounds: CGRect {
+            didSet {
+                self.resizePlaceholder()
+            }
+        }
+        
+        public var placeholder: String? {
+            get {
+                var placeholderText: String?
+                
+                if let placeholderLbl = self.viewWithTag(50) as? UILabel {
+                    placeholderText = placeholderLbl.text
+                }
+                
+                return placeholderText
+            }
+            set {
+                if let placeholderLbl = self.viewWithTag(50) as! UILabel? {
+                    placeholderLbl.text = newValue
+                    placeholderLbl.sizeToFit()
+                } else {
+                    self.addPlaceholder(newValue!)
+                }
+            }
+        }
+        
+        public func textViewDidChange(_ textView: UITextView) {
+            if let placeholderLbl = self.viewWithTag(50) as? UILabel {
+                placeholderLbl.isHidden = self.text.characters.count > 0
+            }
+        }
+        
+        private func resizePlaceholder() {
+            if let placeholderLbl = self.viewWithTag(50) as! UILabel? {
+                let x = self.textContainer.lineFragmentPadding
+                let y = self.textContainerInset.top - 2
+                let width = self.frame.width - (x * 2)
+                let height = placeholderLbl.frame.height
+                
+                placeholderLbl.frame = CGRect(x: x, y: y, width: width, height: height)
+            }
+        }
+        
+        private func addPlaceholder(_ placeholderText: String) {
+            let placeholderLbl = UILabel()
+            
+            placeholderLbl.text = placeholderText
+            placeholderLbl.sizeToFit()
+            
+            placeholderLbl.font = self.font
+            placeholderLbl.textColor = UIColor.lightGray
+            placeholderLbl.tag = 50
+            
+            placeholderLbl.isHidden = self.text.characters.count > 0
+            
+            self.addSubview(placeholderLbl)
+            self.resizePlaceholder()
+            self.delegate = self
+        }
     }
-    
-    
+    extension UITextView {
+        func decreaseFontSize () {
+            self.font =  UIFont(name: self.font!.fontName, size: self.font!.pointSize-10)!
+        }
+        
+        
 }
 
 //

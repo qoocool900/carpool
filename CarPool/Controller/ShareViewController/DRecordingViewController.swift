@@ -16,10 +16,45 @@ class DRecordgingViewController: UIViewController, UITableViewDelegate,UITableVi
         return driverRecord.count
     }
     
-    //    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    func tableView(tableView: (UITableView!), commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: (NSIndexPath!)) {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            // delete item at indexPath
+            self.showAlert(message: "確定刪除嗎？")
+            self.driverRecord.remove(at: indexPath.row)
+            DispatchQueue.main.async {
+                
+                self.DRecordingTableView?.reloadData()
+            }
+        }
+        
+        let edit = UITableViewRowAction(style: .normal, title: "edit") { (action, indexPath) in
+            // share item at indexPath
+        }
+        
+        edit.backgroundColor = UIColor.green
+        
+        return [delete, edit]
+    }
+    //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    //        if (editingStyle == UITableViewCellEditingStyle.delete) {
+    //            showAlert(message: "確定刪除嗎？")
+    //            driverRecord.remove(at: indexPath.row)
+    //            DispatchQueue.main.async {
     //
+    //                self.DRecordingTableView?.reloadData()
+    //        }
     //    }
-    //
+    //    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell =  DRecordingTableView.dequeueReusableCell(withIdentifier:"driverSetCell" , for: indexPath) as? DRecordingTableViewCell else{

@@ -27,6 +27,35 @@ class PRecordingViewController: UIViewController, UITableViewDelegate,UITableVie
         
         return SetRecord.count
     }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    func tableView(tableView: (UITableView!), commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: (NSIndexPath!)) {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            // delete item at indexPath
+            self.showAlert(message: "確定刪除嗎？")
+            self.SetRecord.remove(at: indexPath.row)
+            DispatchQueue.main.async {
+                
+                self.PRecordingTableView?.reloadData()
+            }
+        }
+        
+        let edit = UITableViewRowAction(style: .normal, title: "edit") { (action, indexPath) in
+            // share item at indexPath
+        }
+        
+        edit.backgroundColor = UIColor.green
+        
+        return [delete, edit]
+    }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

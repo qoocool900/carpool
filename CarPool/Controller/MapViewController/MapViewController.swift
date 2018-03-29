@@ -76,6 +76,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let image = UIImage(named: "tab_map")?.withRenderingMode(.alwaysOriginal)
 //        Communicator.shared.updateStatus(reqNo: 8, tripId: "D1803229", status: 2) { (error, result) in
 //            if let error = error {
 //                print(error)

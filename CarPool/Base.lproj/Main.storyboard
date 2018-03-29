@@ -50,7 +50,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wyh-tD-udu" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="36" y="592" width="318" height="29"/>
+                                <rect key="frame" x="36" y="555" width="318" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
@@ -65,7 +65,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SzU-iv-vpN">
-                                <rect key="frame" x="166" y="629" width="58" height="25"/>
+                                <rect key="frame" x="166" y="599" width="58" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="OriyaSangamMN-Bold" family="Oriya Sangam MN" pointSize="17"/>
                                 <state key="normal" title="sign in">
@@ -76,7 +76,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kL6-dG-mh9" customClass="TransitionButton" customModule="TransitionButton">
-                                <rect key="frame" x="36" y="550" width="318" height="34"/>
+                                <rect key="frame" x="36" y="513" width="318" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.29396751789999997" green="0.69037388389999998" blue="0.3461197305" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="34"/>
@@ -93,7 +93,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avx-gn-nKe">
-                                <rect key="frame" x="128" y="512" width="119" height="30"/>
+                                <rect key="frame" x="136" y="475" width="119" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
                                 <state key="normal" title="forget password?">
@@ -141,30 +141,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cbZ-wJ-pN8">
-                                <rect key="frame" x="0.0" y="25.5" width="303.5" height="44"/>
-                            </navigationBar>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3XY-33-6qJ">
-                                <rect key="frame" x="0.0" y="69.5" width="303.5" height="44"/>
-                                <items>
-                                    <navigationItem id="nK1-MH-ebX">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="iXx-gh-NRz">
-                                            <color key="tintColor" red="0.57380741830000004" green="0.56553578380000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <connections>
-                                                <segue destination="BYZ-38-t0r" kind="show" id="NO8-6e-Dzh"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Save" id="vDw-Nw-Lg5">
-                                            <color key="tintColor" red="0.57380741830000004" green="0.56553578380000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <connections>
-                                                <action selector="SaveMemberInfoButton:" destination="8p0-1I-C7K" id="T0G-CS-fKu"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Euf-uR-cTn">
-                                <rect key="frame" x="32" y="153.5" width="240" height="360"/>
+                                <rect key="frame" x="67.5" y="153.5" width="240" height="360"/>
                                 <subviews>
                                     <textField opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="orM-GZ-d8S">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="40"/>
@@ -207,31 +185,35 @@
                                     <constraint firstAttribute="width" constant="240" id="dqO-58-9L7"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4Z-Ye-SGu">
-                                <rect key="frame" x="114" y="69.5" width="76.5" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="92" id="JBR-3w-ZQC"/>
-                                    <constraint firstAttribute="height" constant="32.5" id="WqB-1j-rBj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="0.75527045329999998" green="0.84545012949999998" blue="0.37374503380000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </label>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3XY-33-6qJ">
+                                <rect key="frame" x="0.0" y="36" width="375" height="44"/>
+                                <textAttributes key="largeTitleTextAttributes">
+                                    <color key="textColor" red="0.092533580958843231" green="0.66834145784378052" blue="0.6762121319770813" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Sign In" id="nK1-MH-ebX">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="iXx-gh-NRz">
+                                            <color key="tintColor" red="0.57380741830000004" green="0.56553578380000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="show" id="NO8-6e-Dzh"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="vDw-Nw-Lg5">
+                                            <color key="tintColor" red="0.57380741830000004" green="0.56553578380000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="SaveMemberInfoButton:" destination="8p0-1I-C7K" id="T0G-CS-fKu"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.72156862745098038" green="0.72156862745098038" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="3XY-33-6qJ" firstAttribute="centerX" secondItem="J4Z-Ye-SGu" secondAttribute="centerX" id="2EO-Dg-4j6"/>
-                            <constraint firstItem="Euf-uR-cTn" firstAttribute="top" secondItem="J4Z-Ye-SGu" secondAttribute="bottom" constant="51.5" id="9Db-z0-lpe"/>
-                            <constraint firstItem="cbZ-wJ-pN8" firstAttribute="bottom" secondItem="3XY-33-6qJ" secondAttribute="top" id="9rU-AY-WP8"/>
+                            <constraint firstItem="3XY-33-6qJ" firstAttribute="leading" secondItem="DmV-ay-5rW" secondAttribute="leading" id="5Dh-gS-WEX"/>
                             <constraint firstItem="Euf-uR-cTn" firstAttribute="centerX" secondItem="cHS-0Q-C1B" secondAttribute="centerX" id="ATc-bs-Kw4"/>
-                            <constraint firstItem="DmV-ay-5rW" firstAttribute="trailing" secondItem="J4Z-Ye-SGu" secondAttribute="trailing" constant="114" id="HuE-q3-aNr"/>
-                            <constraint firstItem="3XY-33-6qJ" firstAttribute="trailing" secondItem="cbZ-wJ-pN8" secondAttribute="trailing" id="RRD-zD-zsu"/>
-                            <constraint firstItem="3XY-33-6qJ" firstAttribute="leading" secondItem="cHS-0Q-C1B" secondAttribute="leading" id="ghW-9K-lZ3"/>
-                            <constraint firstItem="J4Z-Ye-SGu" firstAttribute="leading" secondItem="DmV-ay-5rW" secondAttribute="leading" constant="114" id="gy0-FY-GMB"/>
                             <constraint firstItem="Euf-uR-cTn" firstAttribute="centerY" secondItem="cHS-0Q-C1B" secondAttribute="centerY" id="lUU-Fu-zF1"/>
-                            <constraint firstItem="J4Z-Ye-SGu" firstAttribute="top" secondItem="cbZ-wJ-pN8" secondAttribute="bottom" id="sfr-wu-baz"/>
-                            <constraint firstItem="cbZ-wJ-pN8" firstAttribute="leading" secondItem="3XY-33-6qJ" secondAttribute="leading" id="zIL-eG-wSx"/>
+                            <constraint firstItem="3XY-33-6qJ" firstAttribute="trailing" secondItem="DmV-ay-5rW" secondAttribute="trailing" id="vw7-u8-EZM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DmV-ay-5rW"/>
                     </view>
@@ -246,7 +228,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PIx-sg-nVl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-667.5" y="883.09859154929575"/>
+            <point key="canvasLocation" x="-668" y="882.90854572713647"/>
         </scene>
         <!--TabBarController-->
         <scene sceneID="LnE-te-v2A">

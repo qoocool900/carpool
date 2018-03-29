@@ -31,21 +31,27 @@ class SignInViewController: UIViewController,UITextFieldDelegate{
         
         // 先判斷輸入是否為空直, 不是的話把user key 的東西記下來 放到member裡面對應的參數
         guard FirstName.text != "" else{
+            showAlert(message: "沒有名字")
             return
         }
         guard LastName.text  != "" else{
+            showAlert(message: "沒有姓名")
             return
         }
         guard EmailText.text != "" else{
+            showAlert(message: "沒有email")
             return
         }
         guard PhoneText.text != "" else {
+            showAlert(message: "沒有電話")
             return
         }
         guard Password.text != "" else {
+            showAlert(message: "沒有預設密碼")
             return
         }
         guard Gender.text != "" else {
+            showAlert(message: "沒有性別")
             return
         }
         
