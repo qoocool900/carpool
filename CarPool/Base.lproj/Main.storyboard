@@ -141,51 +141,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Euf-uR-cTn">
-                                <rect key="frame" x="67.5" y="153.5" width="240" height="360"/>
-                                <subviews>
-                                    <textField opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="orM-GZ-d8S">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="40"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Zb-1O-eVj">
-                                        <rect key="frame" x="0.0" y="64" width="240" height="40"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" alpha="0.64999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f3V-RL-cBA">
-                                        <rect key="frame" x="0.0" y="128" width="240" height="40"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" alpha="0.64999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ymr-fx-Vz7">
-                                        <rect key="frame" x="0.0" y="192" width="240" height="40"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" alpha="0.64999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2cc-Kp-pl0">
-                                        <rect key="frame" x="0.0" y="256" width="240" height="40"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" alpha="0.64999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pBX-hK-kcd">
-                                        <rect key="frame" x="0.0" y="320" width="240" height="40"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="dqO-58-9L7"/>
-                                </constraints>
-                            </stackView>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3XY-33-6qJ">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3XY-33-6qJ">
                                 <rect key="frame" x="0.0" y="36" width="375" height="44"/>
                                 <textAttributes key="largeTitleTextAttributes">
                                     <color key="textColor" red="0.092533580958843231" green="0.66834145784378052" blue="0.6762121319770813" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -207,12 +163,57 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="VIj-oY-2m6">
+                                <rect key="frame" x="20" y="140" width="335" height="440"/>
+                                <subviews>
+                                    <textField opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="orM-GZ-d8S">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Zb-1O-eVj">
+                                        <rect key="frame" x="0.0" y="80" width="335" height="40"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" alpha="0.64999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f3V-RL-cBA">
+                                        <rect key="frame" x="0.0" y="160" width="335" height="40"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" alpha="0.64999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ymr-fx-Vz7">
+                                        <rect key="frame" x="0.0" y="240" width="335" height="40"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" alpha="0.64999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2cc-Kp-pl0">
+                                        <rect key="frame" x="0.0" y="320" width="335" height="40"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" alpha="0.64999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pBX-hK-kcd">
+                                        <rect key="frame" x="0.0" y="400" width="335" height="40"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.72156862745098038" green="0.72156862745098038" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="3XY-33-6qJ" firstAttribute="leading" secondItem="DmV-ay-5rW" secondAttribute="leading" id="5Dh-gS-WEX"/>
-                            <constraint firstItem="Euf-uR-cTn" firstAttribute="centerX" secondItem="cHS-0Q-C1B" secondAttribute="centerX" id="ATc-bs-Kw4"/>
-                            <constraint firstItem="Euf-uR-cTn" firstAttribute="centerY" secondItem="cHS-0Q-C1B" secondAttribute="centerY" id="lUU-Fu-zF1"/>
+                            <constraint firstItem="3XY-33-6qJ" firstAttribute="leading" secondItem="DmV-ay-5rW" secondAttribute="leading" id="PEv-t3-ymY"/>
+                            <constraint firstItem="VIj-oY-2m6" firstAttribute="leading" secondItem="DmV-ay-5rW" secondAttribute="leading" constant="20" id="Ry6-9I-dBQ"/>
+                            <constraint firstItem="3XY-33-6qJ" firstAttribute="top" secondItem="DmV-ay-5rW" secondAttribute="top" constant="16" id="W1b-p6-nQe"/>
+                            <constraint firstItem="3XY-33-6qJ" firstAttribute="trailing" secondItem="DmV-ay-5rW" secondAttribute="trailing" id="fdg-mK-oPC"/>
+                            <constraint firstItem="DmV-ay-5rW" firstAttribute="trailing" secondItem="VIj-oY-2m6" secondAttribute="trailing" constant="20" id="iX7-gz-EUU"/>
+                            <constraint firstItem="VIj-oY-2m6" firstAttribute="top" secondItem="3XY-33-6qJ" secondAttribute="bottom" constant="60" id="ubc-66-oQ6"/>
                             <constraint firstItem="3XY-33-6qJ" firstAttribute="trailing" secondItem="DmV-ay-5rW" secondAttribute="trailing" id="vw7-u8-EZM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DmV-ay-5rW"/>
