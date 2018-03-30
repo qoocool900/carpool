@@ -102,13 +102,7 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         print("didCompleteWith", error, Thread.isMainThread)
         fetchProfile()
-        
-        
     }
-    
-    
-    
-    
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         

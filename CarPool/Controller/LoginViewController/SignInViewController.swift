@@ -98,7 +98,7 @@ class SignInViewController: UIViewController,UITextFieldDelegate{
         Password.placeholder = "密碼"
         Password.font = UIFont(name: "System", size: 30)
         
-        Gender.placeholder = "男性輸入入M，女性輸入Ｆ"
+        Gender.placeholder = "男性輸入M，女性輸入Ｆ"
         Gender.font = UIFont(name: "System", size: 20)
         
         // Do any additional setup after loading the view.

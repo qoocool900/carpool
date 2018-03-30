@@ -32,7 +32,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="45"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" restorationIdentifier="SetUpSegment" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="baN-lN-uL9">
-                                        <rect key="frame" x="20" y="8.5" width="335" height="29"/>
+                                        <rect key="frame" x="10" y="8.5" width="355" height="29"/>
                                         <segments>
                                             <segment title="司機"/>
                                             <segment title="乘客"/>
@@ -45,11 +45,11 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.47843137250000001" green="0.84705882349999995" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="baN-lN-uL9" secondAttribute="trailing" constant="20" id="858-cU-O3w"/>
-                                    <constraint firstAttribute="bottom" secondItem="baN-lN-uL9" secondAttribute="bottom" constant="8.5" id="hho-HP-BYa"/>
+                                    <constraint firstItem="baN-lN-uL9" firstAttribute="top" secondItem="XZh-eu-onp" secondAttribute="top" constant="8.5" id="Tem-al-fda"/>
+                                    <constraint firstAttribute="bottom" secondItem="baN-lN-uL9" secondAttribute="bottom" constant="8.5" id="WdZ-E8-25D"/>
+                                    <constraint firstItem="baN-lN-uL9" firstAttribute="leading" secondItem="XZh-eu-onp" secondAttribute="leading" constant="10" id="Wrd-bj-WRG"/>
+                                    <constraint firstAttribute="trailing" secondItem="baN-lN-uL9" secondAttribute="trailing" constant="10" id="fMM-qd-lX1"/>
                                     <constraint firstAttribute="height" constant="45" id="pGM-ee-E7v"/>
-                                    <constraint firstItem="baN-lN-uL9" firstAttribute="top" secondItem="XZh-eu-onp" secondAttribute="top" constant="8.5" id="x55-IQ-clg"/>
-                                    <constraint firstItem="baN-lN-uL9" firstAttribute="leading" secondItem="XZh-eu-onp" secondAttribute="leading" constant="20" id="ztU-f7-mBN"/>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ww1-uh-x4D">
