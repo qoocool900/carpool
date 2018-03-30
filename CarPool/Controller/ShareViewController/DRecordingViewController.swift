@@ -83,9 +83,9 @@ class DRecordgingViewController: UIViewController, UITableViewDelegate,UITableVi
         
         let defaults = UserDefaults.standard
         let driverNo = defaults.integer(forKey: "memberNo")
-        print (driverNo)
+        print ("driverNo",driverNo)
         
-        Communicator.shared.getMyTrips(memberNo:driverNo , role: 1) { (error, result) in
+        Communicator.shared.getMyTrips(memberNo:driverNo , role: 1) { (error, result)in
             if let error = error {
                 NSLog("getDriverSetRecord fail: \(error)")
                 self.showAlert(message: "伺服器連線失敗")
