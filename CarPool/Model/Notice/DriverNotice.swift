@@ -19,8 +19,9 @@ class DriverNotice{
     var driverPhone:String
     var carNumber: String
     var carCapacity: Int
+    var status: Int
     
-    init(seqNo: Int, tripId: String, startLocation: String, endLocation: String, date: String, driverFirstName: String, driverLastName: String, driverPhone: String, carNumber: String, carCapacity:Int) {
+    init(seqNo: Int, tripId: String, startLocation: String, endLocation: String, date: String, driverFirstName: String, driverLastName: String, driverPhone: String, carNumber: String, carCapacity:Int,status: Int) {
         self.seqNo = seqNo
         self.tripId = tripId
         self.startLocation = startLocation
@@ -31,6 +32,7 @@ class DriverNotice{
         self.driverPhone = driverPhone
         self.carNumber = carNumber
         self.carCapacity = carCapacity
+        self.status = status
     }
     
     //Get Driver Shared From Database
@@ -88,11 +90,11 @@ class DriverNotice{
                     let driverPhone = record["phone"] as! String
                     let carNumber = record["carNo"] as! String
                     let carCapacity = record["people"] as! Int
-                    recording = DriverNotice(seqNo: seqNo,tripId: driverTripId, startLocation: startLocation, endLocation: endLocation, date: date,driverFirstName: driverFirstName, driverLastName: driverLastName,driverPhone: driverPhone,carNumber: carNumber,carCapacity: carCapacity)
+                    recording = DriverNotice(seqNo: seqNo,tripId: driverTripId, startLocation: startLocation, endLocation: endLocation, date: date,driverFirstName: driverFirstName, driverLastName: driverLastName,driverPhone: driverPhone,carNumber: carNumber,carCapacity: carCapacity,status: 0)
                     recordings.append(recording)
                 }
-                completion(recordings)
             }
+            completion(recordings)
             let msg = response ["msg"] as! String
             print(msg)
         }
@@ -128,13 +130,81 @@ class DriverNotice{
                     let driverPhone = record["phone"] as! String
                     let carNumber = record["carNo"] as! String
                     let carCapacity = record["people"] as! Int
-                    recording = DriverNotice(seqNo: seqNo,tripId: driverTripId, startLocation: startLocation, endLocation: endLocation, date: date,driverFirstName: driverFirstName, driverLastName: driverLastName,driverPhone: driverPhone,carNumber: carNumber,carCapacity: carCapacity)
+                    recording = DriverNotice(seqNo: seqNo,tripId: driverTripId, startLocation: startLocation, endLocation: endLocation, date: date,driverFirstName: driverFirstName, driverLastName: driverLastName,driverPhone: driverPhone,carNumber: carNumber,carCapacity: carCapacity,status: 0)
                     recordings.append(recording)
                 }
-                completion(recordings)
-            } 
+            }
+            completion(recordings)
             let msg = response ["msg"] as! String
-            print(msg)
+            print("Status = 0 :\(msg)")
+        }
+        Communicator.shared.getMyRequests(tripID: passengerTripId , role: 0, request: 0, status: 1) { (error, result) in
+            
+            if let error = error {
+                NSLog("伺服器連線錯誤: \(error)")
+                return
+            }
+            // success
+            guard result?.isEmpty == false else {
+                return
+            }
+            let response = result!["response"] as! [String:Any]
+            let content = result!["content"] as! [[String:Any]]
+            let code = response["code"] as! Int
+            if code == 0 {
+                var recording: DriverNotice
+                for record in content{
+                    let seqNo = record["reqNo"] as! Int
+                    let driverTripId = record["tripID"] as! String
+                    let startLocation = record["boarding"] as! String
+                    let endLocation = record["destination"] as! String
+                    let date = (record["date"] as! NSString).substring(with: NSRange(location:0, length:16))
+                    let driverFirstName = record["firstName"] as! String
+                    let driverLastName = record["lastName"] as! String
+                    let driverPhone = record["phone"] as! String
+                    let carNumber = record["carNo"] as! String
+                    let carCapacity = record["people"] as! Int
+                    recording = DriverNotice(seqNo: seqNo,tripId: driverTripId, startLocation: startLocation, endLocation: endLocation, date: date,driverFirstName: driverFirstName, driverLastName: driverLastName,driverPhone: driverPhone,carNumber: carNumber,carCapacity: carCapacity,status: 1)
+                    recordings.append(recording)
+                }
+            }
+            completion(recordings)
+            let msg = response ["msg"] as! String
+            print("Status = 1 :\(msg)")
+        }
+        Communicator.shared.getMyRequests(tripID: passengerTripId , role: 0, request: 0, status: 2) { (error, result) in
+            
+            if let error = error {
+                NSLog("伺服器連線錯誤: \(error)")
+                return
+            }
+            // success
+            guard result?.isEmpty == false else {
+                return
+            }
+            let response = result!["response"] as! [String:Any]
+            let content = result!["content"] as! [[String:Any]]
+            let code = response["code"] as! Int
+            if code == 0 {
+                var recording: DriverNotice
+                for record in content{
+                    let seqNo = record["reqNo"] as! Int
+                    let driverTripId = record["tripID"] as! String
+                    let startLocation = record["boarding"] as! String
+                    let endLocation = record["destination"] as! String
+                    let date = (record["date"] as! NSString).substring(with: NSRange(location:0, length:16))
+                    let driverFirstName = record["firstName"] as! String
+                    let driverLastName = record["lastName"] as! String
+                    let driverPhone = record["phone"] as! String
+                    let carNumber = record["carNo"] as! String
+                    let carCapacity = record["people"] as! Int
+                    recording = DriverNotice(seqNo: seqNo,tripId: driverTripId, startLocation: startLocation, endLocation: endLocation, date: date,driverFirstName: driverFirstName, driverLastName: driverLastName,driverPhone: driverPhone,carNumber: carNumber,carCapacity: carCapacity,status: 2)
+                    recordings.append(recording)
+                }
+            }
+            completion(recordings)
+            let msg = response ["msg"] as! String
+            print("Status = 2 :\(msg)")
         }
     }
     

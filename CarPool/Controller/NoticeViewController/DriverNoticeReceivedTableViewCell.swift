@@ -8,8 +8,8 @@
 import UIKit
 
 protocol DriverReceivedCellDelegate {
-    func updateReceivedAcceptStatus(reqNo: Int, status: Int, tripId: String)
-    func updateReceivedRefuseStatus(reqNo: Int, status: Int, tripId: String)
+    func updateReceivedAcceptStatus(Cell: UITableViewCell,reqNo: Int, status: Int, tripId: String)
+    func updateReceivedRefuseStatus(Cell: UITableViewCell,reqNo: Int, status: Int, tripId: String)
 }
 
 class DriverNoticeReceivedTableViewCell: UITableViewCell {
@@ -32,6 +32,7 @@ class DriverNoticeReceivedTableViewCell: UITableViewCell {
     var seqNo = 0
     var tripId = ""
     var passengerPhone = ""
+    var status = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -55,6 +56,8 @@ class DriverNoticeReceivedTableViewCell: UITableViewCell {
             passengerCountLabel.text = "\((noticeData?.passengerCount)!)"
             passengerNameLabel.text = passengerLastName + " " + passengerFirstName
             passengerPhone = (noticeData?.passengerPhone)!
+            status = (noticeData?.status)!
+            checkSatusImage(requestStatus: status)
         }
     }
     
@@ -63,12 +66,12 @@ class DriverNoticeReceivedTableViewCell: UITableViewCell {
     }
     
     @IBAction func acceptBtnPressed(sender: Any) {
-        delegate?.updateReceivedAcceptStatus(reqNo: seqNo, status: accept, tripId: tripId)
+        delegate?.updateReceivedAcceptStatus(Cell:self,reqNo: seqNo, status: accept, tripId: tripId)
         checkSatusImage(requestStatus: accept)
     }
     
     @IBAction func refuseBtnPressed(_ sender: Any) {
-        delegate?.updateReceivedRefuseStatus(reqNo: seqNo, status: refuse, tripId: tripId)
+        delegate?.updateReceivedRefuseStatus(Cell:self,reqNo: seqNo, status: refuse, tripId: tripId)
         checkSatusImage(requestStatus: refuse)
     }
     
@@ -78,12 +81,16 @@ class DriverNoticeReceivedTableViewCell: UITableViewCell {
             requestStatusIng.image = UIImage(named: "radio_click")
             requestStatusMatch.image = UIImage(named: "radio")
             requestStatusCancel.image = UIImage(named: "radio")
+            acceptBtn.isHidden = false
+            refuseBtn.isHidden = false
+            phoneBtn.isEnabled = true
         case accept:
             requestStatusIng.image = UIImage(named: "radio")
             requestStatusMatch.image = UIImage(named: "radio_click")
             requestStatusCancel.image = UIImage(named: "radio")
             acceptBtn.isHidden = true
             refuseBtn.isHidden = true
+            phoneBtn.isEnabled = true
             
         case refuse:
             requestStatusIng.image = UIImage(named: "radio")
@@ -96,7 +103,6 @@ class DriverNoticeReceivedTableViewCell: UITableViewCell {
             break
         }
     }
-
 }
 
 

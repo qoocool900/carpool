@@ -35,7 +35,6 @@ class DriverRecordViewController: UIViewController, UITableViewDelegate, UITable
             self.historyItem = recordings
             self.tableView.reloadData()
         }
-        tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

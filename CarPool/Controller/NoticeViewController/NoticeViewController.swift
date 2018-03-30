@@ -11,7 +11,7 @@ class NoticeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let image = UIImage(named: "tab_alarm")?.withRenderingMode(.alwaysOriginal)
+//        let image = UIImage(named: "tab_alarm")?.withRenderingMode(.alwaysOriginal)
         driverContainer.isHidden = true
         // Do any additional setup after loading the view.
     }
