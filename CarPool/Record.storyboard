@@ -387,6 +387,7 @@
                                             <outlet property="endLocationLabel" destination="GR3-4v-3W2" id="EJh-EI-koU"/>
                                             <outlet property="offTimeLabel" destination="FMo-yO-0yF" id="VOG-eA-6pC"/>
                                             <outlet property="onTimeLabel" destination="DGW-2t-hyC" id="OdQ-xQ-R10"/>
+                                            <outlet property="passengerCountLabel" destination="8Mm-dt-5yH" id="x1H-On-z7a"/>
                                             <outlet property="passengerNameLabel" destination="DKl-0V-oBR" id="HPV-rW-Msh"/>
                                             <outlet property="phoneBtn" destination="TcK-oH-jJK" id="Ge2-my-tFU"/>
                                             <outlet property="startLocationLabel" destination="q2Y-1f-kiY" id="Tsx-az-5u3"/>
