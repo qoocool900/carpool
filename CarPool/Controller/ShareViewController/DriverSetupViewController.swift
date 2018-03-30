@@ -126,6 +126,13 @@ class DriverSetupViewController: UIViewController {
         }
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated) // No need for semicolon
+        let defaults = UserDefaults.standard
+        let driverMemberNo = defaults.integer(forKey: "memberNo")
+        getCarData(memberNo: driverMemberNo)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -138,8 +145,8 @@ class DriverSetupViewController: UIViewController {
         if  DriverSetupViewController.driverCarNo != nil {
             CarNumber.text = DriverSetupViewController.driverCarNo
         }else{
-            CarNumber.font = UIFont(name: "System", size: 15)
-            CarNumber.placeholder = "請務必輸入車牌號碼"
+            CarNumber.font = UIFont(name: "System", size: 8)
+            CarNumber.placeholder = "請輸入車牌號碼"
         }
         
         Destination.font = UIFont(name: "System", size: 25)
@@ -201,26 +208,6 @@ class DriverSetupViewController: UIViewController {
         }
         }
     }
-//        Communicator.shared.modifyCarInfo(car, memberNo: driverMemberNo, doneHandler: { (error, result) in
-//            if let error = error {
-//                NSLog("伺服器連線錯誤: \(error)")
-//                return
-//            }
-//            // success
-//            let response = result!["response"] as! [String:Any]
-//            let code = response["code"] as! Int
-//            if code == 0 {
-//                let defaults = UserDefaults.standard
-//                defaults.set(DriverSetupViewController.driverCarNo, forKey: "carNo")
-//                print("carNo",DriverSetupViewController.driverCarNo)
-//                defaults.set(car.color, forKey: "carColor")
-//                defaults.set(car.brand, forKey: "carBrand")
-//                defaults.synchronize()
-//            }
-//            let msg = response ["msg"] as! String
-//            print(msg)
-//        })
-//    }
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

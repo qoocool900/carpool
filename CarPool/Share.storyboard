@@ -129,9 +129,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="509"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DriverSetup03" translatesAutoresizingMaskIntoConstraints="NO" id="JLs-Y2-tal">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="512"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DriverSetup03" translatesAutoresizingMaskIntoConstraints="NO" id="JLs-Y2-tal">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="509"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="z3L-SC-iiT">
                                 <rect key="frame" x="36" y="70" width="302" height="280"/>
@@ -315,8 +314,12 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="PDf-ku-PPj" firstAttribute="top" secondItem="It3-xP-oVO" secondAttribute="top" id="7yF-hN-GrI"/>
+                            <constraint firstItem="JLs-Y2-tal" firstAttribute="leading" secondItem="t0u-Bh-ViG" secondAttribute="leading" id="Axc-Xi-d7E"/>
+                            <constraint firstItem="JLs-Y2-tal" firstAttribute="trailing" secondItem="t0u-Bh-ViG" secondAttribute="trailing" id="Xdi-KA-UYO"/>
+                            <constraint firstAttribute="bottom" secondItem="JLs-Y2-tal" secondAttribute="bottom" id="Y5M-I2-U11"/>
                             <constraint firstItem="PDf-ku-PPj" firstAttribute="trailing" secondItem="t0u-Bh-ViG" secondAttribute="trailing" id="Zl8-MB-jdO"/>
                             <constraint firstItem="PDf-ku-PPj" firstAttribute="leading" secondItem="t0u-Bh-ViG" secondAttribute="leading" id="hpS-i0-p7y"/>
+                            <constraint firstItem="JLs-Y2-tal" firstAttribute="top" secondItem="It3-xP-oVO" secondAttribute="top" id="muE-fm-xmV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="t0u-Bh-ViG"/>
                     </view>
@@ -915,11 +918,15 @@
                             <constraint firstItem="Ipv-kj-8Dl" firstAttribute="top" secondItem="mZW-aE-SKO" secondAttribute="top" id="21X-eu-kKI"/>
                             <constraint firstItem="Ipv-kj-8Dl" firstAttribute="leading" secondItem="doz-ho-0S6" secondAttribute="leading" id="9Tu-Lc-XRe"/>
                             <constraint firstItem="mQe-I9-pw7" firstAttribute="leading" secondItem="doz-ho-0S6" secondAttribute="leading" constant="47" id="A2b-9C-J3v"/>
+                            <constraint firstItem="6PO-KO-7u0" firstAttribute="leading" secondItem="doz-ho-0S6" secondAttribute="leading" id="Bfm-RP-XuF"/>
+                            <constraint firstItem="6PO-KO-7u0" firstAttribute="bottom" secondItem="doz-ho-0S6" secondAttribute="bottom" id="Ckm-Z2-ew8"/>
                             <constraint firstItem="6PO-KO-7u0" firstAttribute="top" secondItem="mZW-aE-SKO" secondAttribute="top" id="JyC-u7-bR7"/>
                             <constraint firstItem="doz-ho-0S6" firstAttribute="trailing" secondItem="mQe-I9-pw7" secondAttribute="trailing" constant="48" id="KUt-ha-hAo"/>
+                            <constraint firstItem="6PO-KO-7u0" firstAttribute="top" secondItem="mZW-aE-SKO" secondAttribute="top" id="UTH-O5-A6e"/>
                             <constraint firstItem="Ipv-kj-8Dl" firstAttribute="trailing" secondItem="doz-ho-0S6" secondAttribute="trailing" id="ZnR-Tv-bA5"/>
                             <constraint firstItem="6PO-KO-7u0" firstAttribute="leading" secondItem="doz-ho-0S6" secondAttribute="leading" id="fMn-nY-3ry"/>
                             <constraint firstItem="6PO-KO-7u0" firstAttribute="bottom" secondItem="doz-ho-0S6" secondAttribute="bottom" id="gL7-7R-Oev"/>
+                            <constraint firstItem="6PO-KO-7u0" firstAttribute="trailing" secondItem="doz-ho-0S6" secondAttribute="trailing" id="gpc-yV-xQs"/>
                             <constraint firstItem="6PO-KO-7u0" firstAttribute="trailing" secondItem="doz-ho-0S6" secondAttribute="trailing" id="kiU-BB-kys"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="doz-ho-0S6"/>
