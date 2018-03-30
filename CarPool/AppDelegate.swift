@@ -28,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         //可以直接進來
         // 判斷是否登入，分別帶入不同畫面
+        
+        
         if memberNo == nil || memberNo == 0 {
             let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LogIn")
             self.window?.rootViewController = controller

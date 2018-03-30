@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import AudioToolbox
+
 
 class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DriverReceivedCellDelegate {
     @IBOutlet weak var startLocationLabel: UILabel!
@@ -13,27 +15,35 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var carCapacityLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    let systemSoundId: SystemSoundID = 1016
     
     let loginMemberNo = UserDefaults.standard.integer(forKey: "memberNo")
     let sectionArray = ["我收到的請求", "我發出的邀請"]
     var driverTripId = ""
     var receivedItem = [PassengerNotice]()
     var requestItem = [PassengerNotice]()
+    var timer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         dataFromDataBase()
-        if #available(iOS 10.0, *) {
-            Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
-                self.dataFromDataBase()
-            }
-        } else {
-            Timer.scheduledTimer(timeInterval: 5,target: self,selector: #selector(self.dataFromDataBase),userInfo: nil,repeats: true)
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         dataFromDataBase()
+        
+        if #available(iOS 10.0, *) {
+            timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
+                self.dataFromDataBase()
+            }
+        } else {
+            timer = Timer.scheduledTimer(timeInterval: 5,target: self,selector: #selector(self.dataFromDataBase),userInfo: nil,repeats: true)
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        timer.invalidate()
     }
     
     @objc func dataFromDataBase(){
@@ -44,6 +54,10 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
             self.carCapacityLabel.text = "\(trip.people)"
             self.dateLabel.text = (trip.date as NSString).substring(with: NSRange(location:0, length:16))
             self.driverTripId = trip.tripId
+            
+//          print("dataFromDataBase", self.receivedItem.count, self.requestItem.count)
+            self.tableView.reloadData()
+            
             PassengerNotice.getDriverReceivedNoticeInfo(driverTripId: self.driverTripId) { (received) in
                 self.receivedItem = received
                 self.tableView.reloadData()
@@ -51,6 +65,7 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
             PassengerNotice.getDriverRequestNoticeInfo(driverTripId: self.driverTripId) { (request) in
                 self.requestItem = request
                 self.tableView.reloadData()
+//                AudioServicesPlaySystemSound(self.systemSoundId)
             }
         }
     }
@@ -81,6 +96,7 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("numberOfRowsInSection")
         switch section {
         case 0:
             return receivedItem.count
@@ -150,7 +166,6 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
             let msg = response ["msg"] as! String
             print(msg)
         }
-        self.tableView.reloadData()
     }
 }
 
