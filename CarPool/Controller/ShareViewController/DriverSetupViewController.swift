@@ -133,14 +133,9 @@ class DriverSetupViewController: UIViewController {
         let defaults = UserDefaults.standard
         let driverMemberNo = defaults.integer(forKey: "memberNo")
         print(driverMemberNo)
+        
         getCarData(memberNo:driverMemberNo)
-        
-        //        CarNumber.font = UIFont(name: "System", size: 15)
-        //        CarNumber.placeholder = "請務必輸入車牌號碼"
-        
-//        DriverSetupViewController.driverCarNo  = defaults.string(forKey:"DrivercarNo" )
-//        print("DrivercarNo",DriverSetupViewController.driverCarNo)
-        if  DriverSetupViewController.driverCarNo != "" {
+        if  DriverSetupViewController.driverCarNo != nil {
             CarNumber.text = DriverSetupViewController.driverCarNo
         }else{
             CarNumber.font = UIFont(name: "System", size: 15)
