@@ -24,11 +24,11 @@ class DriverNoticeViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         dataFromDataBase()
         if #available(iOS 10.0, *) {
-            Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
+            Timer.scheduledTimer(withTimeInterval: 8, repeats: true) { (timer) in
                 self.dataFromDataBase()
             }
         } else {
-            Timer.scheduledTimer(timeInterval: 5,target: self,selector: #selector(self.dataFromDataBase),userInfo: nil,repeats: true)
+            Timer.scheduledTimer(timeInterval: 8,target: self,selector: #selector(self.dataFromDataBase),userInfo: nil,repeats: true)
         }
     }
     

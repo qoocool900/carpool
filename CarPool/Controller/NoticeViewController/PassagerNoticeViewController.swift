@@ -30,11 +30,11 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
         super.viewDidLoad()
         dataFromDataBase()
         if #available(iOS 10.0, *) {
-            Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
+            Timer.scheduledTimer(withTimeInterval: 8, repeats: true) { (timer) in
                 self.dataFromDataBase()
             }
         } else {
-            Timer.scheduledTimer(timeInterval: 5,target: self,selector: #selector(self.dataFromDataBase),userInfo: nil,repeats: true)
+            Timer.scheduledTimer(timeInterval: 8,target: self,selector: #selector(self.dataFromDataBase),userInfo: nil,repeats: true)
         }
     }
     
@@ -151,10 +151,8 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
             let response = result!["response"] as! [String:Any]
             let code = response["code"] as! Int
             if code == 0 {
-                DispatchQueue.main.async {
-                    self.showAlert(message: "已拒絕邀請/請求")
-                    self.dataFromDataBase()
-                }
+                self.showAlert(message: "已拒絕邀請/請求")
+                self.dataFromDataBase()
             }
             let msg = response ["msg"] as! String
             print(msg)
