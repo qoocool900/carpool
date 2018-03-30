@@ -259,9 +259,9 @@
 			children = (
 				3E40F9E6205172350054168C /* LoginViewController */,
 				3E8AC8DA2049939200DDD5AE /* ViewController.swift */,
+				3E40F9EB205172D10054168C /* ShareViewController */,
 				3E8AC8F42049945A00DDD5AE /* TabBarController.swift */,
 				3E7AC9ED205194B6003EB8E2 /* MapViewController */,
-				3E40F9EB205172D10054168C /* ShareViewController */,
 				3E7ACA2520576233003EB8E2 /* NoticeViewController */,
 				C8E41F98204EF4BA00F3C77D /* RecordViewController */,
 				C8349E14204E7EB40011B124 /* SettingViewController */,

@@ -215,7 +215,7 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
                     })
                     
                     getFacebookInfo(mail: LoginViewController.fbEmail,password:LoginViewController.fbPassword )
-                    let fbmemberNo = defaults.integer(forKey: "fbMemberNo")
+                    let fbmemberNo = defaults.integer(forKey: "MemberNo")
                     print("fbmemberNo",fbmemberNo)
                     
                 }
@@ -252,80 +252,80 @@ func getFacebookInfo(mail: String, password: String){
             let fbMemberNo = content["memberNo"] as! Int
             print("fbMemberNo",fbMemberNo)
             let defaults = UserDefaults.standard
-            defaults.set(fbMemberNo, forKey: "fbMemberNo")
+            defaults.set(fbMemberNo, forKey: "MemberNo")
             defaults.synchronize()
         }
         let msg = response ["msg"] as! String
         print(msg)
     }
 }
-    extension UITextView: UITextViewDelegate {
-        override open var bounds: CGRect {
-            didSet {
-                self.resizePlaceholder()
-            }
-        }
-        
-        public var placeholder: String? {
-            get {
-                var placeholderText: String?
-                
-                if let placeholderLbl = self.viewWithTag(50) as? UILabel {
-                    placeholderText = placeholderLbl.text
-                }
-                
-                return placeholderText
-            }
-            set {
-                if let placeholderLbl = self.viewWithTag(50) as! UILabel? {
-                    placeholderLbl.text = newValue
-                    placeholderLbl.sizeToFit()
-                } else {
-                    self.addPlaceholder(newValue!)
-                }
-            }
-        }
-        
-        public func textViewDidChange(_ textView: UITextView) {
-            if let placeholderLbl = self.viewWithTag(50) as? UILabel {
-                placeholderLbl.isHidden = self.text.characters.count > 0
-            }
-        }
-        
-        private func resizePlaceholder() {
-            if let placeholderLbl = self.viewWithTag(50) as! UILabel? {
-                let x = self.textContainer.lineFragmentPadding
-                let y = self.textContainerInset.top - 2
-                let width = self.frame.width - (x * 2)
-                let height = placeholderLbl.frame.height
-                
-                placeholderLbl.frame = CGRect(x: x, y: y, width: width, height: height)
-            }
-        }
-        
-        private func addPlaceholder(_ placeholderText: String) {
-            let placeholderLbl = UILabel()
-            
-            placeholderLbl.text = placeholderText
-            placeholderLbl.sizeToFit()
-            
-            placeholderLbl.font = self.font
-            placeholderLbl.textColor = UIColor.lightGray
-            placeholderLbl.tag = 50
-            
-            placeholderLbl.isHidden = self.text.characters.count > 0
-            
-            self.addSubview(placeholderLbl)
+extension UITextView: UITextViewDelegate {
+    override open var bounds: CGRect {
+        didSet {
             self.resizePlaceholder()
-            self.delegate = self
         }
     }
-    extension UITextView {
-        func decreaseFontSize () {
-            self.font =  UIFont(name: self.font!.fontName, size: self.font!.pointSize-10)!
+    
+    public var placeholder: String? {
+        get {
+            var placeholderText: String?
+            
+            if let placeholderLbl = self.viewWithTag(50) as? UILabel {
+                placeholderText = placeholderLbl.text
+            }
+            
+            return placeholderText
         }
+        set {
+            if let placeholderLbl = self.viewWithTag(50) as! UILabel? {
+                placeholderLbl.text = newValue
+                placeholderLbl.sizeToFit()
+            } else {
+                self.addPlaceholder(newValue!)
+            }
+        }
+    }
+    
+    public func textViewDidChange(_ textView: UITextView) {
+        if let placeholderLbl = self.viewWithTag(50) as? UILabel {
+            placeholderLbl.isHidden = self.text.characters.count > 0
+        }
+    }
+    
+    private func resizePlaceholder() {
+        if let placeholderLbl = self.viewWithTag(50) as! UILabel? {
+            let x = self.textContainer.lineFragmentPadding
+            let y = self.textContainerInset.top - 2
+            let width = self.frame.width - (x * 2)
+            let height = placeholderLbl.frame.height
+            
+            placeholderLbl.frame = CGRect(x: x, y: y, width: width, height: height)
+        }
+    }
+    
+    private func addPlaceholder(_ placeholderText: String) {
+        let placeholderLbl = UILabel()
         
+        placeholderLbl.text = placeholderText
+        placeholderLbl.sizeToFit()
         
+        placeholderLbl.font = self.font
+        placeholderLbl.textColor = UIColor.lightGray
+        placeholderLbl.tag = 50
+        
+        placeholderLbl.isHidden = self.text.characters.count > 0
+        
+        self.addSubview(placeholderLbl)
+        self.resizePlaceholder()
+        self.delegate = self
+    }
+}
+extension UITextView {
+    func decreaseFontSize () {
+        self.font =  UIFont(name: self.font!.fontName, size: self.font!.pointSize-10)!
+    }
+    
+    
 }
 
 //
