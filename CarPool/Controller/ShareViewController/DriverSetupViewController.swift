@@ -65,52 +65,58 @@ class DriverSetupViewController: UIViewController {
             // Use your location
             DriverSetupViewController.destinationLat = location.coordinate.latitude
             DriverSetupViewController.destinationLong = location.coordinate.longitude
-    print("destinationgLat,destinationLong",DriverSetupViewController.destinationLat,DriverSetupViewController.destinationLong)
+            
+            doShare()
+            print("destinationgLat,destinationLong",DriverSetupViewController.destinationLat,DriverSetupViewController.destinationLong)
         }
         
-        let BoarddingAddress = DepartureText.text
-        let BoardingGeoCoder = CLGeocoder()
-        BoardingGeoCoder.geocodeAddressString(BoarddingAddress!) { (placemarks, error) in
-            guard
-                let placemarks = placemarks,
-                let location = placemarks.first?.location
-                else {
-                    // handle no location found
-                    // assertionFailure()
-                    self.showAlert(message: "No data found!")
-                    return
-            }
-            // Use your location
-            DriverSetupViewController.boardingLat = location.coordinate.latitude
-            DriverSetupViewController.boardingLong = location.coordinate.longitude
-        print("boardingLat,boardingLong",DriverSetupViewController.boardingLat,DriverSetupViewController.boardingLong)
-            
-            
-            let saveDriverRecord = DriverTrip(tripId: "", memberNo: 0, departure: "", destination: "", carNo: "", people: 0, fee: 0, status: "", date: "", departureLat: DriverSetupViewController.boardingLat!, departureLon: DriverSetupViewController.boardingLong!, destinationLat: DriverSetupViewController.destinationLat!, destinationLon: DriverSetupViewController.destinationLong!)
-            
-            saveDriverRecord.memberNo = driverMemberNo
-            saveDriverRecord.destination = self.Destination.text!
-            saveDriverRecord.departure = self.DepartureText.text!
-            saveDriverRecord.people = Int(self.PeopleNumber.text!)!
-            saveDriverRecord.carNo = self.CarNumber.text!
-            saveDriverRecord.fee = Int(self.FeeField.text!)!
-            saveDriverRecord.destinationLat = DriverSetupViewController.destinationLat!
-            saveDriverRecord.destinationLon = DriverSetupViewController.destinationLong!
-            saveDriverRecord.departureLat = DriverSetupViewController.boardingLat!
-            saveDriverRecord.departureLon = DriverSetupViewController.boardingLong!
-            
-            Communicator.shared.modifyDriverTrip(saveDriverRecord, mode: "C") { (error, result) in
-                if let error = error {
-                    NSLog("doSetUp fail: \(error)")
-                    self.showAlert(message:"伺服器有誤")
+        func doShare() {
+            let BoarddingAddress = DepartureText.text
+            let BoardingGeoCoder = CLGeocoder()
+            BoardingGeoCoder.geocodeAddressString(BoarddingAddress!) { (placemarks, error) in
+                guard
+                    let placemarks = placemarks,
+                    let location = placemarks.first?.location
+                    else {
+                        // handle no location found
+                        // assertionFailure()
+                        self.showAlert(message: "No data found!")
+                        return
                 }
-                // success
-                NSLog("乘客發起成功")
-                self.showAlert(message: "發起成功")
+                // Use your location
+                DriverSetupViewController.boardingLat = location.coordinate.latitude
+                DriverSetupViewController.boardingLong = location.coordinate.longitude
+                print("boardingLat,boardingLong",DriverSetupViewController.boardingLat,DriverSetupViewController.boardingLong)
+                
+                
+                let saveDriverRecord = DriverTrip(tripId: "", memberNo: 0, departure: "", destination: "", carNo: "", people: 0, fee: 0, status: "", date: "", departureLat: DriverSetupViewController.boardingLat!, departureLon: DriverSetupViewController.boardingLong!, destinationLat: DriverSetupViewController.destinationLat!, destinationLon: DriverSetupViewController.destinationLong!)
+                
+                saveDriverRecord.memberNo = driverMemberNo
+                saveDriverRecord.destination = self.Destination.text!
+                saveDriverRecord.departure = self.DepartureText.text!
+                saveDriverRecord.people = Int(self.PeopleNumber.text!)!
+                saveDriverRecord.carNo = self.CarNumber.text!
+                saveDriverRecord.fee = Int(self.FeeField.text!)!
+                saveDriverRecord.destinationLat = DriverSetupViewController.destinationLat!
+                saveDriverRecord.destinationLon = DriverSetupViewController.destinationLong!
+                saveDriverRecord.departureLat = DriverSetupViewController.boardingLat!
+                saveDriverRecord.departureLon = DriverSetupViewController.boardingLong!
+                
+                Communicator.shared.modifyDriverTrip(saveDriverRecord, mode: "C") { (error, result) in
+                    if let error = error {
+                        NSLog("doSetUp fail: \(error)")
+                        self.showAlert(message:"伺服器有誤")
+                    }
+                    // success
+                    NSLog("乘客發起成功")
+                    self.showAlert(message: "發起成功")
+                }
+                
+                
             }
-            
-            
         }
+        
+        
         
     }
     
