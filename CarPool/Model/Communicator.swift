@@ -18,6 +18,7 @@ typealias DownloadDoneHandler = (_ error:Error?, _ result:Data?) -> Void
 
 class Communicator {
     static let BASEURL = "http://114.34.110.248:7070/carpool/"
+//    static let BASEURL = "http://192.168.196.117:8080/carpool/"
     let REGISTER_URL = BASEURL + "RegisterServlet"
     let LOGIN_URL = BASEURL + "LoginServlet"
     let MEMBER_URL = BASEURL + "MemberServlet"
@@ -97,8 +98,8 @@ class Communicator {
     
     // MARK: - TripLocationServlet
     // 下載路線
-    func getRoutes(tripId:String, memberNo:Int, doneHandler:@escaping DoneHandler) {
-        let parameters: [String : Any] = [ACTION:"getRoutes", "tripID":tripId, "memberNo":memberNo]
+    func getRoutes(memberNo:Int, doneHandler:@escaping DoneHandler) {
+        let parameters: [String : Any] = [ACTION:"getRoutes", "memberNo":memberNo]
         doPost(urlString: LOCATION_URL, parameters: parameters, doneHandler: doneHandler)
     }
     
@@ -185,6 +186,12 @@ class Communicator {
     func updateStatus(reqNo:Int, tripId:String, status:Int, doneHandler:@escaping DoneHandler) {
         let parameters: [String : Any] = [ACTION:"updateStatus", "reqNo":reqNo, "tripID":tripId, "status":status]
         print("updateStatus: reqNo\(reqNo), tripID:\(tripId), status:\(status)")
+        doPost(urlString: CAR_POOL_URL, parameters: parameters, doneHandler: doneHandler)
+    }
+    // 取得配對成功tripID
+    func getMatchTripId(reqNo:Int, doneHandler:@escaping DoneHandler) {
+        let parameters: [String : Any] = [ACTION:"getMatchTripID", "reqNo":reqNo]
+        print("getMatchTripID: reqNo\(reqNo)")
         doPost(urlString: CAR_POOL_URL, parameters: parameters, doneHandler: doneHandler)
     }
     

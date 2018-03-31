@@ -168,11 +168,15 @@ class QRcodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             self.dismiss(animated: true, completion: nil)
         }
         let onSetting = UIAlertAction (title: "上車確認", style: .default ) { (action) in
-            //...
+            let memberNo = ["\(self.scanMemberNo)"]
+            self.resultHandler?(true, memberNo)
+            self.resultHandler = nil
             self.dismiss(animated: true, completion: nil)
         }
         let offSetting = UIAlertAction (title: "下車確認", style: .default ) { (action) in
-            //...
+            let memberNo = ["\(self.scanMemberNo)"]
+            self.resultHandler?(true, memberNo)
+            self.resultHandler = nil
             self.dismiss(animated: true, completion: nil)
         }
         let cancel = UIAlertAction (title: "取消", style: .default ) { (action) in

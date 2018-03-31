@@ -18,7 +18,12 @@ class Common {
         var myDriverTripsArray: [DriverTrip] = []
         diverTripsArray.forEach { (trip) in
             let tripId = trip["trip_ip"] as! String
-            //let memberNo = trip["member_no"] as! Int
+            let memberNo: Int?
+            if let memberNumber = trip["member_no"] {
+                memberNo = memberNumber as? Int
+            } else {
+                memberNo = 0
+            }
             let departure = trip["boarding"] as! String
             let destination = trip["destination"] as! String
             let carNo = trip["car_no"] as? String
@@ -31,7 +36,7 @@ class Common {
             //let destinationLat = trip["lat"] as! Double
             //let destinationLon = trip["lon"] as! Double
             
-            let driverTrip = DriverTrip(tripId: tripId, memberNo: 0, departure: departure, destination: destination, carNo: carNo!, people: people, fee: fee, status: "", date: date, departureLat: 0, departureLon: 0, destinationLat: 0, destinationLon: 0)
+            let driverTrip = DriverTrip(tripId: tripId, memberNo: memberNo!, departure: departure, destination: destination, carNo: carNo!, people: people, fee: fee, status: "", date: date, departureLat: 0, departureLon: 0, destinationLat: 0, destinationLon: 0)
             myDriverTripsArray.append(driverTrip)
         }
         return myDriverTripsArray

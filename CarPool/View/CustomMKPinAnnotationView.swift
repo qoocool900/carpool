@@ -66,7 +66,9 @@ class CustomMKPinAnnotationView: MKAnnotationView {
                     UIView.animate(withDuration: 0.3000, animations: {
                         self.callOutView!.alpha = 0.0
                     }, completion: { (success) in
-                        self.callOutView!.removeFromSuperview()
+                        if self.callOutView != nil {
+                            self.callOutView!.removeFromSuperview()
+                        }
                     })
                 } else {
                     self.callOutView!.removeFromSuperview() } // just remove it.

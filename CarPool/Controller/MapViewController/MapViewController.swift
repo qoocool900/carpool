@@ -34,16 +34,30 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var getInButton: RoundButton!
     @IBOutlet weak var sosButton: RoundButton!
     @IBOutlet weak var mainMapView: MKMapView!
+    @IBOutlet weak var clearTrackButton: UIButton!
+    
     
     var timer:Timer?
+    var timerGuard:Timer?
     var point:CLLocationCoordinate2D?
     var points: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
+    var saveLocations: [Double] = [Double]()
+    var savePoints: [[Double]] = [[Double]]()
     let locationManager = CLLocationManager()
     let geocoder = CLGeocoder()
     var myTripId:String?
     var invitedTripId:String?
     var memberNo: Int?
+    var guardMemberNo: Int?
+    var driverMemberNo: Int?
     let defaults = UserDefaults.standard
+    var passengerID:String?
+    var driverID:String?
+//    var getReqNo: Int?
+//    var getTripId:String?
+    var isfirstLoad:Bool?
+    var noDataTimes = 0
+    var position = ""
     
     var passengerPins = [PassengerPin]()
     var carAnnotations = [CustomAnnotation]()
@@ -52,9 +66,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         didSet {
             if role == 1 {
                 addPeopleAnnatation()
+                mainMapView.removeAnnotations(peopleAnnotations)
                 mainMapView.removeAnnotations(carAnnotations)
             } else if role == 0 {
                 addCarAnnotation()
+                mainMapView.removeAnnotations(carAnnotations)
                 mainMapView.removeAnnotations(peopleAnnotations)
             } else {
                 mainMapView.removeAnnotations(carAnnotations)
@@ -76,32 +92,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let image = UIImage(named: "tab_map")?.withRenderingMode(.alwaysOriginal)
-//        Communicator.shared.updateStatus(reqNo: 8, tripId: "D1803229", status: 2) { (error, result) in
-//            if let error = error {
-//                print(error)
-//            }
-//
-//            let response = result!["response"] as! [String:Any]
-//            let msg = response ["msg"] as! String
-//            print(msg)
-//        }
-//        Communicator.shared.getRoutes(tripId: "P180320001", memberNo: 4) { (error, result) in
-//            if let error = error {
-//                print(error)
-//            }
-//            guard let content = result!["content"] as? [String : Any] else {
-//                return
-//            }
-//            print(content)
-//            guard let positions = content["geoPosition"] as? [[Double]] else {
-//                return
-//            }
-//            for position in positions {
-//                print("lan: \(position[0]), \(position[1])")
-//            }
-//        }
+        //let image = UIImage(named: "tab_map")?.withRenderingMode(.alwaysOriginal)
+        getInButton.isHidden = true
+        clearTrackButton.isHidden = true
         mainMapView.delegate = self
         memberNo = defaults.integer(forKey: "memberNo")
         print("地圖彥面：\(memberNo!)")
@@ -143,7 +136,43 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 //                print(location?.coordinate.longitude ?? 0)
 //            }
 //        }
+        NotificationCenter.default.addObserver(self, selector: #selector(isDataGet(notification:)), name: NSNotification.Name(rawValue:"MatchSuccess") , object: nil)
+    }
+    
+    @objc
+    func isDataGet(notification: NSNotification) {
+        guard let userInfo = notification.userInfo,
+            let reqNo = userInfo["reqNo"] as? Int else {
+            return
+        }
         
+        Communicator.shared.getMatchTripId(reqNo: reqNo) { (error, result) in
+            if let error = error {
+                print(error)
+            }
+            let content = result!["content"] as! [String:Any]
+            self.passengerID = content["trip_passenger_id"] as? String
+            self.driverID = content["trip_driver_id"] as? String
+            
+            
+            Communicator.shared.getDriverTrips(status: 0) { (error, result) in
+                if let error = error {
+                    print(error)
+                }
+                guard let content = result!["content"] as? [[String:Any]] else {
+                    return
+                }
+                var driverTirps = [DriverTrip]()
+                driverTirps = Common.shared.getMyDriverTrips(diverTripsArray: content)
+                for driverTrip in driverTirps {
+                    if driverTrip.tripId == self.driverID {
+                        self.driverMemberNo = driverTrip.memberNo
+                        self.getInButton.isHidden = false
+                    }
+                }
+            }
+        }
+        print("isdataget!")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -152,10 +181,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             NSLog("No current location.")
             return
         }
-        
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         let region = MKCoordinateRegion(center: coordinate, span: span)
-        
         mainMapView.setRegion(region, animated: true)
     }
 
@@ -172,16 +199,31 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         switch sender.selectedSegmentIndex {
         case 0:
             role = 0
+            self.mainMapView.removeOverlays(mainMapView.overlays)
+            timerGuard?.invalidate()
+            if getInButton.isHidden == true {
+                drawMyLine()
+            }
         case 1:
             role = 1
+            self.mainMapView.removeOverlays(mainMapView.overlays)
+            timerGuard?.invalidate()
+            if getInButton.isHidden == true {
+                drawMyLine()
+            }
         case 2:
             role = 2
+            clearPolyLine()
+            isfirstLoad = true
+            noDataTimes = 0
         default:
             break
         }
     }
     
     func addPeopleAnnatation() {
+        mainMapView.removeAnnotations(peopleAnnotations)
+        peopleAnnotations.removeAll()
         Communicator.shared.getTrips(status: 0, onMap: 1) { (error, result) in
             if let error = error{
                 print(error)
@@ -191,6 +233,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             //print(content)
             for dic in content {
                 let tripId = dic["trip_ip"] as! String
+                print("測試：\(tripId)")
                 let destination = dic["destination"] as! String
                 let people = dic["people"] as! Int
                 let lat = dic["lat"] as! Double
@@ -206,6 +249,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func addCarAnnotation() {
+        mainMapView.removeAnnotations(carAnnotations)
+        carAnnotations.removeAll()
         Communicator.shared.getDriverTrips(status: 0) { (error, result) in
             if let error = error {
                 print(error)
@@ -236,6 +281,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             return
         }
         point = coordinate
+        
         //guard let 用法 如果條件不合 就放行 與if是相反的
         //NSLog("Current Location: \(coordinate.latitude),\(coordinate.longitude)")
 //        var points: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
@@ -251,34 +297,175 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     @IBAction func getInButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "goScanning", sender: nil)
+        //getInCar(driverMemberNo: 1)
+    }
+    
+    func getInCar(driverMemberNo:Int) {
+        print(self.driverMemberNo)
+        print(driverMemberNo)
+        guard self.driverMemberNo == driverMemberNo else {
+            showAlert(message: "😅 您上錯車囉 😅")
+            return
+        }
+        
         if carRideMode == 0 {
+            Communicator.shared.updateRecord(driverTripId: driverID!, passengerTripId: passengerID!, status: 0) { (error, result) in
+                if let error = error {
+                    print(error)
+                }
+            }
             timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(drawLine), userInfo: nil, repeats: true)
             carRideMode = 1
         } else {
+            Communicator.shared.updateRecord(driverTripId: driverID!, passengerTripId: passengerID!, status: 1) { (error, result) in
+                if let error = error {
+                    print(error)
+                }
+            }
             timer?.invalidate()
             carRideMode = 0
+            //            self.mainMapView.removeOverlays(mainMapView.overlays)
+            clearTrackButton.isHidden = false
+            saveLocations.removeAll()
+            //savePoints.removeAll()
+            getInButton.isHidden = true
         }
-        
-
     }
-    @objc func drawLine() {
+    
+    @objc
+    func drawLine() {
         guard let drawPoint = point else {
             return
         }
         print("Location: \(drawPoint.latitude),\(drawPoint.longitude)")
         points.append(drawPoint)
-        print("新增 \(points.count)")
-        if points.count > 1 {
+        saveLocations.append(drawPoint.latitude)
+        saveLocations.append(drawPoint.longitude)
+        savePoints.append(saveLocations)
+        uploadLocation()
+        print(savePoints)
+       
+        //print("新增 \(points.count)")
+        drawMyLine()
+    }
+    
+    func drawMyLine() {
+        if role < 2 {
+            if points.count > 1 {
+                self.mainMapView.removeOverlays(mainMapView.overlays)
+                let polyline = MKPolyline(coordinates: &points, count: points.count)
+                self.mainMapView.add(polyline)
+                //points.remove(at: 0)
+                //points.removeSubrange(0...points.count-2)
+                print(points.count)
+                //print("刪除 \(points.count)")
+            }
+        }
+    }
+    func clearPolyLine() {
+        self.mainMapView.removeOverlays(mainMapView.overlays)
+        timerGuard = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(drawGuardLine), userInfo: nil, repeats: true)
+    }
+    
+    
+    @objc
+    func drawGuardLine() {
+        Communicator.shared.getRoutes(memberNo: memberNo!) { (error, result) in
+            if let error = error {
+                print(error)
+            }
+            let content = result!["content"] as! [String : Any]
+            guard let locationList = content["geoPosition"] else {
+                //self.isfirstLoad = true
+                if self.noDataTimes == 0 {
+                    self.showAlert(message: "您的寶貝尚無乘車資訊")
+                    
+                }
+                //self.timerGuard?.invalidate()
+                //self.isfirstLoad = false
+                self.noDataTimes = 1
+                return
+            }
+            //self.isfirstLoad = true
+            var points: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
+            for locations in locationList as! [[Double]]{
+                var point:CLLocationCoordinate2D?
+                //                point?.latitude = locations[0]
+                //                point?.longitude = locations[1]
+                point = CLLocationCoordinate2DMake(locations[0], locations[1])
+//                print(point!)
+                points.append(point!)
+            }
+            if self.isfirstLoad! {
+                let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+                let region = MKCoordinateRegion(center: points[0], span: span)
+                self.mainMapView.setRegion(region, animated: true)
+                self.isfirstLoad = false
+                self.noDataTimes = 0
+            }
             let polyline = MKPolyline(coordinates: &points, count: points.count)
             self.mainMapView.add(polyline)
-            points.remove(at: 0)
-            print(points.count)
-            print("刪除 \(points.count)")
         }
-        
+    }
+    
+    func uploadLocation() {
+        Communicator.shared.addRoutes(tripId: self.passengerID!, memberNo: self.memberNo!, geoPosition: savePoints) { (error, result) in
+            if let error = error {
+                print(error)
+            }
+        }
+        saveLocations.removeAll()
+        savePoints.removeAll()
     }
     
     @IBAction func sosButtonPressed(_ sender: Any) {
+        //memberNo = defaults.integer(forKey: "memberNo")
+        callPhone(phoneNo: "110")
+    }
+    
+    @IBAction func clearTrackButtonPressed(_ sender: Any) {
+        mainMapView.removeOverlays(mainMapView.overlays)
+        //saveLocations.removeAll()
+        points.removeAll()
+        clearTrackButton.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if role == 2 {
+            isfirstLoad = true
+            timerGuard = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(drawGuardLine), userInfo: nil, repeats: true)
+        } else if role == 0 {
+            addCarAnnotation()
+            if getInButton.isHidden == true {
+                drawMyLine()
+            }
+        } else if role == 1 {
+            addPeopleAnnatation()
+            self.noDataTimes = 0
+            if getInButton.isHidden == true {
+                drawMyLine()
+            }
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        timerGuard?.invalidate()
+        mainMapView.removeOverlays(mainMapView.overlays)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? QRcodeViewController {
+            vc.resultHandler = { (success:Bool, memberInfo:[String]) -> Void in
+                
+                NSLog("result: \(memberInfo)]")
+                guard let driverMemberNo = Int(memberInfo[0]) else {
+                    self.showAlert(message: "掃描失敗")
+                    return
+                }
+                self.getInCar(driverMemberNo: driverMemberNo)
+            }
+        }
         
     }
 }
@@ -291,7 +478,12 @@ extension MapViewController: MKMapViewDelegate, inviteRidingCallOutViewDelegate 
         let polylineRenderer = MKPolylineRenderer(overlay: overlay)
         
         if overlay is MKPolyline {
-            polylineRenderer.strokeColor = UIColor.blue
+            if role < 2 {
+                polylineRenderer.strokeColor = UIColor.blue
+            } else {
+                polylineRenderer.strokeColor = UIColor.red
+            }
+            
             polylineRenderer.lineWidth = 2
             
         }
@@ -314,7 +506,6 @@ extension MapViewController: MKMapViewDelegate, inviteRidingCallOutViewDelegate 
         
         let customAnnotation = view.annotation as! CustomAnnotation
         invitedTripId = customAnnotation.tripId!
-        print(invitedTripId)
         mainMapView.setRegion(region, animated: true)
     }
     
@@ -384,22 +575,6 @@ extension MapViewController: MKMapViewDelegate, inviteRidingCallOutViewDelegate 
             })
         }
         
-        
-        //showAlert(message: "邀請成功")
-        //print(invitedTripId)
-        
-        
-//        Communicator.shared.getMyTrips(memberNo: 12, role: 0) { (error, result) in
-//            if let error = error {
-//                return
-//            }
-//            let content = result!["content"] as! [[String:Any]]
-//            print(content)
-//            let myTrips = Common.shared.getMyPassengerTrips(passengerTripsArray: content)
-//            print((myTrips.first?.tripId)!)
-//            let myFirstTrip = Common.shared.getFirstPassengerTrip(passengerTripsArray: content)
-//            print((myFirstTrip.tripId))
-//        }
     }
 }
 
