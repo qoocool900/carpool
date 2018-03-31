@@ -133,7 +133,7 @@ class DriverNotice{
                     recording = DriverNotice(seqNo: seqNo,tripId: driverTripId, startLocation: startLocation, endLocation: endLocation, date: date,driverFirstName: driverFirstName, driverLastName: driverLastName,driverPhone: driverPhone,carNumber: carNumber,carCapacity: carCapacity,status: 0)
                     recordings.append(recording)
                 }
-            }
+            } 
             completion(recordings)
             let msg = response ["msg"] as! String
             print("Status = 0 :\(msg)")

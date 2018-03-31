@@ -15,7 +15,6 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var passengerCountLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
 
-    
     let loginMemberNo = UserDefaults.standard.integer(forKey: "memberNo")
     var seqNo = 0
     var driverPhone = ""
@@ -25,21 +24,28 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
     var passengerTripId = ""
     var receivedItem = [DriverNotice]()
     var requestItem = [DriverNotice]()
+    var timer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         dataFromDataBase()
-        if #available(iOS 10.0, *) {
-            Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
-                self.dataFromDataBase()
-            }
-        } else {
-            Timer.scheduledTimer(timeInterval: 5,target: self,selector: #selector(self.dataFromDataBase),userInfo: nil,repeats: true)
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        dataFromDataBase()
+        
+        super.viewWillAppear(animated)
+           dataFromDataBase()
+        if #available(iOS 10.0, *) {
+            timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
+                self.dataFromDataBase()
+            }
+        } else {
+            timer = Timer.scheduledTimer(timeInterval: 5,target: self,selector: #selector(self.dataFromDataBase),userInfo: nil,repeats: true)
+        }
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        timer.invalidate()
     }
     
     @objc func dataFromDataBase(){
@@ -51,6 +57,7 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
             self.passengerCountLabel.text = "\(trip.people)"
             self.passengerTripId = trip.tripId
             print("乘客TripId: \(trip.tripId)")
+            self.tableView.reloadData()
             DriverNotice.getPassengerReceivedNoticeInfo(passengerTripId: self.passengerTripId) { (received) in
                 self.receivedItem = received
                 self.tableView.reloadData()
@@ -60,7 +67,7 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
                 self.tableView.reloadData()
             }
         }
-    }    
+    }
     
     // MARK: - TableView Setting
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -151,10 +158,8 @@ class PassagerNoticeViewController: UIViewController, UITableViewDelegate, UITab
             let response = result!["response"] as! [String:Any]
             let code = response["code"] as! Int
             if code == 0 {
-                DispatchQueue.main.async {
-                    self.showAlert(message: "已拒絕邀請/請求")
-                    self.dataFromDataBase()
-                }
+                self.showAlert(message: "已拒絕邀請/請求")
+                self.dataFromDataBase()
             }
             let msg = response ["msg"] as! String
             print(msg)

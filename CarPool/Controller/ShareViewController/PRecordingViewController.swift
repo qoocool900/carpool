@@ -84,7 +84,7 @@ class PRecordingViewController: UIViewController, UITableViewDelegate,UITableVie
         // get memeberNo
         let defaults = UserDefaults.standard
         let passengerMemberNo = defaults.integer(forKey: "memberNo")
-        print(passengerMemberNo)
+        print("passengerMemberNo", passengerMemberNo)
         
         
         

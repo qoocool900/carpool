@@ -64,9 +64,6 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
             else {
                 self.showAlert(message: "帳號密碼有誤")
             }
-            //            let msg = response["msg"] as? String
-            //            print(msg)
-            //            self.showAlert(message:(msg)!)
         }
     }
     
@@ -105,13 +102,7 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         print("didCompleteWith", error, Thread.isMainThread)
         fetchProfile()
-        
-        
     }
-    
-    
-    
-    
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         
@@ -215,7 +206,7 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
                     })
                     
                     getFacebookInfo(mail: LoginViewController.fbEmail,password:LoginViewController.fbPassword )
-                    let fbmemberNo = defaults.integer(forKey: "MemberNo")
+                    let fbmemberNo = defaults.integer(forKey: "memberNo")
                     print("fbmemberNo",fbmemberNo)
                     
                 }
@@ -252,7 +243,7 @@ func getFacebookInfo(mail: String, password: String){
             let fbMemberNo = content["memberNo"] as! Int
             print("fbMemberNo",fbMemberNo)
             let defaults = UserDefaults.standard
-            defaults.set(fbMemberNo, forKey: "MemberNo")
+            defaults.set(fbMemberNo, forKey: "memberNo")
             defaults.synchronize()
         }
         let msg = response ["msg"] as! String

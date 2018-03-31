@@ -34,12 +34,10 @@ class DriveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var carType = "F430"
     let loginMemberNo = UserDefaults.standard.integer(forKey: "memberNo")
     
-    //    override func viewDidAppear(_ animated: Bool) {
-    //        pickerView.selectRow(0, inComponent: 0, animated: true)
-    //        pickerView.selectRow(0, inComponent: 1, animated: true)
-    //        pickerView.selectRow(3, inComponent: 1, animated: true)
-    //    }
-    override func viewWillAppear(_ animated: Bool) {
+
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
         pickerView.dataSource = self
         pickerView.delegate = self
         getCarInfo(memberNo: loginMemberNo)
@@ -48,16 +46,7 @@ class DriveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         carStyleTextField.inputView = pickerView
         carColorTextField.inputView = pickerView
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        pickerView.dataSource = self
-//        pickerView.delegate = self
-//        getCarInfo(memberNo: loginMemberNo)
-//        getScoreInfo(memberNo: loginMemberNo)
-//        carBrandTextField.inputView = pickerView
-//        carStyleTextField.inputView = pickerView
-//        carColorTextField.inputView = pickerView
-    }
+
     
     @IBAction func saveBtnPressed(_ sender: Any) {
         modifyMemberInfo(memberNo: loginMemberNo)
@@ -187,6 +176,11 @@ class DriveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 self.carBrandTextField.text = brand
                 self.carStyleTextField.text = type
                 self.carColorTextField.text = color
+                
+                let defaults = UserDefaults.standard
+                defaults.set(carNo, forKey: "carNo")
+                defaults.synchronize()
+
             } 
             msg = response["msg"] as! String
             print(msg)
@@ -250,12 +244,7 @@ class DriveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             if code == 0 {
                 let defaults = UserDefaults.standard
                 defaults.set(car.carNo, forKey: "carNo")
-                defaults.set(car.color, forKey: "carColor")
-                defaults.set(car.brand, forKey: "carBrand")
                 defaults.synchronize()
-//                print("carNo:\(defaults.string(forKey: "carNo"))")
-//                print("carColor:\(defaults.string(forKey: "carColor"))")
-//                print("carBrand:\(defaults.string(forKey: "carBrand"))")
                self.showAlert(message: "更新資料成功")
             }
             let msg = response ["msg"] as! String

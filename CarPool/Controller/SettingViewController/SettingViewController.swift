@@ -24,8 +24,9 @@ class SettingViewController: UIViewController, UITextFieldDelegate{
   
     @IBAction func logoutBtnPressed(_ sender: Any) {
         let defaults = UserDefaults.standard
-        defaults.removeObject(forKey: "memberNo")
-//        defaults.set(0, forKey: "memberNo")
+//        defaults.removeObject(forKey: "memberNo")
+        defaults.set(0, forKey: "memberNo")
+        defaults.set("", forKey: "memberNo")
         defaults.synchronize()
         print(defaults.integer(forKey: "memberNo"))
         FBSDKLoginManager().logOut()

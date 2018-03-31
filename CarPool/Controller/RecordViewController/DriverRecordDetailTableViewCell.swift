@@ -15,6 +15,7 @@ class DriverRecordDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var phoneBtn: UIButton!
     @IBOutlet weak var onTimeLabel: UILabel!
     @IBOutlet weak var offTimeLabel: UILabel!
+    @IBOutlet weak var passengerCountLabel: UILabel!
     var passengerPhone = ""
     var passengerTripId: String = ""
     var seqNo: Int = 0
@@ -34,6 +35,7 @@ class DriverRecordDetailTableViewCell: UITableViewCell {
         didSet {
             startLocationLabel.text = recordData?.startLocation
             endLocationLabel.text = recordData?.endLocation
+            passengerCountLabel.text = "\((recordData?.passengerCount)!)"
             let passengerFirstName = (recordData?.passengerFirstName)!
             let passengerLastName = (recordData?.passengerLastName)!
             passengerNameLabel.text = passengerLastName + " " + passengerFirstName
