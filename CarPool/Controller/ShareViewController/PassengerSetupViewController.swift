@@ -10,6 +10,11 @@ import CoreLocation
 
 class PassengerSetupViewController: UIViewController {
     
+    static var destinationLat: Double?
+    static var destinationLong:Double?
+    static var boardingLat:Double?
+    static var boardingLong:Double?
+    
     @IBOutlet weak var DestinationPassenger: UITextField!
     @IBOutlet weak var BoardingPoint: UITextField!
     @IBOutlet weak var PeopleNumber: UITextField!
@@ -31,12 +36,7 @@ class PassengerSetupViewController: UIViewController {
         // get memberNo
         let defaults = UserDefaults.standard
         var passengerMemberNo = defaults.integer(forKey: "memberNo")
-        var destinationLat = defaults.double(forKey: "destinationLat")
-        var destinationLong = defaults.double(forKey: "destinationLong")
-        var boardingLat = defaults.double(forKey:"boardingLat")
-        var boardingLong = defaults.double(forKey:"boardingLong")
-        defaults.synchronize()
-        //        print(PassengerMemberNo)
+        print(passengerMemberNo)
         
         let DesitinationAddress = DestinationPassenger.text
         let geoCoder = CLGeocoder()
@@ -50,13 +50,9 @@ class PassengerSetupViewController: UIViewController {
                     return
             }
             // Use your location
-            var destinationLat = location.coordinate.latitude
-            var destinationLong = location.coordinate.longitude
-            print(destinationLat,destinationLong)
-            defaults.set(destinationLat,forKey:"destinationLat")
-            defaults.set(destinationLong, forKey: "destinationLong")
-            defaults.synchronize()
-            
+            PassengerSetupViewController.destinationLat = location.coordinate.latitude
+            PassengerSetupViewController.destinationLong = location.coordinate.longitude
+            print("pDestinationLat,pDestinationLong",PassengerSetupViewController.destinationLat,PassengerSetupViewController.destinationLong)
         }
         
         let BoarddingAddress = BoardingPoint.text
@@ -72,38 +68,38 @@ class PassengerSetupViewController: UIViewController {
                     return
             }
             // Use your location
-            var boardingLat = location.coordinate.latitude
-            var boardingLong = location.coordinate.longitude
-            defaults.set(boardingLat,forKey:"boardingLat")
-            defaults.set(boardingLong, forKey: "boardingLong")
-            print(boardingLat,boardingLong)
+            PassengerSetupViewController.boardingLat = location.coordinate.latitude
+            PassengerSetupViewController.boardingLong = location.coordinate.longitude
+            
+            print("pBoardingLat,pBoardingLong",PassengerSetupViewController.boardingLat,PassengerSetupViewController.boardingLong)
+            
+            
+            
+            let savePassengerRecord = Trip(tripId: "1", memberNo:0, destination: "", boarding: "", people: 0, onMap: "1", status: "0", date: "", boardingLat: PassengerSetupViewController.boardingLat!, boardingLon:PassengerSetupViewController.boardingLong! , destinationLat: PassengerSetupViewController.destinationLat!, destinationLon: PassengerSetupViewController.destinationLong!)
+            savePassengerRecord.memberNo = passengerMemberNo
+            savePassengerRecord.destination = self.DestinationPassenger.text!
+            savePassengerRecord.boarding = self.BoardingPoint.text!
+            savePassengerRecord.people = Int(self.PeopleNumber.text!)!
+            savePassengerRecord.destinationLat = PassengerSetupViewController.destinationLat!
+            savePassengerRecord.destinationLon = PassengerSetupViewController.destinationLong!
+            savePassengerRecord.boardingLat = PassengerSetupViewController.boardingLat!
+            savePassengerRecord.boardingLon = PassengerSetupViewController.boardingLong!
+            
+            
+            //        savePassengerRecord.destinationLon = destinationLong
+            
+            
+            Communicator.shared.modifyTrip(savePassengerRecord, mode: "C") { (error, result) in
+                if let error = error {
+                    NSLog("doSetUp fail: \(error)")
+                    self.showAlert(message:"伺服器有誤")
+                }
+                // success
+                NSLog("乘客發起成功")
+                self.showAlert(message: "發起成功")
+            }
             
         }
-        
-        let savePassengerRecord = Trip(tripId: "1", memberNo:0, destination: "", boarding: "", people: 0, onMap: "1", status: "0", date: "", boardingLat: 0.0, boardingLon: 0.0, destinationLat: 0.0, destinationLon: 0.0)
-        savePassengerRecord.memberNo = passengerMemberNo
-        savePassengerRecord.destination = DestinationPassenger.text!
-        savePassengerRecord.boarding = BoardingPoint.text!
-        savePassengerRecord.people = Int(PeopleNumber.text!)!
-        savePassengerRecord.destinationLat = destinationLat
-        savePassengerRecord.destinationLon = destinationLong
-        savePassengerRecord.boardingLat = boardingLat
-        savePassengerRecord.boardingLon = boardingLong
-        
-        
-        //        savePassengerRecord.destinationLon = destinationLong
-        
-        
-        Communicator.shared.modifyTrip(savePassengerRecord, mode: "C") { (error, result) in
-            if let error = error {
-                NSLog("doSetUp fail: \(error)")
-                self.showAlert(message:"伺服器有誤")
-            }
-            // success
-            NSLog("乘客發起成功")
-            self.showAlert(message: "發起成功")
-        }
-        
     }
     
     override func viewDidLoad() {

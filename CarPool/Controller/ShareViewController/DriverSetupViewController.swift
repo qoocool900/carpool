@@ -11,7 +11,6 @@ import CoreLocation
 class DriverSetupViewController: UIViewController {
     
     static var driverCarNo:String?
-    
     static var destinationLat: Double?
     static var destinationLong:Double?
     static var boardingLat:Double?
