@@ -111,12 +111,8 @@ class DriverSetupViewController: UIViewController {
                     NSLog("乘客發起成功")
                     self.showAlert(message: "發起成功")
                 }
-                
-                
             }
         }
-        
-        
         
     }
     
