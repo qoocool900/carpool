@@ -204,51 +204,53 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
                         NSLog("doFBRegister ok")
                     })
                     
-                    getFacebookInfo(mail: LoginViewController.fbEmail,password:LoginViewController.fbPassword )
+                    self.getFacebookInfo(mail: LoginViewController.fbEmail,password:LoginViewController.fbPassword )
                     //let fbmemberNo = defaults.integer(forKey: "memberNo")
                     //print("fbmemberNo",fbmemberNo)
                     
                 }
                 // show main page
                 
-                print("show main page", Thread.isMainThread)
-                let storyboard = UIStoryboard(name: "Map", bundle: nil)
-                let controller = storyboard.instantiateInitialViewController()
-                self.view.window?.rootViewController = controller
-                
             }
             
         })
     }
-}
-
-func getFacebookInfo(mail: String, password: String){
-    let fbMember = Member()
-    LoginViewController.fbPassword == "123"
-    print("fbMember.mail",LoginViewController.fbEmail, "fbPassword", LoginViewController.fbPassword )
-    Communicator.shared.checkUser(mail: LoginViewController.fbEmail, password: LoginViewController.fbPassword) { (error, result) in
-        print("result", result)
-        if error != nil {
-            NSLog("伺服器連線錯誤:\(error)")
-            return
+    
+    func getFacebookInfo(mail: String, password: String){
+        let fbMember = Member()
+        LoginViewController.fbPassword == "123"
+        print("fbMember.mail",LoginViewController.fbEmail, "fbPassword", LoginViewController.fbPassword )
+        Communicator.shared.checkUser(mail: LoginViewController.fbEmail, password: LoginViewController.fbPassword) { (error, result) in
+            print("result", result)
+            if error != nil {
+                NSLog("伺服器連線錯誤:\(error)")
+                return
+            }
+            // success
+            let response = result!["response"] as! [String:Any]
+            let content = result!["content"] as! [String:Any]
+            let code = response["code"] as! Int
+            if code == 0 {
+                let lastName = content["lastName"] as? String
+                let firstName = content["firstName"] as? String
+                let fbMemberNo = content["memberNo"] as! Int
+                print("fbMemberNo",fbMemberNo)
+                let defaults = UserDefaults.standard
+                defaults.set(fbMemberNo, forKey: "memberNo")
+                print(fbMemberNo)
+                defaults.synchronize()
+                print("show main page", Thread.isMainThread)
+                let storyboard = UIStoryboard(name: "Map", bundle: nil)
+                let controller = storyboard.instantiateInitialViewController()
+                self.view.window?.rootViewController = controller
+            }
+            let msg = response ["msg"] as! String
+            print(msg)
         }
-        // success
-        let response = result!["response"] as! [String:Any]
-        let content = result!["content"] as! [String:Any]
-        let code = response["code"] as! Int
-        if code == 0 {
-            let lastName = content["lastName"] as? String
-            let firstName = content["firstName"] as? String
-            let fbMemberNo = content["memberNo"] as! Int
-            print("fbMemberNo",fbMemberNo)
-            let defaults = UserDefaults.standard
-            defaults.set(fbMemberNo, forKey: "memberNo")
-            defaults.synchronize()
-        }
-        let msg = response ["msg"] as! String
-        print(msg)
     }
 }
+
+
 extension UITextView: UITextViewDelegate {
     override open var bounds: CGRect {
         didSet {
