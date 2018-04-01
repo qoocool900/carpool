@@ -338,6 +338,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             timer?.invalidate()
             carRideMode = 0
             //            self.mainMapView.removeOverlays(mainMapView.overlays)
+            showAlert(message: "貼心提醒\n別忘了給司機一個評價喔😘")
             clearTrackButton.isHidden = false
             saveLocations.removeAll()
             //savePoints.removeAll()
