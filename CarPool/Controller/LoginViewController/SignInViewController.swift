@@ -24,6 +24,14 @@ class SignInViewController: UIViewController,UITextFieldDelegate{
     @IBOutlet weak var Gender: UITextField!
     
     
+    @IBAction func quickButtonPressed(_ sender: Any) {
+        FirstName.text = "Peter"
+        LastName.text = "Pan"
+        EmailText.text = "peter@cp.com"
+        PhoneText.text = "0911354678"
+        Password.text = "123"
+        Gender.text = "M"
+    }
     @IBAction func SaveMemberInfoButton(_ sender: Any) {
         
         // 其實這邊也是像andriod那邊一樣 一個值一個值放

@@ -36,6 +36,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mainMapView: MKMapView!
     @IBOutlet weak var clearTrackButton: UIButton!
     
+//        for annotation in carAnnotations {
+//            if annotation.tripId == "D18033151" {
+//                let lat = annotation.coordinate.latitude + 0.001
+//                let lon = annotation.coordinate.longitude + 0.001
+//                //let score = dic["evaluation"] as! Double
+//                let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+//                annotation.coordinate = coordinate
+//            }
+//        }
     
     var timer:Timer?
     var timerGuard:Timer?
@@ -282,6 +291,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         }
         point = coordinate
         
+        if driverID != nil {
+            
+        }
         //guard let 用法 如果條件不合 就放行 與if是相反的
         //NSLog("Current Location: \(coordinate.latitude),\(coordinate.longitude)")
 //        var points: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
@@ -338,6 +350,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         guard let drawPoint = point else {
             return
         }
+//        for annotation in carAnnotations {
+//            if annotation.tripId == driverID {
+//                annotation.coordinate = drawPoint
+//            }
+//        }
         print("Location: \(drawPoint.latitude),\(drawPoint.longitude)")
         points.append(drawPoint)
         saveLocations.append(drawPoint.latitude)
@@ -363,11 +380,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
+    
     func clearPolyLine() {
         self.mainMapView.removeOverlays(mainMapView.overlays)
         timerGuard = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(drawGuardLine), userInfo: nil, repeats: true)
     }
-    
     
     @objc
     func drawGuardLine() {
@@ -510,6 +527,7 @@ extension MapViewController: MKMapViewDelegate, inviteRidingCallOutViewDelegate 
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
         if annotation is MKUserLocation {
             return nil
         }
