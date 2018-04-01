@@ -225,7 +225,7 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
 
 func getFacebookInfo(mail: String, password: String){
     let fbMember = Member()
-    let fbPassword = LoginViewController.fbPassword
+    LoginViewController.fbPassword == "123"
     print("fbMember.mail",LoginViewController.fbEmail, "fbPassword", LoginViewController.fbPassword )
     Communicator.shared.checkUser(mail: LoginViewController.fbEmail, password: LoginViewController.fbPassword) { (error, result) in
         print("result", result)
