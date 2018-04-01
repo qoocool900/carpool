@@ -17,7 +17,7 @@ class CustomAnnotation: NSObject, MKAnnotation {
     let fee:Int?
     let phone:String?
     let score:Double?
-    let coordinate:CLLocationCoordinate2D
+    var coordinate:CLLocationCoordinate2D
     init(role:Int, tripId:String, destination:String, startPosition:String, people:Int, fee:Int, phone:String, score:Double, coordinate: CLLocationCoordinate2D) {
         self.role = role
         self.tripId = tripId
