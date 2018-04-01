@@ -214,6 +214,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 drawMyLine()
             }
         case 1:
+            //addRedDotAtTabBarItemIndex(index: 0)
             role = 1
             self.mainMapView.removeOverlays(mainMapView.overlays)
             timerGuard?.invalidate()
@@ -450,6 +451,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        //addRedDotAtTabBarItemIndex(index: 1234)
         if role == 2 {
             isfirstLoad = true
             timerGuard = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(drawGuardLine), userInfo: nil, repeats: true)
