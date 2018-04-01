@@ -565,7 +565,7 @@ extension MapViewController: MKMapViewDelegate, inviteRidingCallOutViewDelegate 
                             print(error)
                         }
                         //print(result!)
-                        self.showAlert(message: "邀請成功")
+                        self.showAlert(message: "🤝邀請成功！\n請至『 通知中心 』做查詢或確認動作")
                     }
                     
                 }
@@ -587,7 +587,7 @@ extension MapViewController: MKMapViewDelegate, inviteRidingCallOutViewDelegate 
                             print(error)
                         }
                         //print(result!)
-                        self.showAlert(message: "邀請成功")
+                        self.showAlert(message: "🤝邀請成功！\n請至『 通知中心 』做查詢或確認動作")
                     }
                 }
             })
