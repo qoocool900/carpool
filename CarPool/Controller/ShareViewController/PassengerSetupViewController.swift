@@ -114,6 +114,7 @@ class PassengerSetupViewController: UIViewController {
         let defaults = UserDefaults.standard
         let passengerMemberNo = defaults.integer(forKey: "memberNo")
         print(passengerMemberNo)
+        
         DestinationPassenger.font = UIFont(name: "System", size: 25)
         DestinationPassenger.placeholder = "請輸入您要去的目的地"
         

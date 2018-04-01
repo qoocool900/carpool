@@ -160,7 +160,6 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
         
         let parameters = ["fields": "email, first_name, last_name, picture.type(large)"]
         
-        
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start(completionHandler: {
             connection, result, error -> Void in
             
@@ -206,8 +205,8 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
                     })
                     
                     getFacebookInfo(mail: LoginViewController.fbEmail,password:LoginViewController.fbPassword )
-                    let fbmemberNo = defaults.integer(forKey: "memberNo")
-                    print("fbmemberNo",fbmemberNo)
+                    //let fbmemberNo = defaults.integer(forKey: "memberNo")
+                    //print("fbmemberNo",fbmemberNo)
                     
                 }
                 // show main page
