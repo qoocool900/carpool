@@ -46,6 +46,11 @@ class DriveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         carStyleTextField.inputView = pickerView
         carColorTextField.inputView = pickerView
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getCarInfo(memberNo: loginMemberNo)
+        getScoreInfo(memberNo: loginMemberNo)
+    }
 
     
     @IBAction func saveBtnPressed(_ sender: Any) {
