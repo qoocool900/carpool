@@ -31,10 +31,15 @@ struct PassengerPin {
 
 class MapViewController: UIViewController, CLLocationManagerDelegate {
 
+    
     @IBOutlet weak var getInButton: RoundButton!
     @IBOutlet weak var sosButton: RoundButton!
     @IBOutlet weak var mainMapView: MKMapView!
     @IBOutlet weak var clearTrackButton: UIButton!
+    
+    @IBAction func goldenButtonPressed(_ sender: Any) {
+        getInButton.isHidden = false
+    }
     
 //        for annotation in carAnnotations {
 //            if annotation.tripId == "D18033151" {

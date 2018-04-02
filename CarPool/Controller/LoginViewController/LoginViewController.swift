@@ -11,6 +11,10 @@ class LoginViewController:UIViewController,FBSDKLoginButtonDelegate,UITextViewDe
     static var fbEmail: String!
     static var fbPassword:String! = "123"
     
+    @IBAction func quickLoginButtonPressed(_ sender: Any) {
+        UserMailTextField.text = "peter@cp.com"
+        PasswordText.text = "123"
+    }
     @IBOutlet weak var UserMailTextField: UITextField!
     @IBOutlet weak var PasswordText: UITextField!
     @IBAction func MemberLogin(_ button: TransitionButton) {

@@ -100,7 +100,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9bE-tJ-t0W"/>
                     </view>
-                    <navigationItem key="navigationItem" title="CarPool" id="dNj-Dg-dY6"/>
+                    <navigationItem key="navigationItem" title="CarPool" id="dNj-Dg-dY6">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="DPf-RC-XXQ">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OLc-5b-jkC">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="goldenButtonPressed:" destination="ba0-Hj-ptG" eventType="touchUpInside" id="zgV-AC-vsU"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="clearTrackButton" destination="wAi-pE-lRs" id="Xwg-Lo-kec"/>
                         <outlet property="getInButton" destination="DIe-Xo-49E" id="2Jp-0K-Mb1"/>
